@@ -1,0 +1,9 @@
+{
+  "bytes": 62020,
+  "content_type": "application/xml;charset=UTF-8",
+  "etag": null,
+  "last_modified": null,
+  "retrieved_utc": "2026-09-12T15:43:12.047991+00:00",
+  "sha256": "2ae7f2c9611ffedff0c78c6c3508d03c13021f9913b5acd95070bcc0e8bc9579",
+  "url": "https://www.wfs.nrw.de/gd/wfs_nw_inspire-gk100?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ge%3AGE.GeologicFault&SRSNAME=EPSG%3A25832&BBOX=356000.5%2C5694000.5%2C366240.5%2C5704240.5%2CEPSG%3A25832&COUNT=250&STARTINDEX=0"
+}

@@ -1,0 +1,475 @@
+{
+  "schema": "geoneural-geology-inventory-v1",
+  "source_manifest": "geology/essen-ruhr/geology.json",
+  "complete_acquisition": true,
+  "provider": "Geologischer Dienst NRW",
+  "license": "DL-DE-BY-2.0",
+  "attribution": "IS GK100 (https://www.wfs.nrw.de/gd/wfs_nw_inspire-gk100), Geologischer Dienst NRW, retrieved 2026-09-12T15:43:12.049466+00:00; DL-DE-BY-2.0",
+  "scale_denominator": 100000,
+  "layers": [
+    {
+      "file": "geology-00-000.gml",
+      "features_scanned": 226,
+      "number_returned": "226",
+      "number_matched": "226",
+      "feature_types": {
+        "GE.GeologicUnit": 226
+      },
+      "fields": {
+        "OBJECTID_12_13_14": 226,
+        "mappedfeatureid": 226,
+        "featureid": 226,
+        "mappingframe_code": 226,
+        "mappingframe_label": 226,
+        "mappingframe_uri": 226,
+        "MATERIAL": 226,
+        "OLDERNAMEDAGE": 226,
+        "OBJECTID": 226,
+        "id_localid": 226,
+        "id_namespace": 226,
+        "id_versionid": 226,
+        "id_versionid_void": 226,
+        "featurename": 226,
+        "themeclassification_void": 226,
+        "geologicunittype_code": 226,
+        "geologicunittype_label": 226,
+        "geologicunittype_uri": 226,
+        "collectionid": 226,
+        "featureclassname": 226,
+        "partid": 226,
+        "material_label": 226,
+        "material_uri": 226,
+        "role_label": 226,
+        "role_uri": 226,
+        "Shape_Length": 226,
+        "Shape_Area": 226
+      },
+      "linked_reference_fields": {},
+      "geometry_types": {
+        "MultiSurface": 226,
+        "Polygon": 226
+      },
+      "srs_names": {
+        "urn:ogc:def:crs:EPSG::25832": 226
+      },
+      "sample_values": {
+        "OBJECTID_12_13_14": [
+          "2194",
+          "2196",
+          "2498",
+          "2500",
+          "2502",
+          "2503",
+          "2512",
+          "2515",
+          "2524",
+          "2545",
+          "2560",
+          "2594"
+        ],
+        "mappedfeatureid": [
+          "2183",
+          "2185",
+          "2481",
+          "2483",
+          "2485",
+          "2486",
+          "2494",
+          "2497",
+          "2505",
+          "2528",
+          "2542",
+          "2575"
+        ],
+        "featureid": [
+          "44",
+          "49",
+          "50",
+          "52",
+          "53",
+          "54",
+          "56",
+          "57",
+          "58",
+          "144",
+          "139",
+          "191"
+        ],
+        "mappingframe_code": [
+          "surfaceGeology"
+        ],
+        "mappingframe_label": [
+          "surfaceGeology"
+        ],
+        "mappingframe_uri": [
+          "http://inspire.ec.europa.eu/codelist/MappingFrameValue/surfaceGeology"
+        ],
+        "MATERIAL": [
+          "siltstone",
+          "sandstone",
+          "claystone",
+          "limestone",
+          "carbonateRichMudstone",
+          "sand",
+          "silt",
+          "pebbleGravelSizeSediment",
+          "anthropogenicUnconsolidatedMaterial"
+        ],
+        "OLDERNAMEDAGE": [
+          "serpukhovian",
+          "bashkirian",
+          "cenomanian",
+          "coniacian",
+          "elsterian",
+          "saalian",
+          "gelasian",
+          "turonian",
+          "weichselian",
+          "holocene"
+        ],
+        "OBJECTID": [
+          "45",
+          "50",
+          "51",
+          "53",
+          "54",
+          "55",
+          "57",
+          "58",
+          "59",
+          "145",
+          "140",
+          "192"
+        ],
+        "id_localid": [
+          "4134",
+          "4111",
+          "4113",
+          "4110",
+          "4109",
+          "4042",
+          "4043",
+          "4045",
+          "4044",
+          "2412",
+          "2141",
+          "1334"
+        ],
+        "id_namespace": [
+          "https://registry.gdi-de.org/id/de.nw.inspire.ge.gk100-g002"
+        ],
+        "id_versionid_void": [
+          "2"
+        ],
+        "featurename": [
+          "Flözleeres Namur (ungegliedert)|Serpukhovian|Bashkirian",
+          "Kaisberg-Schichten|Bashkirian|Bashkirian",
+          "Ziegelschiefer-Schichten|Bashkirian|Bashkirian",
+          "Wasserbank-Sandstein in den Sprockhövel-Schichten|Bashkirian|Bashkirian",
+          "Sprockhövel-Schichten|Bashkirian|Bashkirian",
+          "Bochum-Schichten|Bashkirian|Moscovian",
+          "Präsident-Sandstein in den Bochum-Schichten|Bashkirian|Moscovian",
+          "Finefrau-Sandstein in den Witten-Schichten|Bashkirian|Moscovian",
+          "Witten-Schichten|Bashkirian|Moscovian",
+          "Cenoman (ungegliedert) (Grünsandfazies)|Cenomanian|Cenomanian",
+          "Emscher-Mergel und -Grünsand|Coniacian|Santonian",
+          "Mittelterrassen (ungegliedert)|Elsterian|Saalian"
+        ],
+        "themeclassification_void": [
+          "2"
+        ],
+        "geologicunittype_code": [
+          "geologicUnit"
+        ],
+        "geologicunittype_label": [
+          "geologicUnit"
+        ],
+        "geologicunittype_uri": [
+          "http://inspire.ec.europa.eu/codelist/GeologicUnitTypeValue/geologicUnit"
+        ],
+        "collectionid": [
+          "0"
+        ],
+        "featureclassname": [
+          "geUnitS"
+        ],
+        "partid": [
+          "76",
+          "86",
+          "89",
+          "93",
+          "94",
+          "97",
+          "103",
+          "104",
+          "105",
+          "280",
+          "274",
+          "353"
+        ],
+        "material_label": [
+          "siltstone",
+          "sandstone",
+          "claystone",
+          "limestone",
+          "carbonate rich mudstone",
+          "sand",
+          "silt",
+          "pebble gravel size sediment",
+          "anthropogenic unconsolidated material"
+        ],
+        "material_uri": [
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/siltstone",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/sandstone",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/claystone",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/limestone",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/carbonateRichMudstone",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/sand",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/silt",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/pebbleGravelSizeSediment",
+          "http://inspire.ec.europa.eu/codelist/LithologyValue/anthropogenicUnconsolidatedMaterial"
+        ],
+        "role_label": [
+          "part of",
+          "only part"
+        ],
+        "role_uri": [
+          "http://inspire.ec.europa.eu/codelist/CompositionPartRoleValue/partOf",
+          "http://inspire.ec.europa.eu/codelist/CompositionPartRoleValue/onlyPart"
+        ],
+        "Shape_Length": [
+          "0.04403570",
+          "0.00776957",
+          "0.01428610",
+          "0.01471772",
+          "0.02069216",
+          "0.02897150",
+          "0.01972443",
+          "0.02100783",
+          "0.26693784",
+          "0.02079225",
+          "0.02942053",
+          "0.02903260"
+        ],
+        "Shape_Area": [
+          "0.00006815",
+          "0.00000217",
+          "0.00000500",
+          "0.00000281",
+          "0.00000577",
+          "0.00000842",
+          "0.00000729",
+          "0.00000599",
+          "0.00036461",
+          "0.00001959",
+          "0.00002119",
+          "0.00003238"
+        ]
+      },
+      "identifier_elements": 0,
+      "declared_type": "ge:GE.GeologicUnit",
+      "declared_count": 226
+    },
+    {
+      "file": "geology-01-000.gml",
+      "features_scanned": 34,
+      "number_returned": "34",
+      "number_matched": "34",
+      "feature_types": {
+        "GE.GeologicFault": 34
+      },
+      "fields": {
+        "OBJECTID_12": 34,
+        "mappedfeatureid": 34,
+        "featureid": 34,
+        "mappingframe_code": 34,
+        "mappingframe_label": 34,
+        "mappingframe_uri": 34,
+        "OBJECTID": 34,
+        "id_localid": 34,
+        "id_namespace": 34,
+        "id_versionid": 34,
+        "id_versionid_void": 34,
+        "featurename_void": 34,
+        "themeclassification_void": 34,
+        "geologichistory_void": 34,
+        "faulttype_label": 34,
+        "faulttype_uri": 34,
+        "collectionid": 34,
+        "featureclassname": 34,
+        "Shape_Length": 34
+      },
+      "linked_reference_fields": {},
+      "geometry_types": {
+        "MultiCurve": 34,
+        "LineString": 34
+      },
+      "srs_names": {
+        "urn:ogc:def:crs:EPSG::25832": 34
+      },
+      "sample_values": {
+        "OBJECTID_12": [
+          "30",
+          "31",
+          "61",
+          "76",
+          "77",
+          "78",
+          "79",
+          "80",
+          "291",
+          "292",
+          "493",
+          "1985"
+        ],
+        "mappedfeatureid": [
+          "32013",
+          "32014",
+          "32044",
+          "32059",
+          "32060",
+          "32061",
+          "32062",
+          "32063",
+          "32274",
+          "32275",
+          "32475",
+          "33968"
+        ],
+        "featureid": [
+          "408",
+          "409",
+          "438",
+          "453",
+          "454",
+          "455",
+          "456",
+          "457",
+          "668",
+          "669",
+          "867",
+          "2355"
+        ],
+        "mappingframe_code": [
+          "surfaceGeology"
+        ],
+        "mappingframe_label": [
+          "surfaceGeology"
+        ],
+        "mappingframe_uri": [
+          "http://inspire.ec.europa.eu/codelist/MappingFrameValue/surfaceGeology"
+        ],
+        "OBJECTID": [
+          "30",
+          "31",
+          "60",
+          "75",
+          "76",
+          "77",
+          "78",
+          "79",
+          "290",
+          "291",
+          "489",
+          "1977"
+        ],
+        "id_localid": [
+          "131",
+          "132",
+          "111",
+          "126",
+          "127",
+          "128",
+          "129",
+          "130",
+          "412",
+          "413",
+          "414",
+          "2691"
+        ],
+        "id_namespace": [
+          "https://registry.gdi-de.org/id/de.nw.inspire.ge.gk100-g002"
+        ],
+        "id_versionid_void": [
+          "2"
+        ],
+        "featurename_void": [
+          "2"
+        ],
+        "themeclassification_void": [
+          "2"
+        ],
+        "geologichistory_void": [
+          "2"
+        ],
+        "faulttype_label": [
+          "fault",
+          "reverse fault"
+        ],
+        "faulttype_uri": [
+          "http://inspire.ec.europa.eu/codelist/FaultTypeValue/fault",
+          "http://inspire.ec.europa.eu/codelist/FaultTypeValue/reverseFault"
+        ],
+        "collectionid": [
+          "0"
+        ],
+        "featureclassname": [
+          "geFaultL"
+        ],
+        "Shape_Length": [
+          "0.00440546",
+          "0.00750132",
+          "0.00722536",
+          "0.01866609",
+          "0.01792312",
+          "0.00115986",
+          "0.01294131",
+          "0.00816429",
+          "0.01081515",
+          "0.01264787",
+          "0.01177260",
+          "0.00164710"
+        ]
+      },
+      "identifier_elements": 0,
+      "declared_type": "ge:GE.GeologicFault",
+      "declared_count": 34
+    }
+  ],
+  "fields_across_layers": {
+    "mappedfeatureid": 260,
+    "featureid": 260,
+    "mappingframe_code": 260,
+    "mappingframe_label": 260,
+    "mappingframe_uri": 260,
+    "OBJECTID": 260,
+    "id_localid": 260,
+    "id_namespace": 260,
+    "id_versionid": 260,
+    "id_versionid_void": 260,
+    "themeclassification_void": 260,
+    "collectionid": 260,
+    "featureclassname": 260,
+    "Shape_Length": 260,
+    "OBJECTID_12_13_14": 226,
+    "MATERIAL": 226,
+    "OLDERNAMEDAGE": 226,
+    "featurename": 226,
+    "geologicunittype_code": 226,
+    "geologicunittype_label": 226,
+    "geologicunittype_uri": 226,
+    "partid": 226,
+    "material_label": 226,
+    "material_uri": 226,
+    "role_label": 226,
+    "role_uri": 226,
+    "Shape_Area": 226,
+    "OBJECTID_12": 34,
+    "featurename_void": 34,
+    "geologichistory_void": 34,
+    "faulttype_label": 34,
+    "faulttype_uri": 34
+  },
+  "linked_reference_fields_across_layers": {},
+  "warning": "Schema inventory only. No attribute is nominated as lithology, and a field reached through an xlink reference is not resolved here. A 1:100,000 interpretive map is not exact subsurface occupancy, and map scale is not a positional accuracy."
+}

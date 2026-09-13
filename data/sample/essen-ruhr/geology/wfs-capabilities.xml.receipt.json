@@ -1,0 +1,9 @@
+{
+  "bytes": 24491,
+  "content_type": "text/xml",
+  "etag": null,
+  "last_modified": "Tue, 21 Nov 2023 09:32:34 GMT",
+  "retrieved_utc": "2026-09-12T15:42:58.460589+00:00",
+  "sha256": "175c226684552c9334538ee00a89c7b621fa907ba87f7b06c690bef09c318b6a",
+  "url": "https://www.wfs.nrw.de/gd/wfs_nw_inspire-gk100?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities"
+}

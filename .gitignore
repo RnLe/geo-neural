@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.data/
+.local/
+dist/
+build/
+*.egg-info/
+target/
+node_modules/
+web/dist/
+web/public/wasm/
+native/landscape-wasm/pkg/
+web/public/bundle/

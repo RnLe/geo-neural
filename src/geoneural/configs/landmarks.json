@@ -1,0 +1,25 @@
+{
+  "schema": "geoneural-landmarks-v1",
+  "status": "operator-supplied references; empty until independently verified",
+  "instructions": [
+    "Add one entry per landmark whose elevation you have read from an independent source.",
+    "Do not copy elevations from this repository, from the atlas itself, or from memory.",
+    "Open the region in an independent GIS on first use.",
+    "vertical_crs must state the datum the published elevation is quoted against.",
+    "Set confirmed to true only once you have checked the citation yourself.",
+    "tolerance_m must reflect the landmark's own positional and vertical uncertainty,",
+    "not the accuracy you hope the atlas has. A summit sampled on a 10 m lattice is",
+    "systematically low: the lattice cannot resolve a peak between its nodes."
+  ],
+  "entry_template": {
+    "name": "short label",
+    "lat": 0.0,
+    "lon": 0.0,
+    "elevation_m": 0.0,
+    "vertical_crs": "EPSG:7837",
+    "tolerance_m": 0.0,
+    "source": "citation or URL for the published elevation",
+    "confirmed": false
+  },
+  "landmarks": []
+}

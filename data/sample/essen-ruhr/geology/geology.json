@@ -1,0 +1,58 @@
+{
+  "attribution": "IS GK100 (https://www.wfs.nrw.de/gd/wfs_nw_inspire-gk100), Geologischer Dienst NRW, retrieved 2026-09-12T15:43:12.049466+00:00; DL-DE-BY-2.0",
+  "bytes": 1402808,
+  "complete": true,
+  "config": {
+    "bbox": [
+      356000.5,
+      5694000.5,
+      366240.5,
+      5704240.5
+    ],
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "10.24 km regional tile; source is bare terrain, not water depth or buildings.",
+    "page_intervals": 64,
+    "preset": "essen-ruhr",
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Southern Essen / Ruhr, NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "documentation": "https://www.gd.nrw.de/pr_kd_geologische-karte-100000.php",
+  "files": [
+    {
+      "bytes": 1340788,
+      "content_type": "application/xml;charset=UTF-8",
+      "count": 226,
+      "etag": null,
+      "last_modified": null,
+      "path": "geology-00-000.gml",
+      "retrieved_utc": "2026-09-12T15:43:11.801311+00:00",
+      "sha256": "c2c93e56802c53d593d5fa1e09619818f7a16f6ac21e62571b71361391acfcc2",
+      "type": "ge:GE.GeologicUnit",
+      "url": "https://www.wfs.nrw.de/gd/wfs_nw_inspire-gk100?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ge%3AGE.GeologicUnit&SRSNAME=EPSG%3A25832&BBOX=356000.5%2C5694000.5%2C366240.5%2C5704240.5%2CEPSG%3A25832&COUNT=250&STARTINDEX=0"
+    },
+    {
+      "bytes": 62020,
+      "content_type": "application/xml;charset=UTF-8",
+      "count": 34,
+      "etag": null,
+      "last_modified": null,
+      "path": "geology-01-000.gml",
+      "retrieved_utc": "2026-09-12T15:43:12.047991+00:00",
+      "sha256": "2ae7f2c9611ffedff0c78c6c3508d03c13021f9913b5acd95070bcc0e8bc9579",
+      "type": "ge:GE.GeologicFault",
+      "url": "https://www.wfs.nrw.de/gd/wfs_nw_inspire-gk100?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ge%3AGE.GeologicFault&SRSNAME=EPSG%3A25832&BBOX=356000.5%2C5694000.5%2C366240.5%2C5704240.5%2CEPSG%3A25832&COUNT=250&STARTINDEX=0"
+    }
+  ],
+  "license": "DL-DE-BY-2.0",
+  "license_url": "https://www.govdata.de/dl-de/by-2-0",
+  "notes": "INSPIRE feature schema retained without assuming a geological attribute name. Not a 3D voxel or exact subsurface model. When complete is false the catalogue is partial and must not be used as a coverage statement.",
+  "provider": "Geologischer Dienst NRW",
+  "scale_denominator": 100000,
+  "schema": "geoneural-geology-v1",
+  "source_kind": "interpreted-geological-map",
+  "truncated": []
+}

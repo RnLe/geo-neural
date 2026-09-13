@@ -1,0 +1,158 @@
+{
+  "essen-ruhr": {
+    "title": "Southern Essen / Ruhr, NRW DGM1",
+    "bbox": [
+      356000.5,
+      5694000.5,
+      366240.5,
+      5704240.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "10.24 km regional tile; source is bare terrain, not water depth or buildings."
+  },
+  "ruhr-wide": {
+    "title": "Ruhr regional expansion, NRW DGM1",
+    "bbox": [
+      350000.5,
+      5688000.5,
+      370480.5,
+      5708480.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "20.48 km regional expansion, not all NRW."
+  },
+  "drachenfels": {
+    "title": "Drachenfels / Siebengebirge, NRW DGM1",
+    "bbox": [
+      371000.5,
+      5611500.5,
+      376120.5,
+      5616620.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "5.12 km terrain contrast. Nodata across service/state boundaries is refused, not filled."
+  },
+  "muensterland-plain": {
+    "title": "Münsterland plain (Coesfeld basin), NRW DGM1",
+    "bbox": [
+      394000.5,
+      5744000.5,
+      404240.5,
+      5754240.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Flattest arm of the multi-region relief ladder: 25.2 m relief, 2.74 m std over 10.24 km. Ground-moraine lowland; drainage is engineered and low-gradient, so the D8 network here is the hardest of the six to reproduce and the easiest to get accidentally right.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  },
+  "lower-rhine": {
+    "title": "Lower Rhine floodplain (Wesel), NRW DGM1",
+    "bbox": [
+      318000.5,
+      5715360.5,
+      328240.5,
+      5725600.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Near-matched in roughness to Münsterland but a different process: fluvial terraces and cut-off meanders rather than glacial till. The pair is the same-relief/different-process control that a relief ladder alone cannot supply.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition. The probe reported 0.00% nodata, but it decimates 40:1; acquisition at full spacing found a 6x6 hole (24 of 1,050,625 nodes, 0.002%) near the north edge at E 322960-323010, N 5725980-5726030. The tile sits one page (640 m) south of that hole to exclude it, which keeps the lattice on the same underlying grid. A decimated probe cannot certify that a region is free of nodata; it can only reject one, as it did for eifel-uplands (7.86% nodata where the tile crosses into Belgium)."
+    }
+  },
+  "teutoburg-forest": {
+    "title": "Teutoburg Forest ridge, NRW DGM1",
+    "bbox": [
+      466000.5,
+      5761000.5,
+      476240.5,
+      5771240.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "A single narrow strike ridge crossing the tile: strongly anisotropic and structurally controlled, where an isotropic prior should visibly fail.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  },
+  "bergisches-land": {
+    "title": "Bergisches Land, NRW DGM1",
+    "bbox": [
+      379000.5,
+      5656000.5,
+      389240.5,
+      5666240.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Densely dissected plateau; the highest drainage density of the six.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  },
+  "rothaar-sauerland": {
+    "title": "Rothaargebirge / Kahler Asten, NRW DGM1",
+    "bbox": [
+      452000.5,
+      5671000.5,
+      462240.5,
+      5681240.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Roughest arm: 418.4 m relief, 88.62 m std. NRW's highest terrain.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  }
+}

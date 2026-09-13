@@ -1,0 +1,257 @@
+{
+  "axes": {
+    "axis_labels": [
+      "x",
+      "y"
+    ],
+    "grid_size": [
+      258000,
+      268000
+    ],
+    "offset_vectors": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0
+      ]
+    ],
+    "origin": [
+      278000.5,
+      5827999.5
+    ],
+    "srs_name": "http://www.opengis.net/def/crs/EPSG/0/25832"
+  },
+  "bytes": 2815096,
+  "capabilities_sha256": "f275d011df435297f7afd42306828a5a00c2d8d8dc1137f94b2a359c495d0f87",
+  "config": {
+    "bbox": [
+      356000.5,
+      5694000.5,
+      366240.5,
+      5704240.5
+    ],
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "10.24 km regional tile; source is bare terrain, not water depth or buildings.",
+    "page_intervals": 64,
+    "preset": "essen-ruhr",
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Southern Essen / Ruhr, NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "config_sha256": "fb0009dd7f99c5d0d0b54ea3bf805ab80787dbc10b15f63f839bda31c68acdef",
+  "coverage_id": "nw_dgm",
+  "coverage_ids_available": [
+    "nw_dgm"
+  ],
+  "description_sha256": "e6ed36c47d979f0555727dd500241473478ae7b3b0fc3bc352ae947406f9040f",
+  "documentation": "https://www.bezreg-koeln.nrw.de/geobasis-nrw/produkte-und-dienste/hoehenmodelle/digitale-gelaendemodelle/digitales-gelaendemodell",
+  "files": [
+    {
+      "bytes": 192037,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-000-000.tif",
+      "retrieved_utc": "2026-09-12T15:38:55.956733+00:00",
+      "sha256": "ee414a46850579f7d8840dc72ee2fcf5dc5ad61a4954e850de4ac34f9161178e",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28355980.5%2C358580.5%29&SUBSET=y%285693980.5%2C5696580.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 183608,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-001-000.tif",
+      "retrieved_utc": "2026-09-12T15:38:56.538972+00:00",
+      "sha256": "01a591ad6d57ffa8802ea9f13ca9e03b96b63e7bf232eacc3e4ab841254bc234",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28358540.5%2C361140.5%29&SUBSET=y%285693980.5%2C5696580.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 177305,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-002-000.tif",
+      "retrieved_utc": "2026-09-12T15:38:57.193315+00:00",
+      "sha256": "00d37e1076fdbf0c33c021c3f1ee9aa149c98727fa6d12c7fa0f3d05f35065b2",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28361100.5%2C363700.5%29&SUBSET=y%285693980.5%2C5696580.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 161528,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-003-000.tif",
+      "retrieved_utc": "2026-09-12T15:38:57.750560+00:00",
+      "sha256": "bf284dbaf466d11f364b5504eec6863e2150680c40d399566769635c37fb45b9",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28363660.5%2C366260.5%29&SUBSET=y%285693980.5%2C5696580.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 183585,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-000-001.tif",
+      "retrieved_utc": "2026-09-12T15:38:58.623509+00:00",
+      "sha256": "511cf74616712ac4d5e5dde31d329596d2f9b5ee3d693db16466061dcb199fef",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28355980.5%2C358580.5%29&SUBSET=y%285696540.5%2C5699140.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 179944,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-001-001.tif",
+      "retrieved_utc": "2026-09-12T15:39:00.884213+00:00",
+      "sha256": "c8f7a30f8c42348bd9f377ede6cc0ffa9a98f2dfe9b9cefe064c212bd35ad2ef",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28358540.5%2C361140.5%29&SUBSET=y%285696540.5%2C5699140.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 172530,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-002-001.tif",
+      "retrieved_utc": "2026-09-12T15:39:02.159733+00:00",
+      "sha256": "aeb24566dfebe63a0b4bfe31ea92ffc717d7bdfe1fe69900bb02071b0c27df2e",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28361100.5%2C363700.5%29&SUBSET=y%285696540.5%2C5699140.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 180880,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-003-001.tif",
+      "retrieved_utc": "2026-09-12T15:39:02.996690+00:00",
+      "sha256": "bdced5040a2ba85c87208580ebe6a6d8a84125ceaf7540943bf9c6d15ec84144",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28363660.5%2C366260.5%29&SUBSET=y%285696540.5%2C5699140.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 174813,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-000-002.tif",
+      "retrieved_utc": "2026-09-12T15:39:03.563709+00:00",
+      "sha256": "613269811604e546b86bce05d71ed3981864f831c911543dbd993e6b97d9e0a1",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28355980.5%2C358580.5%29&SUBSET=y%285699100.5%2C5701700.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 173187,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-001-002.tif",
+      "retrieved_utc": "2026-09-12T15:39:05.671751+00:00",
+      "sha256": "136af5f0de5d61a4d04f77c84a32de3cf9537c20a9292788aa1b437543a82812",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28358540.5%2C361140.5%29&SUBSET=y%285699100.5%2C5701700.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 171015,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-002-002.tif",
+      "retrieved_utc": "2026-09-12T15:39:06.242060+00:00",
+      "sha256": "b9a5401a0f429f202acdbfe0835ffb0fc1477342e8130227b59493389365da4e",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28361100.5%2C363700.5%29&SUBSET=y%285699100.5%2C5701700.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 174721,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-003-002.tif",
+      "retrieved_utc": "2026-09-12T15:39:07.105306+00:00",
+      "sha256": "9f25e3427a773ffc6a7b0caccbbd038f679cb6f37283b7ac1f825d92fb5494ba",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28363660.5%2C366260.5%29&SUBSET=y%285699100.5%2C5701700.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 181557,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-000-003.tif",
+      "retrieved_utc": "2026-09-12T15:39:09.648615+00:00",
+      "sha256": "60f03aa1465366993971c1ce5c9b318dc89f67e3289a8a2a8eea4b9b2f1d91f1",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28355980.5%2C358580.5%29&SUBSET=y%285701660.5%2C5704260.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 162812,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-001-003.tif",
+      "retrieved_utc": "2026-09-12T15:39:10.378794+00:00",
+      "sha256": "0b2a5ecba75ed5b2aa9fd2ef77a4299a640da4e22350647ff615f255f6ea39bd",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28358540.5%2C361140.5%29&SUBSET=y%285701660.5%2C5704260.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 171847,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-002-003.tif",
+      "retrieved_utc": "2026-09-12T15:39:25.564338+00:00",
+      "sha256": "e7262b835f89839686bfe54495e0de84e40df8acb1db61c01e6994b38e24ca5e",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28361100.5%2C363700.5%29&SUBSET=y%285701660.5%2C5704260.5%29&SCALEFACTOR=0.1"
+    },
+    {
+      "bytes": 173727,
+      "content_type": "image/tiff",
+      "etag": null,
+      "last_modified": null,
+      "path": "dgm-003-003.tif",
+      "retrieved_utc": "2026-09-12T15:39:26.149169+00:00",
+      "sha256": "9bbb27b886956e43bbd69830456315151147dc869f0babfd022f2abdf2cf2918",
+      "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28363660.5%2C366260.5%29&SUBSET=y%285701660.5%2C5704260.5%29&SCALEFACTOR=0.1"
+    }
+  ],
+  "horizontal_crs": "EPSG:25832",
+  "license": "DL-DE-Zero-2.0",
+  "license_url": "https://www.govdata.de/dl-de/zero-2-0",
+  "negotiation": [
+    {
+      "accepted": true,
+      "bytes": 1488,
+      "observed": {
+        "crs": "EPSG:25832",
+        "height": 20,
+        "nodata": "-9999.0",
+        "pixel_size_m": [
+          10.0,
+          10.0
+        ],
+        "width": 20
+      },
+      "probe": "wcs-probe-0.tif",
+      "scaling": "SCALEFACTOR"
+    }
+  ],
+  "probe_observed": {
+    "crs": "EPSG:25832",
+    "height": 20,
+    "nodata": "-9999.0",
+    "pixel_size_m": [
+      10.0,
+      10.0
+    ],
+    "width": 20
+  },
+  "provider": "Geobasis NRW",
+  "provider_resampling": "WCS SCALEFACTOR; implementation-dependent, recorded rather than assumed area averaging",
+  "schema": "geoneural-input-v1",
+  "source_kind": "observed-derived-dtm",
+  "source_spacing_requested_m": 10.0,
+  "subset_axes": {
+    "easting": "x",
+    "northing": "y"
+  },
+  "vertical_crs": "EPSG:7837"
+}

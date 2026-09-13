@@ -1,0 +1,9 @@
+{
+  "bytes": 11887,
+  "content_type": "text/xml; charset=UTF-8",
+  "etag": null,
+  "last_modified": null,
+  "retrieved_utc": "2026-09-12T15:38:55.149036+00:00",
+  "sha256": "f275d011df435297f7afd42306828a5a00c2d8d8dc1137f94b2a359c495d0f87",
+  "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCapabilities"
+}

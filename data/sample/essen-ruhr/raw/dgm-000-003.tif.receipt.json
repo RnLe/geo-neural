@@ -1,0 +1,9 @@
+{
+  "bytes": 181557,
+  "content_type": "image/tiff",
+  "etag": null,
+  "last_modified": null,
+  "retrieved_utc": "2026-09-12T15:39:09.648615+00:00",
+  "sha256": "60f03aa1465366993971c1ce5c9b318dc89f67e3289a8a2a8eea4b9b2f1d91f1",
+  "url": "https://www.wcs.nrw.de/geobasis/wcs_nw_dgm?SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=nw_dgm&FORMAT=image%2Ftiff&SUBSETTINGCRS=EPSG%3A25832&OUTPUTCRS=EPSG%3A25832&SUBSET=x%28355980.5%2C358580.5%29&SUBSET=y%285701660.5%2C5704260.5%29&SCALEFACTOR=0.1"
+}
