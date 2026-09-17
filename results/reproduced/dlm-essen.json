@@ -1,0 +1,208 @@
+{
+  "atlasContentId": "d133adcbbee05892c3e35e72c7de698caf12558b2fba83de54b8b5593d31026e",
+  "axes": 432,
+  "crossings": {
+    "absBumpM": {
+      "max": 1.8045003167794675,
+      "median": 0.05971606782864569
+    },
+    "bridgesOnAxes": 52
+  },
+  "orientation": {
+    "flagFalseAsDigitised": {
+      "ascending": 0,
+      "descending": 33,
+      "notSignificant": 0,
+      "pChance": 1.1641532182693481e-10
+    },
+    "flowAlongDigitisation": {
+      "ascending": 1,
+      "descending": 52,
+      "notSignificant": 2,
+      "pChance": 5.995204332975845e-15
+    },
+    "flowAlongDigitisationMirrored": {
+      "ascending": 21,
+      "descending": 28,
+      "notSignificant": 6,
+      "pChance": 0.19580145527374526
+    }
+  },
+  "receipt": {
+    "bounds": [
+      356000.5,
+      5694000.5,
+      366240.5,
+      5704240.5
+    ],
+    "files": [
+      {
+        "path": "AX_Wasserspiegelhoehe-000.xml",
+        "retrievedUtc": "2026-09-23T16:30:16+00:00",
+        "returned": 2,
+        "sha256": "f210557867e4c9ded0c374de5d589e28a769ccaa5d70d519a641687126bbc695",
+        "url": "https://www.wfs.nrw.de/geobasis/wfs_nw_atkis-basis-dlm_aaa-modell-basiert?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=adv%3AAX_Wasserspiegelhoehe&COUNT=1000&STARTINDEX=0&BBOX=356000.5%2C5694000.5%2C366240.5%2C5704240.5%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25832"
+      },
+      {
+        "path": "AX_Gewaesserachse-000.xml",
+        "retrievedUtc": "2026-09-23T16:30:16+00:00",
+        "returned": 432,
+        "sha256": "1bbf1570b5a9e61eced83be00e435506795cb57c19b72f755519a664ce5d96f2",
+        "url": "https://www.wfs.nrw.de/geobasis/wfs_nw_atkis-basis-dlm_aaa-modell-basiert?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=adv%3AAX_Gewaesserachse&COUNT=1000&STARTINDEX=0&BBOX=356000.5%2C5694000.5%2C366240.5%2C5704240.5%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25832"
+      },
+      {
+        "path": "AX_BauwerkImVerkehrsbereich-000.xml",
+        "retrievedUtc": "2026-09-23T16:30:16+00:00",
+        "returned": 383,
+        "sha256": "472133f3da21443bff862dc333190adb9af91f5ecf6a09bc8944d572d155e3ed",
+        "url": "https://www.wfs.nrw.de/geobasis/wfs_nw_atkis-basis-dlm_aaa-modell-basiert?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=adv%3AAX_BauwerkImVerkehrsbereich&COUNT=1000&STARTINDEX=0&BBOX=356000.5%2C5694000.5%2C366240.5%2C5704240.5%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A25832"
+      }
+    ],
+    "licence": "DL-DE-Zero-2.0",
+    "service": "https://www.wfs.nrw.de/geobasis/wfs_nw_atkis-basis-dlm_aaa-modell-basiert"
+  },
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T19:37:14.161950+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {
+      "atlas": {
+        "kind": "ext4",
+        "mount": "/",
+        "path": "$GEONEURAL_HOME/atlases/essen-ruhr"
+      }
+    },
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "atlas": ".data/atlases/essen-ruhr/atlas.json"
+    },
+    "kind": "dlm-inspection",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1509619,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "489e6c06d562af385ff0715cd3b1bdb7e46c8ef2bbf88922c8063f80c6d0f2a1",
+    "schema": "geoneural-run-v1"
+  },
+  "scope": "Terrain features against an independently maintained landscape model. Not a height-accuracy measure beyond the water levels; the valley and crossing tests are about placement.",
+  "valleyFloor": {
+    "atlas": {
+      "belowBothBanks": 0.7935945633314054,
+      "samples": 13832
+    },
+    "atlasMargin300m": {
+      "belowBothBanks": 0.7627314814814815,
+      "samples": 1728
+    },
+    "mirroredNorthSouth": {
+      "belowBothBanks": 0.09665991902834008,
+      "samples": 13832
+    }
+  },
+  "waterLevels": {
+    "allWithinTolerance": true,
+    "points": [
+      {
+        "atlasM": 51.75,
+        "differenceM": -0.14999999999999858,
+        "east": 363984.85,
+        "north": 5696228.55,
+        "publishedM": 51.9
+      },
+      {
+        "atlasM": 52.020916355895906,
+        "differenceM": 0.12091635589590766,
+        "east": 365015.2,
+        "north": 5695533.46,
+        "publishedM": 51.9
+      }
+    ],
+    "toleranceM": 0.25
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "bandlimited-t20": {
+    "config": {
+      "bandwidth": 0.9328432601580342,
+      "depth": 3,
+      "kind": "bandlimited",
+      "width": 21
+    },
+    "fromStudy": {
+      "deployedBytes": 5052,
+      "family": "bandlimited",
+      "mode": "codec",
+      "trial": 20
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.05,
+      "loss": "mse",
+      "lr": 0.004271603619934968,
+      "multiscale_weight": 0.0,
+      "schedule": "none",
+      "seed": 1729,
+      "slope_weight": 0.0,
+      "steps": 5000,
+      "warmup": 200,
+      "weight_decay": 2.5462337537192144e-05
+    }
+  },
+  "codegrid-t18": {
+    "config": {
+      "depth": 2,
+      "hidden_omega": 2.0749904919547344,
+      "kind": "codegrid",
+      "latent": 11,
+      "omega": 76.0561203009038,
+      "patches": 8,
+      "width": 18
+    },
+    "fromStudy": {
+      "deployedBytes": 5172,
+      "family": "codegrid",
+      "mode": "codec",
+      "trial": 18
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.005870602802222045,
+      "loss": "huber",
+      "lr": 0.00022313947639215635,
+      "multiscale_weight": 0.0,
+      "schedule": "cosine",
+      "seed": 1729,
+      "slope_weight": 0.0001371497839673595,
+      "steps": 5000,
+      "warmup": 133,
+      "weight_decay": 1.0088549492494e-06
+    }
+  },
+  "fourier-t0": {
+    "config": {
+      "bands": 19,
+      "depth": 2,
+      "kind": "fourier",
+      "mode": "gaussian",
+      "scale": 14.670611593468937,
+      "width": 29
+    },
+    "fromStudy": {
+      "deployedBytes": 4758,
+      "family": "fourier",
+      "mode": "codec",
+      "trial": 0
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.05,
+      "loss": "mse",
+      "lr": 0.00016241755249053364,
+      "multiscale_weight": 0.0,
+      "schedule": "cosine",
+      "seed": 1729,
+      "slope_weight": 0.0,
+      "steps": 5000,
+      "warmup": 36,
+      "weight_decay": 2.3346877811613316e-08
+    }
+  },
+  "grid-t3": {
+    "config": {
+      "base_resolution": 3,
+      "depth": 1,
+      "features": 4,
+      "growth": 1.918407459564846,
+      "hashed": false,
+      "kind": "grid",
+      "levels": 3,
+      "table_size": 4096,
+      "width": 20
+    },
+    "fromStudy": {
+      "deployedBytes": 2573,
+      "family": "grid",
+      "mode": "codec",
+      "trial": 3
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.1597244494577625,
+      "loss": "huber",
+      "lr": 0.0006051885139780787,
+      "multiscale_weight": 0.0,
+      "schedule": "none",
+      "seed": 1729,
+      "slope_weight": 0.0033760607060705776,
+      "steps": 5000,
+      "warmup": 7,
+      "weight_decay": 8.403436072402609e-05
+    }
+  },
+  "hybrid-t5": {
+    "config": {
+      "base_level": 3,
+      "base_target_m": 4.0,
+      "inner": {
+        "depth": 2,
+        "hidden_omega": 2.170590116056032,
+        "kind": "codegrid",
+        "latent": 10,
+        "omega": 80.2609813205871,
+        "patches": 8,
+        "width": 22
+      },
+      "kind": "residual"
+    },
+    "fromStudy": {
+      "deployedBytes": 10404,
+      "family": "hybrid",
+      "mode": "codec",
+      "trial": 5
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.05,
+      "loss": "mse",
+      "lr": 0.001763180342002979,
+      "multiscale_weight": 0.0,
+      "schedule": "none",
+      "seed": 1729,
+      "slope_weight": 0.0,
+      "steps": 5000,
+      "warmup": 467,
+      "weight_decay": 7.982668499991077e-07
+    }
+  },
+  "mlp-t8": {
+    "config": {
+      "activation": "gelu",
+      "depth": 2,
+      "kind": "mlp",
+      "width": 23
+    },
+    "fromStudy": {
+      "deployedBytes": 1714,
+      "family": "mlp",
+      "mode": "codec",
+      "trial": 8
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.00897615450097006,
+      "loss": "huber",
+      "lr": 0.004510066822665815,
+      "multiscale_weight": 0.0,
+      "schedule": "none",
+      "seed": 1729,
+      "slope_weight": 0.0,
+      "steps": 5000,
+      "warmup": 203,
+      "weight_decay": 1.7772705972443693e-06
+    }
+  },
+  "residual-t20": {
+    "config": {
+      "base_level": 4,
+      "base_target_m": 1.0,
+      "inner": {
+        "depth": 5,
+        "hidden_omega": 28.856622194026894,
+        "kind": "siren",
+        "omega": 2.0341872931001244,
+        "width": 19
+      },
+      "kind": "residual"
+    },
+    "fromStudy": {
+      "deployedBytes": 6915,
+      "family": "residual",
+      "mode": "codec",
+      "trial": 20
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.05,
+      "loss": "mse",
+      "lr": 0.0013219166387946012,
+      "multiscale_weight": 0.0,
+      "schedule": "none",
+      "seed": 1729,
+      "slope_weight": 0.0,
+      "steps": 5000,
+      "warmup": 239,
+      "weight_decay": 0.00020545057285224682
+    }
+  },
+  "shared-t4": {
+    "config": {
+      "depth": 3,
+      "hidden_omega": 50.66810475834268,
+      "kind": "shared",
+      "latent": 2,
+      "omega": 65.06438536869078,
+      "width": 30
+    },
+    "fromStudy": {
+      "deployedBytes": 7210,
+      "family": "shared",
+      "mode": "codec",
+      "trial": 4
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.05,
+      "loss": "l1",
+      "lr": 0.0008225546638790805,
+      "multiscale_weight": 0.0,
+      "schedule": "cosine",
+      "seed": 1729,
+      "slope_weight": 0.04994058545873385,
+      "steps": 5000,
+      "warmup": 476,
+      "weight_decay": 4.3040879471180765e-05
+    }
+  },
+  "siren-t17": {
+    "config": {
+      "depth": 4,
+      "hidden_omega": 6.970654459490486,
+      "kind": "siren",
+      "omega": 30.273684272596544,
+      "width": 17
+    },
+    "fromStudy": {
+      "deployedBytes": 2742,
+      "family": "siren",
+      "mode": "codec",
+      "trial": 17
+    },
+    "recipe": {
+      "batch": 8192,
+      "device": "cuda",
+      "eval_every": 0,
+      "huber_delta": 0.05,
+      "loss": "mse",
+      "lr": 0.0027134429914702552,
+      "multiscale_weight": 0.0,
+      "schedule": "none",
+      "seed": 1729,
+      "slope_weight": 0.0,
+      "steps": 5000,
+      "warmup": 440,
+      "weight_decay": 1.2454813514607478e-05
+    }
+  }
+}

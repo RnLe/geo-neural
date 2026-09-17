@@ -1,0 +1,41 @@
+{
+  "absentFromIndex": [],
+  "acquisitionMethodCodes": {
+    "5020": 121
+  },
+  "atlasContentId": "d133adcbbee05892c3e35e72c7de698caf12558b2fba83de54b8b5593d31026e",
+  "heightAnomalyModel": {
+    "DE_AdV_GCG2016_QGH": 121
+  },
+  "horizontalReference": {
+    "ETRS89_UTM32": 121
+  },
+  "republishedAfterRetrieval": [],
+  "retrievedUtc": "2026-09-12T15:38:55.956733+00:00",
+  "schema": "geoneural-epochs-v1",
+  "scope": "Epochs of the tiles current at retrieval, from the provider's tile metadata. Assumes the WCS serves the same DGM1 as the tile product. Tiles republished after retrieval carry no epoch here.",
+  "source": {
+    "files": {
+      "dgm1_meta.zip": "03c3babedd8765edac53aa89537a7d404a0a54202f30657da942eddef76dd8a1",
+      "dgm1_tiff_index.xml": "4fecd74315f3a9ffe0cc805b02d9d052705cf465801aa6298855c291b19182aa"
+    },
+    "metadataCurrency": "2026-09-01",
+    "standardVersion": "3.3",
+    "url": "https://www.opengeodata.nrw.de/produkte/geobasis/hm/dgm1_tiff/dgm1_tiff/"
+  },
+  "statedAccuracyM": {
+    "0.2": 121
+  },
+  "surveyEpochs": {
+    "2025-02-19": 55,
+    "2025-02-21": 66
+  },
+  "tiles": 121,
+  "updateDates": {
+    "2025-02-19": 55,
+    "2025-02-21": 66
+  },
+  "verticalReference": {
+    "DE_DHHN2016_NH": 121
+  }
+}

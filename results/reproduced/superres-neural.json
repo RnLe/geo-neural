@@ -1,0 +1,3494 @@
+{
+  "factor": 10,
+  "metreEnvelope": {
+    "essen-ruhr": {
+      "note": "The 10 m grid the network reads is not charged: the atlas ships it regardless, so every figure here is marginal cost above it. boundGuaranteed marks the rows whose maximum is an enforced encoder tolerance rather than an observed worst node. Only the 1 m rows carry one, because an interpolated surface has no bound.",
+      "rows": [
+        {
+          "boundGuaranteed": true,
+          "bytes": 1233635,
+          "maeM": 0.024984720934900766,
+          "maxM": 0.0500030517578125,
+          "method": "stored at 1 m",
+          "p99M": 0.0500030517578125,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 344492,
+          "maeM": 0.25066869214119625,
+          "maxM": 0.5,
+          "method": "stored at 1 m",
+          "p99M": 0.5,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 227634,
+          "maeM": 0.49883394045242463,
+          "maxM": 1.0,
+          "method": "stored at 1 m",
+          "p99M": 0.9899978637695312,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 142528,
+          "maeM": 1.0044499766290373,
+          "maxM": 2.0,
+          "method": "stored at 1 m",
+          "p99M": 1.9800033569335938,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 89948,
+          "maeM": 1.996911625810381,
+          "maxM": 4.0,
+          "method": "stored at 1 m",
+          "p99M": 3.9599990844726562,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 4.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 424300,
+          "maeM": 0.035777817897782074,
+          "maxM": 6.849376678466797,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 0.18398284912109375,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 123906,
+          "maeM": 0.22947016406351234,
+          "maxM": 6.829845428466797,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 0.5476531982421875,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 83877,
+          "maeM": 0.46810558294946375,
+          "maxM": 6.833751678466797,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 1.0828094482421875,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 54644,
+          "maeM": 0.9703829835217875,
+          "maxM": 7.970001220703125,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 2.1512527465820312,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 36045,
+          "maeM": 1.9561760076652577,
+          "maxM": 9.290000915527344,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 4.2624969482421875,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 4.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 101154,
+          "maeM": 0.07419096603942579,
+          "maxM": 10.439865112304688,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 0.4982688903808601,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 35334,
+          "maeM": 0.23413752601309507,
+          "maxM": 10.667518615722656,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 0.661518859863282,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 23184,
+          "maeM": 0.46115279405892984,
+          "maxM": 10.65484619140625,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 1.1258148193359432,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 14827,
+          "maeM": 0.9503476662394701,
+          "maxM": 9.254203796386719,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 2.1957473754882812,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 10283,
+          "maeM": 1.9255736584641678,
+          "maxM": 12.361221313476562,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 4.355995178222656,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 4.0
+        }
+      ],
+      "schema": "geoneural-superres-envelope-v1",
+      "spanFine": 2041,
+      "window": 205
+    },
+    "muensterland-plain": {
+      "note": "The 10 m grid the network reads is not charged: the atlas ships it regardless, so every figure here is marginal cost above it. boundGuaranteed marks the rows whose maximum is an enforced encoder tolerance rather than an observed worst node. Only the 1 m rows carry one, because an interpolated surface has no bound.",
+      "rows": [
+        {
+          "boundGuaranteed": true,
+          "bytes": 850722,
+          "maeM": 0.02498138217633404,
+          "maxM": 0.0500030517578125,
+          "method": "stored at 1 m",
+          "p99M": 0.049999237060546875,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 201269,
+          "maeM": 0.2517381517573189,
+          "maxM": 0.5,
+          "method": "stored at 1 m",
+          "p99M": 0.5,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 121136,
+          "maeM": 0.48604397942650507,
+          "maxM": 1.0,
+          "method": "stored at 1 m",
+          "p99M": 0.9899978637695312,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 57960,
+          "maeM": 0.9319724941273831,
+          "maxM": 2.0,
+          "method": "stored at 1 m",
+          "p99M": 1.9799995422363281,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 6908,
+          "maeM": 1.0904382293779054,
+          "maxM": 4.0,
+          "method": "stored at 1 m",
+          "p99M": 3.3700027465820312,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 4.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 291545,
+          "maeM": 0.02818880717570742,
+          "maxM": 1.8174972534179688,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 0.13000106811523438,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 71224,
+          "maeM": 0.24010210778038557,
+          "maxM": 1.6775016784667969,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 0.5425033569335938,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 45490,
+          "maeM": 0.47087244478848106,
+          "maxM": 1.9650001525878906,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 1.06500244140625,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 21685,
+          "maeM": 0.917151054986783,
+          "maxM": 3.088123321533203,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 2.0,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 2943,
+          "maeM": 1.086960464268123,
+          "maxM": 5.345001220703125,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 3.3600006103515625,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 4.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 69270,
+          "maeM": 0.04776306769390353,
+          "maxM": 2.8742408752441406,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 0.4149497985839865,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 18397,
+          "maeM": 0.2424950772813557,
+          "maxM": 3.144542694091797,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 0.5983047485351562,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 11927,
+          "maeM": 0.4680377118560361,
+          "maxM": 3.0958404541015625,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 1.1018104553222656,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 5996,
+          "maeM": 0.9109571657530827,
+          "maxM": 3.7934722900390625,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 2.128324890136721,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 964,
+          "maeM": 1.0851501368767555,
+          "maxM": 5.502769470214844,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 3.3499984741210938,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 4.0
+        }
+      ],
+      "schema": "geoneural-superres-envelope-v1",
+      "spanFine": 2041,
+      "window": 205
+    },
+    "rothaar-sauerland": {
+      "note": "The 10 m grid the network reads is not charged: the atlas ships it regardless, so every figure here is marginal cost above it. boundGuaranteed marks the rows whose maximum is an enforced encoder tolerance rather than an observed worst node. Only the 1 m rows carry one, because an interpolated surface has no bound.",
+      "rows": [
+        {
+          "boundGuaranteed": true,
+          "bytes": 1259132,
+          "maeM": 0.024991758756994522,
+          "maxM": 0.04998779296875,
+          "method": "stored at 1 m",
+          "p99M": 0.04998779296875,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 387366,
+          "maeM": 0.25005219018302377,
+          "maxM": 0.5,
+          "method": "stored at 1 m",
+          "p99M": 0.489990234375,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 275647,
+          "maeM": 0.5004384104926127,
+          "maxM": 1.0,
+          "method": "stored at 1 m",
+          "p99M": 0.989990234375,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 192600,
+          "maeM": 1.0007680719783103,
+          "maxM": 2.0,
+          "method": "stored at 1 m",
+          "p99M": 1.980010986328125,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": true,
+          "bytes": 127439,
+          "maeM": 1.9996874136229261,
+          "maxM": 4.0,
+          "method": "stored at 1 m",
+          "p99M": 3.959991455078125,
+          "samples": 4165681,
+          "sourceSpacingM": 1,
+          "targetMaxErrorM": 4.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 419535,
+          "maeM": 0.035255913266283676,
+          "maxM": 2.53375244140625,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 0.18839111328125568,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 134348,
+          "maeM": 0.20462486420240697,
+          "maxM": 2.489990234375,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 0.51251220703125,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 96148,
+          "maeM": 0.43864250414285033,
+          "maxM": 2.489990234375,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 1.03997802734375,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 68969,
+          "maeM": 0.9297993728660123,
+          "maxM": 3.739990234375,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 2.1300048828125,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 48907,
+          "maeM": 1.922777106830126,
+          "maxM": 5.83502197265625,
+          "method": "stored at 2 m, bicubic to 1 m",
+          "p99M": 4.32000732421875,
+          "samples": 1042441,
+          "sourceSpacingM": 2,
+          "targetMaxErrorM": 4.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 100264,
+          "maeM": 0.06289128742135083,
+          "maxM": 2.74365234375,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 0.451263427734375,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 0.05
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 36139,
+          "maeM": 0.21124840292463726,
+          "maxM": 2.8260498046875,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 0.616943359375,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 0.5
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 26315,
+          "maeM": 0.40834606590882794,
+          "maxM": 3.04205322265625,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 1.05401611328125,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 1.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 18704,
+          "maeM": 0.8663352570848223,
+          "maxM": 3.502777099609375,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 2.11224365234375,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 2.0
+        },
+        {
+          "boundGuaranteed": false,
+          "bytes": 13282,
+          "maeM": 1.8540310858314573,
+          "maxM": 5.678375244140625,
+          "method": "stored at 5 m, bicubic to 1 m",
+          "p99M": 4.332000732421875,
+          "samples": 167281,
+          "sourceSpacingM": 5,
+          "targetMaxErrorM": 4.0
+        }
+      ],
+      "schema": "geoneural-superres-envelope-v1",
+      "spanFine": 2041,
+      "window": 205
+    }
+  },
+  "observationOperator": "area-average of the 1 m source onto the node-centred 10 m lattice (rasterio Resampling.average, edge_trim 2, EPSG:25832 / EPSG:7837)",
+  "observationOperatorId": "d404039c9a0dc442",
+  "patch": 17,
+  "qualification": "Only the coarse grid enters the model. The 1 m reference is the target and is never an input, a normaliser or an evaluation-time hint. Every arm predicts a residual over bicubic, so an arm that learns nothing reports the classical bar rather than noise. Normalisation is per coarse patch, from the coarse patch alone. Held-out geography is a whole region from the same provider and datum, which tests transfer across terrain and not across source.",
+  "rows": [
+    {
+      "arm": "liif",
+      "config": {
+        "arm": "liif",
+        "blocks": 4,
+        "depth": 4,
+        "factor": 10,
+        "hidden": 256,
+        "width": 64
+      },
+      "deployedBytes": 1021698,
+      "drainage": {
+        "essen-ruhr": {
+          "bicubic": {
+            "basinAgreementFraction": 0.0009507989633369223,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0010198751274843908,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.33690704211338024,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0013159092781359614,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.32956048196532245,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0010406558607773371,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3856145100811041,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0005712583732278608,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4752658332678423,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.001183698467234073,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6089002589855347,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.14687929987595186,
+            "elevationMaxM": 7.660301208496094,
+            "maeM": 0.14687929987595186,
+            "receiverAgreementFraction": 0.4533167033741984,
+            "reconstructedBasins": 54,
+            "reconstructedFilledCells": 775378,
+            "reconstructedStreamCells": 10519,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.7251092121581451,
+            "streamCellsLost": 11502,
+            "streamJaccard": 0.025884383088869714,
+            "streamRecall": 0.04721669980119284,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.0215057388846806,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.008507251063406383,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.3306385413298177,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.013113567089694285,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.32685495514635426,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.017079374967554378,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3825141063577444,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.02638817435730131,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.478027025474161,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.024750558205831705,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6187859263470407,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.13222529001047326,
+            "elevationMaxM": 7.700994634535164,
+            "maeM": 0.13222529001047326,
+            "receiverAgreementFraction": 0.45481770399957355,
+            "reconstructedBasins": 82,
+            "reconstructedFilledCells": 809003,
+            "reconstructedStreamCells": 10466,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.9272863732660426,
+            "streamCellsLost": 11543,
+            "streamJaccard": 0.024035621791085465,
+            "streamRecall": 0.04382041086812458,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.0005467031601640459,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0009203751150468894,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.33643441705430216,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0010124046670337628,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.33357758228226797,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0006972314401063817,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.38934425902187936,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.00034473626684964546,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4820172487008,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.00027601321567755066,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6254569323259538,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.12585159190828227,
+            "elevationMaxM": 7.942978739738464,
+            "maeM": 0.12585159190828227,
+            "receiverAgreementFraction": 0.4605199047747986,
+            "reconstructedBasins": 80,
+            "reconstructedFilledCells": 758352,
+            "reconstructedStreamCells": 10183,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.7382382213324945,
+            "streamCellsLost": 11413,
+            "streamJaccard": 0.030514910168549732,
+            "streamRecall": 0.054589131875414185,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.0005526971646610478,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.00047262505907813237,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.33409616676202086,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0005441404099046561,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.3307528215089382,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0005590630103945787,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3866535686189946,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.00040087148271596704,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4842560531924097,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.0007593796431327638,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6333459667740509,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.11899496996702835,
+            "elevationMaxM": 7.936448285588995,
+            "maeM": 0.11899496996702835,
+            "receiverAgreementFraction": 0.46161324784453256,
+            "reconstructedBasins": 89,
+            "reconstructedFilledCells": 779945,
+            "reconstructedStreamCells": 10064,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.6953044566675999,
+            "streamCellsLost": 11543,
+            "streamJaccard": 0.0244828064978942,
+            "streamRecall": 0.04382041086812458,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        },
+        "muensterland-plain": {
+          "bicubic": {
+            "basinAgreementFraction": 0.003112386835068223,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.004187635845737699,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.3228359010059892,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0040324194516710024,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.3223994396637983,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0029268374106187897,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3605210142945738,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0014648747224865208,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.3847347764034253,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.0006691160368865423,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5477748850336991,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.06755792199657498,
+            "elevationMaxM": 2.826091766357422,
+            "maeM": 0.06755792199657498,
+            "receiverAgreementFraction": 0.3590574677033364,
+            "reconstructedBasins": 123,
+            "reconstructedFilledCells": 735233,
+            "reconstructedStreamCells": 9673,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.7723471931158201,
+            "streamCellsLost": 9079,
+            "streamJaccard": 0.028263651877133106,
+            "streamRecall": 0.055156623998334896,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.00921428341301613,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.008125501533163632,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.31498142666588724,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.009348275632045894,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.31855179774531384,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.008781796214050104,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3577219331122316,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.008269901680938788,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.38680423406279735,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.012847027908221611,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5543930509258133,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.0642377797364051,
+            "elevationMaxM": 2.829016034200322,
+            "maeM": 0.0642377797364051,
+            "receiverAgreementFraction": 0.35682273352784444,
+            "reconstructedBasins": 166,
+            "reconstructedFilledCells": 797800,
+            "reconstructedStreamCells": 9760,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.5108247304369797,
+            "streamCellsLost": 8529,
+            "streamJaccard": 0.059051889113674885,
+            "streamRecall": 0.1123946300343428,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.15708537535330286,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.17018913446668757,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.305543303236915,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.18185778133546796,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.31440064038423055,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.14673733704660985,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3535843004929208,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.11302925784966698,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.3902315255312401,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.15506865536063327,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.573777139751981,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.05836071998850406,
+            "elevationMaxM": 2.8473323062062263,
+            "maeM": 0.05836071998850406,
+            "receiverAgreementFraction": 0.3548369982890395,
+            "reconstructedBasins": 313,
+            "reconstructedFilledCells": 787643,
+            "reconstructedStreamCells": 9944,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.8150360640945564,
+            "streamCellsLost": 8796,
+            "streamJaccard": 0.043383137673425824,
+            "streamRecall": 0.08460817983140806,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.13678168412045852,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.1586997071843463,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.3057346165496644,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.1657627910079381,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.31374224534720835,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.12394215917013662,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3536369437628639,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.07264906438312718,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.3909153980336188,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.15828041233768866,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5753749077430919,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.05679085655976759,
+            "elevationMaxM": 2.842005044396501,
+            "maeM": 0.05679085655976759,
+            "receiverAgreementFraction": 0.3548044657646482,
+            "reconstructedBasins": 333,
+            "reconstructedFilledCells": 797316,
+            "reconstructedStreamCells": 10517,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.7849760666289285,
+            "streamCellsLost": 8644,
+            "streamJaccard": 0.050362715933406396,
+            "streamRecall": 0.10042668331772296,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        },
+        "rothaar-sauerland": {
+          "bicubic": {
+            "basinAgreementFraction": 0.009647350237924516,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.3142707240293809,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.001203746057731661,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.30801454125237737,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.001633654089023963,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40689801272702086,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0028225012910261475,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6363168244751923,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.014469372835346671,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7748331746946878,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.09203966835505305,
+            "elevationMaxM": 3.4661865234375,
+            "maeM": 0.09203966835505305,
+            "receiverAgreementFraction": 0.7003071320552723,
+            "reconstructedBasins": 22,
+            "reconstructedFilledCells": 20521,
+            "reconstructedStreamCells": 6424,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.45757453124986114,
+            "streamCellsLost": 6103,
+            "streamJaccard": 0.0497325776323142,
+            "streamRecall": 0.09262563187630092,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.015025720523046822,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.009968520461699895,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.31951731374606507,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.010496665623420083,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.3005513156944411,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.01690281998842998,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40185038824746805,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.01353764839402266,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6325621209229099,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.015688244069730812,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7726374233800815,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.08469132939251019,
+            "elevationMaxM": 3.2009886760497466,
+            "maeM": 0.08469132939251019,
+            "receiverAgreementFraction": 0.6973576833439231,
+            "reconstructedBasins": 30,
+            "reconstructedFilledCells": 32057,
+            "reconstructedStreamCells": 6355,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.103948890992001,
+            "streamCellsLost": 6058,
+            "streamJaccard": 0.05381454926286957,
+            "streamRecall": 0.09931608682723758,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.009669578004600898,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.316894018887723,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.001324120663504827,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.3093868117581915,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.001751798649078065,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40830352559663,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.00284691611215429,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6368480317954955,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.01447743920715207,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7756822664636771,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.08914806085662533,
+            "elevationMaxM": 3.458229087293148,
+            "maeM": 0.08914806085662533,
+            "receiverAgreementFraction": 0.7010891638916006,
+            "reconstructedBasins": 25,
+            "reconstructedFilledCells": 20711,
+            "reconstructedStreamCells": 6487,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.4617027489470047,
+            "streamCellsLost": 6034,
+            "streamJaccard": 0.05526715118600751,
+            "streamRecall": 0.10288432946773714,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.015062433800590958,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.009968520461699895,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.3147953830010493,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.010592965308038617,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.30110503888099766,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.01710651750576464,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40315405235840984,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.013588697565472412,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6335638684322281,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.015695036803882727,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.773594774349617,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.0832265076235845,
+            "elevationMaxM": 3.2115690419450402,
+            "maeM": 0.0832265076235845,
+            "receiverAgreementFraction": 0.6983444198337287,
+            "reconstructedBasins": 31,
+            "reconstructedFilledCells": 31073,
+            "reconstructedStreamCells": 6485,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.12970410084028572,
+            "streamCellsLost": 5964,
+            "streamJaccard": 0.06120973572174472,
+            "streamRecall": 0.11329170383586083,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        }
+      },
+      "heldOutGeography": {
+        "muensterland-plain": {
+          "bicubic": {
+            "maeM": 0.0727679263959409,
+            "maxM": 3.813648223876953,
+            "p99M": 0.6944081115722653,
+            "rmseM": 0.15071402374476722,
+            "samples": 7496192
+          },
+          "bicubicBackProjected": {
+            "maeM": 0.07015978667645369,
+            "maxM": 3.9114981181919575,
+            "p99M": 0.6320650634076445,
+            "rmseM": 0.1406062407818006,
+            "samples": 7496192
+          },
+          "neural": {
+            "maeM": 0.07543883711579145,
+            "maxM": 3.8697891235351562,
+            "p99M": 0.601938680335879,
+            "rmseM": 0.14089491706729246,
+            "samples": 7496192
+          },
+          "neuralBackProjected": {
+            "maeM": 0.07105116192288262,
+            "maxM": 4.016441524960101,
+            "p99M": 0.5733433369093108,
+            "rmseM": 0.13364845171570225,
+            "samples": 7496192
+          },
+          "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+          "operatorConsistencyMaxM": {
+            "neural": 1.6915581138074955,
+            "neuralBackProjected": 0.05709841344643962
+          },
+          "tiles": 512,
+          "trimFineSamples": 20
+        },
+        "rothaar-sauerland": {
+          "bicubic": {
+            "maeM": 0.1060941564882887,
+            "maxM": 3.32183837890625,
+            "p99M": 0.8094824218749999,
+            "rmseM": 0.19168312846088775,
+            "samples": 7496192
+          },
+          "bicubicBackProjected": {
+            "maeM": 0.09929426160220325,
+            "maxM": 2.9105270344298333,
+            "p99M": 0.7313233565143309,
+            "rmseM": 0.17609701524043236,
+            "samples": 7496192
+          },
+          "neural": {
+            "maeM": 0.09691972288251322,
+            "maxM": 2.774398513138294,
+            "p99M": 0.7151832330971954,
+            "rmseM": 0.1710431671943673,
+            "samples": 7496192
+          },
+          "neuralBackProjected": {
+            "maeM": 0.09421130728476507,
+            "maxM": 2.772631185129285,
+            "p99M": 0.6791693629650398,
+            "rmseM": 0.16437043259905676,
+            "samples": 7496192
+          },
+          "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+          "operatorConsistencyMaxM": {
+            "neural": 2.1439360622532604,
+            "neuralBackProjected": 0.06394572217743644
+          },
+          "tiles": 512,
+          "trimFineSamples": 20
+        }
+      },
+      "trainedOn": "essen-ruhr",
+      "training": {
+        "history": [
+          {
+            "loss": 0.20415619015693665,
+            "step": 0
+          },
+          {
+            "loss": 0.12662403285503387,
+            "step": 300
+          },
+          {
+            "loss": 0.1420072317123413,
+            "step": 600
+          },
+          {
+            "loss": 0.12521114945411682,
+            "step": 900
+          },
+          {
+            "loss": 0.07151488959789276,
+            "step": 1200
+          },
+          {
+            "loss": 0.13084302842617035,
+            "step": 1500
+          },
+          {
+            "loss": 0.10511830449104309,
+            "step": 1800
+          },
+          {
+            "loss": 0.1089654266834259,
+            "step": 2100
+          },
+          {
+            "loss": 0.11370562016963959,
+            "step": 2400
+          },
+          {
+            "loss": 0.09149838984012604,
+            "step": 2700
+          },
+          {
+            "loss": 0.08996593952178955,
+            "step": 2999
+          }
+        ],
+        "sampler": {
+          "evaluationTiles": 793,
+          "note": "tiles are disjoint in the coarse grid, so a training patch and an evaluation patch share no fine sample",
+          "patch": 17,
+          "trainingTiles": 3176
+        },
+        "seconds": 32.31049110098684
+      },
+      "withinRegion": {
+        "bicubic": {
+          "maeM": 0.14044130383623354,
+          "maxM": 9.66534423828125,
+          "p99M": 1.0252018737792967,
+          "rmseM": 0.2665110574638555,
+          "samples": 7496192
+        },
+        "bicubicBackProjected": {
+          "maeM": 0.12747674976701165,
+          "maxM": 8.679922489449382,
+          "p99M": 0.9111377604590961,
+          "rmseM": 0.23930210175800118,
+          "samples": 7496192
+        },
+        "neural": {
+          "maeM": 0.11534929179461259,
+          "maxM": 9.386788189411163,
+          "p99M": 0.8294560706242917,
+          "rmseM": 0.21963800412413878,
+          "samples": 7496192
+        },
+        "neuralBackProjected": {
+          "maeM": 0.11178121068377528,
+          "maxM": 8.535725386813283,
+          "p99M": 0.7844628147869656,
+          "rmseM": 0.21014279764087815,
+          "samples": 7496192
+        },
+        "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+        "operatorConsistencyMaxM": {
+          "neural": 2.7112995522426075,
+          "neuralBackProjected": 0.22017555791651944
+        },
+        "tiles": 512,
+        "trimFineSamples": 20
+      }
+    },
+    {
+      "arm": "residual-siren",
+      "config": {
+        "arm": "residual-siren",
+        "blocks": 4,
+        "depth": 4,
+        "factor": 10,
+        "hidden": 256,
+        "width": 64
+      },
+      "deployedBytes": 1255170,
+      "drainage": {
+        "essen-ruhr": {
+          "bicubic": {
+            "basinAgreementFraction": 0.0009507989633369223,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0010198751274843908,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.33690704211338024,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0013159092781359614,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.32956048196532245,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0010406558607773371,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3856145100811041,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0005712583732278608,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4752658332678423,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.001183698467234073,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6089002589855347,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.14687929987595186,
+            "elevationMaxM": 7.660301208496094,
+            "maeM": 0.14687929987595186,
+            "receiverAgreementFraction": 0.4533167033741984,
+            "reconstructedBasins": 54,
+            "reconstructedFilledCells": 775378,
+            "reconstructedStreamCells": 10519,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.7251092121581451,
+            "streamCellsLost": 11502,
+            "streamJaccard": 0.025884383088869714,
+            "streamRecall": 0.04721669980119284,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.0215057388846806,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.008507251063406383,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.3306385413298177,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.013113567089694285,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.32685495514635426,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.017079374967554378,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3825141063577444,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.02638817435730131,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.478027025474161,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.024750558205831705,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6187859263470407,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.13222529001047326,
+            "elevationMaxM": 7.700994634535164,
+            "maeM": 0.13222529001047326,
+            "receiverAgreementFraction": 0.45481770399957355,
+            "reconstructedBasins": 82,
+            "reconstructedFilledCells": 809003,
+            "reconstructedStreamCells": 10466,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.9272863732660426,
+            "streamCellsLost": 11543,
+            "streamJaccard": 0.024035621791085465,
+            "streamRecall": 0.04382041086812458,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.460250384552851,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.32546454068306757,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.3100917887614736,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.36551060315037787,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.3147060991419491,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.4187206242337842,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3680822940751301,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.5033017413143962,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4602295203873198,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.5126691439196074,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6076231829129968,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.1320602479626767,
+            "elevationMaxM": 7.6978523544967175,
+            "maeM": 0.1320602479626767,
+            "receiverAgreementFraction": 0.43990829832124667,
+            "reconstructedBasins": 210,
+            "reconstructedFilledCells": 796668,
+            "reconstructedStreamCells": 10332,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.6913229153136626,
+            "streamCellsLost": 11356,
+            "streamJaccard": 0.03301364810033198,
+            "streamRecall": 0.05931080185553347,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.0010242255184251953,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0009701251212656402,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.30869878858734856,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0008736597019584719,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.3140860825792689,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0008465811300260763,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3666023744204713,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0010619462013299423,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4630805289390246,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.0010532444598242853,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6169595702433036,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.12430575716488221,
+            "elevationMaxM": 7.706485038390383,
+            "maeM": 0.12430575716488221,
+            "receiverAgreementFraction": 0.44214078024505,
+            "reconstructedBasins": 217,
+            "reconstructedFilledCells": 814763,
+            "reconstructedStreamCells": 10430,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.8116568755632443,
+            "streamCellsLost": 11570,
+            "streamJaccard": 0.022818181818181817,
+            "streamRecall": 0.041583830351225974,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        },
+        "muensterland-plain": {
+          "bicubic": {
+            "basinAgreementFraction": 0.003112386835068223,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.004187635845737699,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.3228359010059892,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0040324194516710024,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.3223994396637983,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0029268374106187897,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3605210142945738,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0014648747224865208,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.3847347764034253,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.0006691160368865423,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5477748850336991,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.06755792199657498,
+            "elevationMaxM": 2.826091766357422,
+            "maeM": 0.06755792199657498,
+            "receiverAgreementFraction": 0.3590574677033364,
+            "reconstructedBasins": 123,
+            "reconstructedFilledCells": 735233,
+            "reconstructedStreamCells": 9673,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.7723471931158201,
+            "streamCellsLost": 9079,
+            "streamJaccard": 0.028263651877133106,
+            "streamRecall": 0.055156623998334896,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.00921428341301613,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.008125501533163632,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.31498142666588724,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.009348275632045894,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.31855179774531384,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.008781796214050104,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3577219331122316,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.008269901680938788,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.38680423406279735,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.012847027908221611,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5543930509258133,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.0642377797364051,
+            "elevationMaxM": 2.829016034200322,
+            "maeM": 0.0642377797364051,
+            "receiverAgreementFraction": 0.35682273352784444,
+            "reconstructedBasins": 166,
+            "reconstructedFilledCells": 797800,
+            "reconstructedStreamCells": 9760,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.5108247304369797,
+            "streamCellsLost": 8529,
+            "streamJaccard": 0.059051889113674885,
+            "streamRecall": 0.1123946300343428,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.024238005934563954,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.015198779846205353,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.2663559596754051,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.01640384230538323,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.2774971649656461,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.023161754792784532,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.31632827315950784,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.03066127497621313,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.3546364573422138,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.0698313827587046,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5287801000835382,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.05945086638753837,
+            "elevationMaxM": 2.826814342290163,
+            "maeM": 0.05945086638753837,
+            "receiverAgreementFraction": 0.31735427493636764,
+            "reconstructedBasins": 970,
+            "reconstructedFilledCells": 983549,
+            "reconstructedStreamCells": 10837,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.6838139837128665,
+            "streamCellsLost": 8666,
+            "streamJaccard": 0.048351535661180334,
+            "streamRecall": 0.09813716307628265,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.14907963309699473,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.16505024631589016,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.2704957671929554,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.17214261890467614,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.27790140751117337,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.13371968357542818,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3161491576434818,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.09187876625436092,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.3556374881065652,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.21172047981702719,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5310550946089524,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.05791896152444627,
+            "elevationMaxM": 2.8268920144910226,
+            "maeM": 0.05791896152444627,
+            "receiverAgreementFraction": 0.3178978183438893,
+            "reconstructedBasins": 982,
+            "reconstructedFilledCells": 982495,
+            "reconstructedStreamCells": 10662,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.68432360883196,
+            "streamCellsLost": 8756,
+            "streamJaccard": 0.04392831393552374,
+            "streamRecall": 0.08877094390675408,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        },
+        "rothaar-sauerland": {
+          "bicubic": {
+            "basinAgreementFraction": 0.009647350237924516,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.3142707240293809,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.001203746057731661,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.30801454125237737,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.001633654089023963,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40689801272702086,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0028225012910261475,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6363168244751923,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.014469372835346671,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7748331746946878,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.09203966835505305,
+            "elevationMaxM": 3.4661865234375,
+            "maeM": 0.09203966835505305,
+            "receiverAgreementFraction": 0.7003071320552723,
+            "reconstructedBasins": 22,
+            "reconstructedFilledCells": 20521,
+            "reconstructedStreamCells": 6424,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.45757453124986114,
+            "streamCellsLost": 6103,
+            "streamJaccard": 0.0497325776323142,
+            "streamRecall": 0.09262563187630092,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.015025720523046822,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.009968520461699895,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.31951731374606507,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.010496665623420083,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.3005513156944411,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.01690281998842998,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40185038824746805,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.01353764839402266,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6325621209229099,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.015688244069730812,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7726374233800815,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.08469132939251019,
+            "elevationMaxM": 3.2009886760497466,
+            "maeM": 0.08469132939251019,
+            "receiverAgreementFraction": 0.6973576833439231,
+            "reconstructedBasins": 30,
+            "reconstructedFilledCells": 32057,
+            "reconstructedStreamCells": 6355,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.103948890992001,
+            "streamCellsLost": 6058,
+            "streamJaccard": 0.05381454926286957,
+            "streamRecall": 0.09931608682723758,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.010755242069120362,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.001049317943336831,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.29853095487932846,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.002624166405855021,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.2883212557478874,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0034465619933024255,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.3773577987631487,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.00393078620163091,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6078313868062306,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.015489556595787317,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.766167344100383,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.09107051527136714,
+            "elevationMaxM": 3.461567308753729,
+            "maeM": 0.09107051527136714,
+            "receiverAgreementFraction": 0.6835371162319529,
+            "reconstructedBasins": 107,
+            "reconstructedFilledCells": 22043,
+            "reconstructedStreamCells": 6591,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.43705533426270904,
+            "streamCellsLost": 6021,
+            "streamJaccard": 0.05589914367269267,
+            "streamRecall": 0.1048171275646744,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.011922824195098852,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.00944386149003148,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.2943336831059811,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.009413294171461589,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.28213400101114666,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.005679086783290285,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.3739967897271268,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.004542636415963446,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6051694314601986,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.016737296950317095,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7643027385756825,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.08486403476783304,
+            "elevationMaxM": 3.2125336070312187,
+            "maeM": 0.08486403476783304,
+            "receiverAgreementFraction": 0.6812648445283171,
+            "reconstructedBasins": 107,
+            "reconstructedFilledCells": 32627,
+            "reconstructedStreamCells": 6203,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.10381934076985999,
+            "streamCellsLost": 6002,
+            "streamJaccard": 0.059319950839819745,
+            "streamRecall": 0.10764198632173655,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        }
+      },
+      "heldOutGeography": {
+        "muensterland-plain": {
+          "bicubic": {
+            "maeM": 0.0727679263959409,
+            "maxM": 3.813648223876953,
+            "p99M": 0.6944081115722653,
+            "rmseM": 0.15071402374476722,
+            "samples": 7496192
+          },
+          "bicubicBackProjected": {
+            "maeM": 0.07015978667645369,
+            "maxM": 3.9114981181919575,
+            "p99M": 0.6320650634076445,
+            "rmseM": 0.1406062407818006,
+            "samples": 7496192
+          },
+          "neural": {
+            "maeM": 0.08653961171554683,
+            "maxM": 3.832261487841606,
+            "p99M": 0.6137455740571021,
+            "rmseM": 0.15011110218448023,
+            "samples": 7496192
+          },
+          "neuralBackProjected": {
+            "maeM": 0.07975195349977862,
+            "maxM": 4.061999544501305,
+            "p99M": 0.5888941983543918,
+            "rmseM": 0.14059155892689704,
+            "samples": 7496192
+          },
+          "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+          "operatorConsistencyMaxM": {
+            "neural": 1.7263858300250448,
+            "neuralBackProjected": 0.060117857147439224
+          },
+          "tiles": 512,
+          "trimFineSamples": 20
+        },
+        "rothaar-sauerland": {
+          "bicubic": {
+            "maeM": 0.1060941564882887,
+            "maxM": 3.32183837890625,
+            "p99M": 0.8094824218749999,
+            "rmseM": 0.19168312846088775,
+            "samples": 7496192
+          },
+          "bicubicBackProjected": {
+            "maeM": 0.09929426160220325,
+            "maxM": 2.9105270344298333,
+            "p99M": 0.7313233565143309,
+            "rmseM": 0.17609701524043236,
+            "samples": 7496192
+          },
+          "neural": {
+            "maeM": 0.1001010556899933,
+            "maxM": 2.8541409075260162,
+            "p99M": 0.746579988338053,
+            "rmseM": 0.17769286863324962,
+            "samples": 7496192
+          },
+          "neuralBackProjected": {
+            "maeM": 0.09687118046865088,
+            "maxM": 2.7842470147879794,
+            "p99M": 0.6988482600473794,
+            "rmseM": 0.16928785202113236,
+            "samples": 7496192
+          },
+          "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+          "operatorConsistencyMaxM": {
+            "neural": 2.1389337568182327,
+            "neuralBackProjected": 0.06675844499841332
+          },
+          "tiles": 512,
+          "trimFineSamples": 20
+        }
+      },
+      "trainedOn": "essen-ruhr",
+      "training": {
+        "history": [
+          {
+            "loss": 0.40245386958122253,
+            "step": 0
+          },
+          {
+            "loss": 0.1403135359287262,
+            "step": 300
+          },
+          {
+            "loss": 0.14814694225788116,
+            "step": 600
+          },
+          {
+            "loss": 0.1325901448726654,
+            "step": 900
+          },
+          {
+            "loss": 0.08870325982570648,
+            "step": 1200
+          },
+          {
+            "loss": 0.13600517809391022,
+            "step": 1500
+          },
+          {
+            "loss": 0.10914658010005951,
+            "step": 1800
+          },
+          {
+            "loss": 0.11515530943870544,
+            "step": 2100
+          },
+          {
+            "loss": 0.12122546136379242,
+            "step": 2400
+          },
+          {
+            "loss": 0.0978633463382721,
+            "step": 2700
+          },
+          {
+            "loss": 0.0952860414981842,
+            "step": 2999
+          }
+        ],
+        "sampler": {
+          "evaluationTiles": 793,
+          "note": "tiles are disjoint in the coarse grid, so a training patch and an evaluation patch share no fine sample",
+          "patch": 17,
+          "trainingTiles": 3176
+        },
+        "seconds": 65.76598502400157
+      },
+      "withinRegion": {
+        "bicubic": {
+          "maeM": 0.14044130383623354,
+          "maxM": 9.66534423828125,
+          "p99M": 1.0252018737792967,
+          "rmseM": 0.2665110574638555,
+          "samples": 7496192
+        },
+        "bicubicBackProjected": {
+          "maeM": 0.12747674976701165,
+          "maxM": 8.679922489449382,
+          "p99M": 0.9111377604590961,
+          "rmseM": 0.23930210175800118,
+          "samples": 7496192
+        },
+        "neural": {
+          "maeM": 0.12046499069251904,
+          "maxM": 9.284890115261078,
+          "p99M": 0.8691516604647039,
+          "rmseM": 0.22782615649022903,
+          "samples": 7496192
+        },
+        "neuralBackProjected": {
+          "maeM": 0.11616625280613846,
+          "maxM": 8.47549067158252,
+          "p99M": 0.8265347455884324,
+          "rmseM": 0.21677970255121168,
+          "samples": 7496192
+        },
+        "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+        "operatorConsistencyMaxM": {
+          "neural": 2.689382884088616,
+          "neuralBackProjected": 0.22419372876929344
+        },
+        "tiles": 512,
+        "trimFineSamples": 20
+      }
+    },
+    {
+      "arm": "edsr",
+      "config": {
+        "arm": "edsr",
+        "blocks": 4,
+        "depth": 4,
+        "factor": 10,
+        "hidden": 256,
+        "width": 64
+      },
+      "deployedBytes": 667138,
+      "drainage": {
+        "essen-ruhr": {
+          "bicubic": {
+            "basinAgreementFraction": 0.0009507989633369223,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0010198751274843908,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.33690704211338024,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0013159092781359614,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.32956048196532245,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0010406558607773371,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3856145100811041,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0005712583732278608,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4752658332678423,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.001183698467234073,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6089002589855347,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.14687929987595186,
+            "elevationMaxM": 7.660301208496094,
+            "maeM": 0.14687929987595186,
+            "receiverAgreementFraction": 0.4533167033741984,
+            "reconstructedBasins": 54,
+            "reconstructedFilledCells": 775378,
+            "reconstructedStreamCells": 10519,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.7251092121581451,
+            "streamCellsLost": 11502,
+            "streamJaccard": 0.025884383088869714,
+            "streamRecall": 0.04721669980119284,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.0215057388846806,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.008507251063406383,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.3306385413298177,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.013113567089694285,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.32685495514635426,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.017079374967554378,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.3825141063577444,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.02638817435730131,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.478027025474161,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.024750558205831705,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6187859263470407,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.13222529001047326,
+            "elevationMaxM": 7.700994634535164,
+            "maeM": 0.13222529001047326,
+            "receiverAgreementFraction": 0.45481770399957355,
+            "reconstructedBasins": 82,
+            "reconstructedFilledCells": 809003,
+            "reconstructedStreamCells": 10466,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.9272863732660426,
+            "streamCellsLost": 11543,
+            "streamJaccard": 0.024035621791085465,
+            "streamRecall": 0.04382041086812458,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.4415838057982503,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.28879878609984827,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.33867316733414593,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.3356630925385559,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.33397647405685943,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.3961656264101366,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.39017965889169753,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.4882198598468763,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.48342194992606663,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.5013031668740199,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6300296885856863,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.1257234261789637,
+            "elevationMaxM": 7.785264015197754,
+            "maeM": 0.1257234261789637,
+            "receiverAgreementFraction": 0.4622158502963338,
+            "reconstructedBasins": 61,
+            "reconstructedFilledCells": 750387,
+            "reconstructedStreamCells": 10487,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.7737318336219232,
+            "streamCellsLost": 11377,
+            "streamJaccard": 0.03178741309915843,
+            "streamRecall": 0.05757123923127899,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.48087600377722184,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.33524041690505213,
+                "cells": 40201,
+                "receiverAgreementFraction": 0.33740454217556776,
+                "shareOfDomain": 0.010060307792715767,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.3791748143202147,
+                "cells": 461278,
+                "receiverAgreementFraction": 0.3320969133581051,
+                "shareOfDomain": 0.1154349060473208,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.43529604383054,
+                "cells": 1252095,
+                "receiverAgreementFraction": 0.38754247880552195,
+                "shareOfDomain": 0.31333700867442227,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.5286900484149727,
+                "cells": 1514201,
+                "receiverAgreementFraction": 0.4855253694852929,
+                "shareOfDomain": 0.378929084352081,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.5354587724140583,
+                "cells": 728226,
+                "receiverAgreementFraction": 0.6358300857151489,
+                "shareOfDomain": 0.18223869313346017,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.1196981331104323,
+            "elevationMaxM": 7.797269362490624,
+            "maeM": 0.1196981331104323,
+            "receiverAgreementFraction": 0.46301389814467014,
+            "reconstructedBasins": 82,
+            "reconstructedFilledCells": 770483,
+            "reconstructedStreamCells": 10204,
+            "referenceBasins": 826,
+            "referenceFilledCells": 955714,
+            "referenceStreamCells": 12072,
+            "spuriousPitVolumeM": 0.9783147780382251,
+            "streamCellsLost": 11534,
+            "streamJaccard": 0.02474928696292207,
+            "streamRecall": 0.04456593770709079,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        },
+        "muensterland-plain": {
+          "bicubic": {
+            "basinAgreementFraction": 0.003112386835068223,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.004187635845737699,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.3228359010059892,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0040324194516710024,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.3223994396637983,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.0029268374106187897,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3605210142945738,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0014648747224865208,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.3847347764034253,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.0006691160368865423,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5477748850336991,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.06755792199657498,
+            "elevationMaxM": 2.826091766357422,
+            "maeM": 0.06755792199657498,
+            "receiverAgreementFraction": 0.3590574677033364,
+            "reconstructedBasins": 123,
+            "reconstructedFilledCells": 735233,
+            "reconstructedStreamCells": 9673,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.7723471931158201,
+            "streamCellsLost": 9079,
+            "streamJaccard": 0.028263651877133106,
+            "streamRecall": 0.055156623998334896,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.00921428341301613,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.008125501533163632,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.31498142666588724,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.009348275632045894,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.31855179774531384,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.008781796214050104,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.3577219331122316,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.008269901680938788,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.38680423406279735,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.012847027908221611,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5543930509258133,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.0642377797364051,
+            "elevationMaxM": 2.829016034200322,
+            "maeM": 0.0642377797364051,
+            "receiverAgreementFraction": 0.35682273352784444,
+            "reconstructedBasins": 166,
+            "reconstructedFilledCells": 797800,
+            "reconstructedStreamCells": 9760,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.5108247304369797,
+            "streamCellsLost": 8529,
+            "streamJaccard": 0.059051889113674885,
+            "streamRecall": 0.1123946300343428,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.029937804710837984,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.01634665972270198,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.3124784108240821,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.01706757387765993,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.31144820225468617,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.029536726384678497,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.34894270486256895,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.051373691722169365,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.38581707897240725,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.07605213427739524,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5741380568870289,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.06022290603195578,
+            "elevationMaxM": 2.8199752951040864,
+            "maeM": 0.06022290603195578,
+            "receiverAgreementFraction": 0.35171162369578984,
+            "reconstructedBasins": 320,
+            "reconstructedFilledCells": 772106,
+            "reconstructedStreamCells": 10367,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.8563123476567398,
+            "streamCellsLost": 8940,
+            "streamJaccard": 0.03465064484383902,
+            "streamRecall": 0.06962222916016235,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.022054939546718395,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.011377827849904078,
+                "cells": 188173,
+                "receiverAgreementFraction": 0.3157945082450724,
+                "shareOfDomain": 0.04709032855597384,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.011379494363284637,
+                "cells": 1499100,
+                "receiverAgreementFraction": 0.313461410179441,
+                "shareOfDomain": 0.3751500562687547,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.021206249911726226,
+                "cells": 1557654,
+                "receiverAgreementFraction": 0.34972593400074725,
+                "shareOfDomain": 0.38980320575495353,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.03872898826514431,
+                "cells": 504480,
+                "receiverAgreementFraction": 0.38578536314621,
+                "shareOfDomain": 0.12624621465309943,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.06523678597208367,
+                "cells": 246594,
+                "receiverAgreementFraction": 0.5730918027202608,
+                "shareOfDomain": 0.06171019476721853,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.05760102087434938,
+            "elevationMaxM": 2.8252714272239245,
+            "maeM": 0.05760102087434938,
+            "receiverAgreementFraction": 0.35285977155661374,
+            "reconstructedBasins": 334,
+            "reconstructedFilledCells": 770081,
+            "reconstructedStreamCells": 10262,
+            "referenceBasins": 1733,
+            "referenceFilledCells": 1270181,
+            "referenceStreamCells": 9609,
+            "spuriousPitVolumeM": -0.7669194345739925,
+            "streamCellsLost": 8834,
+            "streamJaccard": 0.040584415584415584,
+            "streamRecall": 0.08065355395982933,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        },
+        "rothaar-sauerland": {
+          "bicubic": {
+            "basinAgreementFraction": 0.009647350237924516,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.3142707240293809,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.001203746057731661,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.30801454125237737,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.001633654089023963,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40689801272702086,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.0028225012910261475,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6363168244751923,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.014469372835346671,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7748331746946878,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.09203966835505305,
+            "elevationMaxM": 3.4661865234375,
+            "maeM": 0.09203966835505305,
+            "receiverAgreementFraction": 0.7003071320552723,
+            "reconstructedBasins": 22,
+            "reconstructedFilledCells": 20521,
+            "reconstructedStreamCells": 6424,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.45757453124986114,
+            "streamCellsLost": 6103,
+            "streamJaccard": 0.0497325776323142,
+            "streamRecall": 0.09262563187630092,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "bicubicBackProjected": {
+            "basinAgreementFraction": 0.015025720523046822,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.009968520461699895,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.31951731374606507,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.010496665623420083,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.3005513156944411,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.01690281998842998,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40185038824746805,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.01353764839402266,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6325621209229099,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.015688244069730812,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7726374233800815,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.08469132939251019,
+            "elevationMaxM": 3.2009886760497466,
+            "maeM": 0.08469132939251019,
+            "receiverAgreementFraction": 0.6973576833439231,
+            "reconstructedBasins": 30,
+            "reconstructedFilledCells": 32057,
+            "reconstructedStreamCells": 6355,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.103948890992001,
+            "streamCellsLost": 6058,
+            "streamJaccard": 0.05381454926286957,
+            "streamRecall": 0.09931608682723758,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neural": {
+            "basinAgreementFraction": 0.009704043530458659,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.0005246589716684155,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.31532004197271774,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.0014444952692779932,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.3096997857332017,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.001845499507052008,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40794501796612104,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.002860973130379584,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6370322527185533,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.014512676515565126,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.7756996728449415,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.0892260504231358,
+            "elevationMaxM": 3.429363541305065,
+            "maeM": 0.0892260504231358,
+            "receiverAgreementFraction": 0.7011422169313771,
+            "reconstructedBasins": 21,
+            "reconstructedFilledCells": 21061,
+            "reconstructedStreamCells": 6434,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.4444506138564748,
+            "streamCellsLost": 6084,
+            "streamJaccard": 0.051286147946956386,
+            "streamRecall": 0.09545049063336307,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "neuralBackProjected": {
+            "basinAgreementFraction": 0.014074671809522526,
+            "bySlopeClass": [
+              {
+                "basinAgreementFraction": 0.002098635886673662,
+                "cells": 1906,
+                "receiverAgreementFraction": 0.3163693599160546,
+                "shareOfDomain": 0.000476976857613399,
+                "slopeFrom": 0.0,
+                "slopeTo": 0.005
+              },
+              {
+                "basinAgreementFraction": 0.003948287069359848,
+                "cells": 41537,
+                "receiverAgreementFraction": 0.30254953415027563,
+                "shareOfDomain": 0.010394642043382873,
+                "slopeFrom": 0.005,
+                "slopeTo": 0.02
+              },
+              {
+                "basinAgreementFraction": 0.014800661609536303,
+                "cells": 245462,
+                "receiverAgreementFraction": 0.40317034815979663,
+                "shareOfDomain": 0.061426911554826935,
+                "slopeFrom": 0.02,
+                "slopeTo": 0.05
+              },
+              {
+                "basinAgreementFraction": 0.013084124595490805,
+                "cells": 1351638,
+                "receiverAgreementFraction": 0.6337036987714166,
+                "shareOfDomain": 0.3382476631011854,
+                "slopeFrom": 0.05,
+                "slopeTo": 0.15
+              },
+              {
+                "basinAgreementFraction": 0.014685466690554448,
+                "cells": 2355458,
+                "receiverAgreementFraction": 0.77370558082547,
+                "shareOfDomain": 0.5894538064429914,
+                "slopeFrom": 0.15,
+                "slopeTo": null
+              }
+            ],
+            "elevationMaeM": 0.08340711339067147,
+            "elevationMaxM": 3.204375207540579,
+            "maeM": 0.08340711339067147,
+            "receiverAgreementFraction": 0.6984737991807309,
+            "reconstructedBasins": 30,
+            "reconstructedFilledCells": 31429,
+            "reconstructedStreamCells": 6328,
+            "referenceBasins": 408,
+            "referenceFilledCells": 53680,
+            "referenceStreamCells": 6726,
+            "spuriousPitVolumeM": -0.11428925820302993,
+            "streamCellsLost": 6031,
+            "streamJaccard": 0.056234323165304634,
+            "streamRecall": 0.10333035979779959,
+            "streamThresholdCells": 50000,
+            "streamThresholdKm2": 0.05
+          },
+          "note": "Both fields routed identically at 1 m. receiverAgreementFraction and streamJaccard are the discriminating quantities; pooled basin agreement is global and moves for reasons unrelated to local reconstruction quality.",
+          "origin": {
+            "column": 100,
+            "row": 100
+          },
+          "schema": "geoneural-superres-drainage-v1",
+          "spanFine": 2041,
+          "streamThresholdCells": 50000,
+          "trimFineSamples": 20,
+          "window": 205
+        }
+      },
+      "heldOutGeography": {
+        "muensterland-plain": {
+          "bicubic": {
+            "maeM": 0.0727679263959409,
+            "maxM": 3.813648223876953,
+            "p99M": 0.6944081115722653,
+            "rmseM": 0.15071402374476722,
+            "samples": 7496192
+          },
+          "bicubicBackProjected": {
+            "maeM": 0.07015978667645369,
+            "maxM": 3.9114981181919575,
+            "p99M": 0.6320650634076445,
+            "rmseM": 0.1406062407818006,
+            "samples": 7496192
+          },
+          "neural": {
+            "maeM": 0.08604532923532277,
+            "maxM": 3.8042021868750453,
+            "p99M": 0.6371313288807867,
+            "rmseM": 0.151977283243676,
+            "samples": 7496192
+          },
+          "neuralBackProjected": {
+            "maeM": 0.07686490962732422,
+            "maxM": 3.9312977269291878,
+            "p99M": 0.6027789949148425,
+            "rmseM": 0.14030786345915222,
+            "samples": 7496192
+          },
+          "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+          "operatorConsistencyMaxM": {
+            "neural": 1.7691299888614864,
+            "neuralBackProjected": 0.055197915229953765
+          },
+          "tiles": 512,
+          "trimFineSamples": 20
+        },
+        "rothaar-sauerland": {
+          "bicubic": {
+            "maeM": 0.1060941564882887,
+            "maxM": 3.32183837890625,
+            "p99M": 0.8094824218749999,
+            "rmseM": 0.19168312846088775,
+            "samples": 7496192
+          },
+          "bicubicBackProjected": {
+            "maeM": 0.09929426160220325,
+            "maxM": 2.9105270344298333,
+            "p99M": 0.7313233565143309,
+            "rmseM": 0.17609701524043236,
+            "samples": 7496192
+          },
+          "neural": {
+            "maeM": 0.09750315830423212,
+            "maxM": 2.7590732127428055,
+            "p99M": 0.7209136199578642,
+            "rmseM": 0.17295709584358665,
+            "samples": 7496192
+          },
+          "neuralBackProjected": {
+            "maeM": 0.09513917058377439,
+            "maxM": 2.77506959537277,
+            "p99M": 0.689043417824723,
+            "rmseM": 0.16648648218646458,
+            "samples": 7496192
+          },
+          "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+          "operatorConsistencyMaxM": {
+            "neural": 2.1445990248283806,
+            "neuralBackProjected": 0.0655998340731685
+          },
+          "tiles": 512,
+          "trimFineSamples": 20
+        }
+      },
+      "trainedOn": "essen-ruhr",
+      "training": {
+        "history": [
+          {
+            "loss": 0.23621906340122223,
+            "step": 0
+          },
+          {
+            "loss": 0.08622768521308899,
+            "step": 300
+          },
+          {
+            "loss": 0.12033271044492722,
+            "step": 600
+          },
+          {
+            "loss": 0.11964240670204163,
+            "step": 900
+          },
+          {
+            "loss": 0.10698994994163513,
+            "step": 1200
+          },
+          {
+            "loss": 0.13755010068416595,
+            "step": 1500
+          },
+          {
+            "loss": 0.11350774765014648,
+            "step": 1800
+          },
+          {
+            "loss": 0.08097845315933228,
+            "step": 2100
+          },
+          {
+            "loss": 0.11313436180353165,
+            "step": 2400
+          },
+          {
+            "loss": 0.1363409012556076,
+            "step": 2700
+          },
+          {
+            "loss": 0.12362413108348846,
+            "step": 2999
+          }
+        ],
+        "sampler": {
+          "evaluationTiles": 793,
+          "note": "tiles are disjoint in the coarse grid, so a training patch and an evaluation patch share no fine sample",
+          "patch": 17,
+          "trainingTiles": 3176
+        },
+        "seconds": 44.543201310007134
+      },
+      "withinRegion": {
+        "bicubic": {
+          "maeM": 0.14044130383623354,
+          "maxM": 9.66534423828125,
+          "p99M": 1.0252018737792967,
+          "rmseM": 0.2665110574638555,
+          "samples": 7496192
+        },
+        "bicubicBackProjected": {
+          "maeM": 0.12747674976701165,
+          "maxM": 8.679922489449382,
+          "p99M": 0.9111377604590961,
+          "rmseM": 0.23930210175800118,
+          "samples": 7496192
+        },
+        "neural": {
+          "maeM": 0.11680854450655886,
+          "maxM": 9.307249188423157,
+          "p99M": 0.8387987583130591,
+          "rmseM": 0.2207925502561184,
+          "samples": 7496192
+        },
+        "neuralBackProjected": {
+          "maeM": 0.11317264613115632,
+          "maxM": 8.48273691907525,
+          "p99M": 0.8041194093818194,
+          "rmseM": 0.21200614328820183,
+          "samples": 7496192
+        },
+        "note": "All four figures are the same tiles, the same truth and the same operator. The comparison that decides anything is neuralBackProjected against bicubicBackProjected: back-projection is free for both sides and enforcing it on only one would favour that side.",
+        "operatorConsistencyMaxM": {
+          "neural": 2.797314733473712,
+          "neuralBackProjected": 0.20629922225509745
+        },
+        "tiles": 512,
+        "trimFineSamples": 20
+      }
+    }
+  ],
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T20:59:25.818416+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {},
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "trainRegion": "essen-ruhr"
+    },
+    "kind": "superres-neural",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1729488,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "e657a4b7f9f508200fb279440860e56f57b7da8a04bf6933115eac5e0768a2d4",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-superres-neural-v1",
+  "seed": 1729,
+  "steps": 3000,
+  "testRegions": [
+    "muensterland-plain",
+    "rothaar-sauerland"
+  ],
+  "trainRegion": "essen-ruhr"
+}

@@ -1,0 +1,1138 @@
+{
+  "atlas": "essen-ruhr",
+  "atlasContentId": "d133adcbbee05892c3e35e72c7de698caf12558b2fba83de54b8b5593d31026e",
+  "fairness": {
+    "conventionalAdvantage": "The page path returns a payload carrying a hash, a declared height range and an error figure; the network returns point values and nothing else, so equal latency is not equal product.",
+    "neuralAdvantage": "The page path reads and decompresses whole pages for any query, so a one-sample request costs a 65x65 page. The network evaluates exactly the points asked for, which is the whole structural case for a coordinate representation and is what readAmplification quantifies."
+  },
+  "guard": null,
+  "qualification": "Decode cost for point queries. Not mesh construction, not upload, not whole-frame behaviour, and not the cold-start cost of loading weights unless cacheState says so.",
+  "rows": [
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.05402156113514596,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.3912024545428863,
+          "neuralUsPerSample": 391.2024545428863,
+          "ratioMax": 8.864517000968167,
+          "ratioMedian": 7.105514344267839,
+          "ratioMin": 6.84589571669598,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05632410678126424,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5422825509283159,
+          "neuralUsPerSample": 1.8764102108246226,
+          "ratioMax": 10.518722978049132,
+          "ratioMedian": 9.58649597800678,
+          "ratioMin": 9.195631938419025,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05507425301736791,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.6166356607926511,
+          "neuralUsPerSample": 0.14594926882666298,
+          "ratioMax": 12.51809233327151,
+          "ratioMedian": 11.117160198580535,
+          "ratioMin": 10.625167125446303,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.1004382666821282,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 4.237911199743394,
+          "neuralUsPerSample": 0.06466539306249075,
+          "ratioMax": 4.032779538702057,
+          "ratioMedian": 3.8980591708382977,
+          "ratioMin": 3.6068087968509768,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 17.811287005315535,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 70.89447899488732,
+          "neuralUsPerSample": 0.07089447899488732,
+          "ratioMax": 4.116071986286112,
+          "ratioMedian": 3.9599324371132245,
+          "ratioMin": 3.452229928320554,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "bandwidth": 2.847165168219056,
+        "depth": 3,
+        "kind": "bandlimited",
+        "width": 104
+      },
+      "deployedBytes": 70520,
+      "maeM": 2.907854383123071,
+      "maxM": 37.54082148552719,
+      "name": "bandlimited-t23",
+      "peakDeviceBytes": 1752043520
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.05486263731747108,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.41988112764343855,
+          "neuralUsPerSample": 419.88112764343856,
+          "ratioMax": 8.235183049807087,
+          "ratioMedian": 7.717643527234234,
+          "ratioMin": 7.219720600186798,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05348890827685851,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.4429220518266613,
+          "neuralUsPerSample": 1.5326022554555754,
+          "ratioMax": 9.28988351734303,
+          "ratioMedian": 8.281800977258493,
+          "ratioMin": 7.398949109762956,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.053653046720867216,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5780622000909514,
+          "neuralUsPerSample": 0.13681945564282874,
+          "ratioMax": 12.527096573601625,
+          "ratioMedian": 10.77407967339395,
+          "ratioMin": 10.006871132669447,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.1178400936842081,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 1.5852204766512539,
+          "neuralUsPerSample": 0.02418854487077719,
+          "ratioMax": 1.4861021119102689,
+          "ratioMedian": 1.401085405364478,
+          "ratioMin": 1.2975398337290247,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 17.914781499712262,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 34.42561300471425,
+          "neuralUsPerSample": 0.03442561300471425,
+          "ratioMax": 1.9723814909855037,
+          "ratioMedian": 1.9214122025522666,
+          "ratioMin": 1.810134032664623,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "bandwidth": 2.8392138135150984,
+        "depth": 2,
+        "kind": "bandlimited",
+        "width": 30
+      },
+      "deployedBytes": 5614,
+      "maeM": 5.938667697452442,
+      "maxM": 48.37767877883199,
+      "name": "bandlimited-t6",
+      "peakDeviceBytes": 584829952
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.053874556873395006,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.43079311112200636,
+          "neuralUsPerSample": 430.79311112200634,
+          "ratioMax": 9.703158815707875,
+          "ratioMedian": 8.42507367167415,
+          "ratioMin": 7.258859981149246,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.056267576676042055,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.47515393655178034,
+          "neuralUsPerSample": 1.6441312683452607,
+          "ratioMax": 9.077503638737374,
+          "ratioMedian": 8.459532112753918,
+          "ratioMin": 7.67081354667932,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05497547352354144,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5417526666618263,
+          "neuralUsPerSample": 0.12822548323356836,
+          "ratioMax": 10.858310756985,
+          "ratioMedian": 9.837285948990143,
+          "ratioMin": 8.89671552156625,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.1001575857617667,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 1.2536467147583608,
+          "neuralUsPerSample": 0.019129130779393932,
+          "ratioMax": 1.1395155848426166,
+          "ratioMedian": 1.0846961471922159,
+          "ratioMin": 1.0542216623633869,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 17.471093997301068,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 29.74486800667364,
+          "neuralUsPerSample": 0.02974486800667364,
+          "ratioMax": 2.139088765372744,
+          "ratioMedian": 1.73849748577162,
+          "ratioMin": 1.5344247500565393,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "bands": 19,
+        "depth": 2,
+        "kind": "fourier",
+        "mode": "gaussian",
+        "scale": 14.670611593468937,
+        "width": 29
+      },
+      "deployedBytes": 4758,
+      "maeM": 17.23115996875574,
+      "maxM": 83.78400470739044,
+      "name": "fourier-t0",
+      "peakDeviceBytes": 589863424
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.053260711138136685,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.38735052319595503,
+          "neuralUsPerSample": 387.350523195955,
+          "ratioMax": 7.633495775136041,
+          "ratioMedian": 7.255562982013776,
+          "ratioMin": 6.5245723072410495,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05497360855640311,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.47647675448800175,
+          "neuralUsPerSample": 1.6487084930380682,
+          "ratioMax": 9.027151835106942,
+          "ratioMedian": 8.102748105424656,
+          "ratioMin": 7.715311871058756,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05756198033543952,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5802768420452546,
+          "neuralUsPerSample": 0.1373436312533147,
+          "ratioMax": 10.810348497805407,
+          "ratioMedian": 9.867937585521359,
+          "ratioMin": 8.481694262577502,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.1335868125570414,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 3.350654249516083,
+          "neuralUsPerSample": 0.05112692641473515,
+          "ratioMax": 3.170666515609842,
+          "ratioMedian": 2.8752253979112217,
+          "ratioMin": 2.743609570232071,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 19.149378502334002,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 60.20487799833063,
+          "neuralUsPerSample": 0.06020487799833063,
+          "ratioMax": 3.627485353466971,
+          "ratioMedian": 3.057427981002443,
+          "ratioMin": 2.945575365277481,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "bands": 11,
+        "depth": 4,
+        "kind": "fourier",
+        "mode": "gaussian",
+        "scale": 0.8525057562477024,
+        "width": 126
+      },
+      "deployedBytes": 103434,
+      "maeM": 1.819886386598077,
+      "maxM": 26.396577028991345,
+      "name": "fourier-t22",
+      "peakDeviceBytes": 1313129472
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.06651272574785136,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 2.0472485418091915,
+          "neuralUsPerSample": 2047.2485418091915,
+          "ratioMax": 36.35392590610282,
+          "ratioMedian": 31.713247908374402,
+          "ratioMin": 27.431401926305288,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.06264337571337819,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 2.082217822830631,
+          "neuralUsPerSample": 7.204905961351665,
+          "ratioMax": 47.92768148226664,
+          "ratioMedian": 33.23923398313847,
+          "ratioMin": 29.038460876267486,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05905200004421342,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 2.1086307999212295,
+          "neuralUsPerSample": 0.49908421299910755,
+          "ratioMax": 37.14431270498172,
+          "ratioMedian": 34.23837757367246,
+          "ratioMin": 30.462792933241403,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.1512392666190863,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 13.228553500084672,
+          "neuralUsPerSample": 0.2018517074597881,
+          "ratioMax": 12.246826452082956,
+          "ratioMedian": 11.553580106115467,
+          "ratioMin": 10.80354275933453,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 18.081817499478348,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 170.88290498941205,
+          "neuralUsPerSample": 0.17088290498941205,
+          "ratioMax": 11.644564270389846,
+          "ratioMedian": 9.730396080585754,
+          "ratioMin": 8.941850494707614,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "base_level": 1,
+        "base_target_m": 0.5,
+        "inner": {
+          "depth": 6,
+          "hidden_omega": 3.768553447428029,
+          "kind": "codegrid",
+          "latent": 16,
+          "omega": 54.70154480613572,
+          "patches": 8,
+          "width": 109
+        },
+        "kind": "residual"
+      },
+      "deployedBytes": 281377,
+      "maeM": 0.36691112847791285,
+      "maxM": 9.030173495751058,
+      "name": "hybrid-t0",
+      "peakDeviceBytes": 2925711360
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.05702110844052745,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 1.4524006951630681,
+          "neuralUsPerSample": 1452.4006951630681,
+          "ratioMax": 28.09399895266273,
+          "ratioMedian": 25.647626569330548,
+          "ratioMin": 22.27335728545681,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05869656469097689,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 1.5389264786474244,
+          "neuralUsPerSample": 5.325005116427074,
+          "ratioMax": 28.29704007718356,
+          "ratioMedian": 24.49202909170622,
+          "ratioMin": 21.52590528819189,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05502683215146116,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 1.4491268708708607,
+          "neuralUsPerSample": 0.34298860849014456,
+          "ratioMax": 30.67441424104861,
+          "ratioMedian": 24.413295520591774,
+          "ratioMin": 23.265640187704367,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.0994690969856757,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 2.5341129283853143,
+          "neuralUsPerSample": 0.03866749463478568,
+          "ratioMax": 2.3885360948852212,
+          "ratioMedian": 2.3082757523784228,
+          "ratioMin": 2.2139341062367306,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 18.888585502281785,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 46.82298199622892,
+          "neuralUsPerSample": 0.04682298199622892,
+          "ratioMax": 2.68500257345818,
+          "ratioMedian": 2.4934223401409548,
+          "ratioMin": 2.3451925784851224,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "base_level": 3,
+        "base_target_m": 4.0,
+        "inner": {
+          "depth": 2,
+          "hidden_omega": 2.170590116056032,
+          "kind": "codegrid",
+          "latent": 10,
+          "omega": 80.2609813205871,
+          "patches": 8,
+          "width": 22
+        },
+        "kind": "residual"
+      },
+      "deployedBytes": 10404,
+      "maeM": 1.7960129244465812,
+      "maxM": 18.96973826462012,
+      "name": "hybrid-t5",
+      "peakDeviceBytes": 828798976
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.0526271845984201,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.25015575194178163,
+          "neuralUsPerSample": 250.15575194178163,
+          "ratioMax": 5.995519934058199,
+          "ratioMedian": 4.7533561571008205,
+          "ratioMin": 4.432977249882251,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05745377106665585,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.28633249166887254,
+          "neuralUsPerSample": 0.990769867366341,
+          "ratioMax": 5.591949139186589,
+          "ratioMedian": 5.039395929723584,
+          "ratioMin": 4.862258391512602,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05857078473211655,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.43796064011985436,
+          "neuralUsPerSample": 0.10365932310529097,
+          "ratioMax": 9.09802000908934,
+          "ratioMedian": 7.4774589775933835,
+          "ratioMin": 7.048690363305379,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.14333132360651,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 1.2530695169297015,
+          "neuralUsPerSample": 0.019120323439479087,
+          "ratioMax": 1.2047900732017884,
+          "ratioMedian": 1.0957235320848406,
+          "ratioMin": 0.9763620683781139,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 19.467227000859566,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 28.957903006812558,
+          "neuralUsPerSample": 0.028957903006812558,
+          "ratioMax": 1.6455495171887133,
+          "ratioMedian": 1.5470473216269933,
+          "ratioMin": 1.3678341748651115,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "activation": "relu",
+        "depth": 2,
+        "kind": "mlp",
+        "width": 16
+      },
+      "deployedBytes": 1098,
+      "maeM": 7.9977250416420205,
+      "maxM": 62.38298706994311,
+      "name": "mlp-t38",
+      "peakDeviceBytes": 361901568
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.060033395786578896,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.4253261035171755,
+          "neuralUsPerSample": 425.32610351717545,
+          "ratioMax": 8.126949299891825,
+          "ratioMedian": 6.777971714590983,
+          "ratioMin": 6.133367787452,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.057961109003283044,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.4732136830414941,
+          "neuralUsPerSample": 1.6374175883788724,
+          "ratioMax": 10.063465093161376,
+          "ratioMedian": 8.172332761827084,
+          "ratioMin": 7.1634858619748325,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05676274998032293,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5036465537089568,
+          "neuralUsPerSample": 0.11920628490152825,
+          "ratioMax": 9.91182115231897,
+          "ratioMedian": 8.745502895065448,
+          "ratioMin": 7.51810811427979,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.1661788273064806,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 2.058298059102312,
+          "neuralUsPerSample": 0.03140713591159534,
+          "ratioMax": 1.8565277275897738,
+          "ratioMedian": 1.7704306721924097,
+          "ratioMin": 1.673748912793254,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 17.611665498407092,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 41.11624001234304,
+          "neuralUsPerSample": 0.04111624001234304,
+          "ratioMax": 2.574580560663954,
+          "ratioMedian": 2.3346025971286957,
+          "ratioMin": 2.2682101196307864,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "activation": "gelu",
+        "depth": 4,
+        "kind": "mlp",
+        "width": 74
+      },
+      "deployedBytes": 34622,
+      "maeM": 2.3714767889407833,
+      "maxM": 32.95436427055765,
+      "name": "mlp-t43",
+      "peakDeviceBytes": 841050624
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.05637961728431269,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.45567834183059047,
+          "neuralUsPerSample": 455.67834183059045,
+          "ratioMax": 9.316948202236354,
+          "ratioMedian": 8.439040179382772,
+          "ratioMin": 6.921381956610393,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.056224930480516015,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.475971878512536,
+          "neuralUsPerSample": 1.6469615173444152,
+          "ratioMax": 9.85423481653998,
+          "ratioMedian": 9.013154780750453,
+          "ratioMin": 7.650905409143527,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05410645283241518,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.6314025500614662,
+          "neuralUsPerSample": 0.14944439054709258,
+          "ratioMax": 13.775763667009969,
+          "ratioMedian": 11.361438367186244,
+          "ratioMin": 10.518610447241073,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.1459658126113936,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 2.1434874379338,
+          "neuralUsPerSample": 0.03270702267355041,
+          "ratioMax": 1.9694525038256172,
+          "ratioMedian": 1.8796794749200791,
+          "ratioMin": 1.8041052892012706,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 18.35364699945785,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 49.95880401111208,
+          "neuralUsPerSample": 0.04995880401111208,
+          "ratioMax": 2.7599396519495714,
+          "ratioMedian": 2.713164998653712,
+          "ratioMin": 2.665972490065431,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "depth": 2,
+        "hidden_omega": 50.66810475834268,
+        "kind": "shared",
+        "latent": 3,
+        "omega": 2.5129750703057248,
+        "width": 30
+      },
+      "deployedBytes": 5430,
+      "maeM": 4.133178258125999,
+      "maxM": 47.07899436201057,
+      "name": "shared-t29",
+      "peakDeviceBytes": 1045878272
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.05418688662532602,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.6920406734452069,
+          "neuralUsPerSample": 692.040673445207,
+          "ratioMax": 14.812700734711855,
+          "ratioMedian": 12.198920619907843,
+          "ratioMin": 11.120290222667942,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05642471511143809,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.8047613750282575,
+          "neuralUsPerSample": 2.7846414360839358,
+          "ratioMax": 15.708893209879413,
+          "ratioMedian": 14.082503145270723,
+          "ratioMin": 12.147245982767982,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.05851949390489608,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.771250162034522,
+          "neuralUsPerSample": 0.18254441704959098,
+          "ratioMax": 15.134065692145551,
+          "ratioMedian": 13.955268491013406,
+          "ratioMin": 11.22054724372099,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.084373058641658,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 2.0956763119102106,
+          "neuralUsPerSample": 0.03197748278671586,
+          "ratioMax": 1.978464121150199,
+          "ratioMedian": 1.9168546615772952,
+          "ratioMin": 1.8467413435983808,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 18.4583680020296,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 57.557560998247936,
+          "neuralUsPerSample": 0.057557560998247936,
+          "ratioMax": 3.201415109080442,
+          "ratioMedian": 3.1182367255826278,
+          "ratioMin": 2.766993915930657,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "depth": 3,
+        "hidden_omega": 50.66810475834268,
+        "kind": "shared",
+        "latent": 6,
+        "omega": 2.92379259209828,
+        "width": 30
+      },
+      "deployedBytes": 10698,
+      "maeM": 3.1519056559479837,
+      "maxM": 62.19905215762546,
+      "name": "shared-t42",
+      "peakDeviceBytes": 1074362368
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.05908465386169696,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5398647252669824,
+          "neuralUsPerSample": 539.8647252669824,
+          "ratioMax": 9.887721544031585,
+          "ratioMedian": 9.262188994605403,
+          "ratioMin": 7.869186391475253,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.056915083070678045,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5320114508668013,
+          "neuralUsPerSample": 1.840870072203465,
+          "ratioMax": 10.67832416282249,
+          "ratioMedian": 9.407453612809338,
+          "ratioMin": 8.50249986713385,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.0599176828065755,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.6077297322398019,
+          "neuralUsPerSample": 0.14384135674314835,
+          "ratioMax": 10.735970722690348,
+          "ratioMedian": 10.000864767088457,
+          "ratioMin": 7.77689384971404,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.122683757619763,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 1.3127215771909015,
+          "neuralUsPerSample": 0.02003054164414828,
+          "ratioMax": 1.2556424163317181,
+          "ratioMedian": 1.1812016012501294,
+          "ratioMin": 1.1312771854545964,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 17.86552299745381,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 31.047113006934524,
+          "neuralUsPerSample": 0.031047113006934524,
+          "ratioMax": 1.8469908085087674,
+          "ratioMedian": 1.7739157279880293,
+          "ratioMin": 1.6337863716530077,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "depth": 4,
+        "hidden_omega": 47.60793252033176,
+        "kind": "siren",
+        "omega": 3.4088585196756704,
+        "width": 17
+      },
+      "deployedBytes": 2742,
+      "maeM": 3.8602810481511094,
+      "maxM": 37.23985426527156,
+      "name": "siren-t42",
+      "peakDeviceBytes": 567943168
+    },
+    {
+      "byQuerySize": [
+        {
+          "conventionalMsMedian": 0.05927079912173013,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.43933309667233017,
+          "neuralUsPerSample": 439.33309667233016,
+          "ratioMax": 9.478669525912771,
+          "ratioMedian": 7.487196384309142,
+          "ratioMin": 6.722386036401922,
+          "readAmplification": 4225.0,
+          "requestedSamples": 1,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.06048389869510787,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.5741512962871369,
+          "neuralUsPerSample": 1.9866826861146607,
+          "ratioMax": 14.014834660487194,
+          "ratioMedian": 9.332046203634098,
+          "ratioMin": 8.58064918062688,
+          "readAmplification": 14.619377162629759,
+          "requestedSamples": 289,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 0.06308741635899534,
+          "conventionalPagesRead": 1,
+          "conventionalSamplesDecoded": 4225,
+          "neuralMsMedian": 0.7174392332672141,
+          "neuralUsPerSample": 0.16980810254845305,
+          "ratioMax": 12.207314516467068,
+          "ratioMedian": 10.698300387791033,
+          "ratioMin": 10.186273855788802,
+          "readAmplification": 1.0,
+          "requestedSamples": 4225,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 1.2224349308686717,
+          "conventionalPagesRead": 16,
+          "conventionalSamplesDecoded": 67600,
+          "neuralMsMedian": 2.351713733514771,
+          "neuralUsPerSample": 0.035884303795086225,
+          "ratioMax": 2.0909465601728936,
+          "ratioMedian": 1.8885788294466992,
+          "ratioMin": 1.8391881860749324,
+          "readAmplification": 1.031494140625,
+          "requestedSamples": 65536,
+          "trials": 7
+        },
+        {
+          "conventionalMsMedian": 19.25038699846482,
+          "conventionalPagesRead": 256,
+          "conventionalSamplesDecoded": 1081600,
+          "neuralMsMedian": 51.453454012516886,
+          "neuralUsPerSample": 0.051453454012516886,
+          "ratioMax": 2.7485329460247807,
+          "ratioMedian": 2.6522111686286243,
+          "ratioMin": 2.5907448950259635,
+          "readAmplification": 1.0816,
+          "requestedSamples": 1000000,
+          "trials": 7
+        }
+      ],
+      "config": {
+        "depth": 5,
+        "hidden_omega": 2.376088172701154,
+        "kind": "siren",
+        "omega": 5.634087058924482,
+        "width": 49
+      },
+      "deployedBytes": 20930,
+      "maeM": 2.6116952683304406,
+      "maxM": 34.96857041042074,
+      "name": "siren-t8",
+      "peakDeviceBytes": 985600000
+    }
+  ],
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T21:04:23.842160+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {
+      "atlas": {
+        "kind": "ext4",
+        "mount": "/",
+        "path": "$GEONEURAL_HOME/atlases/essen-ruhr"
+      }
+    },
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "atlas": ".data/atlases/essen-ruhr/atlas.json"
+    },
+    "kind": "decode-latency",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1819110,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "79bd127105b6c09ecc679dcaa225e024373e4cb51d6c70622fada752d80db51d",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-decode-latency-v1",
+  "timing": {
+    "cacheState": "warm",
+    "clock": "time.perf_counter",
+    "concurrency": {
+      "otherGpuProcessesObserved": null,
+      "topology": "serial",
+      "workers": 1
+    },
+    "contended": false,
+    "engine": {
+      "dataPath": "device",
+      "engineMode": "cudagraph"
+    },
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "hostBusyFraction": {
+      "after": 0.11212121212121207,
+      "before": 0.003076923076923088
+    },
+    "mode": "throughput",
+    "qualification": "Not qualified. Wall-clock fields are inflated by whatever else was running and only give a ratio between arms measured back to back. Do not quote absolute times.",
+    "qualified": false,
+    "synchronisation": "torch.cuda.synchronize() inside the timed region on GPU runs",
+    "warmupIterations": 0
+  }
+}

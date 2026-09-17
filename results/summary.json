@@ -1,0 +1,1392 @@
+{
+  "closure": {
+    "byArm": {
+      "flux": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.00476,
+        "maeRange": [
+          0.00421,
+          0.00507
+        ],
+        "residualMedian": 7.69e-09,
+        "residualRange": [
+          5.17e-09,
+          8.69e-09
+        ]
+      },
+      "kfield": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.00589,
+        "maeRange": [
+          0.00577,
+          0.00601
+        ],
+        "residualMedian": 0.0227,
+        "residualRange": [
+          0.018,
+          0.0278
+        ]
+      },
+      "penalty-0.0001": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.00609,
+        "maeRange": [
+          0.00584,
+          0.00612
+        ],
+        "residualMedian": 0.0267,
+        "residualRange": [
+          0.0205,
+          0.0301
+        ]
+      },
+      "penalty-0.001": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.00709,
+        "maeRange": [
+          0.00689,
+          0.00718
+        ],
+        "residualMedian": 0.027,
+        "residualRange": [
+          0.0198,
+          0.0376
+        ]
+      },
+      "penalty-0.01": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.01044,
+        "maeRange": [
+          0.01028,
+          0.01072
+        ],
+        "residualMedian": 0.00958,
+        "residualRange": [
+          0.00635,
+          0.0135
+        ]
+      },
+      "penalty-0.1": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.01421,
+        "maeRange": [
+          0.01414,
+          0.01428
+        ],
+        "residualMedian": 0.000131,
+        "residualRange": [
+          6.3e-06,
+          0.000176
+        ]
+      },
+      "penalty-1": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.01425,
+        "maeRange": [
+          0.01414,
+          0.01437
+        ],
+        "residualMedian": 0.000113,
+        "residualRange": [
+          7.73e-06,
+          0.000228
+        ]
+      },
+      "penalty-10": {
+        "finiteRollouts": 5,
+        "maeMedian": 0.01425,
+        "maeRange": [
+          0.01414,
+          0.01438
+        ],
+        "residualMedian": 0.000132,
+        "residualRange": [
+          7.22e-06,
+          0.00024
+        ]
+      }
+    },
+    "linearDiffusionMae": 0.0162,
+    "penaltyWeights": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "seeds": [
+      1729,
+      2,
+      3,
+      4,
+      5
+    ],
+    "source": {
+      "evidence": "reproduced",
+      "report": "flux-closure-seeds.json"
+    }
+  },
+  "corrections": {
+    "bands": [
+      {
+        "bestUniformBelow": {
+          "bytes": 498124,
+          "id": "q32dz-full@0.2",
+          "streamJaccard": 0.4356
+        },
+        "cheapestUniformReaching": {
+          "bytes": 557917,
+          "id": "q32dz-full@0.15",
+          "streamJaccard": 0.4756
+        },
+        "correctionBytes": 51337,
+        "maeM": 0.481,
+        "radiusCells": 0,
+        "streamJaccard": 0.4581,
+        "streamJaccardAtOtherThresholds": {
+          "1000": 0.4614,
+          "2000": 0.4765,
+          "250": 0.3825
+        },
+        "totalBytes": 292397
+      },
+      {
+        "bestUniformBelow": {
+          "bytes": 817032,
+          "id": "q32dz-full@0.05",
+          "streamJaccard": 0.6453
+        },
+        "cheapestUniformReaching": {
+          "bytes": 1060321,
+          "id": "q32dz-full@0.02",
+          "streamJaccard": 0.7723
+        },
+        "correctionBytes": 141611,
+        "maeM": 0.4453,
+        "radiusCells": 1,
+        "streamJaccard": 0.6766,
+        "streamJaccardAtOtherThresholds": {
+          "1000": 0.6828,
+          "2000": 0.6723,
+          "250": 0.5344
+        },
+        "totalBytes": 382671
+      },
+      {
+        "bestUniformBelow": {
+          "bytes": 817032,
+          "id": "q32dz-full@0.05",
+          "streamJaccard": 0.6453
+        },
+        "cheapestUniformReaching": {
+          "bytes": 1060321,
+          "id": "q32dz-full@0.02",
+          "streamJaccard": 0.7723
+        },
+        "correctionBytes": 220628,
+        "maeM": 0.4112,
+        "radiusCells": 2,
+        "streamJaccard": 0.7109,
+        "streamJaccardAtOtherThresholds": {
+          "1000": 0.7195,
+          "2000": 0.7271,
+          "250": 0.5621
+        },
+        "totalBytes": 461688
+      },
+      {
+        "bestUniformBelow": {
+          "bytes": 817032,
+          "id": "q32dz-full@0.05",
+          "streamJaccard": 0.6453
+        },
+        "cheapestUniformReaching": {
+          "bytes": 1060321,
+          "id": "q32dz-full@0.02",
+          "streamJaccard": 0.7723
+        },
+        "correctionBytes": 362965,
+        "maeM": 0.3473,
+        "radiusCells": 4,
+        "streamJaccard": 0.7488,
+        "streamJaccardAtOtherThresholds": {
+          "1000": 0.7739,
+          "2000": 0.7815,
+          "250": 0.6089
+        },
+        "totalBytes": 604025
+      }
+    ],
+    "baseline": {
+      "atOtherThresholds": {
+        "1000": 0.2155,
+        "2000": 0.2052,
+        "250": 0.2081
+      },
+      "streamJaccard": 0.2192
+    },
+    "source": {
+      "evidence": "reproduced",
+      "report": "corrections-essen.json"
+    },
+    "targetM": 1.0,
+    "uniformControls": [
+      {
+        "atOtherThresholds": {
+          "1000": 0.3133,
+          "2000": 0.3026,
+          "250": 0.2922
+        },
+        "streamJaccard": 0.3113,
+        "targetM": 0.5
+      }
+    ]
+  },
+  "drainage": {
+    "byTarget": {
+      "0.01": {
+        "maeM": 0.005,
+        "reconstructedBasins": 356,
+        "referenceBasins": 268,
+        "streamJaccard": 0.8489,
+        "streamRecall": 0.9177
+      },
+      "0.05": {
+        "maeM": 0.0251,
+        "reconstructedBasins": 617,
+        "referenceBasins": 268,
+        "streamJaccard": 0.6461,
+        "streamRecall": 0.7842
+      },
+      "0.1": {
+        "maeM": 0.05,
+        "reconstructedBasins": 895,
+        "referenceBasins": 268,
+        "streamJaccard": 0.5278,
+        "streamRecall": 0.6875
+      },
+      "0.5": {
+        "maeM": 0.2492,
+        "reconstructedBasins": 2128,
+        "referenceBasins": 268,
+        "streamJaccard": 0.3113,
+        "streamRecall": 0.4652
+      },
+      "1": {
+        "maeM": 0.4942,
+        "reconstructedBasins": 2798,
+        "referenceBasins": 268,
+        "streamJaccard": 0.2192,
+        "streamRecall": 0.3487
+      }
+    },
+    "source": {
+      "evidence": "reproduced",
+      "report": "drainage-essen.json"
+    },
+    "streamThresholdCells": 500
+  },
+  "geology": {
+    "geology-concat": {
+      "exceedsSeedSpread": true,
+      "extraBytesOverNone": 28526,
+      "gainOverMisalignedM": 0.3236,
+      "note": "pairedGainOfRealM[x] is x minus real per seed on the held-out test pages; positive means the real map helped.",
+      "pairedGainOfRealM": {
+        "generic": [
+          0.5099,
+          0.1669,
+          0.2818
+        ],
+        "misaligned": [
+          0.4052,
+          0.3003,
+          0.3636
+        ],
+        "none": [
+          0.4372,
+          -0.0574,
+          0.457
+        ]
+      },
+      "seedSpreadM": 0.1323,
+      "source": {
+        "evidence": "reproduced",
+        "report": "geology-concat.json"
+      },
+      "testMaeBySeed": {
+        "generic": [
+          4.6681,
+          4.4574,
+          4.5489
+        ],
+        "misaligned": [
+          4.5633,
+          4.5907,
+          4.6308
+        ],
+        "none": [
+          4.5953,
+          4.233,
+          4.7241
+        ],
+        "real": [
+          4.1581,
+          4.2904,
+          4.2672
+        ],
+        "shuffled": [
+          4.6363,
+          4.2988,
+          4.7712
+        ]
+      }
+    },
+    "geology-film": {
+      "exceedsSeedSpread": false,
+      "extraBytesOverNone": 28534,
+      "gainOverMisalignedM": 0.1114,
+      "note": "pairedGainOfRealM[x] is x minus real per seed on the held-out test pages; positive means the real map helped.",
+      "pairedGainOfRealM": {
+        "generic": [
+          -0.0601,
+          0.2136,
+          0.3967
+        ],
+        "misaligned": [
+          0.0575,
+          0.2614,
+          -0.0374
+        ],
+        "none": [
+          -0.2607,
+          0.1409,
+          0.3152
+        ]
+      },
+      "seedSpreadM": 0.5342,
+      "source": {
+        "evidence": "reproduced",
+        "report": "geology-film.json"
+      },
+      "testMaeBySeed": {
+        "generic": [
+          5.2384,
+          4.978,
+          5.311
+        ],
+        "misaligned": [
+          5.3561,
+          5.0257,
+          4.8768
+        ],
+        "none": [
+          5.0378,
+          4.9052,
+          5.2295
+        ],
+        "real": [
+          5.2985,
+          4.7643,
+          4.9143
+        ],
+        "shuffled": [
+          5.2669,
+          4.8735,
+          4.9612
+        ]
+      }
+    },
+    "geology-residual-concat": {
+      "exceedsSeedSpread": false,
+      "extraBytesOverNone": 28526,
+      "gainOverMisalignedM": 0.0033,
+      "note": "pairedGainOfRealM[x] is x minus real per seed on the held-out test pages; positive means the real map helped.",
+      "pairedGainOfRealM": {
+        "generic": [
+          0.055,
+          0.0398,
+          0.0325
+        ],
+        "misaligned": [
+          0.016,
+          0.0086,
+          -0.0327
+        ],
+        "none": [
+          -0.011,
+          0.0312,
+          -0.0112
+        ]
+      },
+      "seedSpreadM": 0.034,
+      "source": {
+        "evidence": "reproduced",
+        "report": "geology-residual-concat.json"
+      },
+      "testMaeBySeed": {
+        "generic": [
+          1.2537,
+          1.2513,
+          1.2652
+        ],
+        "misaligned": [
+          1.2147,
+          1.2201,
+          1.1999
+        ],
+        "none": [
+          1.1877,
+          1.2427,
+          1.2214
+        ],
+        "real": [
+          1.1987,
+          1.2115,
+          1.2326
+        ],
+        "shuffled": [
+          1.2102,
+          1.2372,
+          1.2093
+        ]
+      }
+    },
+    "geology-residual-film": {
+      "exceedsSeedSpread": false,
+      "extraBytesOverNone": 28526,
+      "gainOverMisalignedM": -0.0049,
+      "note": "pairedGainOfRealM[x] is x minus real per seed on the held-out test pages; positive means the real map helped.",
+      "pairedGainOfRealM": {
+        "generic": [
+          -0.0102,
+          -0.019,
+          -0.0368
+        ],
+        "misaligned": [
+          -0.0104,
+          -0.0021,
+          -0.0029
+        ],
+        "none": [
+          0.0042,
+          -0.0015,
+          0.0029
+        ]
+      },
+      "seedSpreadM": 0.0081,
+      "source": {
+        "evidence": "reproduced",
+        "report": "geology-residual-film.json"
+      },
+      "testMaeBySeed": {
+        "generic": [
+          1.2061,
+          1.1945,
+          1.1801
+        ],
+        "misaligned": [
+          1.206,
+          1.2114,
+          1.2141
+        ],
+        "none": [
+          1.2206,
+          1.212,
+          1.2198
+        ],
+        "real": [
+          1.2164,
+          1.2135,
+          1.217
+        ],
+        "shuffled": [
+          1.2236,
+          1.2156,
+          1.2219
+        ]
+      }
+    }
+  },
+  "otherExperiments": {
+    "decodeLatency": {
+      "medianNeuralOverConventional": {
+        "1": 8.1,
+        "1000000": 2.6,
+        "289": 9.2,
+        "4225": 10.7,
+        "65536": 1.9
+      },
+      "peakDeviceBytes": [
+        1752043520,
+        584829952,
+        589863424,
+        1313129472,
+        2925711360,
+        828798976,
+        361901568,
+        841050624,
+        1045878272,
+        1074362368,
+        567943168,
+        985600000
+      ],
+      "source": {
+        "evidence": "reproduced",
+        "report": "decode-latency.json"
+      }
+    },
+    "distillation": {
+      "informative": false,
+      "physicsGainM": -0.771,
+      "seedSpreadM": 0.0615,
+      "source": {
+        "evidence": "reproduced",
+        "report": "distillation.json"
+      }
+    },
+    "emulator": {
+      "gates": {
+        "fno": {
+          "beatsLinearUpliftAtEveryLength": true,
+          "beatsPersistenceAtEveryLength": true,
+          "beatsPersistenceOnDrainage": false,
+          "conservationWithinOnePercent": false,
+          "longestRollout": 8,
+          "passes": false
+        },
+        "unet": {
+          "beatsLinearUpliftAtEveryLength": true,
+          "beatsPersistenceAtEveryLength": true,
+          "beatsPersistenceOnDrainage": false,
+          "conservationWithinOnePercent": false,
+          "longestRollout": 8,
+          "passes": false
+        }
+      },
+      "source": {
+        "evidence": "reproduced",
+        "report": "emulator.json"
+      }
+    },
+    "eventField": {
+      "boreholeMaeM": {
+        "event": 4.07,
+        "oracle": 8.12,
+        "plain": 5.9
+      },
+      "source": {
+        "evidence": "reproduced",
+        "report": "event-field.json"
+      }
+    },
+    "superResolution": {
+      "arms": {
+        "edsr": {
+          "bytes": 667138,
+          "heldOut": {
+            "muensterland-plain": {
+              "bicubicBackProjectedMaeM": 0.0702,
+              "neuralMaeM": 0.086
+            },
+            "rothaar-sauerland": {
+              "bicubicBackProjectedMaeM": 0.0993,
+              "neuralMaeM": 0.0975
+            }
+          },
+          "withinRegion": {
+            "bicubicBackProjectedMaeM": 0.1275,
+            "neuralMaeM": 0.1168
+          }
+        },
+        "liif": {
+          "bytes": 1021698,
+          "heldOut": {
+            "muensterland-plain": {
+              "bicubicBackProjectedMaeM": 0.0702,
+              "neuralMaeM": 0.0754
+            },
+            "rothaar-sauerland": {
+              "bicubicBackProjectedMaeM": 0.0993,
+              "neuralMaeM": 0.0969
+            }
+          },
+          "withinRegion": {
+            "bicubicBackProjectedMaeM": 0.1275,
+            "neuralMaeM": 0.1153
+          }
+        },
+        "residual-siren": {
+          "bytes": 1255170,
+          "heldOut": {
+            "muensterland-plain": {
+              "bicubicBackProjectedMaeM": 0.0702,
+              "neuralMaeM": 0.0865
+            },
+            "rothaar-sauerland": {
+              "bicubicBackProjectedMaeM": 0.0993,
+              "neuralMaeM": 0.1001
+            }
+          },
+          "withinRegion": {
+            "bicubicBackProjectedMaeM": 0.1275,
+            "neuralMaeM": 0.1205
+          }
+        }
+      },
+      "source": {
+        "evidence": "reproduced",
+        "report": "superres-neural.json"
+      }
+    }
+  },
+  "registration": {
+    "heightBenchmarks": {
+      "inAtlas": 403,
+      "inCore": 341,
+      "medianResidualM": 0.28,
+      "shiftM": [
+        -0.02,
+        0.41
+      ],
+      "source": {
+        "evidence": "reproduced",
+        "report": "height-benchmarks-essen.json"
+      },
+      "spreadIfFlippedM": 32.8,
+      "spreadIfTransposedM": 27.4,
+      "spreadM": 0.36
+    },
+    "landscapeModel": {
+      "axesAscending": 1,
+      "axesDescending": 52,
+      "source": {
+        "evidence": "reproduced",
+        "report": "dlm-essen.json"
+      },
+      "valleyBelowBanks": 0.794,
+      "valleyBelowBanksMirrored": 0.097,
+      "waterLevelLargestDifferenceM": 0.15,
+      "waterLevelToleranceM": 0.25
+    }
+  },
+  "representations": {
+    "conventionalRows": 133,
+    "drainageAtMatchedBytes": [
+      {
+        "bestConventional": {
+          "bytes": 6569,
+          "id": "q32dz-level3@2",
+          "streamJaccard": 0.0504
+        },
+        "bytes": 8528,
+        "id": "fit/bandlimited-t20",
+        "streamJaccard": 0.0164
+      },
+      {
+        "bestConventional": {
+          "bytes": 8723,
+          "id": "q32dz-level3@1",
+          "streamJaccard": 0.0549
+        },
+        "bytes": 9512,
+        "id": "fit/codegrid-t18",
+        "streamJaccard": 0.0265
+      },
+      {
+        "bestConventional": {
+          "bytes": 8723,
+          "id": "q32dz-level3@1",
+          "streamJaccard": 0.0549
+        },
+        "bytes": 9012,
+        "id": "fit/fourier-t0",
+        "streamJaccard": 0.0168
+      },
+      {
+        "bestConventional": {
+          "bytes": 3956,
+          "id": "q32dz-level3@6",
+          "streamJaccard": 0.0397
+        },
+        "bytes": 4471,
+        "id": "fit/grid-t3",
+        "streamJaccard": 0.0146
+      },
+      {
+        "bestConventional": {
+          "bytes": 14311,
+          "id": "q32dz-level2@4",
+          "streamJaccard": 0.0646
+        },
+        "bytes": 15150,
+        "id": "fit/hybrid-t5",
+        "streamJaccard": 0.0437
+      },
+      {
+        "bestConventional": {
+          "bytes": 2729,
+          "id": "q32dz-level4@1",
+          "streamJaccard": 0.0345
+        },
+        "bytes": 3004,
+        "id": "fit/mlp-t8",
+        "streamJaccard": 0.0188
+      },
+      {
+        "bestConventional": {
+          "bytes": 9822,
+          "id": "q32dz-level3@0.75",
+          "streamJaccard": 0.0561
+        },
+        "bytes": 10117,
+        "id": "fit/residual-t20",
+        "streamJaccard": 0.0335
+      },
+      {
+        "bestConventional": {
+          "bytes": 11235,
+          "id": "q32dz-level3@0.5",
+          "streamJaccard": 0.0585
+        },
+        "bytes": 13284,
+        "id": "fit/shared-t4",
+        "streamJaccard": 0.0211
+      },
+      {
+        "bestConventional": {
+          "bytes": 3956,
+          "id": "q32dz-level3@6",
+          "streamJaccard": 0.0397
+        },
+        "bytes": 4716,
+        "id": "fit/siren-t17",
+        "streamJaccard": 0.0304
+      },
+      {
+        "bestConventional": {
+          "bytes": 111219,
+          "id": "q32dz-level1@0.5",
+          "streamJaccard": 0.187
+        },
+        "bytes": 134788,
+        "id": "checkpoint/siren-codec-fit",
+        "streamJaccard": 0.1488
+      }
+    ],
+    "examples": {
+      "checkpoint/siren-codec-fit": {
+        "bestConventional": {
+          "bytes": 111219,
+          "id": "q32dz-level1@0.5",
+          "maeGainPercent": -71.21783164383467,
+          "maeM": 0.3581936126000962,
+          "maxDifferenceM": 7.643230438232422,
+          "maxM": 8.9375,
+          "streamJaccard": 0.18701304291679222
+        },
+        "bytes": 134788,
+        "bytesByPart": {
+          "weights": 134788
+        },
+        "dominatedBy": "q32dz-level1@0.5",
+        "evidence": "reproduced",
+        "id": "checkpoint/siren-codec-fit",
+        "label": "SIREN 128x3, saved checkpoint",
+        "maeM": 0.6132913365806021,
+        "maxM": 16.580730438232422,
+        "streamJaccard": 0.1487688241956458
+      },
+      "constant-mean": {
+        "bestConventional": null,
+        "bytes": 4,
+        "bytesByPart": {
+          "mean": 4
+        },
+        "dominatedBy": null,
+        "evidence": "reproduced",
+        "id": "constant-mean",
+        "label": "Stored field mean (one float32)",
+        "maeM": 23.501842357382717,
+        "maxM": 72.97781172649104,
+        "streamJaccard": null
+      },
+      "fit/siren-t17": {
+        "bestConventional": {
+          "bytes": 3956,
+          "id": "q32dz-level3@6",
+          "maeGainPercent": -12.78598664431897,
+          "maeM": 2.842787208948357,
+          "maxDifferenceM": 4.523154671173188,
+          "maxM": 21.94499969482422,
+          "streamJaccard": 0.03973219394956701
+        },
+        "bytes": 4716,
+        "bytesByPart": {
+          "base": 0,
+          "weights": 4716
+        },
+        "dominatedBy": "q32dz-level3@6",
+        "evidence": "reproduced",
+        "id": "fit/siren-t17",
+        "label": "siren-t17 (codec fit, float32)",
+        "maeM": 3.2062656018109017,
+        "maxM": 26.468154365997407,
+        "streamJaccard": 0.030389269224645757
+      },
+      "hybrid-t0/int4-qat": {
+        "bestConventional": {
+          "bytes": 136918,
+          "id": "q32dz-level1@0.3",
+          "maeGainPercent": -12.829160043409223,
+          "maeM": 0.31525748545359034,
+          "maxDifferenceM": -0.0953214145001624,
+          "maxM": 9.03750228881836,
+          "streamJaccard": 0.20720364140114783
+        },
+        "bytes": 137972,
+        "bytesByPart": {
+          "base": 111219,
+          "weights": 26753
+        },
+        "dominatedBy": null,
+        "evidence": "reproduced",
+        "id": "hybrid-t0/int4-qat",
+        "label": "hybrid-t0, int4-qat weights",
+        "maeM": 0.355702372811259,
+        "maxM": 8.942180874318197,
+        "streamJaccard": null
+      },
+      "q32dz-full@1": {
+        "bestConventional": null,
+        "bytes": 241060,
+        "bytesByPart": {
+          "pages": 241060
+        },
+        "dominatedBy": null,
+        "evidence": "reproduced",
+        "id": "q32dz-full@1",
+        "label": "Quantised, full resolution, 1 m bound",
+        "maeM": 0.49415003715120276,
+        "maxM": 1.0,
+        "streamJaccard": 0.21897082604168974
+      },
+      "q32dz-level1@0.3": {
+        "bestConventional": null,
+        "bytes": 136918,
+        "bytesByPart": {
+          "pages": 136918
+        },
+        "dominatedBy": null,
+        "evidence": "reproduced",
+        "id": "q32dz-level1@0.3",
+        "label": "20 m grid at 0.3 m, bilinear",
+        "maeM": 0.31525748545359034,
+        "maxM": 9.03750228881836,
+        "streamJaccard": 0.20720364140114783
+      },
+      "q32dz-level1@0.5": {
+        "bestConventional": null,
+        "bytes": 111219,
+        "bytesByPart": {
+          "pages": 111219
+        },
+        "dominatedBy": null,
+        "evidence": "reproduced",
+        "id": "q32dz-level1@0.5",
+        "label": "20 m grid at 0.5 m, bilinear",
+        "maeM": 0.3581936126000962,
+        "maxM": 8.9375,
+        "streamJaccard": 0.18701304291679222
+      }
+    },
+    "largestMeanErrorGainPercent": 11.0,
+    "learnedRows": 103,
+    "learnedRowsWithLowerStreamOverlap": 10,
+    "undominatedLearned": [
+      {
+        "bestConventional": {
+          "bytes": 158633,
+          "id": "q32dz-level1@0.2",
+          "maeGainPercent": -18.788935469769196,
+          "maeM": 0.2986189839178717,
+          "maxDifferenceM": -0.08929067855846995,
+          "maxM": 9.03750228881836,
+          "streamJaccard": 0.21592269160867059
+        },
+        "bytes": 166930,
+        "id": "hybrid-t0/int6-qat",
+        "maeM": 0.3547,
+        "maxM": 8.95
+      },
+      {
+        "bestConventional": {
+          "bytes": 136918,
+          "id": "q32dz-level1@0.3",
+          "maeGainPercent": -12.829160043409223,
+          "maeM": 0.31525748545359034,
+          "maxDifferenceM": -0.0953214145001624,
+          "maxM": 9.03750228881836,
+          "streamJaccard": 0.20720364140114783
+        },
+        "bytes": 137972,
+        "id": "hybrid-t0/int4-qat",
+        "maeM": 0.3557,
+        "maxM": 8.94
+      },
+      {
+        "bestConventional": {
+          "bytes": 9822,
+          "id": "q32dz-level3@0.75",
+          "maeGainPercent": -15.34838900872161,
+          "maeM": 1.5570333837178971,
+          "maxDifferenceM": -1.8502614302040996,
+          "maxM": 20.81999969482422,
+          "streamJaccard": 0.05610478973657485
+        },
+        "bytes": 10404,
+        "id": "hybrid-t5/float16",
+        "maeM": 1.796,
+        "maxM": 18.97
+      },
+      {
+        "bestConventional": {
+          "bytes": 6569,
+          "id": "q32dz-level3@2",
+          "maeGainPercent": -8.708824817123892,
+          "maeM": 1.693543287897422,
+          "maxDifferenceM": -2.835942894205729,
+          "maxM": 22.19499969482422,
+          "streamJaccard": 0.05039189296176075
+        },
+        "bytes": 7210,
+        "id": "hybrid-t5/int8-ptq",
+        "maeM": 1.841,
+        "maxM": 19.36
+      },
+      {
+        "bestConventional": {
+          "bytes": 6569,
+          "id": "q32dz-level3@2",
+          "maeGainPercent": -7.685592795466723,
+          "maeM": 1.693543287897422,
+          "maxDifferenceM": -2.7052682789334597,
+          "maxM": 22.19499969482422,
+          "streamJaccard": 0.05039189296176075
+        },
+        "bytes": 7215,
+        "id": "hybrid-t5/int8-qat",
+        "maeM": 1.8237,
+        "maxM": 19.49
+      },
+      {
+        "bestConventional": {
+          "bytes": 1105,
+          "id": "q32dz-level4@8",
+          "maeGainPercent": 1.5045864749568656,
+          "maeM": 4.154569082262174,
+          "maxDifferenceM": 7.783497352973598,
+          "maxM": 31.277496337890625,
+          "streamJaccard": 0.026485039747533256
+        },
+        "bytes": 1147,
+        "id": "siren-t42/int8-ptq",
+        "maeM": 4.0921,
+        "maxM": 39.06
+      },
+      {
+        "bestConventional": {
+          "bytes": 1105,
+          "id": "q32dz-level4@8",
+          "maeGainPercent": 7.333033050417787,
+          "maeM": 4.154569082262174,
+          "maxDifferenceM": 9.455039576165376,
+          "maxM": 31.277496337890625,
+          "streamJaccard": 0.026485039747533256
+        },
+        "bytes": 1141,
+        "id": "siren-t42/int8-qat",
+        "maeM": 3.8499,
+        "maxM": 40.73
+      },
+      {
+        "bestConventional": {
+          "bytes": 824,
+          "id": "q32dz-level5@1.5",
+          "maeGainPercent": 11.035280243165383,
+          "maeM": 5.126343570293039,
+          "maxDifferenceM": 3.507389440086172,
+          "maxM": 42.08000183105469,
+          "streamJaccard": 0.02239157234114087
+        },
+        "bytes": 903,
+        "id": "siren-t42/int6-qat",
+        "maeM": 4.5606,
+        "maxM": 45.59
+      },
+      {
+        "bestConventional": {
+          "bytes": 2729,
+          "id": "q32dz-level4@1",
+          "maeGainPercent": -11.067504787808833,
+          "maeM": 2.8880735073146333,
+          "maxDifferenceM": -2.3904655843443408,
+          "maxM": 28.9112548828125,
+          "streamJaccard": 0.03445190156599553
+        },
+        "bytes": 2742,
+        "id": "fit/siren-t17/fp16",
+        "maeM": 3.2077,
+        "maxM": 26.52
+      }
+    ]
+  },
+  "schema": "geoneural-summary-v1",
+  "teacherAudit": {
+    "source": {
+      "evidence": "reproduced",
+      "report": "teacher-audit.json"
+    },
+    "verdict": {
+      "booksClose": true,
+      "coarsestAdequateSpacingM": 100.0,
+      "exponentConvergesWithRefinement": true,
+      "exponentSurvivesTheMesh": true,
+      "fitToTeach": true,
+      "reachesSteadyState": true,
+      "timestepConverges": true
+    }
+  },
+  "tournament": {
+    "byTarget": {
+      "0.01": {
+        "eat1-q32-gzip": {
+          "maeM": 0.005,
+          "maxM": 0.01,
+          "meetsTarget": true,
+          "payloadBytes": 2478789,
+          "totalBytes": 2699604
+        },
+        "lerc_deflate-gtiff": {
+          "maeM": 0.0049,
+          "maxM": 0.01,
+          "meetsTarget": true,
+          "payloadBytes": 1937166,
+          "totalBytes": 2157981
+        },
+        "lerc_zstd-gtiff": {
+          "maeM": 0.0049,
+          "maxM": 0.01,
+          "meetsTarget": true,
+          "payloadBytes": 1975140,
+          "totalBytes": 2195955
+        },
+        "q32-delta-zstd": {
+          "maeM": 0.005,
+          "maxM": 0.01,
+          "meetsTarget": true,
+          "payloadBytes": 1699324,
+          "totalBytes": 1920139
+        },
+        "q32-zstd": {
+          "maeM": 0.005,
+          "maxM": 0.01,
+          "meetsTarget": true,
+          "payloadBytes": 1765718,
+          "totalBytes": 1986533
+        },
+        "sz3-absolute": {
+          "maeM": 0.005,
+          "maxM": 0.01,
+          "meetsTarget": true,
+          "payloadBytes": 1689663,
+          "totalBytes": 1910478
+        },
+        "wavelet-bior4.4-zstd": {
+          "maeM": 0.0023,
+          "maxM": 0.01,
+          "meetsTarget": true,
+          "payloadBytes": 2109776,
+          "totalBytes": 2330591
+        },
+        "zfp-accuracy": {
+          "maeM": 0.0005,
+          "maxM": 0.0034,
+          "meetsTarget": true,
+          "payloadBytes": 2104824,
+          "totalBytes": 2325639
+        }
+      },
+      "0.05": {
+        "eat1-q32-gzip": {
+          "maeM": 0.0251,
+          "maxM": 0.05,
+          "meetsTarget": true,
+          "payloadBytes": 1864200,
+          "totalBytes": 2085015
+        },
+        "lerc_deflate-gtiff": {
+          "maeM": 0.0244,
+          "maxM": 0.05,
+          "meetsTarget": true,
+          "payloadBytes": 1507806,
+          "totalBytes": 1728621
+        },
+        "lerc_zstd-gtiff": {
+          "maeM": 0.0244,
+          "maxM": 0.05,
+          "meetsTarget": true,
+          "payloadBytes": 1552446,
+          "totalBytes": 1773261
+        },
+        "q32-delta-zstd": {
+          "maeM": 0.0251,
+          "maxM": 0.05,
+          "meetsTarget": true,
+          "payloadBytes": 1165410,
+          "totalBytes": 1386225
+        },
+        "q32-zstd": {
+          "maeM": 0.0251,
+          "maxM": 0.05,
+          "meetsTarget": true,
+          "payloadBytes": 1582897,
+          "totalBytes": 1803712
+        },
+        "sz3-absolute": {
+          "maeM": 0.0249,
+          "maxM": 0.05,
+          "meetsTarget": true,
+          "payloadBytes": 895587,
+          "totalBytes": 1116402
+        },
+        "wavelet-bior4.4-zstd": {
+          "maeM": 0.0113,
+          "maxM": 0.05,
+          "meetsTarget": true,
+          "payloadBytes": 1494348,
+          "totalBytes": 1715163
+        },
+        "zfp-accuracy": {
+          "maeM": 0.0021,
+          "maxM": 0.0125,
+          "meetsTarget": true,
+          "payloadBytes": 1729064,
+          "totalBytes": 1949879
+        }
+      },
+      "0.1": {
+        "eat1-q32-gzip": {
+          "maeM": 0.05,
+          "maxM": 0.1,
+          "meetsTarget": true,
+          "payloadBytes": 1487124,
+          "totalBytes": 1707939
+        },
+        "lerc_deflate-gtiff": {
+          "maeM": 0.0484,
+          "maxM": 0.1,
+          "meetsTarget": true,
+          "payloadBytes": 1318279,
+          "totalBytes": 1539094
+        },
+        "lerc_zstd-gtiff": {
+          "maeM": 0.0484,
+          "maxM": 0.1,
+          "meetsTarget": true,
+          "payloadBytes": 1360613,
+          "totalBytes": 1581428
+        },
+        "q32-delta-zstd": {
+          "maeM": 0.05,
+          "maxM": 0.1,
+          "meetsTarget": true,
+          "payloadBytes": 931219,
+          "totalBytes": 1152034
+        },
+        "q32-zstd": {
+          "maeM": 0.05,
+          "maxM": 0.1,
+          "meetsTarget": true,
+          "payloadBytes": 1294184,
+          "totalBytes": 1514999
+        },
+        "sz3-absolute": {
+          "maeM": 0.0487,
+          "maxM": 0.1,
+          "meetsTarget": true,
+          "payloadBytes": 687749,
+          "totalBytes": 908564
+        },
+        "wavelet-bior4.4-zstd": {
+          "maeM": 0.0222,
+          "maxM": 0.1,
+          "meetsTarget": true,
+          "payloadBytes": 1230654,
+          "totalBytes": 1451469
+        },
+        "zfp-accuracy": {
+          "maeM": 0.0042,
+          "maxM": 0.0262,
+          "meetsTarget": true,
+          "payloadBytes": 1541528,
+          "totalBytes": 1762343
+        }
+      },
+      "0.5": {
+        "eat1-q32-gzip": {
+          "maeM": 0.2492,
+          "maxM": 0.5,
+          "meetsTarget": true,
+          "payloadBytes": 664698,
+          "totalBytes": 885513
+        },
+        "lerc_deflate-gtiff": {
+          "maeM": 0.241,
+          "maxM": 0.5,
+          "meetsTarget": true,
+          "payloadBytes": 858885,
+          "totalBytes": 1079700
+        },
+        "lerc_zstd-gtiff": {
+          "maeM": 0.241,
+          "maxM": 0.5,
+          "meetsTarget": true,
+          "payloadBytes": 896087,
+          "totalBytes": 1116902
+        },
+        "q32-delta-zstd": {
+          "maeM": 0.2492,
+          "maxM": 0.5,
+          "meetsTarget": true,
+          "payloadBytes": 495700,
+          "totalBytes": 716515
+        },
+        "q32-zstd": {
+          "maeM": 0.2492,
+          "maxM": 0.5,
+          "meetsTarget": true,
+          "payloadBytes": 567414,
+          "totalBytes": 788229
+        },
+        "sz3-absolute": {
+          "maeM": 0.1904,
+          "maxM": 0.5,
+          "meetsTarget": true,
+          "payloadBytes": 343298,
+          "totalBytes": 564113
+        },
+        "wavelet-bior4.4-zstd": {
+          "maeM": 0.0977,
+          "maxM": 0.5,
+          "meetsTarget": true,
+          "payloadBytes": 644753,
+          "totalBytes": 865568
+        },
+        "zfp-accuracy": {
+          "maeM": 0.032,
+          "maxM": 0.2011,
+          "meetsTarget": true,
+          "payloadBytes": 988040,
+          "totalBytes": 1208855
+        }
+      },
+      "1": {
+        "eat1-q32-gzip": {
+          "maeM": 0.4941,
+          "maxM": 1.0,
+          "meetsTarget": true,
+          "payloadBytes": 441349,
+          "totalBytes": 662164
+        },
+        "lerc_deflate-gtiff": {
+          "maeM": 0.4829,
+          "maxM": 1.0,
+          "meetsTarget": true,
+          "payloadBytes": 690248,
+          "totalBytes": 911063
+        },
+        "lerc_zstd-gtiff": {
+          "maeM": 0.4829,
+          "maxM": 1.0,
+          "meetsTarget": true,
+          "payloadBytes": 723746,
+          "totalBytes": 944561
+        },
+        "q32-delta-zstd": {
+          "maeM": 0.4941,
+          "maxM": 1.0,
+          "meetsTarget": true,
+          "payloadBytes": 361951,
+          "totalBytes": 582766
+        },
+        "q32-zstd": {
+          "maeM": 0.4941,
+          "maxM": 1.0,
+          "meetsTarget": true,
+          "payloadBytes": 362219,
+          "totalBytes": 583034
+        },
+        "sz3-absolute": {
+          "maeM": 0.3212,
+          "maxM": 1.0,
+          "meetsTarget": true,
+          "payloadBytes": 237851,
+          "totalBytes": 458666
+        },
+        "wavelet-bior4.4-zstd": {
+          "maeM": 0.1812,
+          "maxM": 1.0,
+          "meetsTarget": true,
+          "payloadBytes": 439288,
+          "totalBytes": 660103
+        },
+        "zfp-accuracy": {
+          "maeM": 0.0607,
+          "maxM": 0.4061,
+          "meetsTarget": true,
+          "payloadBytes": 816760,
+          "totalBytes": 1037575
+        }
+      },
+      "lossless": {
+        "float32-gzip": {
+          "maeM": 0.0,
+          "maxM": 0.0,
+          "meetsTarget": null,
+          "payloadBytes": 4069981,
+          "totalBytes": 4290796
+        },
+        "float32-zstd": {
+          "maeM": 0.0,
+          "maxM": 0.0,
+          "meetsTarget": null,
+          "payloadBytes": 3789699,
+          "totalBytes": 4010514
+        },
+        "gtiff-deflate-p3": {
+          "maeM": 0.0,
+          "maxM": 0.0,
+          "meetsTarget": null,
+          "payloadBytes": 3808714,
+          "totalBytes": 4029529
+        },
+        "gtiff-zstd-p3": {
+          "maeM": 0.0,
+          "maxM": 0.0,
+          "meetsTarget": null,
+          "payloadBytes": 3719273,
+          "totalBytes": 3940088
+        }
+      }
+    },
+    "indexBytes": 220815,
+    "pages": 341,
+    "samplesAcrossLevels": 1440725,
+    "source": {
+      "evidence": "reproduced",
+      "report": "tournament-essen.json"
+    }
+  }
+}

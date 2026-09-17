@@ -1,0 +1,280 @@
+{
+  "byRegion": {
+    "essen-ruhr": {
+      "byMethod": {
+        "bicubic": {
+          "maeM": 0.13255895100815682,
+          "maxM": 9.780220031738281,
+          "rmseM": 0.2489157374995879,
+          "samples": 104468841
+        },
+        "bicubic+backprojection": {
+          "maeM": 0.12036402582751078,
+          "maxM": 9.365672137588263,
+          "rmseM": 0.22321365339545404,
+          "samples": 104468841
+        },
+        "bilinear": {
+          "maeM": 0.157993928606044,
+          "maxM": 10.584529876708984,
+          "rmseM": 0.29364292402022796,
+          "samples": 104468841
+        },
+        "bilinear+backprojection": {
+          "maeM": 0.124542012955152,
+          "maxM": 9.416073828935623,
+          "rmseM": 0.23068339805812182,
+          "samples": 104468841
+        },
+        "cubic_spline": {
+          "maeM": 0.19905515030560622,
+          "maxM": 11.67196273803711,
+          "rmseM": 0.35839300152743436,
+          "samples": 104468841
+        },
+        "cubic_spline+backprojection": {
+          "maeM": 0.12126039780546036,
+          "maxM": 9.457776173949242,
+          "rmseM": 0.2240628847468613,
+          "samples": 104468841
+        },
+        "lanczos": {
+          "maeM": 0.12648727441993832,
+          "maxM": 9.815704345703125,
+          "rmseM": 0.23429435646539926,
+          "samples": 104468841
+        },
+        "lanczos+backprojection": {
+          "maeM": 0.11986764305675537,
+          "maxM": 9.437088686972857,
+          "rmseM": 0.21833754179215112,
+          "samples": 104468841
+        }
+      },
+      "factor": 10,
+      "operator": "area-average of the 1 m source onto the node-centred 10 m lattice (rasterio Resampling.average, edge_trim 2, EPSG:25832 / EPSG:7837)",
+      "qualification": "Interior only: the operator's edge cells average a half cell and mean something different from the interior's, so scoring them would charge every method for an edge convention. Errors are accumulated exactly over the whole interior rather than averaged per tile.",
+      "schema": "geoneural-superres-baseline-v1"
+    },
+    "muensterland-plain": {
+      "byMethod": {
+        "bicubic": {
+          "maeM": 0.07158848613657422,
+          "maxM": 5.077747344970703,
+          "rmseM": 0.14891547959487858,
+          "samples": 104468841
+        },
+        "bicubic+backprojection": {
+          "maeM": 0.06893473018592049,
+          "maxM": 5.149410298559815,
+          "rmseM": 0.13904471631924023,
+          "samples": 104468841
+        },
+        "bilinear": {
+          "maeM": 0.07764941904069142,
+          "maxM": 5.077747344970703,
+          "rmseM": 0.16480821804440596,
+          "samples": 104468841
+        },
+        "bilinear+backprojection": {
+          "maeM": 0.06991113530089933,
+          "maxM": 5.148124444298446,
+          "rmseM": 0.14181498402140336,
+          "samples": 104468841
+        },
+        "cubic_spline": {
+          "maeM": 0.08933561918632427,
+          "maxM": 5.109386444091797,
+          "rmseM": 0.1903019225405363,
+          "samples": 104468841
+        },
+        "cubic_spline+backprojection": {
+          "maeM": 0.06922513714862581,
+          "maxM": 5.13838358502835,
+          "rmseM": 0.13924177423430448,
+          "samples": 104468841
+        },
+        "lanczos": {
+          "maeM": 0.0704814707611179,
+          "maxM": 5.077747344970703,
+          "rmseM": 0.14324933048164348,
+          "samples": 104468841
+        },
+        "lanczos+backprojection": {
+          "maeM": 0.0693762435199523,
+          "maxM": 5.109732780605555,
+          "rmseM": 0.137179072199791,
+          "samples": 104468841
+        }
+      },
+      "factor": 10,
+      "operator": "area-average of the 1 m source onto the node-centred 10 m lattice (rasterio Resampling.average, edge_trim 2, EPSG:25832 / EPSG:7837)",
+      "qualification": "Interior only: the operator's edge cells average a half cell and mean something different from the interior's, so scoring them would charge every method for an edge convention. Errors are accumulated exactly over the whole interior rather than averaged per tile.",
+      "schema": "geoneural-superres-baseline-v1"
+    },
+    "rothaar-sauerland": {
+      "byMethod": {
+        "bicubic": {
+          "maeM": 0.10829032195141564,
+          "maxM": 7.26904296875,
+          "rmseM": 0.1949217769689263,
+          "samples": 104468841
+        },
+        "bicubic+backprojection": {
+          "maeM": 0.10098548971094419,
+          "maxM": 7.080782386939973,
+          "rmseM": 0.17925549083459336,
+          "samples": 104468841
+        },
+        "bilinear": {
+          "maeM": 0.12727379482424753,
+          "maxM": 7.60528564453125,
+          "rmseM": 0.22614387605335684,
+          "samples": 104468841
+        },
+        "bilinear+backprojection": {
+          "maeM": 0.10378718553659275,
+          "maxM": 7.183833170682192,
+          "rmseM": 0.1838811367951611,
+          "samples": 104468841
+        },
+        "cubic_spline": {
+          "maeM": 0.15685399936315783,
+          "maxM": 7.671142578125,
+          "rmseM": 0.2726547133802326,
+          "samples": 104468841
+        },
+        "cubic_spline+backprojection": {
+          "maeM": 0.10134825655173924,
+          "maxM": 6.988137219101191,
+          "rmseM": 0.1799067696355004,
+          "samples": 104468841
+        },
+        "lanczos": {
+          "maeM": 0.11142111564092423,
+          "maxM": 7.075439453125,
+          "rmseM": 0.19076377755141266,
+          "samples": 104468841
+        },
+        "lanczos+backprojection": {
+          "maeM": 0.10755051264659143,
+          "maxM": 6.942307357210666,
+          "rmseM": 0.18110298526819726,
+          "samples": 104468841
+        }
+      },
+      "factor": 10,
+      "operator": "area-average of the 1 m source onto the node-centred 10 m lattice (rasterio Resampling.average, edge_trim 2, EPSG:25832 / EPSG:7837)",
+      "qualification": "Interior only: the operator's edge cells average a half cell and mean something different from the interior's, so scoring them would charge every method for an edge convention. Errors are accumulated exactly over the whole interior rather than averaged per tile.",
+      "schema": "geoneural-superres-baseline-v1"
+    }
+  },
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T21:01:33.394877+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {},
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "regions": [
+        "essen-ruhr",
+        "muensterland-plain",
+        "rothaar-sauerland"
+      ]
+    },
+    "kind": "superres-classical",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1808044,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "52ffaf21967793aab0ad2dfe3c2d85c16a1ee383d0a88da076758a92b63314f4",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-superres-classical-v1"
+}

@@ -1,0 +1,981 @@
+{
+  "atlas": ".data/atlases/essen-ruhr/atlas.json",
+  "atlasContentId": "d133adcbbee05892c3e35e72c7de698caf12558b2fba83de54b8b5593d31026e",
+  "createdUtc": "2026-10-03T19:37:16.326175+00:00",
+  "derivation": {
+    "bilinearSupIsExact": "On any finest cell both surfaces are bilinear, so their difference is bilinear. A bilinear function's interior critical point is a saddle and it is linear along each edge, so its extrema are at the cell corners, which are nodes. Node evaluation is therefore the exact supremum, not a sample.",
+    "combination": "|P_tri - C_tri| <= parent slack + bilinear supremum + child slack, by the triangle inequality. Conservative, never tight by construction.",
+    "perTransitionScope": "Each bound compares one level against the level below it, and is not the error of the finest level against the source. Over a domain both transitions cover, bounds compose by the triangle inequality, so level 2 against level 0 is bounded by the sum of the 2->1 and 1->0 bounds. A composed bound is looser at every step it passes through, and no composition gives a bound against the source.",
+    "relativeTo": "Both stored surfaces after quantization, and nothing else. Adding quantum/2 reaches the unquantized reference, because quantization error is itself bounded by quantum/2. Nothing here reaches the ground: the measured source-fidelity figures are an MAE and percentiles, which are averages and order statistics rather than conservative bounds, so they cannot be added to a supremum to produce one. A bound against the real surface would need a conservative source-error certificate, and none exists.",
+    "triangulationSlack": "A cell's triangulated surface departs from its bilinear surface by at most |h00 + h11 - h01 - h10| / 4, attained at the cell centre."
+  },
+  "pages": {
+    "1/0/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.9599999999999937,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.6400000000000006,
+      "declaredSampleErrorM": 2.95720947265625,
+      "parentTriangulationSlackM": 0.884999999999998,
+      "triangleBoundM": 4.484999999999992
+    },
+    "1/0/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.4850000000000136,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.5075000000000003,
+      "declaredSampleErrorM": 2.4930027770996093,
+      "parentTriangulationSlackM": 0.782500000000006,
+      "triangleBoundM": 3.77500000000002
+    },
+    "1/0/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.410000000000011,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.1500000000000092,
+      "declaredSampleErrorM": 3.417229537963867,
+      "parentTriangulationSlackM": 1.327499999999997,
+      "triangleBoundM": 5.887500000000017
+    },
+    "1/0/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.657500000000013,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7624999999999957,
+      "declaredSampleErrorM": 4.660569076538086,
+      "parentTriangulationSlackM": 0.8725000000000023,
+      "triangleBoundM": 6.292500000000011
+    },
+    "1/0/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.435000000000002,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.0575000000000045,
+      "declaredSampleErrorM": 4.445385818481445,
+      "parentTriangulationSlackM": 1.2049999999999983,
+      "triangleBoundM": 6.697500000000005
+    },
+    "1/0/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.0925000000000153,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.5000000000000036,
+      "declaredSampleErrorM": 2.0940140533447265,
+      "parentTriangulationSlackM": 0.7199999999999953,
+      "triangleBoundM": 3.312500000000014
+    },
+    "1/0/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.8924999999999983,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.5500000000000043,
+      "declaredSampleErrorM": 3.8992699432373046,
+      "parentTriangulationSlackM": 1.2924999999999969,
+      "triangleBoundM": 6.734999999999999
+    },
+    "1/0/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.9099999999999966,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7899999999999956,
+      "declaredSampleErrorM": 3.9199723052978515,
+      "parentTriangulationSlackM": 1.2624999999999993,
+      "triangleBoundM": 5.9624999999999915
+    },
+    "1/1/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.657499999999999,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.6699999999999999,
+      "declaredSampleErrorM": 3.65734375,
+      "parentTriangulationSlackM": 1.1724999999999977,
+      "triangleBoundM": 5.4999999999999964
+    },
+    "1/1/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.780000000000008,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.3150000000000013,
+      "declaredSampleErrorM": 4.782196884155273,
+      "parentTriangulationSlackM": 1.5075000000000003,
+      "triangleBoundM": 7.60250000000001
+    },
+    "1/1/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.789999999999992,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8924999999999983,
+      "declaredSampleErrorM": 5.7966812896728515,
+      "parentTriangulationSlackM": 1.6124999999999972,
+      "triangleBoundM": 8.294999999999987
+    },
+    "1/1/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.9549999999999983,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.6125000000000007,
+      "declaredSampleErrorM": 2.962292556762695,
+      "parentTriangulationSlackM": 0.8949999999999996,
+      "triangleBoundM": 4.462499999999999
+    },
+    "1/1/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.7950000000000017,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7349999999999994,
+      "declaredSampleErrorM": 2.8049839782714843,
+      "parentTriangulationSlackM": 0.8824999999999967,
+      "triangleBoundM": 4.412499999999998
+    },
+    "1/1/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.769999999999982,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7175000000000011,
+      "declaredSampleErrorM": 2.7774227905273436,
+      "parentTriangulationSlackM": 0.8200000000000038,
+      "triangleBoundM": 4.307499999999987
+    },
+    "1/1/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.8925000000000125,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.5999999999999943,
+      "declaredSampleErrorM": 2.898451690673828,
+      "parentTriangulationSlackM": 0.7800000000000011,
+      "triangleBoundM": 4.272500000000008
+    },
+    "1/1/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.7849999999999966,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.9275000000000002,
+      "declaredSampleErrorM": 3.7910517501831054,
+      "parentTriangulationSlackM": 1.1074999999999982,
+      "triangleBoundM": 5.819999999999995
+    },
+    "1/2/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.189999999999998,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.1225000000000005,
+      "declaredSampleErrorM": 4.190649871826172,
+      "parentTriangulationSlackM": 1.339999999999998,
+      "triangleBoundM": 6.652499999999996
+    },
+    "1/2/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.280000000000001,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.894999999999996,
+      "declaredSampleErrorM": 4.2849110412597655,
+      "parentTriangulationSlackM": 0.7800000000000011,
+      "triangleBoundM": 5.954999999999998
+    },
+    "1/2/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.075000000000003,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7549999999999955,
+      "declaredSampleErrorM": 4.0817555236816405,
+      "parentTriangulationSlackM": 0.9849999999999959,
+      "triangleBoundM": 5.814999999999994
+    },
+    "1/2/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.207499999999996,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7299999999999969,
+      "declaredSampleErrorM": 3.2118595886230468,
+      "parentTriangulationSlackM": 0.7925000000000004,
+      "triangleBoundM": 4.729999999999993
+    },
+    "1/2/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.6325000000000216,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.6350000000000051,
+      "declaredSampleErrorM": 2.640932922363281,
+      "parentTriangulationSlackM": 0.9074999999999918,
+      "triangleBoundM": 4.1750000000000185
+    },
+    "1/2/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.575000000000003,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8150000000000013,
+      "declaredSampleErrorM": 3.5790680694580077,
+      "parentTriangulationSlackM": 0.9199999999999946,
+      "triangleBoundM": 5.309999999999999
+    },
+    "1/2/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.030000000000001,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8000000000000043,
+      "declaredSampleErrorM": 3.03557861328125,
+      "parentTriangulationSlackM": 0.9599999999999973,
+      "triangleBoundM": 4.790000000000003
+    },
+    "1/2/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.340000000000003,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.802500000000002,
+      "declaredSampleErrorM": 4.345068817138672,
+      "parentTriangulationSlackM": 1.389999999999997,
+      "triangleBoundM": 6.532500000000002
+    },
+    "1/3/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.575000000000003,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.754999999999999,
+      "declaredSampleErrorM": 4.581169967651367,
+      "parentTriangulationSlackM": 0.9075000000000006,
+      "triangleBoundM": 6.2375000000000025
+    },
+    "1/3/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.597499999999997,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7475000000000023,
+      "declaredSampleErrorM": 4.60723388671875,
+      "parentTriangulationSlackM": 1.1475000000000044,
+      "triangleBoundM": 6.492500000000003
+    },
+    "1/3/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.642499999999998,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.6224999999999987,
+      "declaredSampleErrorM": 4.6477955627441405,
+      "parentTriangulationSlackM": 0.5649999999999977,
+      "triangleBoundM": 5.829999999999995
+    },
+    "1/3/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.7650000000000006,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.5674999999999955,
+      "declaredSampleErrorM": 2.776869659423828,
+      "parentTriangulationSlackM": 0.5874999999999986,
+      "triangleBoundM": 3.9199999999999946
+    },
+    "1/3/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.897500000000008,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.6750000000000007,
+      "declaredSampleErrorM": 2.8992222595214843,
+      "parentTriangulationSlackM": 0.9825000000000053,
+      "triangleBoundM": 4.555000000000014
+    },
+    "1/3/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.7050000000000054,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.0150000000000006,
+      "declaredSampleErrorM": 3.712423210144043,
+      "parentTriangulationSlackM": 1.2149999999999963,
+      "triangleBoundM": 5.935000000000002
+    },
+    "1/3/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 7.642499999999998,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.3000000000000043,
+      "declaredSampleErrorM": 7.650437240600586,
+      "parentTriangulationSlackM": 1.5350000000000037,
+      "triangleBoundM": 10.477500000000006
+    },
+    "1/3/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 8.1875,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.4274999999999984,
+      "declaredSampleErrorM": 8.185505752563477,
+      "parentTriangulationSlackM": 1.825000000000001,
+      "triangleBoundM": 11.44
+    },
+    "1/4/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.8699999999999974,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7149999999999999,
+      "declaredSampleErrorM": 3.8676670837402343,
+      "parentTriangulationSlackM": 0.7724999999999973,
+      "triangleBoundM": 5.357499999999995
+    },
+    "1/4/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.542500000000004,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7625000000000064,
+      "declaredSampleErrorM": 3.543330078125,
+      "parentTriangulationSlackM": 0.659999999999993,
+      "triangleBoundM": 4.965000000000003
+    },
+    "1/4/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.894999999999996,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.4924999999999997,
+      "declaredSampleErrorM": 2.9036358642578124,
+      "parentTriangulationSlackM": 0.4799999999999969,
+      "triangleBoundM": 3.8674999999999926
+    },
+    "1/4/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.980000000000018,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.9074999999999953,
+      "declaredSampleErrorM": 3.986260299682617,
+      "parentTriangulationSlackM": 1.0775000000000006,
+      "triangleBoundM": 5.965000000000014
+    },
+    "1/4/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.200000000000003,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.0474999999999994,
+      "declaredSampleErrorM": 4.203476791381836,
+      "parentTriangulationSlackM": 1.6600000000000001,
+      "triangleBoundM": 6.907500000000002
+    },
+    "1/4/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.414999999999992,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.9774999999999991,
+      "declaredSampleErrorM": 4.422665481567383,
+      "parentTriangulationSlackM": 1.7874999999999979,
+      "triangleBoundM": 7.179999999999989
+    },
+    "1/4/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.875,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.0474999999999994,
+      "declaredSampleErrorM": 4.879614715576172,
+      "parentTriangulationSlackM": 1.4800000000000004,
+      "triangleBoundM": 7.4025
+    },
+    "1/4/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.9599999999999937,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7774999999999999,
+      "declaredSampleErrorM": 3.9607437896728515,
+      "parentTriangulationSlackM": 1.3674999999999997,
+      "triangleBoundM": 6.104999999999993
+    },
+    "1/5/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.2350000000000065,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7949999999999999,
+      "declaredSampleErrorM": 4.2384842681884765,
+      "parentTriangulationSlackM": 1.222500000000002,
+      "triangleBoundM": 6.252500000000008
+    },
+    "1/5/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.569999999999993,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.0299999999999976,
+      "declaredSampleErrorM": 3.5733097839355468,
+      "parentTriangulationSlackM": 0.9150000000000063,
+      "triangleBoundM": 5.514999999999997
+    },
+    "1/5/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.065000000000012,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8425000000000047,
+      "declaredSampleErrorM": 4.0690907287597655,
+      "parentTriangulationSlackM": 0.6925000000000026,
+      "triangleBoundM": 5.600000000000019
+    },
+    "1/5/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.115000000000009,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8399999999999999,
+      "declaredSampleErrorM": 4.118626480102539,
+      "parentTriangulationSlackM": 1.0875000000000021,
+      "triangleBoundM": 6.042500000000011
+    },
+    "1/5/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 8.939999999999998,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.2100000000000009,
+      "declaredSampleErrorM": 8.941626434326173,
+      "parentTriangulationSlackM": 1.5125000000000028,
+      "triangleBoundM": 11.662500000000001
+    },
+    "1/5/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.8925000000000125,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.1925000000000008,
+      "declaredSampleErrorM": 4.898138885498047,
+      "parentTriangulationSlackM": 1.5374999999999943,
+      "triangleBoundM": 7.622500000000008
+    },
+    "1/5/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.115000000000009,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7074999999999996,
+      "declaredSampleErrorM": 3.1156090545654296,
+      "parentTriangulationSlackM": 1.1500000000000057,
+      "triangleBoundM": 4.972500000000014
+    },
+    "1/5/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.444999999999993,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.9099999999999966,
+      "declaredSampleErrorM": 4.452990417480469,
+      "parentTriangulationSlackM": 1.1500000000000021,
+      "triangleBoundM": 6.504999999999992
+    },
+    "1/6/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.387500000000003,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.1125000000000007,
+      "declaredSampleErrorM": 4.388575439453125,
+      "parentTriangulationSlackM": 1.337499999999995,
+      "triangleBoundM": 6.837499999999999
+    },
+    "1/6/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.674999999999983,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8049999999999962,
+      "declaredSampleErrorM": 3.6760166931152343,
+      "parentTriangulationSlackM": 0.8774999999999942,
+      "triangleBoundM": 5.357499999999973
+    },
+    "1/6/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 2.515000000000015,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.5925000000000011,
+      "declaredSampleErrorM": 2.517714385986328,
+      "parentTriangulationSlackM": 0.7324999999999982,
+      "triangleBoundM": 3.840000000000014
+    },
+    "1/6/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.767499999999998,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8825000000000021,
+      "declaredSampleErrorM": 4.776627426147461,
+      "parentTriangulationSlackM": 1.3249999999999957,
+      "triangleBoundM": 6.974999999999996
+    },
+    "1/6/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.29249999999999,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8150000000000013,
+      "declaredSampleErrorM": 4.296954040527344,
+      "parentTriangulationSlackM": 1.1250000000000036,
+      "triangleBoundM": 6.232499999999995
+    },
+    "1/6/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.115000000000002,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.192499999999999,
+      "declaredSampleErrorM": 5.12347972869873,
+      "parentTriangulationSlackM": 1.5874999999999968,
+      "triangleBoundM": 7.894999999999998
+    },
+    "1/6/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.222500000000011,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8524999999999991,
+      "declaredSampleErrorM": 4.224770431518555,
+      "parentTriangulationSlackM": 1.7175000000000011,
+      "triangleBoundM": 6.792500000000011
+    },
+    "1/6/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 7.654999999999994,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.5949999999999989,
+      "declaredSampleErrorM": 7.660818939208984,
+      "parentTriangulationSlackM": 1.822499999999998,
+      "triangleBoundM": 11.072499999999991
+    },
+    "1/7/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.4749999999999943,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7974999999999994,
+      "declaredSampleErrorM": 3.48252571105957,
+      "parentTriangulationSlackM": 1.1400000000000006,
+      "triangleBoundM": 5.412499999999994
+    },
+    "1/7/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.20750000000001,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.6649999999999956,
+      "declaredSampleErrorM": 4.211123352050781,
+      "parentTriangulationSlackM": 1.230000000000004,
+      "triangleBoundM": 6.10250000000001
+    },
+    "1/7/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.310000000000002,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.1425000000000018,
+      "declaredSampleErrorM": 5.315749053955078,
+      "parentTriangulationSlackM": 1.7349999999999959,
+      "triangleBoundM": 8.1875
+    },
+    "1/7/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.417500000000004,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.9674999999999994,
+      "declaredSampleErrorM": 4.4265478897094725,
+      "parentTriangulationSlackM": 1.1525000000000034,
+      "triangleBoundM": 6.537500000000007
+    },
+    "1/7/4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 3.135000000000005,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.7274999999999991,
+      "declaredSampleErrorM": 3.1414221572875975,
+      "parentTriangulationSlackM": 1.2624999999999993,
+      "triangleBoundM": 5.1250000000000036
+    },
+    "1/7/5": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.270000000000003,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.0899999999999999,
+      "declaredSampleErrorM": 5.280932312011719,
+      "parentTriangulationSlackM": 1.0800000000000018,
+      "triangleBoundM": 7.440000000000005
+    },
+    "1/7/6": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.409999999999997,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 0.8574999999999982,
+      "declaredSampleErrorM": 5.411631469726562,
+      "parentTriangulationSlackM": 1.1975000000000016,
+      "triangleBoundM": 7.464999999999996
+    },
+    "1/7/7": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 7.430000000000007,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.1900000000000013,
+      "declaredSampleErrorM": 7.441775207519531,
+      "parentTriangulationSlackM": 1.5374999999999996,
+      "triangleBoundM": 10.157500000000008
+    },
+    "2/0/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 6.712500000000006,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.5075000000000003,
+      "declaredSampleErrorM": 9.066073303222657,
+      "parentTriangulationSlackM": 2.4725000000000037,
+      "triangleBoundM": 10.69250000000001
+    },
+    "2/0/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 7.875000000000014,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.6124999999999972,
+      "declaredSampleErrorM": 10.896098022460938,
+      "parentTriangulationSlackM": 1.9224999999999994,
+      "triangleBoundM": 11.41000000000001
+    },
+    "2/0/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.927500000000009,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.2049999999999983,
+      "declaredSampleErrorM": 8.437785987854005,
+      "parentTriangulationSlackM": 1.922500000000003,
+      "triangleBoundM": 9.05500000000001
+    },
+    "2/0/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 6.742500000000007,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.2924999999999969,
+      "declaredSampleErrorM": 8.718645935058595,
+      "parentTriangulationSlackM": 2.0524999999999984,
+      "triangleBoundM": 10.087500000000002
+    },
+    "2/1/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.465000000000003,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 1.339999999999998,
+      "declaredSampleErrorM": 8.023927574157716,
+      "parentTriangulationSlackM": 1.2024999999999988,
+      "triangleBoundM": 8.0075
+    },
+    "2/1/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.447499999999991,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 0.9849999999999959,
+      "declaredSampleErrorM": 6.6903017807006835,
+      "parentTriangulationSlackM": 1.2324999999999982,
+      "triangleBoundM": 6.664999999999985
+    },
+    "2/1/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.644999999999996,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.2149999999999963,
+      "declaredSampleErrorM": 8.697888259887696,
+      "parentTriangulationSlackM": 2.322499999999998,
+      "triangleBoundM": 9.18249999999999
+    },
+    "2/1/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 9.719999999999985,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.825000000000001,
+      "declaredSampleErrorM": 13.333502655029298,
+      "parentTriangulationSlackM": 2.382499999999993,
+      "triangleBoundM": 13.927499999999979
+    },
+    "2/2/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 4.719999999999999,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 1.222500000000002,
+      "declaredSampleErrorM": 7.6562231826782225,
+      "parentTriangulationSlackM": 1.7125000000000004,
+      "triangleBoundM": 7.655000000000001
+    },
+    "2/2/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 8.38000000000001,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 1.0875000000000021,
+      "declaredSampleErrorM": 11.24492919921875,
+      "parentTriangulationSlackM": 1.625,
+      "triangleBoundM": 11.092500000000012
+    },
+    "2/2/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 8.652500000000003,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 1.7874999999999979,
+      "declaredSampleErrorM": 13.517925148010255,
+      "parentTriangulationSlackM": 2.6025000000000027,
+      "triangleBoundM": 13.042500000000004
+    },
+    "2/2/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 6.2749999999999915,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.4800000000000004,
+      "declaredSampleErrorM": 8.984816436767579,
+      "parentTriangulationSlackM": 2.037499999999998,
+      "triangleBoundM": 9.79249999999999
+    },
+    "2/3/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 5.560000000000002,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.337499999999995,
+      "declaredSampleErrorM": 7.79165828704834,
+      "parentTriangulationSlackM": 1.5474999999999994,
+      "triangleBoundM": 8.444999999999997
+    },
+    "2/3/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 7.527499999999989,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.7349999999999959,
+      "declaredSampleErrorM": 10.702761058807374,
+      "parentTriangulationSlackM": 2.1149999999999984,
+      "triangleBoundM": 11.377499999999984
+    },
+    "2/3/2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 6.042499999999997,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.5874999999999968,
+      "declaredSampleErrorM": 8.689654951095582,
+      "parentTriangulationSlackM": 2.639999999999999,
+      "triangleBoundM": 10.269999999999992
+    },
+    "2/3/3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 7.6499999999999915,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 1.822499999999998,
+      "declaredSampleErrorM": 13.6328076171875,
+      "parentTriangulationSlackM": 2.592500000000001,
+      "triangleBoundM": 12.06499999999999
+    },
+    "3/0/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 8.095000000000013,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 2.4725000000000037,
+      "declaredSampleErrorM": 14.370588188171388,
+      "parentTriangulationSlackM": 1.8975000000000044,
+      "triangleBoundM": 12.465000000000021
+    },
+    "3/0/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 13.149999999999991,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 2.382499999999993,
+      "declaredSampleErrorM": 21.208684091567992,
+      "parentTriangulationSlackM": 4.022500000000003,
+      "triangleBoundM": 19.554999999999986
+    },
+    "3/1/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 9.599999999999994,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 2.1149999999999984,
+      "declaredSampleErrorM": 18.74624526977539,
+      "parentTriangulationSlackM": 2.5100000000000016,
+      "triangleBoundM": 14.224999999999994
+    },
+    "3/1/1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 11.815000000000012,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 2.639999999999999,
+      "declaredSampleErrorM": 19.175232772827147,
+      "parentTriangulationSlackM": 3.4424999999999955,
+      "triangleBoundM": 17.897500000000008
+    },
+    "4/0/0": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 18.47999999999999,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 4.022500000000003,
+      "declaredSampleErrorM": 29.151018624305724,
+      "parentTriangulationSlackM": 5.32,
+      "triangleBoundM": 27.82249999999999
+    }
+  },
+  "pagesCertified": 85,
+  "pagesWhereBoundExceedsDeclaredSampleError": 74,
+  "perLevelWorst": {
+    "1": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 8.939999999999998,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.2100000000000009,
+      "declaredSampleErrorM": 8.941626434326173,
+      "page": "1/5/4",
+      "parentTriangulationSlackM": 1.5125000000000028,
+      "triangleBoundM": 11.662500000000001
+    },
+    "2": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 9.719999999999985,
+      "boundExceedsDeclared": true,
+      "childTriangulationSlackM": 1.825000000000001,
+      "declaredSampleErrorM": 13.333502655029298,
+      "page": "2/1/3",
+      "parentTriangulationSlackM": 2.382499999999993,
+      "triangleBoundM": 13.927499999999979
+    },
+    "3": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 13.149999999999991,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 2.382499999999993,
+      "declaredSampleErrorM": 21.208684091567992,
+      "page": "3/0/1",
+      "parentTriangulationSlackM": 4.022500000000003,
+      "triangleBoundM": 19.554999999999986
+    },
+    "4": {
+      "basis": "exact supremum under the declared bilinear reconstruction, plus closed-form triangulation slack for both surfaces; conservative for the rendered triangles",
+      "bilinearSupM": 18.47999999999999,
+      "boundExceedsDeclared": false,
+      "childTriangulationSlackM": 4.022500000000003,
+      "declaredSampleErrorM": 29.151018624305724,
+      "page": "4/0/0",
+      "parentTriangulationSlackM": 5.32,
+      "triangleBoundM": 27.82249999999999
+    }
+  },
+  "qualification": "A geometric certificate between two stored surfaces. It bounds the rendered mixed-level discrepancy; it says nothing about agreement with the real ground, and it is not a performance or coverage claim.",
+  "quantumM": 0.01,
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T19:37:16.326197+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {
+      "atlas": {
+        "kind": "ext4",
+        "mount": "/",
+        "path": "$GEONEURAL_HOME/atlases/essen-ruhr"
+      }
+    },
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "atlas": ".data/atlases/essen-ruhr/atlas.json"
+    },
+    "kind": "seam-bound-certificate",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1510740,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "e7de70daeb08d242d602c7bc0da8783e5fabed97807176b4f8e2044917a30b8b",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-seam-bound-v1",
+  "verification": {
+    "1": {
+      "boundM": 11.662500000000001,
+      "headroomM": 2.9099599128350135,
+      "holds": true,
+      "observedIsStochasticLowerBound": true,
+      "observedMaxM": 8.752540087164988,
+      "page": "1/5/4",
+      "samples": 200000,
+      "seed": 20260912,
+      "tightnessPercent": 75.0
+    },
+    "2": {
+      "boundM": 13.927499999999979,
+      "headroomM": 4.524965656404218,
+      "holds": true,
+      "observedIsStochasticLowerBound": true,
+      "observedMaxM": 9.402534343595761,
+      "page": "2/1/3",
+      "samples": 200000,
+      "seed": 20260912,
+      "tightnessPercent": 67.5
+    },
+    "3": {
+      "boundM": 19.554999999999986,
+      "headroomM": 6.248571761094105,
+      "holds": true,
+      "observedIsStochasticLowerBound": true,
+      "observedMaxM": 13.30642823890588,
+      "page": "3/0/1",
+      "samples": 200000,
+      "seed": 20260912,
+      "tightnessPercent": 68.0
+    },
+    "4": {
+      "boundM": 27.82249999999999,
+      "headroomM": 10.386718658382641,
+      "holds": true,
+      "observedIsStochasticLowerBound": true,
+      "observedMaxM": 17.43578134161735,
+      "page": "4/0/0",
+      "samples": 200000,
+      "seed": 20260912,
+      "tightnessPercent": 62.7
+    }
+  }
+}

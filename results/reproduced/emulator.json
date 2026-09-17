@@ -1,0 +1,542 @@
+{
+  "batch": 8,
+  "ensemble": {
+    "adequateSpacingM": 100.0,
+    "count": 400,
+    "domainM": 6350.0,
+    "framesPerSimulation": 9,
+    "side": 128,
+    "spacingIsAdequate": true,
+    "spacingM": 50.0,
+    "years": 2000000.0
+  },
+  "lr": 0.001,
+  "qualification": "Scored on the top-decile corner of (log Nf, log Nh), held out whole. Under the similarity law a random split over simulations leaves a rescaled twin of every test case in training, so it holds nothing out; this split is the only one here that does.",
+  "rows": [
+    {
+      "config": {
+        "base": 32,
+        "blocks": 1,
+        "in_channels": 4,
+        "kind": "unet",
+        "stages": 3
+      },
+      "evaluation": {
+        "gates": {
+          "beatsLinearUpliftAtEveryLength": true,
+          "beatsPersistenceAtEveryLength": true,
+          "beatsPersistenceOnDrainage": false,
+          "conservationWithinOnePercent": false,
+          "longestRollout": 8,
+          "passes": false
+        },
+        "ids": 40,
+        "note": "Baselines do the easy part on purpose: most of a landscape is a ramp that barely moves in one interval, so height error alone flatters any model. Drainage is read at the ensemble's own spacing with a 500-cell stream threshold.",
+        "rollout": [
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 18.43888804117269,
+            "conservationDriftMedian": 13.837189574234621,
+            "drainage": {
+              "beatsPersistenceOnReceivers": false,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.3621031746031746,
+                "simulations": 8,
+                "streamJaccard": 0.06727610622206981
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.3729135172587553,
+                "simulations": 8,
+                "streamJaccard": 0.18166994922640795
+              }
+            },
+            "emulatorMaeM": 3.2833435982465744,
+            "linearUpliftMaeM": 4.63116614818573,
+            "massErrorMeanM": 2.1662947952747347,
+            "massErrorMedianM": 2.0846469402313232,
+            "persistenceMaeM": 4.53398689031601,
+            "steps": 1,
+            "upliftAddedMedianM": 0.15816042585523382,
+            "upliftAddedRangeM": [
+              0.05458580623698726,
+              0.47582998505837454
+            ]
+          },
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 13.068226525963897,
+            "conservationDriftMedian": 10.081894587859694,
+            "drainage": {
+              "beatsPersistenceOnReceivers": true,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.3007369614512472,
+                "simulations": 8,
+                "streamJaccard": 0.04486850840545943
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.2943436633912825,
+                "simulations": 8,
+                "streamJaccard": 0.14281102604902124
+              }
+            },
+            "emulatorMaeM": 4.338266324996948,
+            "linearUpliftMaeM": 6.9488784849643705,
+            "massErrorMeanM": 3.118422281742096,
+            "massErrorMedianM": 2.9250001907348633,
+            "persistenceMaeM": 6.702637779712677,
+            "steps": 2,
+            "upliftAddedMedianM": 0.31632085171046764,
+            "upliftAddedRangeM": [
+              0.10917161247397451,
+              0.9516599701167491
+            ]
+          },
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 5.643244485351093,
+            "conservationDriftMedian": 4.2619262997515115,
+            "drainage": {
+              "beatsPersistenceOnReceivers": true,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.26108591584782065,
+                "simulations": 8,
+                "streamJaccard": 0.022641968836911767
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.22856040564373897,
+                "simulations": 8,
+                "streamJaccard": 0.1072600461541951
+              }
+            },
+            "emulatorMaeM": 4.449743914604187,
+            "linearUpliftMaeM": 10.752870893478393,
+            "massErrorMeanM": 2.938857990503311,
+            "massErrorMedianM": 2.3137751817703247,
+            "persistenceMaeM": 10.16616506576538,
+            "steps": 4,
+            "upliftAddedMedianM": 0.6326417034209353,
+            "upliftAddedRangeM": [
+              0.21834322494794903,
+              1.9033199402334982
+            ]
+          },
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 2.473159524598335,
+            "conservationDriftMedian": 1.9592827105601702,
+            "drainage": {
+              "beatsPersistenceOnReceivers": true,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.25477922650541696,
+                "simulations": 8,
+                "streamJaccard": 0.017961589965467335
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.20244394053917864,
+                "simulations": 8,
+                "streamJaccard": 0.08565963257106413
+              }
+            },
+            "emulatorMaeM": 5.014600467681885,
+            "linearUpliftMaeM": 14.891517901420594,
+            "massErrorMeanM": 2.7396689742803573,
+            "massErrorMedianM": 2.1341432332992554,
+            "persistenceMaeM": 13.568631649017334,
+            "steps": 8,
+            "upliftAddedMedianM": 1.2652834068418706,
+            "upliftAddedRangeM": [
+              0.43668644989589805,
+              3.8066398804669963
+            ]
+          }
+        ]
+      },
+      "history": [
+        {
+          "loss": 2.2158918380737305,
+          "rolloutLength": 1,
+          "step": 0
+        },
+        {
+          "loss": 1.007109522819519,
+          "rolloutLength": 1,
+          "step": 200
+        },
+        {
+          "loss": 0.7261508107185364,
+          "rolloutLength": 1,
+          "step": 400
+        },
+        {
+          "loss": 0.31565818190574646,
+          "rolloutLength": 1,
+          "step": 600
+        },
+        {
+          "loss": 0.5377459526062012,
+          "rolloutLength": 1,
+          "step": 800
+        },
+        {
+          "loss": 0.38924115896224976,
+          "rolloutLength": 2,
+          "step": 1000
+        },
+        {
+          "loss": 0.2623571753501892,
+          "rolloutLength": 2,
+          "step": 1200
+        },
+        {
+          "loss": 0.5163854956626892,
+          "rolloutLength": 2,
+          "step": 1400
+        },
+        {
+          "loss": 0.3505292236804962,
+          "rolloutLength": 2,
+          "step": 1600
+        },
+        {
+          "loss": 0.5402659773826599,
+          "rolloutLength": 2,
+          "step": 1800
+        },
+        {
+          "loss": 0.280070424079895,
+          "rolloutLength": 2,
+          "step": 1999
+        }
+      ],
+      "kind": "unet",
+      "parameters": 670753,
+      "seconds": 41.07906721200561
+    },
+    {
+      "config": {
+        "blocks": 4,
+        "in_channels": 4,
+        "kind": "fno",
+        "modes": 16,
+        "width": 32
+      },
+      "evaluation": {
+        "gates": {
+          "beatsLinearUpliftAtEveryLength": true,
+          "beatsPersistenceAtEveryLength": true,
+          "beatsPersistenceOnDrainage": false,
+          "conservationWithinOnePercent": false,
+          "longestRollout": 8,
+          "passes": false
+        },
+        "ids": 40,
+        "note": "Baselines do the easy part on purpose: most of a landscape is a ramp that barely moves in one interval, so height error alone flatters any model. Drainage is read at the ensemble's own spacing with a 500-cell stream threshold.",
+        "rollout": [
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 7.947667485941883,
+            "conservationDriftMedian": 5.0835359016405075,
+            "drainage": {
+              "beatsPersistenceOnReceivers": false,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.330388636936256,
+                "simulations": 8,
+                "streamJaccard": 0.054869651776431425
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.3729135172587553,
+                "simulations": 8,
+                "streamJaccard": 0.18166994922640795
+              }
+            },
+            "emulatorMaeM": 2.265073736011982,
+            "linearUpliftMaeM": 4.63116614818573,
+            "massErrorMeanM": 1.1675126731395722,
+            "massErrorMedianM": 0.6454267501831055,
+            "persistenceMaeM": 4.53398689031601,
+            "steps": 1,
+            "upliftAddedMedianM": 0.15816042585523382,
+            "upliftAddedRangeM": [
+              0.05458580623698726,
+              0.47582998505837454
+            ]
+          },
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 5.257555251429498,
+            "conservationDriftMedian": 4.074472086604633,
+            "drainage": {
+              "beatsPersistenceOnReceivers": true,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.2972804862685815,
+                "simulations": 8,
+                "streamJaccard": 0.04865639606245122
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.2943436633912825,
+                "simulations": 8,
+                "streamJaccard": 0.14281102604902124
+              }
+            },
+            "emulatorMaeM": 2.4802304029464723,
+            "linearUpliftMaeM": 6.9488784849643705,
+            "massErrorMeanM": 1.480474865436554,
+            "massErrorMedianM": 1.169722318649292,
+            "persistenceMaeM": 6.702637779712677,
+            "steps": 2,
+            "upliftAddedMedianM": 0.31632085171046764,
+            "upliftAddedRangeM": [
+              0.10917161247397451,
+              0.9516599701167491
+            ]
+          },
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 3.3469935271221134,
+            "conservationDriftMedian": 3.0285998742655957,
+            "drainage": {
+              "beatsPersistenceOnReceivers": true,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.26958144368858655,
+                "simulations": 8,
+                "streamJaccard": 0.01878055051726599
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.22856040564373897,
+                "simulations": 8,
+                "streamJaccard": 0.1072600461541951
+              }
+            },
+            "emulatorMaeM": 2.956407165527344,
+            "linearUpliftMaeM": 10.752870893478393,
+            "massErrorMeanM": 1.784839779138565,
+            "massErrorMedianM": 1.7327165603637695,
+            "persistenceMaeM": 10.16616506576538,
+            "steps": 4,
+            "upliftAddedMedianM": 0.6326417034209353,
+            "upliftAddedRangeM": [
+              0.21834322494794903,
+              1.9033199402334982
+            ]
+          },
+          {
+            "beatsLinearUplift": true,
+            "beatsPersistence": true,
+            "conservationDriftFractionOfUplift": 3.373232427931292,
+            "conservationDriftMedian": 2.5597492792851257,
+            "drainage": {
+              "beatsPersistenceOnReceivers": true,
+              "beatsPersistenceOnStreams": false,
+              "emulator": {
+                "receiverAgreementFraction": 0.25496031746031744,
+                "simulations": 8,
+                "streamJaccard": 0.024580025119883248
+              },
+              "persistence": {
+                "receiverAgreementFraction": 0.20244394053917864,
+                "simulations": 8,
+                "streamJaccard": 0.08565963257106413
+              }
+            },
+            "emulatorMaeM": 4.467451608180999,
+            "linearUpliftMaeM": 14.891517901420594,
+            "massErrorMeanM": 3.658139008283615,
+            "massErrorMedianM": 2.6341603994369507,
+            "persistenceMaeM": 13.568631649017334,
+            "steps": 8,
+            "upliftAddedMedianM": 1.2652834068418706,
+            "upliftAddedRangeM": [
+              0.43668644989589805,
+              3.8066398804669963
+            ]
+          }
+        ]
+      },
+      "history": [
+        {
+          "loss": 2.216402530670166,
+          "rolloutLength": 1,
+          "step": 0
+        },
+        {
+          "loss": 0.4484966993331909,
+          "rolloutLength": 1,
+          "step": 200
+        },
+        {
+          "loss": 0.6185892820358276,
+          "rolloutLength": 1,
+          "step": 400
+        },
+        {
+          "loss": 0.6108014583587646,
+          "rolloutLength": 1,
+          "step": 600
+        },
+        {
+          "loss": 0.3337060213088989,
+          "rolloutLength": 1,
+          "step": 800
+        },
+        {
+          "loss": 0.4652594327926636,
+          "rolloutLength": 2,
+          "step": 1000
+        },
+        {
+          "loss": 0.2288912832736969,
+          "rolloutLength": 2,
+          "step": 1200
+        },
+        {
+          "loss": 0.20433272421360016,
+          "rolloutLength": 2,
+          "step": 1400
+        },
+        {
+          "loss": 0.2169191837310791,
+          "rolloutLength": 2,
+          "step": 1600
+        },
+        {
+          "loss": 0.2945106625556946,
+          "rolloutLength": 2,
+          "step": 1800
+        },
+        {
+          "loss": 0.2138364315032959,
+          "rolloutLength": 2,
+          "step": 1999
+        }
+      ],
+      "kind": "fno",
+      "parameters": 2123553,
+      "seconds": 66.75965157800238
+    }
+  ],
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T20:41:25.852563+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {},
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "ensemble": ".data/ensemble/main"
+    },
+    "kind": "emulator",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1727587,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "eacc990e37e458863233e28a2609a98f8ab02827adc9d4767dfc322544c1d11d",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-emulator-train-v1",
+  "seed": 1729,
+  "split": {
+    "testIds": 40,
+    "trainIds": 288,
+    "validationIds": 72
+  },
+  "steps": 2000
+}

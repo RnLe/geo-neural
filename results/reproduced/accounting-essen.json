@@ -1,0 +1,1743 @@
+{
+  "deployment": {
+    "conditioning_and_history": 0,
+    "critical_features": 0,
+    "field_payload": 2676804,
+    "metadata_and_index": 220815,
+    "regional_codes": 0,
+    "residuals": 0,
+    "shared_weights": 0
+  },
+  "deployment_total_bytes": 2897619,
+  "directory": ".data/atlases/essen-ruhr",
+  "files": [
+    {
+      "bucket": "metadata_and_index",
+      "bytes": 11537,
+      "path": "ATTRIBUTION.json"
+    },
+    {
+      "bucket": "metadata_and_index",
+      "bytes": 209278,
+      "path": "atlas.json"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7669,
+      "path": "pages/0/0_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7545,
+      "path": "pages/0/0_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7610,
+      "path": "pages/0/0_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7266,
+      "path": "pages/0/0_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7540,
+      "path": "pages/0/0_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8374,
+      "path": "pages/0/0_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8236,
+      "path": "pages/0/0_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8223,
+      "path": "pages/0/0_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7665,
+      "path": "pages/0/0_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7904,
+      "path": "pages/0/0_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7787,
+      "path": "pages/0/0_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7752,
+      "path": "pages/0/0_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7556,
+      "path": "pages/0/0_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7577,
+      "path": "pages/0/0_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7882,
+      "path": "pages/0/0_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8613,
+      "path": "pages/0/0_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7504,
+      "path": "pages/0/10_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7205,
+      "path": "pages/0/10_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8458,
+      "path": "pages/0/10_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 4695,
+      "path": "pages/0/10_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7064,
+      "path": "pages/0/10_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7931,
+      "path": "pages/0/10_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8090,
+      "path": "pages/0/10_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8132,
+      "path": "pages/0/10_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7602,
+      "path": "pages/0/10_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7684,
+      "path": "pages/0/10_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7851,
+      "path": "pages/0/10_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7796,
+      "path": "pages/0/10_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7710,
+      "path": "pages/0/10_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8402,
+      "path": "pages/0/10_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8118,
+      "path": "pages/0/10_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8072,
+      "path": "pages/0/10_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8097,
+      "path": "pages/0/11_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7362,
+      "path": "pages/0/11_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8245,
+      "path": "pages/0/11_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 4115,
+      "path": "pages/0/11_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6849,
+      "path": "pages/0/11_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7737,
+      "path": "pages/0/11_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8421,
+      "path": "pages/0/11_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8207,
+      "path": "pages/0/11_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7290,
+      "path": "pages/0/11_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7463,
+      "path": "pages/0/11_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7675,
+      "path": "pages/0/11_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7843,
+      "path": "pages/0/11_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7099,
+      "path": "pages/0/11_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7856,
+      "path": "pages/0/11_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7585,
+      "path": "pages/0/11_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7765,
+      "path": "pages/0/11_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7644,
+      "path": "pages/0/12_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7907,
+      "path": "pages/0/12_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8228,
+      "path": "pages/0/12_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6854,
+      "path": "pages/0/12_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 4169,
+      "path": "pages/0/12_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8102,
+      "path": "pages/0/12_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8448,
+      "path": "pages/0/12_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8355,
+      "path": "pages/0/12_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7725,
+      "path": "pages/0/12_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7774,
+      "path": "pages/0/12_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7278,
+      "path": "pages/0/12_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7991,
+      "path": "pages/0/12_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7686,
+      "path": "pages/0/12_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7682,
+      "path": "pages/0/12_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7934,
+      "path": "pages/0/12_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8156,
+      "path": "pages/0/12_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7122,
+      "path": "pages/0/13_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7556,
+      "path": "pages/0/13_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8015,
+      "path": "pages/0/13_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8387,
+      "path": "pages/0/13_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6038,
+      "path": "pages/0/13_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 5523,
+      "path": "pages/0/13_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8181,
+      "path": "pages/0/13_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8025,
+      "path": "pages/0/13_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7542,
+      "path": "pages/0/13_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7827,
+      "path": "pages/0/13_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7304,
+      "path": "pages/0/13_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8164,
+      "path": "pages/0/13_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8584,
+      "path": "pages/0/13_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7905,
+      "path": "pages/0/13_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7739,
+      "path": "pages/0/13_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8718,
+      "path": "pages/0/13_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7732,
+      "path": "pages/0/14_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7316,
+      "path": "pages/0/14_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7988,
+      "path": "pages/0/14_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8018,
+      "path": "pages/0/14_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7810,
+      "path": "pages/0/14_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7567,
+      "path": "pages/0/14_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 4680,
+      "path": "pages/0/14_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8370,
+      "path": "pages/0/14_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7210,
+      "path": "pages/0/14_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7859,
+      "path": "pages/0/14_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7715,
+      "path": "pages/0/14_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8035,
+      "path": "pages/0/14_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7115,
+      "path": "pages/0/14_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6381,
+      "path": "pages/0/14_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6355,
+      "path": "pages/0/14_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7784,
+      "path": "pages/0/14_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7504,
+      "path": "pages/0/15_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7439,
+      "path": "pages/0/15_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7573,
+      "path": "pages/0/15_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8412,
+      "path": "pages/0/15_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7815,
+      "path": "pages/0/15_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7412,
+      "path": "pages/0/15_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 5314,
+      "path": "pages/0/15_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7678,
+      "path": "pages/0/15_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7629,
+      "path": "pages/0/15_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7966,
+      "path": "pages/0/15_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7777,
+      "path": "pages/0/15_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6830,
+      "path": "pages/0/15_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7239,
+      "path": "pages/0/15_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7862,
+      "path": "pages/0/15_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8064,
+      "path": "pages/0/15_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7162,
+      "path": "pages/0/15_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7897,
+      "path": "pages/0/1_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7963,
+      "path": "pages/0/1_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7774,
+      "path": "pages/0/1_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6719,
+      "path": "pages/0/1_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7644,
+      "path": "pages/0/1_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8371,
+      "path": "pages/0/1_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8066,
+      "path": "pages/0/1_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8020,
+      "path": "pages/0/1_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7925,
+      "path": "pages/0/1_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7901,
+      "path": "pages/0/1_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7765,
+      "path": "pages/0/1_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7761,
+      "path": "pages/0/1_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7761,
+      "path": "pages/0/1_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7587,
+      "path": "pages/0/1_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7275,
+      "path": "pages/0/1_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7534,
+      "path": "pages/0/1_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7915,
+      "path": "pages/0/2_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7891,
+      "path": "pages/0/2_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7925,
+      "path": "pages/0/2_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7472,
+      "path": "pages/0/2_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7820,
+      "path": "pages/0/2_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8113,
+      "path": "pages/0/2_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8360,
+      "path": "pages/0/2_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8165,
+      "path": "pages/0/2_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8038,
+      "path": "pages/0/2_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8106,
+      "path": "pages/0/2_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7596,
+      "path": "pages/0/2_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7789,
+      "path": "pages/0/2_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7880,
+      "path": "pages/0/2_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7883,
+      "path": "pages/0/2_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7297,
+      "path": "pages/0/2_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7586,
+      "path": "pages/0/2_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7263,
+      "path": "pages/0/3_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7800,
+      "path": "pages/0/3_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7793,
+      "path": "pages/0/3_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7792,
+      "path": "pages/0/3_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8318,
+      "path": "pages/0/3_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7764,
+      "path": "pages/0/3_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8214,
+      "path": "pages/0/3_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8516,
+      "path": "pages/0/3_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7933,
+      "path": "pages/0/3_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7457,
+      "path": "pages/0/3_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7770,
+      "path": "pages/0/3_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8078,
+      "path": "pages/0/3_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7768,
+      "path": "pages/0/3_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7125,
+      "path": "pages/0/3_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7669,
+      "path": "pages/0/3_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7555,
+      "path": "pages/0/3_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7360,
+      "path": "pages/0/4_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7464,
+      "path": "pages/0/4_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7729,
+      "path": "pages/0/4_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8569,
+      "path": "pages/0/4_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8105,
+      "path": "pages/0/4_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8182,
+      "path": "pages/0/4_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8095,
+      "path": "pages/0/4_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7846,
+      "path": "pages/0/4_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7245,
+      "path": "pages/0/4_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7396,
+      "path": "pages/0/4_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7429,
+      "path": "pages/0/4_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7738,
+      "path": "pages/0/4_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7963,
+      "path": "pages/0/4_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8244,
+      "path": "pages/0/4_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8194,
+      "path": "pages/0/4_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7815,
+      "path": "pages/0/4_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7384,
+      "path": "pages/0/5_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7327,
+      "path": "pages/0/5_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7363,
+      "path": "pages/0/5_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7641,
+      "path": "pages/0/5_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8448,
+      "path": "pages/0/5_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9036,
+      "path": "pages/0/5_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8830,
+      "path": "pages/0/5_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7632,
+      "path": "pages/0/5_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7336,
+      "path": "pages/0/5_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7543,
+      "path": "pages/0/5_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7082,
+      "path": "pages/0/5_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7776,
+      "path": "pages/0/5_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8161,
+      "path": "pages/0/5_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7702,
+      "path": "pages/0/5_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7498,
+      "path": "pages/0/5_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7917,
+      "path": "pages/0/5_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7205,
+      "path": "pages/0/6_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7604,
+      "path": "pages/0/6_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7673,
+      "path": "pages/0/6_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8691,
+      "path": "pages/0/6_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9099,
+      "path": "pages/0/6_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9064,
+      "path": "pages/0/6_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8411,
+      "path": "pages/0/6_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7085,
+      "path": "pages/0/6_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7175,
+      "path": "pages/0/6_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7655,
+      "path": "pages/0/6_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7235,
+      "path": "pages/0/6_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7180,
+      "path": "pages/0/6_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7562,
+      "path": "pages/0/6_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7879,
+      "path": "pages/0/6_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7836,
+      "path": "pages/0/6_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8374,
+      "path": "pages/0/6_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7209,
+      "path": "pages/0/7_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7435,
+      "path": "pages/0/7_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8289,
+      "path": "pages/0/7_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8652,
+      "path": "pages/0/7_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7252,
+      "path": "pages/0/7_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7502,
+      "path": "pages/0/7_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7978,
+      "path": "pages/0/7_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8049,
+      "path": "pages/0/7_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6905,
+      "path": "pages/0/7_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7472,
+      "path": "pages/0/7_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7189,
+      "path": "pages/0/7_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7293,
+      "path": "pages/0/7_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7542,
+      "path": "pages/0/7_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7110,
+      "path": "pages/0/7_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7266,
+      "path": "pages/0/7_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7725,
+      "path": "pages/0/7_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7533,
+      "path": "pages/0/8_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6964,
+      "path": "pages/0/8_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8909,
+      "path": "pages/0/8_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8588,
+      "path": "pages/0/8_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 4454,
+      "path": "pages/0/8_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8109,
+      "path": "pages/0/8_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8414,
+      "path": "pages/0/8_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8455,
+      "path": "pages/0/8_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7394,
+      "path": "pages/0/8_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7410,
+      "path": "pages/0/8_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7198,
+      "path": "pages/0/8_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7193,
+      "path": "pages/0/8_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7382,
+      "path": "pages/0/8_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7172,
+      "path": "pages/0/8_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7790,
+      "path": "pages/0/8_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7936,
+      "path": "pages/0/8_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7456,
+      "path": "pages/0/9_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7474,
+      "path": "pages/0/9_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8900,
+      "path": "pages/0/9_10.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6362,
+      "path": "pages/0/9_11.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6100,
+      "path": "pages/0/9_12.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8318,
+      "path": "pages/0/9_13.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7923,
+      "path": "pages/0/9_14.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8183,
+      "path": "pages/0/9_15.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7721,
+      "path": "pages/0/9_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7622,
+      "path": "pages/0/9_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7466,
+      "path": "pages/0/9_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7174,
+      "path": "pages/0/9_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7565,
+      "path": "pages/0/9_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8019,
+      "path": "pages/0/9_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7782,
+      "path": "pages/0/9_8.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8131,
+      "path": "pages/0/9_9.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8311,
+      "path": "pages/1/0_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8300,
+      "path": "pages/1/0_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8265,
+      "path": "pages/1/0_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7909,
+      "path": "pages/1/0_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8439,
+      "path": "pages/1/0_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7866,
+      "path": "pages/1/0_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8506,
+      "path": "pages/1/0_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8776,
+      "path": "pages/1/0_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8199,
+      "path": "pages/1/1_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8410,
+      "path": "pages/1/1_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8276,
+      "path": "pages/1/1_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8044,
+      "path": "pages/1/1_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8039,
+      "path": "pages/1/1_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8211,
+      "path": "pages/1/1_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8599,
+      "path": "pages/1/1_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9117,
+      "path": "pages/1/1_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7836,
+      "path": "pages/1/2_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7702,
+      "path": "pages/1/2_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7851,
+      "path": "pages/1/2_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8445,
+      "path": "pages/1/2_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8243,
+      "path": "pages/1/2_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8446,
+      "path": "pages/1/2_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9131,
+      "path": "pages/1/2_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8658,
+      "path": "pages/1/2_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7822,
+      "path": "pages/1/3_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7770,
+      "path": "pages/1/3_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7431,
+      "path": "pages/1/3_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8042,
+      "path": "pages/1/3_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8145,
+      "path": "pages/1/3_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8979,
+      "path": "pages/1/3_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9182,
+      "path": "pages/1/3_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8982,
+      "path": "pages/1/3_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7897,
+      "path": "pages/1/4_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7842,
+      "path": "pages/1/4_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7680,
+      "path": "pages/1/4_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8026,
+      "path": "pages/1/4_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8300,
+      "path": "pages/1/4_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8726,
+      "path": "pages/1/4_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7447,
+      "path": "pages/1/4_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8969,
+      "path": "pages/1/4_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8066,
+      "path": "pages/1/5_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7827,
+      "path": "pages/1/5_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8171,
+      "path": "pages/1/5_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8265,
+      "path": "pages/1/5_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8452,
+      "path": "pages/1/5_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6983,
+      "path": "pages/1/5_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8012,
+      "path": "pages/1/5_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9040,
+      "path": "pages/1/5_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8097,
+      "path": "pages/1/6_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8240,
+      "path": "pages/1/6_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8210,
+      "path": "pages/1/6_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8616,
+      "path": "pages/1/6_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8708,
+      "path": "pages/1/6_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8522,
+      "path": "pages/1/6_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 6694,
+      "path": "pages/1/6_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8854,
+      "path": "pages/1/6_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8094,
+      "path": "pages/1/7_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8078,
+      "path": "pages/1/7_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8188,
+      "path": "pages/1/7_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8088,
+      "path": "pages/1/7_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8192,
+      "path": "pages/1/7_4.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8831,
+      "path": "pages/1/7_5.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8221,
+      "path": "pages/1/7_6.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 7167,
+      "path": "pages/1/7_7.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8773,
+      "path": "pages/2/0_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8524,
+      "path": "pages/2/0_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8747,
+      "path": "pages/2/0_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9348,
+      "path": "pages/2/0_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8051,
+      "path": "pages/2/1_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8406,
+      "path": "pages/2/1_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8861,
+      "path": "pages/2/1_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9629,
+      "path": "pages/2/1_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8372,
+      "path": "pages/2/2_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8481,
+      "path": "pages/2/2_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8653,
+      "path": "pages/2/2_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8995,
+      "path": "pages/2/2_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8514,
+      "path": "pages/2/3_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8821,
+      "path": "pages/2/3_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9315,
+      "path": "pages/2/3_2.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8497,
+      "path": "pages/2/3_3.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 8910,
+      "path": "pages/3/0_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9640,
+      "path": "pages/3/0_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9012,
+      "path": "pages/3/1_0.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9520,
+      "path": "pages/3/1_1.eat.gz"
+    },
+    {
+      "bucket": "field_payload",
+      "bytes": 9647,
+      "path": "pages/4/0_0.eat.gz"
+    },
+    {
+      "bucket": "research_only",
+      "bytes": 4202628,
+      "path": "reference.npy"
+    },
+    {
+      "bucket": "research_only",
+      "bytes": 2433019,
+      "path": "reference.tif"
+    }
+  ],
+  "qualification": "Deployment bytes are the shipped package only. Research references, source acquisitions and optimizer state are reported separately and are not eliminated by runtime compression.",
+  "research_only_bytes": 6635647,
+  "schema": "geoneural-package-bytes-v1"
+}

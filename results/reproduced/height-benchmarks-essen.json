@@ -1,0 +1,243 @@
+{
+  "atlasContentId": "d133adcbbee05892c3e35e72c7de698caf12558b2fba83de54b8b5593d31026e",
+  "benchmarksInAtlas": 403,
+  "benchmarksInNrw": 87728,
+  "largestResiduals": [
+    {
+      "id": "4607900111",
+      "name": "Essen-Bredenay,Mauer",
+      "residualM": 30.775954426841935
+    },
+    {
+      "id": "4608900135",
+      "name": "Werden,Brueckstr117",
+      "residualM": -13.435919445384357
+    },
+    {
+      "id": "4608900204",
+      "name": "Fischlaken,Hardenbgufr,Km34,25",
+      "residualM": -10.690494277076617
+    },
+    {
+      "id": "4508900138",
+      "name": "E-Frillendf,Rangierbhf/A40,Br.",
+      "residualM": 10.99293549346929
+    },
+    {
+      "id": "4507900360",
+      "name": "Fulerum,Wickenburgstr,Bruecke",
+      "residualM": 10.57925345501684
+    },
+    {
+      "id": "4608900556",
+      "name": "Fischlaken,Maasstr Zechenmauer",
+      "residualM": -7.356670268616263
+    },
+    {
+      "id": "4507900322",
+      "name": "Schuir,BAB-Br,A52/Hatzper Str",
+      "residualM": 7.578847182226127
+    },
+    {
+      "id": "4507900234",
+      "name": "Holsterhsn,Schiederhofstr,EBbr",
+      "residualM": -7.014104591211492
+    },
+    {
+      "id": "4508900128",
+      "name": "E-Bredeney,S-Bahn\u00fcbfg",
+      "residualM": -6.974920600727941
+    },
+    {
+      "id": "4607900163",
+      "name": "Werden,Bredeneyer Str,Mauer",
+      "residualM": 6.602366091905971
+    }
+  ],
+  "registration": {
+    "benchmarksInCore": 341,
+    "bootstrap": {
+      "samples": 2000,
+      "seed": 20260923
+    },
+    "halfCellM": 5.0,
+    "medianSlope": 0.038438148025452396,
+    "offsetM": 0.2689088945850639,
+    "registered": true,
+    "shift95M": {
+      "east": [
+        -1.5935686926575294,
+        1.6467080427944878
+      ],
+      "north": [
+        -1.195880403424312,
+        1.90394726817444
+      ]
+    },
+    "shiftM": [
+      -0.016832448341331907,
+      0.41332522518392134
+    ],
+    "spreadAtZeroM": 0.36007057364291484,
+    "spreadIfFlippedNorthSouthM": 32.78183810286011,
+    "spreadIfTransposedM": 27.403349337435145,
+    "testHasPower": true
+  },
+  "residualPublishedMinusAtlasM": {
+    "mad": 0.36007057364291484,
+    "median": 0.2792126600549665,
+    "p25": -0.15628293074940558,
+    "p5": -1.8374061990559778,
+    "p75": 0.5779619584262043,
+    "p95": 2.2365313632200885,
+    "withinOneMetreOfMedian": 0.749379652605459
+  },
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T19:37:11.470535+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {
+      "atlas": {
+        "kind": "ext4",
+        "mount": "/",
+        "path": "$GEONEURAL_HOME/atlases/essen-ruhr"
+      }
+    },
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "atlas": ".data/atlases/essen-ruhr/atlas.json"
+    },
+    "kind": "hfp-landmarks",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1509366,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "4cc856b12bfadf138182dcea4cb6d61bf8e3062b7adc563076c9d9c774b48f4b",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-hfp-check-v1",
+  "scope": "Registration and datum only. Benchmarks are mostly bolts on structures, surveyed at different epochs in a mining region, so residuals are not a ground-accuracy measure.",
+  "source": {
+    "coordinates": "zone-prefixed UTM32 eastings; the format description labels them 'DHDN2016', which names no datum; ETRS89/UTM32N is what this test verifies",
+    "files": {
+      "Datenformatbeschreibung.pdf": {
+        "bytes": 285673,
+        "retrievedUtc": "2026-09-23T14:49:17+00:00",
+        "sha256": "b73ce0c64aa0cb26720cc277423cc453b46206131ef2b50879ea5aeeee76e955"
+      },
+      "Nutzerinformation.pdf": {
+        "bytes": 119391,
+        "retrievedUtc": "2026-09-23T14:49:17+00:00",
+        "sha256": "08af4584678ae175dfe8665c887d7f30a4b01cf9f2269e6a949d49e497b0e698"
+      },
+      "hfp_pl.csv": {
+        "bytes": 7055642,
+        "retrievedUtc": "2026-10-03T18:56:18+00:00",
+        "sha256": "179caf2d7cf73e75feb4185314612862073d6ee64beafa0d95a94a12b49890ad"
+      },
+      "hfp_plzf.csv": {
+        "bytes": 7799480,
+        "retrievedUtc": "2026-10-03T18:56:18+00:00",
+        "sha256": "b2fd2d8340c99c4508038e513a54a2b3d6e1bc1177142f173e344418f047cae7"
+      }
+    },
+    "heights": "DHHN2016 (EPSG:7837), the atlas's own vertical reference",
+    "url": "https://www.opengeodata.nrw.de/produkte/geobasis/rb/fd/"
+  },
+  "surveyEpochs": {
+    "dated": 403,
+    "median": "1990-06-20",
+    "newest": "2022-05-30",
+    "oldest": "1966-06-30"
+  },
+  "verdict": {
+    "medianOffsetBelowOneSpread": true,
+    "registrationVerified": true
+  }
+}

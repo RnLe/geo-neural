@@ -1,0 +1,466 @@
+{
+  "qualification": "Synthetic. The GK100 carries 34 fault traces with no dip, no throw and no depth extent, so there is no real-data target for this experiment and none is claimed. The test is not that the event arm fits the volume but that the ablation fails specifically at the fault and matches away from it; an ablation worse everywhere would only show it has less capacity.",
+  "rows": [
+    {
+      "arm": "event",
+      "block": {
+        "byDistanceToFault": [
+          {
+            "distanceFrom": 0.0,
+            "distanceTo": 0.02,
+            "maeM": 26.756735983094185,
+            "maxM": 132.1513580089893,
+            "samples": 144
+          },
+          {
+            "distanceFrom": 0.02,
+            "distanceTo": 0.05,
+            "maeM": 15.396977305970927,
+            "maxM": 94.0048554128291,
+            "samples": 192
+          },
+          {
+            "distanceFrom": 0.05,
+            "distanceTo": 0.15,
+            "maeM": 17.42590589537983,
+            "maxM": 101.94457622151481,
+            "samples": 684
+          },
+          {
+            "distanceFrom": 0.15,
+            "distanceTo": 1.0,
+            "maeM": 6.9856923784426845,
+            "maxM": 66.64226237543141,
+            "samples": 1860
+          }
+        ],
+        "maeM": 11.014547597449715
+      },
+      "borehole": {
+        "byDistanceToFault": [
+          {
+            "distanceFrom": 0.0,
+            "distanceTo": 0.02,
+            "maeM": 29.072454940237066,
+            "maxM": 178.48222270764796,
+            "samples": 31
+          },
+          {
+            "distanceFrom": 0.02,
+            "distanceTo": 0.05,
+            "maeM": 7.65807351998598,
+            "maxM": 47.84665880705171,
+            "samples": 47
+          },
+          {
+            "distanceFrom": 0.05,
+            "distanceTo": 0.15,
+            "maeM": 4.55638189873713,
+            "maxM": 60.34615928248354,
+            "samples": 141
+          },
+          {
+            "distanceFrom": 0.15,
+            "distanceTo": 1.0,
+            "maeM": 1.9609267132519412,
+            "maxM": 28.238881964432608,
+            "samples": 481
+          }
+        ],
+        "maeM": 4.06690165054687
+      },
+      "history": [
+        {
+          "loss": 1.1476744413375854,
+          "step": 0
+        },
+        {
+          "loss": 0.001401988323777914,
+          "step": 500
+        },
+        {
+          "loss": 0.00034250569297000766,
+          "step": 1000
+        },
+        {
+          "loss": 0.00012217284529469907,
+          "step": 1500
+        },
+        {
+          "loss": 3.846910476568155e-05,
+          "step": 2000
+        },
+        {
+          "loss": 0.0004298851126804948,
+          "step": 2500
+        },
+        {
+          "loss": 5.3155425121076405e-05,
+          "step": 3000
+        },
+        {
+          "loss": 1.3908172149967868e-05,
+          "step": 3500
+        },
+        {
+          "loss": 1.398092535964679e-05,
+          "step": 3999
+        }
+      ],
+      "parameters": 50182,
+      "recovered": {
+        "dip": 0.10401486605405807,
+        "note": "The plane and the throw are parameters, not inputs. Recovering them is the event arm saying where it thinks the fault is, which can be checked against where it is.",
+        "offset": 0.4403819739818573,
+        "throw": [
+          0.03675686940550804,
+          0.0019873592536896467,
+          0.013996166177093983
+        ],
+        "trueDip": 0.35,
+        "trueOffset": 0.5
+      },
+      "seconds": 7.696428344992455
+    },
+    {
+      "arm": "oracle",
+      "block": {
+        "byDistanceToFault": [
+          {
+            "distanceFrom": 0.0,
+            "distanceTo": 0.02,
+            "maeM": 61.964290618896484,
+            "maxM": 91.51798759392886,
+            "samples": 144
+          },
+          {
+            "distanceFrom": 0.02,
+            "distanceTo": 0.05,
+            "maeM": 24.547458999026336,
+            "maxM": 59.538352103296575,
+            "samples": 192
+          },
+          {
+            "distanceFrom": 0.05,
+            "distanceTo": 0.15,
+            "maeM": 12.193763647041157,
+            "maxM": 53.87591246286536,
+            "samples": 684
+          },
+          {
+            "distanceFrom": 0.15,
+            "distanceTo": 1.0,
+            "maeM": 9.816042994080139,
+            "maxM": 58.76238707224036,
+            "samples": 1860
+          }
+        ],
+        "maeM": 13.970258430728945
+      },
+      "borehole": {
+        "byDistanceToFault": [
+          {
+            "distanceFrom": 0.0,
+            "distanceTo": 0.02,
+            "maeM": 64.62560650339506,
+            "maxM": 143.75834575452296,
+            "samples": 31
+          },
+          {
+            "distanceFrom": 0.02,
+            "distanceTo": 0.05,
+            "maeM": 20.797121595030205,
+            "maxM": 71.13041124845796,
+            "samples": 47
+          },
+          {
+            "distanceFrom": 0.05,
+            "distanceTo": 0.15,
+            "maeM": 7.80802256663944,
+            "maxM": 43.0774760999177,
+            "samples": 141
+          },
+          {
+            "distanceFrom": 0.15,
+            "distanceTo": 1.0,
+            "maeM": 3.333663132549876,
+            "maxM": 15.48938215853184,
+            "samples": 481
+          }
+        ],
+        "maeM": 8.121830950320454
+      },
+      "history": [
+        {
+          "loss": 1.1278656721115112,
+          "step": 0
+        },
+        {
+          "loss": 0.0021732936147600412,
+          "step": 500
+        },
+        {
+          "loss": 0.0018746095011010766,
+          "step": 1000
+        },
+        {
+          "loss": 0.002124505117535591,
+          "step": 1500
+        },
+        {
+          "loss": 0.002033607568591833,
+          "step": 2000
+        },
+        {
+          "loss": 0.002192920073866844,
+          "step": 2500
+        },
+        {
+          "loss": 0.0019232635386288166,
+          "step": 3000
+        },
+        {
+          "loss": 0.001864990801550448,
+          "step": 3500
+        },
+        {
+          "loss": 0.002198845613747835,
+          "step": 3999
+        }
+      ],
+      "parameters": 50182,
+      "seconds": 6.4939788350020535
+    },
+    {
+      "arm": "plain",
+      "block": {
+        "byDistanceToFault": [
+          {
+            "distanceFrom": 0.0,
+            "distanceTo": 0.02,
+            "maeM": 28.523800731277024,
+            "maxM": 113.31466598371912,
+            "samples": 144
+          },
+          {
+            "distanceFrom": 0.02,
+            "distanceTo": 0.05,
+            "maeM": 18.697246812378683,
+            "maxM": 145.4056122487666,
+            "samples": 192
+          },
+          {
+            "distanceFrom": 0.05,
+            "distanceTo": 0.15,
+            "maeM": 13.849199767496408,
+            "maxM": 110.3124726003291,
+            "samples": 684
+          },
+          {
+            "distanceFrom": 0.15,
+            "distanceTo": 1.0,
+            "maeM": 8.056663028272744,
+            "maxM": 47.606129562931415,
+            "samples": 1860
+          }
+        ],
+        "maeM": 11.165119641262306
+      },
+      "borehole": {
+        "byDistanceToFault": [
+          {
+            "distanceFrom": 0.0,
+            "distanceTo": 0.02,
+            "maeM": 34.214394615481886,
+            "maxM": 224.3206626490542,
+            "samples": 31
+          },
+          {
+            "distanceFrom": 0.02,
+            "distanceTo": 0.05,
+            "maeM": 9.429840618491617,
+            "maxM": 62.427959241365215,
+            "samples": 47
+          },
+          {
+            "distanceFrom": 0.05,
+            "distanceTo": 0.15,
+            "maeM": 5.836188285629404,
+            "maxM": 75.31141261050573,
+            "samples": 141
+          },
+          {
+            "distanceFrom": 0.15,
+            "distanceTo": 1.0,
+            "maeM": 3.746779451163662,
+            "maxM": 39.36374704461343,
+            "samples": 481
+          }
+        ],
+        "maeM": 5.8985031520464455
+      },
+      "history": [
+        {
+          "loss": 1.1502171754837036,
+          "step": 0
+        },
+        {
+          "loss": 0.001443794695660472,
+          "step": 500
+        },
+        {
+          "loss": 0.0005008247098885477,
+          "step": 1000
+        },
+        {
+          "loss": 0.00018716069462243468,
+          "step": 1500
+        },
+        {
+          "loss": 5.831055750604719e-05,
+          "step": 2000
+        },
+        {
+          "loss": 7.693826773902401e-05,
+          "step": 2500
+        },
+        {
+          "loss": 3.384610317880288e-05,
+          "step": 3000
+        },
+        {
+          "loss": 4.201775664114393e-05,
+          "step": 3500
+        },
+        {
+          "loss": 0.0001358113659080118,
+          "step": 3999
+        }
+      ],
+      "parameters": 50177,
+      "seconds": 5.899035964990617
+    }
+  ],
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T20:38:46.353977+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {},
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {},
+    "kind": "event-field",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1726965,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "236bb76c806c0b12754af28bd63744e3fc1afa76012ff070333183a5ab97dc72",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-structure-v1",
+  "seed": 1729,
+  "split": {
+    "block": [
+      0.55,
+      0.85
+    ],
+    "boreholes": 200,
+    "heldOutBoreholes": 40
+  },
+  "steps": 4000,
+  "volume": {
+    "dip": 0.35,
+    "foldAmplitudeM": 120.0,
+    "shape": [
+      40,
+      40,
+      20
+    ],
+    "throwM": 180.0
+  }
+}

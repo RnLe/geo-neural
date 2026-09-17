@@ -1,0 +1,502 @@
+{
+  "conservation": {
+    "agrees": true,
+    "note": "Zero-flux edges make the discrete Laplacian sum to zero exactly, so a non-zero diffusion volume would be a bug in the operator rather than a property of the landscape. Boundary outflow is non-zero only under a base level, which is what makes the system open.",
+    "rows": [
+      {
+        "baseLevel": "none (closed system)",
+        "boundaryOutflowVolumeM3": 0.0,
+        "closes": true,
+        "closureNote": "observed minus expected, relative to the uplift volume. Diffusion must contribute exactly zero with zero-flux edges; a non-zero diffusion volume is a Laplacian bug, not physics.",
+        "closureResidualM3": 1.5497207641601562e-05,
+        "closureResidualRelative": 7.566995918750762e-15,
+        "diffusionIsZero": true,
+        "diffusionVolumeM3": -5.0962923117681136e-12,
+        "expectedVolumeChangeM3": 1272182914.370243,
+        "incisionVolumeM3": 775817085.6297569,
+        "observedVolumeChangeM3": 1272182914.3702586,
+        "upliftVolumeM3": 2048000000.0
+      },
+      {
+        "baseLevel": "fixed-edges",
+        "boundaryOutflowVolumeM3": 51522977.97479027,
+        "closes": true,
+        "closureNote": "observed minus expected, relative to the uplift volume. Diffusion must contribute exactly zero with zero-flux edges; a non-zero diffusion volume is a Laplacian bug, not physics.",
+        "closureResidualM3": 1.2159347534179688e-05,
+        "closureResidualRelative": 5.9371814131736755e-15,
+        "diffusionIsZero": true,
+        "diffusionVolumeM3": -5.160802341031001e-12,
+        "expectedVolumeChangeM3": 720848759.9679047,
+        "incisionVolumeM3": 1275628262.057305,
+        "observedVolumeChangeM3": 720848759.9679168,
+        "upliftVolumeM3": 2048000000.0
+      }
+    ],
+    "tolerance": 1e-09
+  },
+  "gridRefinement": {
+    "adequateSpacingM": 100.0,
+    "agrees": true,
+    "converging": true,
+    "domainM": 6400.0,
+    "note": "The steady-state exponent is the one property the closed form predicts independently of the mesh, so it is what a grid refinement can falsify. `adequateSpacingM` is the coarsest spacing that still recovers it: above that the drainage network is unresolved and the teacher does not obey its own law. Any ensemble or emulator built from this teacher must run at or below it.",
+    "predictedConcavity": 0.5,
+    "rows": [
+      {
+        "agrees": false,
+        "closureResidualRelative": 2.4178468163020027e-14,
+        "concavity": 0.9883533992217701,
+        "concavityError": 0.4883533992217701,
+        "dtYears": 50.0,
+        "medianRatio": null,
+        "predictedConcavity": 0.5,
+        "reliefM": 84.80118123330828,
+        "side": 33,
+        "spacingM": 200.0
+      },
+      {
+        "agrees": true,
+        "closureResidualRelative": 2.8074140379414757e-14,
+        "concavity": 0.6398140519291584,
+        "concavityError": 0.1398140519291584,
+        "dtYears": 50.0,
+        "medianRatio": 1.0199098403590208,
+        "predictedConcavity": 0.5,
+        "reliefM": 109.76371702077402,
+        "side": 65,
+        "spacingM": 100.0
+      },
+      {
+        "agrees": true,
+        "closureResidualRelative": 1.9198419325526933e-14,
+        "concavity": 0.4943298137303964,
+        "concavityError": 0.005670186269603583,
+        "dtYears": 50.0,
+        "medianRatio": 1.0939349111795693,
+        "predictedConcavity": 0.5,
+        "reliefM": 121.29622600113741,
+        "side": 129,
+        "spacingM": 50.0
+      }
+    ]
+  },
+  "parameters": {
+    "area_exponent": 0.5,
+    "diffusivity_m2_per_year": 0.005,
+    "k_incision": 4e-05,
+    "slope_exponent": 1.0,
+    "spacing_m": 100.0,
+    "uplift_m_per_year": 0.0005
+  },
+  "qualification": "These gates establish that the solver integrates the equation it claims to. They establish nothing about whether that equation describes any real landscape: the omissions listed by `evolve` (sediment transport, lithology, flexure, climate, sea level, human alteration) are unaffected by any amount of numerical convergence.",
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T20:07:38.843485+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {},
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {},
+    "kind": "teacher-audit",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1574238,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "43c3378e63fda830d017f0d571e15fbc0c0141cb5bb9ca861259e7bc138a3db9",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-teacher-audit-v1",
+  "steadyState": {
+    "finalReliefM": 97.18325436564227,
+    "note": "Interior mean |dh| per step divided by the uplift per step. Below the threshold the surface is changing by a thousandth of what uplift adds, which is a stated criterion rather than a settled-looking picture.",
+    "reliefTimescaleYears": 194366.50873128453,
+    "settledAtYears": 1570600.0,
+    "thresholdNormalisedRate": 0.001,
+    "trace": [
+      {
+        "normalisedRate": 0.6649140373238186,
+        "reliefM": 69.98135092004898,
+        "step": 0,
+        "years": 0.0
+      },
+      {
+        "normalisedRate": 0.4394773638439748,
+        "reliefM": 88.5906596013508,
+        "step": 250,
+        "years": 50000.0
+      },
+      {
+        "normalisedRate": 0.2507980191499691,
+        "reliefM": 101.77571024902272,
+        "step": 500,
+        "years": 100000.0
+      },
+      {
+        "normalisedRate": 0.1687077045446074,
+        "reliefM": 105.28308853226305,
+        "step": 750,
+        "years": 150000.0
+      },
+      {
+        "normalisedRate": 0.12393148501305305,
+        "reliefM": 107.36514993051051,
+        "step": 1000,
+        "years": 200000.0
+      },
+      {
+        "normalisedRate": 0.10299613844724341,
+        "reliefM": 105.78153303646955,
+        "step": 1250,
+        "years": 250000.0
+      },
+      {
+        "normalisedRate": 0.08720529657105924,
+        "reliefM": 107.69659371038672,
+        "step": 1500,
+        "years": 300000.0
+      },
+      {
+        "normalisedRate": 0.0747526334506832,
+        "reliefM": 100.11185016048293,
+        "step": 1750,
+        "years": 350000.0
+      },
+      {
+        "normalisedRate": 0.0592516915887735,
+        "reliefM": 97.8396730622121,
+        "step": 2000,
+        "years": 400000.0
+      },
+      {
+        "normalisedRate": 0.04921099894110017,
+        "reliefM": 97.45294185182154,
+        "step": 2250,
+        "years": 450000.0
+      },
+      {
+        "normalisedRate": 0.04566518635423709,
+        "reliefM": 100.78733692516978,
+        "step": 2500,
+        "years": 500000.0
+      },
+      {
+        "normalisedRate": 0.0421318123306698,
+        "reliefM": 98.72713033184462,
+        "step": 2750,
+        "years": 550000.0
+      },
+      {
+        "normalisedRate": 0.03575902149567748,
+        "reliefM": 96.79889064563461,
+        "step": 3000,
+        "years": 600000.0
+      },
+      {
+        "normalisedRate": 0.032133537910267636,
+        "reliefM": 97.62730195555844,
+        "step": 3250,
+        "years": 650000.0
+      },
+      {
+        "normalisedRate": 0.027064711731820547,
+        "reliefM": 96.97257743494195,
+        "step": 3500,
+        "years": 700000.0
+      },
+      {
+        "normalisedRate": 0.02514798485644482,
+        "reliefM": 98.18235453377011,
+        "step": 3750,
+        "years": 750000.0
+      },
+      {
+        "normalisedRate": 0.01851184012513182,
+        "reliefM": 98.66409008378494,
+        "step": 4000,
+        "years": 800000.0
+      },
+      {
+        "normalisedRate": 0.017191336906594145,
+        "reliefM": 99.98828349119269,
+        "step": 4250,
+        "years": 850000.0
+      },
+      {
+        "normalisedRate": 0.01736895502372505,
+        "reliefM": 99.91944266052886,
+        "step": 4500,
+        "years": 900000.0
+      },
+      {
+        "normalisedRate": 0.014536684277672253,
+        "reliefM": 95.59803941284409,
+        "step": 4750,
+        "years": 950000.0
+      },
+      {
+        "normalisedRate": 0.014859783167057205,
+        "reliefM": 95.52595737981841,
+        "step": 5000,
+        "years": 1000000.0
+      },
+      {
+        "normalisedRate": 0.015171657236482386,
+        "reliefM": 96.70896414665641,
+        "step": 5250,
+        "years": 1050000.0
+      },
+      {
+        "normalisedRate": 0.016305809696592243,
+        "reliefM": 97.86525092018766,
+        "step": 5500,
+        "years": 1100000.0
+      },
+      {
+        "normalisedRate": 0.012617835755953604,
+        "reliefM": 98.30379107769643,
+        "step": 5750,
+        "years": 1150000.0
+      },
+      {
+        "normalisedRate": 0.012797574776672246,
+        "reliefM": 93.96428649274173,
+        "step": 6000,
+        "years": 1200000.0
+      },
+      {
+        "normalisedRate": 0.013034183395329278,
+        "reliefM": 94.86476528975146,
+        "step": 6250,
+        "years": 1250000.0
+      },
+      {
+        "normalisedRate": 0.00891983160589901,
+        "reliefM": 92.37586033549445,
+        "step": 6500,
+        "years": 1300000.0
+      },
+      {
+        "normalisedRate": 0.005708352776676098,
+        "reliefM": 95.12507655169738,
+        "step": 6750,
+        "years": 1350000.0
+      },
+      {
+        "normalisedRate": 0.006181640605857268,
+        "reliefM": 96.58229159739895,
+        "step": 7000,
+        "years": 1400000.0
+      },
+      {
+        "normalisedRate": 0.0038796793484873154,
+        "reliefM": 97.29031409118399,
+        "step": 7250,
+        "years": 1450000.0
+      },
+      {
+        "normalisedRate": 0.00218837643733612,
+        "reliefM": 97.67086008041747,
+        "step": 7500,
+        "years": 1500000.0
+      },
+      {
+        "normalisedRate": 0.001515662663992201,
+        "reliefM": 97.96353934189051,
+        "step": 7750,
+        "years": 1550000.0
+      },
+      {
+        "normalisedRate": 0.0012846579864111388,
+        "reliefM": 96.72916971553256,
+        "step": 8000,
+        "years": 1600000.0
+      },
+      {
+        "normalisedRate": 0.001075977106630871,
+        "reliefM": 96.38495360773045,
+        "step": 8250,
+        "years": 1650000.0
+      },
+      {
+        "normalisedRate": 0.0008060834039484864,
+        "reliefM": 96.66356320666004,
+        "step": 8500,
+        "years": 1700000.0
+      },
+      {
+        "normalisedRate": 0.0004871766116910541,
+        "reliefM": 97.00283568338439,
+        "step": 8750,
+        "years": 1750000.0
+      },
+      {
+        "normalisedRate": 0.00021816896115555657,
+        "reliefM": 97.13568950591407,
+        "step": 9000,
+        "years": 1800000.0
+      },
+      {
+        "normalisedRate": 4.540546315900646e-05,
+        "reliefM": 97.17194701721152,
+        "step": 9250,
+        "years": 1850000.0
+      },
+      {
+        "normalisedRate": 8.923245120814265e-06,
+        "reliefM": 97.18074792802418,
+        "step": 9500,
+        "years": 1900000.0
+      },
+      {
+        "normalisedRate": 1.7887272925180424e-06,
+        "reliefM": 97.18279126672772,
+        "step": 9750,
+        "years": 1950000.0
+      }
+    ]
+  },
+  "timestepRefinement": {
+    "agrees": true,
+    "finestObservedOrder": 2.233739568491675,
+    "monotone": true,
+    "note": "Explicit Euler on this splitting is first order. The incision limiter and D8 receiver switching are discontinuous, so an order below one is expected rather than alarming; an order near zero means the transient is not converging and nothing may be learned from it.",
+    "observedOrders": [
+      0.24306132666597563,
+      1.9406601138444444,
+      0.24122183578864467,
+      2.233739568491675
+    ],
+    "referenceDtYears": 12.5,
+    "rows": [
+      {
+        "cellsIncisionLimitedTotal": 204,
+        "closureResidualRelative": 1.9499566406011582e-15,
+        "dtYears": 800.0,
+        "l1M": 2.247430525359639,
+        "lInfM": 38.95224288384946
+      },
+      {
+        "cellsIncisionLimitedTotal": 0,
+        "closureResidualRelative": 2.6193447411060335e-15,
+        "dtYears": 400.0,
+        "l1M": 1.8989674700467845,
+        "lInfM": 24.668028549935617
+      },
+      {
+        "cellsIncisionLimitedTotal": 0,
+        "closureResidualRelative": 7.421476766467095e-15,
+        "dtYears": 200.0,
+        "l1M": 0.49467574844721574,
+        "lInfM": 23.75272812713755
+      },
+      {
+        "cellsIncisionLimitedTotal": 0,
+        "closureResidualRelative": 9.10949893295765e-15,
+        "dtYears": 100.0,
+        "l1M": 0.4185097800363392,
+        "lInfM": 19.306620855953433
+      },
+      {
+        "cellsIncisionLimitedTotal": 0,
+        "closureResidualRelative": 2.741580829024315e-14,
+        "dtYears": 50.0,
+        "l1M": 0.08897807356255354,
+        "lInfM": 10.249010413010861
+      }
+    ]
+  },
+  "verdict": {
+    "booksClose": true,
+    "coarsestAdequateSpacingM": 100.0,
+    "exponentConvergesWithRefinement": true,
+    "exponentSurvivesTheMesh": true,
+    "fitToTeach": true,
+    "reachesSteadyState": true,
+    "timestepConverges": true
+  }
+}

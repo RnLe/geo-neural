@@ -1,0 +1,35 @@
+{
+  "batch": 8192,
+  "device": "cuda",
+  "evaluation_scope": "trained on the training pages only; interpolation and extrapolation errors are on withheld pages of the same region and are not evidence about a different landscape",
+  "mean_m": 95.62469681843083,
+  "model": {
+    "depth": 3,
+    "kind": "siren",
+    "latent": 16,
+    "tiles": 256,
+    "width": 128
+  },
+  "note": "Weights of an earlier training run of learning.train with these settings; history and environment omitted.",
+  "page_intervals": 64,
+  "qualification": "unqualified regional control; no residual coding, hard error bound, boundary guarantee or rate optimization",
+  "reference_sha256": "ece831c680febbc95c7eb473fc2c95da5006ccfc39172c0e132cc1a3d2986618",
+  "reference_side": 1025,
+  "scale_m": 28.191406946976063,
+  "schema": "geoneural-coordinate-checkpoint-v1",
+  "seed": 1729,
+  "source_atlas_id": "4daddc2431457c9fcaa79a6d49ca4364079e9f158dbde4bb8928153a6b74340f",
+  "split": {
+    "mode": "codec-fit control: no holdout",
+    "note": "Every page is trained on. Reported error is codec fit on the encoded region and is NOT evidence of generalization to anything, including the withheld pages of the split runs.",
+    "pageIntervals": 64,
+    "pages": 256,
+    "side": 1025,
+    "trainPages": 256
+  },
+  "steps_completed": 60000,
+  "steps_requested": 60000,
+  "training_seconds": 141.96635416200115,
+  "weights_bytes": 134788,
+  "weights_sha256": "2a17bbd8850fefe17b092eb76eb8003ccc89904e36e47d017fe58458b782a736"
+}

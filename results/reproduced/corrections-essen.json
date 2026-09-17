@@ -1,0 +1,264 @@
+{
+  "atlas": "essen-ruhr",
+  "atlasContentId": "d133adcbbee05892c3e35e72c7de698caf12558b2fba83de54b8b5593d31026e",
+  "baseline": {
+    "basinAgreementFraction": 0.09587626412849494,
+    "elevationMaeM": 0.49415003715120276,
+    "elevationMaxM": 1.0,
+    "receiverAgreementFraction": 0.519356845343034,
+    "streamJaccard": 0.21923724309000708,
+    "streamRecall": 0.3486791123635083
+  },
+  "baselineAtOtherThresholds": {
+    "1000": 0.2154970575207239,
+    "2000": 0.20518561640768437,
+    "250": 0.20813464235624124
+  },
+  "byBandRadius": [
+    {
+      "bandRadiusCells": 0,
+      "basinAgreementFraction": 0.8270353361094587,
+      "bytesPerCorrectedCell": 1.8082775625220149,
+      "correctionBytes": 51337,
+      "elevationMaeM": 0.48095201922654623,
+      "elevationMaxM": 1.0,
+      "encoding": {
+        "bytesPerCorrectedCell": 1.8082775625220149,
+        "cells": 28390,
+        "deployedBytes": 51337,
+        "gzipBytes": 52104,
+        "indexVarintBytes": 29810,
+        "rawBytes": 68111,
+        "valueVarintBytes": 38301,
+        "zstdBytes": 51337
+      },
+      "protectedCells": 28390,
+      "protectedFraction": 0.027022010707911957,
+      "receiverAgreementFraction": 0.5281831654927861,
+      "streamJaccard": 0.45805386711381263,
+      "streamJaccardAtOtherThresholds": {
+        "1000": 0.4614399180117858,
+        "2000": 0.47645062055797177,
+        "250": 0.38254186110348615
+      },
+      "streamRecall": 0.6158154279675943
+    },
+    {
+      "bandRadiusCells": 1,
+      "basinAgreementFraction": 0.7298531826293873,
+      "bytesPerCorrectedCell": 1.3411783647608133,
+      "correctionBytes": 141611,
+      "elevationMaeM": 0.4453459164446502,
+      "elevationMaxM": 1.0,
+      "encoding": {
+        "bytesPerCorrectedCell": 1.3411783647608133,
+        "cells": 105587,
+        "deployedBytes": 141611,
+        "gzipBytes": 143071,
+        "indexVarintBytes": 106801,
+        "rawBytes": 248770,
+        "valueVarintBytes": 141969,
+        "zstdBytes": 141611
+      },
+      "protectedCells": 105587,
+      "protectedFraction": 0.10049922665080309,
+      "receiverAgreementFraction": 0.5575144119274287,
+      "streamJaccard": 0.6766413310192112,
+      "streamJaccardAtOtherThresholds": {
+        "1000": 0.682779328427641,
+        "2000": 0.672261804129936,
+        "250": 0.5344470994558342
+      },
+      "streamRecall": 0.7964776329693554
+    },
+    {
+      "bandRadiusCells": 2,
+      "basinAgreementFraction": 0.7315121951219512,
+      "bytesPerCorrectedCell": 1.2299201712527317,
+      "correctionBytes": 220628,
+      "elevationMaeM": 0.4111725924257441,
+      "elevationMaxM": 1.0,
+      "encoding": {
+        "bytesPerCorrectedCell": 1.2299201712527317,
+        "cells": 179384,
+        "deployedBytes": 220628,
+        "gzipBytes": 222889,
+        "indexVarintBytes": 180425,
+        "rawBytes": 421688,
+        "valueVarintBytes": 241263,
+        "zstdBytes": 220628
+      },
+      "protectedCells": 179384,
+      "protectedFraction": 0.1707402736466389,
+      "receiverAgreementFraction": 0.5855614130138773,
+      "streamJaccard": 0.7108883047013511,
+      "streamJaccardAtOtherThresholds": {
+        "1000": 0.7195185089308828,
+        "2000": 0.7271206394448231,
+        "250": 0.5621495993965464
+      },
+      "streamRecall": 0.8191616766467066
+    },
+    {
+      "bandRadiusCells": 4,
+      "basinAgreementFraction": 0.7811502676977989,
+      "bytesPerCorrectedCell": 1.144029199196896,
+      "correctionBytes": 362965,
+      "elevationMaeM": 0.3472585123664997,
+      "elevationMaxM": 1.0,
+      "encoding": {
+        "bytesPerCorrectedCell": 1.144029199196896,
+        "cells": 317269,
+        "deployedBytes": 362965,
+        "gzipBytes": 370365,
+        "indexVarintBytes": 318032,
+        "rawBytes": 745005,
+        "valueVarintBytes": 426973,
+        "zstdBytes": 362965
+      },
+      "protectedCells": 317269,
+      "protectedFraction": 0.3019812016656752,
+      "receiverAgreementFraction": 0.6376115712034736,
+      "streamJaccard": 0.7487641846727809,
+      "streamJaccardAtOtherThresholds": {
+        "1000": 0.7738975501113585,
+        "2000": 0.781522855675398,
+        "250": 0.6088632386032169
+      },
+      "streamRecall": 0.8483268756604438
+    }
+  ],
+  "checkThresholdsCells": [
+    250,
+    1000,
+    2000
+  ],
+  "fineQuantumM": 0.01,
+  "qualification": "Protected cells are chosen from the reference stream network, which the encoder has; no decoder infers them. Corrections restore the fine-quantum value, so the reconstruction is no longer uniformly bounded by the coarse target: it is bounded by the coarse target off the protected set and by the fine quantum on it. That is a different error contract, and a consumer must be told which cells carry which bound.",
+  "quantizerStepM": 2.0,
+  "referenceStreamCells": 28390,
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T19:37:06.479781+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {
+      "atlas": {
+        "kind": "ext4",
+        "mount": "/",
+        "path": "$GEONEURAL_HOME/atlases/essen-ruhr"
+      }
+    },
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "atlas": ".data/atlases/essen-ruhr/atlas.json"
+    },
+    "kind": "drainage-corrections",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1483633,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "a49250da0d7b84f8273e92508a55cb628e8c3906ecb55c96ee5c16257eec603d",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-corrections-v1",
+  "spacingM": 10.0,
+  "streamThresholdCells": 500,
+  "targetMaxErrorM": 1.0,
+  "uniformControls": [
+    {
+      "streamJaccard": 0.3113374354621968,
+      "streamJaccardAtOtherThresholds": {
+        "1000": 0.31332406873877233,
+        "2000": 0.3026315789473684,
+        "250": 0.29222312098651304
+      },
+      "targetMaxErrorM": 0.5
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "atlas": "essen-ruhr",
+  "atlasContentId": "d133adcbbee05892c3e35e72c7de698caf12558b2fba83de54b8b5593d31026e",
+  "atlasQuantumM": 0.01,
+  "byTarget": [
+    {
+      "basinAgreementFraction": 0.7988416418798334,
+      "bySlopeClass": [
+        {
+          "basinAgreementFraction": 0.5245216403222206,
+          "cells": 49283,
+          "receiverAgreementFraction": 0.8474727593693566,
+          "shareOfDomain": 0.0470918627195233,
+          "slopeFrom": 0.0,
+          "slopeTo": 0.005
+        },
+        {
+          "basinAgreementFraction": 0.8747624411717956,
+          "cells": 144701,
+          "receiverAgreementFraction": 0.9432554025196785,
+          "shareOfDomain": 0.13826754920312767,
+          "slopeFrom": 0.005,
+          "slopeTo": 0.02
+        },
+        {
+          "basinAgreementFraction": 0.8904827547104287,
+          "cells": 282193,
+          "receiverAgreementFraction": 0.9723380806752825,
+          "shareOfDomain": 0.26964661275511714,
+          "slopeFrom": 0.02,
+          "slopeTo": 0.05
+        },
+        {
+          "basinAgreementFraction": 0.8003327274407714,
+          "cells": 389508,
+          "receiverAgreementFraction": 0.9870888402805591,
+          "shareOfDomain": 0.3721903549734408,
+          "slopeFrom": 0.05,
+          "slopeTo": 0.15
+        },
+        {
+          "basinAgreementFraction": 0.6661708433788237,
+          "cells": 180844,
+          "receiverAgreementFraction": 0.9953938200880317,
+          "shareOfDomain": 0.1728036203487911,
+          "slopeFrom": 0.15,
+          "slopeTo": null
+        }
+      ],
+      "elevationMaeM": 0.004984109278273416,
+      "elevationMaxM": 0.010000000000005116,
+      "quantizerStepM": 0.02,
+      "receiverAgreementFraction": 0.9719109551670331,
+      "reconstructedBasins": 356,
+      "reconstructedFilledCells": 106294,
+      "reconstructedStreamCells": 28357,
+      "referenceBasins": 268,
+      "referenceFilledCells": 101560,
+      "referenceStreamCells": 28390,
+      "spuriousPitVolumeM": -0.014998474121092897,
+      "streamCellsLost": 2336,
+      "streamJaccard": 0.8488580458084906,
+      "streamRecall": 0.9177175061641423,
+      "streamThresholdCells": 500,
+      "streamThresholdKm2": 0.05,
+      "targetMaxErrorM": 0.01
+    },
+    {
+      "basinAgreementFraction": 0.7782805472932778,
+      "bySlopeClass": [
+        {
+          "basinAgreementFraction": 0.5207475194286062,
+          "cells": 49283,
+          "receiverAgreementFraction": 0.585780086439543,
+          "shareOfDomain": 0.0470918627195233,
+          "slopeFrom": 0.0,
+          "slopeTo": 0.005
+        },
+        {
+          "basinAgreementFraction": 0.8246176598641336,
+          "cells": 144701,
+          "receiverAgreementFraction": 0.7884879855702448,
+          "shareOfDomain": 0.13826754920312767,
+          "slopeFrom": 0.005,
+          "slopeTo": 0.02
+        },
+        {
+          "basinAgreementFraction": 0.8602835647943075,
+          "cells": 282193,
+          "receiverAgreementFraction": 0.868543868912411,
+          "shareOfDomain": 0.26964661275511714,
+          "slopeFrom": 0.02,
+          "slopeTo": 0.05
+        },
+        {
+          "basinAgreementFraction": 0.7871211887817452,
+          "cells": 389508,
+          "receiverAgreementFraction": 0.9391154995532826,
+          "shareOfDomain": 0.3721903549734408,
+          "slopeFrom": 0.05,
+          "slopeTo": 0.15
+        },
+        {
+          "basinAgreementFraction": 0.6661210767291146,
+          "cells": 180844,
+          "receiverAgreementFraction": 0.9762336599500122,
+          "shareOfDomain": 0.1728036203487911,
+          "slopeFrom": 0.15,
+          "slopeTo": null
+        }
+      ],
+      "elevationMaeM": 0.025107845859107768,
+      "elevationMaxM": 0.05000000000001137,
+      "quantizerStepM": 0.1,
+      "receiverAgreementFraction": 0.8890341309223155,
+      "reconstructedBasins": 617,
+      "reconstructedFilledCells": 125691,
+      "reconstructedStreamCells": 28329,
+      "referenceBasins": 268,
+      "referenceFilledCells": 101560,
+      "referenceStreamCells": 28390,
+      "spuriousPitVolumeM": 0.02500152587890625,
+      "streamCellsLost": 6127,
+      "streamJaccard": 0.6461283956350128,
+      "streamRecall": 0.7841845720324058,
+      "streamThresholdCells": 500,
+      "streamThresholdKm2": 0.05,
+      "targetMaxErrorM": 0.05
+    },
+    {
+      "basinAgreementFraction": 0.5459521713265914,
+      "bySlopeClass": [
+        {
+          "basinAgreementFraction": 0.2843576892640464,
+          "cells": 49283,
+          "receiverAgreementFraction": 0.455755534362762,
+          "shareOfDomain": 0.0470918627195233,
+          "slopeFrom": 0.0,
+          "slopeTo": 0.005
+        },
+        {
+          "basinAgreementFraction": 0.6110254939495926,
+          "cells": 144701,
+          "receiverAgreementFraction": 0.6558074926918266,
+          "shareOfDomain": 0.13826754920312767,
+          "slopeFrom": 0.005,
+          "slopeTo": 0.02
+        },
+        {
+          "basinAgreementFraction": 0.661766946735036,
+          "cells": 282193,
+          "receiverAgreementFraction": 0.7893427547813021,
+          "shareOfDomain": 0.26964661275511714,
+          "slopeFrom": 0.02,
+          "slopeTo": 0.05
+        },
+        {
+          "basinAgreementFraction": 0.5350750177146554,
+          "cells": 389508,
+          "receiverAgreementFraction": 0.880949813611017,
+          "shareOfDomain": 0.3721903549734408,
+          "slopeFrom": 0.05,
+          "slopeTo": 0.15
+        },
+        {
+          "basinAgreementFraction": 0.4102099046692177,
+          "cells": 180844,
+          "receiverAgreementFraction": 0.9536617194930437,
+          "shareOfDomain": 0.1728036203487911,
+          "slopeFrom": 0.15,
+          "slopeTo": null
+        }
+      ],
+      "elevationMaeM": 0.04997391110667021,
+      "elevationMaxM": 0.10000000000002274,
+      "quantizerStepM": 0.2,
+      "receiverAgreementFraction": 0.8176600935091144,
+      "reconstructedBasins": 895,
+      "reconstructedFilledCells": 155343,
+      "reconstructedStreamCells": 28105,
+      "referenceBasins": 268,
+      "referenceFilledCells": 101560,
+      "referenceStreamCells": 28390,
+      "spuriousPitVolumeM": 0.1250045258789072,
+      "streamCellsLost": 8872,
+      "streamJaccard": 0.5278416312843118,
+      "streamRecall": 0.6874955970412117,
+      "streamThresholdCells": 500,
+      "streamThresholdKm2": 0.05,
+      "targetMaxErrorM": 0.1
+    },
+    {
+      "basinAgreementFraction": 0.43380464009518144,
+      "bySlopeClass": [
+        {
+          "basinAgreementFraction": 0.25126311304100807,
+          "cells": 49283,
+          "receiverAgreementFraction": 0.34565671732646147,
+          "shareOfDomain": 0.0470918627195233,
+          "slopeFrom": 0.0,
+          "slopeTo": 0.005
+        },
+        {
+          "basinAgreementFraction": 0.5271007111215541,
+          "cells": 144701,
+          "receiverAgreementFraction": 0.3943718426272106,
+          "shareOfDomain": 0.13826754920312767,
+          "slopeFrom": 0.005,
+          "slopeTo": 0.02
+        },
+        {
+          "basinAgreementFraction": 0.5612931575198534,
+          "cells": 282193,
+          "receiverAgreementFraction": 0.5322279432870411,
+          "shareOfDomain": 0.26964661275511714,
+          "slopeFrom": 0.02,
+          "slopeTo": 0.05
+        },
+        {
+          "basinAgreementFraction": 0.40675929634307895,
+          "cells": 389508,
+          "receiverAgreementFraction": 0.6774109902749109,
+          "shareOfDomain": 0.3721903549734408,
+          "slopeFrom": 0.05,
+          "slopeTo": 0.15
+        },
+        {
+          "basinAgreementFraction": 0.2745515471898432,
+          "cells": 180844,
+          "receiverAgreementFraction": 0.8091670168764239,
+          "shareOfDomain": 0.1728036203487911,
+          "slopeFrom": 0.15,
+          "slopeTo": null
+        }
+      ],
+      "elevationMaeM": 0.24917929287376608,
+      "elevationMaxM": 0.5,
+      "quantizerStepM": 1.0,
+      "receiverAgreementFraction": 0.6062727358725846,
+      "reconstructedBasins": 2128,
+      "reconstructedFilledCells": 414226,
+      "reconstructedStreamCells": 27233,
+      "referenceBasins": 268,
+      "referenceFilledCells": 101560,
+      "referenceStreamCells": 28390,
+      "spuriousPitVolumeM": 0.5250015258789062,
+      "streamCellsLost": 15184,
+      "streamJaccard": 0.3113374354621968,
+      "streamRecall": 0.465163790066925,
+      "streamThresholdCells": 500,
+      "streamThresholdKm2": 0.05,
+      "targetMaxErrorM": 0.5
+    },
+    {
+      "basinAgreementFraction": 0.09587626412849494,
+      "bySlopeClass": [
+        {
+          "basinAgreementFraction": 0.060690298886025604,
+          "cells": 49283,
+          "receiverAgreementFraction": 0.325345453807601,
+          "shareOfDomain": 0.0470918627195233,
+          "slopeFrom": 0.0,
+          "slopeTo": 0.005
+        },
+        {
+          "basinAgreementFraction": 0.12019958396970304,
+          "cells": 144701,
+          "receiverAgreementFraction": 0.33299009682033986,
+          "shareOfDomain": 0.13826754920312767,
+          "slopeFrom": 0.005,
+          "slopeTo": 0.02
+        },
+        {
+          "basinAgreementFraction": 0.12357854376260219,
+          "cells": 282193,
+          "receiverAgreementFraction": 0.45639331946575573,
+          "shareOfDomain": 0.26964661275511714,
+          "slopeFrom": 0.02,
+          "slopeTo": 0.05
+        },
+        {
+          "basinAgreementFraction": 0.09017273072696838,
+          "cells": 389508,
+          "receiverAgreementFraction": 0.5662682152869775,
+          "shareOfDomain": 0.3721903549734408,
+          "slopeFrom": 0.05,
+          "slopeTo": 0.15
+        },
+        {
+          "basinAgreementFraction": 0.05503638495056513,
+          "cells": 180844,
+          "receiverAgreementFraction": 0.7185585366393135,
+          "shareOfDomain": 0.1728036203487911,
+          "slopeFrom": 0.15,
+          "slopeTo": null
+        }
+      ],
+      "elevationMaeM": 0.49415003715120276,
+      "elevationMaxM": 1.0,
+      "quantizerStepM": 2.0,
+      "receiverAgreementFraction": 0.519356845343034,
+      "reconstructedBasins": 2798,
+      "reconstructedFilledCells": 606692,
+      "reconstructedStreamCells": 26661,
+      "referenceBasins": 268,
+      "referenceFilledCells": 101560,
+      "referenceStreamCells": 28390,
+      "spuriousPitVolumeM": -1.474967474121172,
+      "streamCellsLost": 18491,
+      "streamJaccard": 0.21923724309000708,
+      "streamRecall": 0.3486791123635083,
+      "streamThresholdCells": 500,
+      "streamThresholdKm2": 0.05,
+      "targetMaxErrorM": 1.0
+    }
+  ],
+  "fillEpsilonM": 1e-06,
+  "method": "priority-flood depression filling, D8 steepest descent by ground slope, contributing-area accumulation, basin membership by pointer jumping; identical algorithm and parameters on both fields",
+  "qualification": "A routing comparison between two surfaces, not a hydrological simulation. No discharge, infiltration or time. A bare-earth DTM is not a riverbed under water, so an absent channel here is not an absent river on the ground. Reconstructions are uniform quantizations meeting each target, which is what the quantized codecs produce; a codec with a different error distribution can differ.",
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T19:34:37.917980+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {
+      "atlas": {
+        "kind": "ext4",
+        "mount": "/",
+        "path": "$GEONEURAL_HOME/atlases/essen-ruhr"
+      }
+    },
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {
+      "atlas": ".data/atlases/essen-ruhr/atlas.json"
+    },
+    "kind": "drainage-preservation",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1478141,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "016241d8de421b9def8099feee21cdf97364f683b108976f0850b981f397c36f",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-hydrology-v1",
+  "spacingM": 10.0,
+  "streamThresholdCells": 500
+}

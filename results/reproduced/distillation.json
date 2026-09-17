@@ -1,0 +1,184 @@
+{
+  "coarse": "$GEONEURAL_HOME/fine/rothaar-sauerland/coarse_from_operator.npy",
+  "qualification": "The physics prior is three fitted scalars integrated along the coarse grid's own D8 paths, charged as 24 bytes rather than as a stored raster. The generic arm is the same field rotated and flipped: same statistics, same domain, aligned with nothing. Noise would be a weaker control, since a network can tell noise from structure and learn to ignore it.",
+  "rows": [
+    {
+      "arm": "none",
+      "heldOutMaeM": {
+        "mean": 2.1424507300059,
+        "sd": 0.3879468344260308,
+        "values": [
+          2.69035267829895,
+          1.8438682556152344,
+          1.8931312561035156
+        ]
+      },
+      "heldOutMaxM": 25.016621271769207,
+      "parameters": 28417,
+      "seconds": 11.247399532992858,
+      "seeds": [
+        1729,
+        20260914,
+        31337
+      ],
+      "sideChannelBytes": 0,
+      "totalBytes": 56834
+    },
+    {
+      "arm": "generic",
+      "heldOutMaeM": {
+        "mean": 2.040604511896769,
+        "sd": 0.061489930645572316,
+        "values": [
+          2.083951950073242,
+          1.9536447525024414,
+          2.084216833114624
+        ]
+      },
+      "heldOutMaxM": 28.575178782145183,
+      "parameters": 28417,
+      "seconds": 11.468939445985598,
+      "seeds": [
+        1729,
+        20260914,
+        31337
+      ],
+      "sideChannelBytes": 24,
+      "totalBytes": 56858
+    },
+    {
+      "arm": "teacher",
+      "heldOutMaeM": {
+        "mean": 2.811610539754232,
+        "sd": 0.019958743463581365,
+        "values": [
+          2.785945177078247,
+          2.8346164226531982,
+          2.81427001953125
+        ]
+      },
+      "heldOutMaxM": 27.614430109659832,
+      "parameters": 28417,
+      "seconds": 11.339190412996686,
+      "seeds": [
+        1729,
+        20260914,
+        31337
+      ],
+      "sideChannelBytes": 24,
+      "totalBytes": 56858
+    }
+  ],
+  "run": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_count": 32,
+    "created_utc": "2026-10-03T20:39:26.836192+00:00",
+    "environment": {
+      "git": "unknown",
+      "packages": {
+        "numpy": "2.5.3",
+        "pyproj": "3.8.0",
+        "rasterio": "1.5.2",
+        "requests": "2.34.2",
+        "safetensors": "0.8.0",
+        "torch": "2.14.1+cu130",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]"
+    },
+    "filesystems": {},
+    "gpu": [
+      {
+        "driver": "616.64",
+        "memory_total": "12282 MiB",
+        "name": "NVIDIA GeForce RTX 4070 Ti"
+      }
+    ],
+    "inputs": {},
+    "kind": "distillation",
+    "packages_frozen": [
+      "affine==3.0.1",
+      "alembic==1.20.0",
+      "attrs==26.1.0",
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.2",
+      "click-plugins==1.1.1.2",
+      "click==8.5.0",
+      "cligj==0.7.2",
+      "colorlog==6.12.0",
+      "cuda-bindings==13.4.3",
+      "cuda-pathfinder==1.8.3",
+      "cuda-toolkit==13.0.3.0",
+      "filelock==4.0.9",
+      "fiona==1.10.1",
+      "fsspec==2026.9.0",
+      "geoneural==0.1.0",
+      "h5py==3.16.0",
+      "hdf5plugin==7.1.0",
+      "idna==3.20",
+      "iniconfig==2.3.0",
+      "Jinja2==3.1.6",
+      "llvmlite==0.50.0",
+      "Mako==1.4.3",
+      "MarkupSafe==3.0.4",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numba==0.68.0",
+      "numpy==2.5.3",
+      "nvidia-cublas==13.1.1.3",
+      "nvidia-cuda-cupti==13.0.85",
+      "nvidia-cuda-nvrtc==13.0.88",
+      "nvidia-cuda-runtime==13.0.96",
+      "nvidia-cudnn-cu13==9.24.0.43",
+      "nvidia-cufft==12.0.0.61",
+      "nvidia-cufile==1.15.1.6",
+      "nvidia-curand==10.4.0.35",
+      "nvidia-cusolver==12.0.4.66",
+      "nvidia-cusparse==12.6.3.3",
+      "nvidia-cusparselt-cu13==0.8.1",
+      "nvidia-nccl-cu13==2.30.7",
+      "nvidia-nvjitlink==13.4.92",
+      "nvidia-nvshmem-cu13==3.4.5",
+      "nvidia-nvtx==13.0.85",
+      "optuna==5.0.0",
+      "packaging==26.3",
+      "pluggy==1.6.0",
+      "pyflakes==4.0.1",
+      "Pygments==2.21.0",
+      "pyparsing==3.3.3",
+      "pyproj==3.8.0",
+      "pytest==9.1.1",
+      "PyWavelets==1.10.0",
+      "PyYAML==6.0.3",
+      "rasterio==1.5.2",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "SQLAlchemy==2.1.3",
+      "sympy==1.14.0",
+      "torch==2.14.1+cu130",
+      "tqdm==4.70.1",
+      "triton==3.8.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "zfpy==1.0.1",
+      "zstandard==0.25.0"
+    ],
+    "pid": 1727244,
+    "qualification": "Observed run identity only. Presence of a device does not mean it was used, and this record does not establish host isolation or an idle machine.",
+    "run_id": "b3f9ed1db97672f871774e5e3bf8e644cf4c81d2faa1a11feb7adbaf0db8ba3d",
+    "schema": "geoneural-run-v1"
+  },
+  "schema": "geoneural-distillation-v1",
+  "side": 257,
+  "spacingM": 10.0,
+  "steps": 3000,
+  "verdict": {
+    "capacityGainM": -0.669159809748332,
+    "informative": false,
+    "note": "teacher against generic is the experiment: same capacity, same bytes, same input shape, and only the raster's content differs. teacher against none is the confound it controls for: an extra input channel helps whatever is in it. A gain smaller than the seed spread is not a gain.",
+    "physicsGainM": -0.7710060278574629,
+    "seedSpread": 0.061489930645572316
+  }
+}
