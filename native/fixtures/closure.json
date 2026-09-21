@@ -1,0 +1,207 @@
+{
+ "schema": "geoneural-closure-weights-v1",
+ "format": "Each arm is a stack of 3x3 Conv2d layers, stride 1, padding 1 with replicate padding. <arm>.bin is little-endian float32: for each layer in order, weight [out][in][3][3] row-major, then bias [out]. Offsets count float32 elements from the start of the file.",
+ "activations": {
+  "gelu": "0.5 x (1 + erf(x / sqrt 2)), exact erf",
+  "softplus": "log(1 + exp(x)), and x itself above 20",
+  "identity": "x"
+ },
+ "normalisation": "none: inputs enter the network in metres and rise over run, as hybrid.py feeds them",
+ "grid": "side x side cells, row-major, row 0 north; spacingM is the cell edge",
+ "spacingM": 50.0,
+ "dtYears": 200.0,
+ "dtNote": "the rollout step of hybrid.evaluate_closure; a kernel splits any step into substeps below the stability bound",
+ "teacher": {
+  "form": "G = D g / (1 - r^2), r = clip(|g| / S_c, 0, 0.99), g = dh/dx on a face; tendency = divergence of G",
+  "diffusivity": 0.05,
+  "criticalSlope": 0.6,
+  "ratioClip": 0.99
+ },
+ "validated": {
+  "maxSlope": 2.202144966125488,
+  "minHeightM": -157.84222412109375,
+  "maxHeightM": 144.1744842529297,
+  "note": "range of the training surfaces; states outside it are extrapolation and the kernel refuses to step them"
+ },
+ "stability": "explicit Euler; kfield and penalty: dt <= spacing^2 / (4 max K); flux: the teacher bound spacing^2 (1 - 0.99^2) / (4 D)",
+ "training": {
+  "steps": 1500,
+  "batch": 8,
+  "side": 48,
+  "lr": 0.0003,
+  "seed": 1729,
+  "device": "cuda",
+  "arms": {
+   "flux": {
+    "parameters": 28641,
+    "finalLoss": 0.004712515510618687,
+    "seconds": 7.0
+   },
+   "kfield": {
+    "parameters": 28353,
+    "finalLoss": 0.005675739608705044,
+    "seconds": 4.9
+   },
+   "penalty": {
+    "parameters": 28353,
+    "finalLoss": 0.014925003983080387,
+    "seconds": 5.4
+   }
+  }
+ },
+ "arms": {
+  "flux": {
+   "apply": "flux",
+   "conservative": true,
+   "inputs": [
+    "face gradient (h[c+1] - h[c]) / spacingM",
+    "face mean height 0.5 (h[c+1] + h[c])"
+   ],
+   "inputGrid": "east faces, side rows by side-1 columns; south faces run the same network on the transposed field",
+   "tendency": "output G per face; the west (north) cell gains G / spacingM and the east (south) cell loses it",
+   "file": "flux.bin",
+   "floats": 28641,
+   "bytes": 114564,
+   "sha256": "bc206e947b233de2bc542c973548737784b6546c032524bc8207503f3a1a06fb",
+   "layers": [
+    {
+     "in": 2,
+     "out": 32,
+     "weightOffset": 0,
+     "biasOffset": 576,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 608,
+     "biasOffset": 9824,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 9856,
+     "biasOffset": 19072,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 19104,
+     "biasOffset": 28320,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 1,
+     "weightOffset": 28352,
+     "biasOffset": 28640,
+     "activation": "identity"
+    }
+   ]
+  },
+  "kfield": {
+   "apply": "kfield",
+   "conservative": false,
+   "inputs": [
+    "cell height h"
+   ],
+   "inputGrid": "cells, side x side",
+   "tendency": "output K per cell (m^2/yr, after softplus); tendency = K (h_n + h_s + h_w + h_e - 4 h) / spacingM^2 with replicate edges",
+   "trainedWith": "no conservation term",
+   "file": "kfield.bin",
+   "floats": 28353,
+   "bytes": 113412,
+   "sha256": "73f612cc694e192026a5017cdef24e7e4f2b3ad0e81626c89825b7ad2dcb108b",
+   "layers": [
+    {
+     "in": 1,
+     "out": 32,
+     "weightOffset": 0,
+     "biasOffset": 288,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 320,
+     "biasOffset": 9536,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 9568,
+     "biasOffset": 18784,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 18816,
+     "biasOffset": 28032,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 1,
+     "weightOffset": 28064,
+     "biasOffset": 28352,
+     "activation": "softplus"
+    }
+   ]
+  },
+  "penalty": {
+   "apply": "kfield",
+   "conservative": false,
+   "inputs": [
+    "cell height h"
+   ],
+   "inputGrid": "cells, side x side",
+   "tendency": "output K per cell (m^2/yr, after softplus); tendency = K (h_n + h_s + h_w + h_e - 4 h) / spacingM^2 with replicate edges",
+   "trainedWith": "conservation loss",
+   "file": "penalty.bin",
+   "floats": 28353,
+   "bytes": 113412,
+   "sha256": "91d98da1ba8ac34915912969123255dbb2e1921bc9aeacecaf298894c8f4807e",
+   "layers": [
+    {
+     "in": 1,
+     "out": 32,
+     "weightOffset": 0,
+     "biasOffset": 288,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 320,
+     "biasOffset": 9536,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 9568,
+     "biasOffset": 18784,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 18816,
+     "biasOffset": 28032,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 1,
+     "weightOffset": 28064,
+     "biasOffset": 28352,
+     "activation": "softplus"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>GeoNeural terrain lab</title>
+    <meta name="description" content="Terrain representations of southern Essen and the Ruhr valley compared by bytes, height error and derived drainage." />
+  </head>
+  <body class="gn-page">
+    <main class="gn-page-main">
+      <header class="gn-page-header">
+        <h1 class="gn-page-title">GeoNeural</h1>
+        <p class="gn-page-lead">
+          Terrain representations of a real 10.24 km x 10.24 km region, southern Essen and the Ruhr valley in Germany, compared by the bytes they
+          need, their height error against a 10 m reference grid, and the drainage network a routing algorithm derives from them.
+        </p>
+        <ul class="gn-page-findings">
+          <li>No neural codec beats the best conventional one of the same size by a useful margin, and none whose streams were measured keeps more of them.</li>
+          <li>Sparse corrections around streams preserve drainage more cheaply than tightening the whole grid.</li>
+          <li>
+            A learned hillslope closure that predicts one flux per cell face conserves material by construction. A closure trained with a
+            conservation penalty does not reach that balance at any weight.
+          </li>
+        </ul>
+        <p class="gn-page-status" id="gn-load-status" role="status">Loading the data bundle...</p>
+        <noscript><p class="gn-page-status">This page needs JavaScript for the viewer, the chart and the lab.</p></noscript>
+      </header>
+
+      <section class="gn-page-section" aria-labelledby="gn-h-viewer">
+        <h2 class="gn-page-h2" id="gn-h-viewer">Terrain viewer</h2>
+        <p class="gn-page-text">
+          The reference surface and seven candidate representations on a 20 m display grid. Pick a candidate, then compare it with the reference
+          through the signed error, the mapped geology or the derived streams.
+        </p>
+        <div id="gn-viewer"></div>
+      </section>
+
+      <section class="gn-page-section" aria-labelledby="gn-h-chart">
+        <h2 class="gn-page-h2" id="gn-h-chart">Bytes against quality</h2>
+        <p class="gn-page-text">Every candidate the study serialised, by size and by one quality measure at a time.</p>
+        <div id="gn-chart"></div>
+      </section>
+
+      <section class="gn-page-section" aria-labelledby="gn-h-lab">
+        <h2 class="gn-page-h2" id="gn-h-lab">Landscape lab</h2>
+        <p class="gn-page-text">Small hillslope experiments recomputed in the browser.</p>
+        <div id="gn-lab"></div>
+      </section>
+
+      <footer class="gn-page-footer">
+        <h2 class="gn-page-h3">Data</h2>
+        <ul class="gn-page-attribution" id="gn-attribution">
+          <li>Terrain: DGM1, Geobasis NRW. Geology: IS GK100, Geologischer Dienst NRW.</li>
+        </ul>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

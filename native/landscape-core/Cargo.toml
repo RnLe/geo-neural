@@ -1,0 +1,12 @@
+[package]
+name = "landscape-core"
+description = "Hillslope diffusion, a critical-slope teacher and learned conservative closures on a square grid"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+
+[dev-dependencies]
+serde_json = { version = "1", features = ["float_roundtrip"] }

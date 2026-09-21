@@ -1,0 +1,4 @@
+node_modules/
+dist/
+# Copied from native/landscape-wasm/pkg by scripts/copy-wasm.mjs
+src/wasm/
