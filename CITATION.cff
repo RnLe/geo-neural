@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "GeoNeural: terrain representations judged by bytes, errors and drainage"
+authors:
+  - family-names: Lehner
+    given-names: Rene-Marcel
+version: 0.1.0
+date-released: 2026-10-03
+license: MIT
+repository-code: "https://github.com/RnLe/geo-neural"
+keywords:
+  - terrain compression
+  - neural fields
+  - geospatial machine learning
+  - digital elevation model
+  - conservation laws
