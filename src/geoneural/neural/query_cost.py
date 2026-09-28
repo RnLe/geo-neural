@@ -46,7 +46,11 @@ def neural_query(model, features_fn, side: int, intervals: int, shared: bool,
     needs the heights this frame must wait for them, so an unsynchronised launch
     time would be a number nobody can use.
     """
-    indexes = np.arange(count, dtype=np.int64)
+    # The same square window the conventional arm reads (bench_io.window_for), not a raster-order strip:
+    # both arms answer the identical request.
+    r0, r1, c0, c1 = bench_io.window_for(count, side)
+    rows, cols = np.meshgrid(np.arange(r0, r1 + 1), np.arange(c0, c1 + 1), indexing="ij")
+    indexes = (rows * side + cols).reshape(-1).astype(np.int64)
 
     def run():
         coords, tiles = features_fn(indexes, side, intervals, shared)

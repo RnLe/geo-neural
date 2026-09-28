@@ -179,3 +179,21 @@ class ASurvivorMustActuallyWin(unittest.TestCase):
             if "weightBytes" in row:
                 self.assertEqual(row["deployedBytes"],
                                  row["weightBytes"] + row["baseBytes"], row["width"])
+
+
+class TheChargedStreamIsTheRestoredModel(unittest.TestCase):
+    """deployedBytes is a written stream, and decoding it gives exactly the weights that are scored."""
+
+    def test_roundtrip_with_integer_buffers(self):
+        import numpy as np
+        from geoneural.neural import quantise
+        rng = np.random.default_rng(0)
+        state = {"b.weight": rng.normal(size=(7, 5)), "a.bias": rng.normal(size=(5,)) * 1e-3}
+        ints = {"grid.table": np.arange(12, dtype=np.int64).reshape(3, 4)}
+        for bits in (8, 6, 4):
+            enc = quantise.encode_state(state, bits, integer_state=ints)
+            self.assertEqual(enc["deployedBytes"], len(enc["stream"]))
+            floats, integers = quantise.decode_state(enc["stream"])
+            for name, values in zip(sorted(state), floats):
+                self.assertTrue(np.array_equal(values, enc["restored"][name]))
+            self.assertTrue(np.array_equal(integers[0], ints["grid.table"]))

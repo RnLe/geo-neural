@@ -187,6 +187,7 @@ def analyse(surface: np.ndarray, spacing_m: float, stream_cells: int) -> dict:
         "stream": accumulation >= stream_cells,
         "filledCells": int(np.count_nonzero(filled > surface)),
         "maxFillM": float((filled - surface).max()),
+        "fillVolumeM3": float((filled - surface).sum() * spacing_m ** 2),
     }
 
 
@@ -226,7 +227,10 @@ def compare(reference: np.ndarray, reconstructed: np.ndarray, spacing_m: float,
         "reconstructedBasins": int(np.unique(right["basin"]).size),
         "referenceFilledCells": left["filledCells"],
         "reconstructedFilledCells": right["filledCells"],
-        "spuriousPitVolumeM": right["maxFillM"] - left["maxFillM"],
+        # A difference of the deepest fill, in metres. The v1 reports called it spuriousPitVolumeM; it is no
+        # volume. The filled volume change is fillVolumeDifferenceM3.
+        "maxFillDepthDifferenceM": right["maxFillM"] - left["maxFillM"],
+        "fillVolumeDifferenceM3": (right["fillVolumeM3"] - left["fillVolumeM3"]),
         "elevationMaeM": float(np.abs(reference - reconstructed).mean()),
         "elevationMaxM": float(np.abs(reference - reconstructed).max()),
         "bySlopeClass": stratify(reference, spacing_m, receiver_same, basin_same, interior),

@@ -29,6 +29,8 @@ tensor that occupies eight bits per value is an int8 tensor with a smaller range
 """
 from __future__ import annotations
 
+import struct
+
 import numpy as np
 
 SCHEMA = "geoneural-quantised-package-v1"
@@ -89,54 +91,123 @@ def entropy_bits(codes: np.ndarray) -> float:
     return float(-(probabilities * np.log2(probabilities)).sum())
 
 
-def encode_state(state: dict, bits: int, level: int = 19) -> dict:
-    """Quantise every stored tensor, entropy-code it, and count what ships.
+def encode_state(state: dict, bits: int, level: int = 19, integer_state: dict | None = None) -> dict:
+    """Quantise every stored tensor, write a real stream, and count what ships.
 
     `state` is a `{name: ndarray}` mapping (`training.store_state`'s output moved
-    to numpy). The stream is the packed codes of every tensor concatenated and
-    compressed once, because a real container would not restart the coder per
-    tensor and per-tensor compression would overstate the cost by a header each.
+    to numpy). The stream is a header (magic, width, tensor count; per tensor its
+    rank, dimensions and the float32 scale and zero point) followed by one zstd
+    stream of every tensor's packed codes and any integer buffers, because a real
+    container would not restart the coder per tensor. Names are not stored: tensors
+    are written in sorted-name order and a decoder knows its own architecture.
+    `restored` is what `decode_state` returns for these bytes: the scales are
+    rounded to the float32 they are stored as before anything is restored.
     """
     import zstandard
 
     packed, table, total_values = [], [], 0
     restored: dict[str, np.ndarray] = {}
     worst = 0.0
+    header = [STREAM_MAGIC, struct.pack("<BH", bits, len(state))]
     for name in sorted(state):
         values = np.asarray(state[name])
         result = quantise_tensor(values, bits)
+        scale = float(np.float32(result["scale"]))
+        zero = float(np.float32(result["zeroPoint"]))
+        restored[name] = _restore(result["codes"], scale, zero, bits).reshape(values.shape)
+        worst = max(worst, float(np.abs(restored[name] - values).max()) if values.size else 0.0)
         packed.append(_pack(result["codes"], bits))
-        restored[name] = result["restored"]
-        worst = max(worst, result["maxAbsError"])
         total_values += values.size
-        table.append({"name": name, "shape": list(values.shape),
-                      "scale": result["scale"], "zeroPoint": result["zeroPoint"],
+        header.append(struct.pack(f"<B{values.ndim}I", values.ndim, *values.shape))
+        header.append(struct.pack("<ff", scale, zero))
+        table.append({"name": name, "shape": list(values.shape), "scale": scale, "zeroPoint": zero,
                       "entropyBitsPerSymbol": entropy_bits(result["codes"])})
-    stream = b"".join(packed)
+    integers = b""
+    for name in sorted(integer_state or {}):
+        values = np.ascontiguousarray(integer_state[name])
+        header.append(struct.pack(f"<B{values.ndim}I", values.ndim, *values.shape) + values.dtype.str.encode().ljust(4))
+        integers += values.tobytes()
+    header.insert(2, struct.pack("<H", len(integer_state or {})))
+    stream = b"".join(packed) + integers
     coded = zstandard.ZstdCompressor(level=level).compress(stream)
-
-    # Side information, counted explicitly. Two float32 per tensor for
-    # scale and zero point, plus a compact shape record: 1 byte of rank and 4
-    # bytes per dimension. Names are not counted; a deployment ships an ordered
-    # container, not a dictionary of strings.
-    side = sum(8 + 1 + 4 * len(entry["shape"]) for entry in table)
+    head = b"".join(header)
+    blob = head + struct.pack("<I", len(coded)) + coded
     weighted_entropy = (sum(entry["entropyBitsPerSymbol"] * int(np.prod(entry["shape"]))
                             for entry in table) / max(total_values, 1))
     return {"bits": bits, "tensors": table,
             "packedBytes": len(stream), "codedBytes": len(coded),
-            "sideInformationBytes": side,
-            "deployedBytes": len(coded) + side,
+            "sideInformationBytes": len(blob) - len(coded),
+            "deployedBytes": len(blob),
+            "stream": blob,
             "values": total_values,
-            "bitsPerWeight": 8.0 * (len(coded) + side) / max(total_values, 1),
+            "integerBuffers": sorted(integer_state or {}),
+            "bitsPerWeight": 8.0 * len(blob) / max(total_values, 1),
             "entropyBitsPerWeight": weighted_entropy,
-            "entropyBoundBytes": int(np.ceil(weighted_entropy * total_values / 8.0)) + side,
+            "entropyBoundBytes": int(np.ceil(weighted_entropy * total_values / 8.0)) + len(head) + 4,
             "worstWeightError": worst,
             "restored": restored,
-            "coder": f"zstd level {level} over bit-packed symbols, one stream",
-            "note": "codedBytes is a measured length from a real coder. "
+            "coder": f"zstd level {level} over bit-packed symbols and integer buffers, one stream, real header",
+            "note": "deployedBytes is the length of the written stream, header included. "
                     "entropyBoundBytes is an order-0 Shannon bound on the same symbols and is "
                     "NOT a file size: it is reported so the gap between what the coder achieved "
                     "and what the symbol statistics permit is visible."}
+
+
+STREAM_MAGIC = b"GNQ1"
+
+
+def _restore(codes: np.ndarray, scale: float, zero: float, bits: int) -> np.ndarray:
+    levels = (1 << bits) - 1
+    return (codes.astype(np.float64) - (levels // 2)) * np.float64(np.float32(scale))
+
+
+def _unpack(data: bytes, count: int, bits: int) -> np.ndarray:
+    if bits == 8:
+        return np.frombuffer(data, np.uint8, count)
+    raw = np.unpackbits(np.frombuffer(data, np.uint8))[: count * bits].reshape(count, bits)
+    padded = np.zeros((count, 8), np.uint8)
+    padded[:, 8 - bits:] = raw
+    return np.packbits(padded, axis=1).reshape(-1)
+
+
+def decode_state(blob: bytes) -> tuple[list[np.ndarray], list[np.ndarray]]:
+    """Restored float tensors and integer buffers, each in sorted-name order, from `encode_state` bytes."""
+    import zstandard
+    if blob[:4] != STREAM_MAGIC:
+        raise ValueError("not a quantised weight stream")
+    bits, count = struct.unpack_from("<BH", blob, 4)
+    (ints,) = struct.unpack_from("<H", blob, 7)
+    off, specs = 9, []
+    for _ in range(count):
+        rank = blob[off]
+        shape = struct.unpack_from(f"<{rank}I", blob, off + 1)
+        scale, zero = struct.unpack_from("<ff", blob, off + 1 + 4 * rank)
+        specs.append((shape, scale, zero))
+        off += 1 + 4 * rank + 8
+    ispecs = []
+    for _ in range(ints):
+        rank = blob[off]
+        shape = struct.unpack_from(f"<{rank}I", blob, off + 1)
+        dtype = np.dtype(blob[off + 1 + 4 * rank: off + 5 + 4 * rank].rstrip(b" ").decode())
+        ispecs.append((shape, dtype))
+        off += 5 + 4 * rank
+    (length,) = struct.unpack_from("<I", blob, off)
+    stream = zstandard.ZstdDecompressor().decompress(blob[off + 4: off + 4 + length])
+    if off + 4 + length != len(blob):
+        raise ValueError("weight stream length does not match its header")
+    pos, floats, integers = 0, [], []
+    for shape, scale, zero in specs:
+        n = int(np.prod(shape))
+        nbytes = (n * bits + 7) // 8
+        floats.append(_restore(_unpack(stream[pos:pos + nbytes], n, bits), scale, zero, bits).reshape(shape))
+        pos += nbytes
+    for shape, dtype in ispecs:
+        nbytes = int(np.prod(shape)) * dtype.itemsize
+        integers.append(np.frombuffer(stream[pos:pos + nbytes], dtype).reshape(shape))
+        pos += nbytes
+    if pos != len(stream):
+        raise ValueError("weight stream holds more or less than its header declares")
+    return floats, integers
 
 
 def package(model, torch, widths=WIDTHS, float16_reference: bool = True) -> dict:
@@ -155,9 +226,10 @@ def package(model, torch, widths=WIDTHS, float16_reference: bool = True) -> dict
                      if not value.is_floating_point()}
     reference = training.deployed_bytes(model, torch, "float16") if float16_reference else None
     rows = []
+    integers = {name: value.numpy() for name, value in integer_state.items()}
     for bits in widths:
-        encoded = encode_state(state, bits)
-        rows.append({k: v for k, v in encoded.items() if k != "restored"})
+        encoded = encode_state(state, bits, integer_state=integers)
+        rows.append({k: v for k, v in encoded.items() if k not in ("restored", "stream")})
         rows[-1]["restored"] = encoded["restored"]
     return {"schema": SCHEMA,
             "float16DeployedBytes": reference,

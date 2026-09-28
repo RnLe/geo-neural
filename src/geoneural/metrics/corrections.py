@@ -25,6 +25,7 @@ measured as an encoded payload.
 """
 from __future__ import annotations
 import gzip
+import struct
 
 import numpy as np
 
@@ -67,8 +68,12 @@ def _zigzag(values: np.ndarray) -> np.ndarray:
     return (values << 1) ^ (values >> 63)
 
 
-def encode_corrections(indexes: np.ndarray, residual_codes: np.ndarray) -> dict:
-    """Pack a sparse correction the way it would actually be deployed."""
+CORRECTIONS_MAGIC = b"GNK1"
+
+
+def encode_corrections(indexes: np.ndarray, residual_codes: np.ndarray, quantum: float = 0.01) -> dict:
+    """Pack a sparse correction the way it is deployed: a header (magic, cell count, quantum, coder) and the
+    smaller of gzip and zstd over varint index gaps and zigzag residual codes. `blob` is the whole stream."""
     order = np.argsort(indexes)
     sorted_indexes = indexes[order].astype(np.int64)
     codes = residual_codes[order].astype(np.int64)
@@ -77,36 +82,86 @@ def encode_corrections(indexes: np.ndarray, residual_codes: np.ndarray) -> dict:
     value_blob = _varint(_zigzag(codes).astype(np.uint64))
     raw = index_blob + value_blob
     packed = gzip.compress(raw, compresslevel=9, mtime=0)
+    coder, body = 0, packed
     try:
         import zstandard
         packed_zstd = zstandard.ZstdCompressor(level=19).compress(raw)
+        if len(packed_zstd) < len(packed):
+            coder, body = 1, packed_zstd
     except ImportError:
         packed_zstd = None
+    blob = CORRECTIONS_MAGIC + struct.pack("<IdB", int(sorted_indexes.size), float(quantum), coder) + body
     return {
         "cells": int(sorted_indexes.size),
         "indexVarintBytes": len(index_blob), "valueVarintBytes": len(value_blob),
         "rawBytes": len(raw), "gzipBytes": len(packed),
         "zstdBytes": None if packed_zstd is None else len(packed_zstd),
-        "deployedBytes": len(packed) if packed_zstd is None else min(len(packed), len(packed_zstd)),
-        "bytesPerCorrectedCell": (len(packed) if packed_zstd is None
-                                  else min(len(packed), len(packed_zstd))) / max(sorted_indexes.size, 1),
+        "deployedBytes": len(blob),
+        "bytesPerCorrectedCell": len(blob) / max(sorted_indexes.size, 1),
+        "blob": blob,
     }
+
+
+def _read_varints(data: bytes, count: int, start: int = 0) -> tuple[np.ndarray, int]:
+    out = np.empty(count, np.uint64)
+    pos = start
+    for i in range(count):
+        value, shift = 0, 0
+        while True:
+            byte = data[pos]
+            pos += 1
+            value |= (byte & 0x7F) << shift
+            shift += 7
+            if not byte & 0x80:
+                break
+        out[i] = value
+    return out, pos
+
+
+def decode_corrections(blob: bytes) -> tuple[np.ndarray, np.ndarray, float]:
+    """Flat indexes, integer residual codes and quantum from a correction stream; no reference needed."""
+    if blob[:4] != CORRECTIONS_MAGIC:
+        raise ValueError("not a correction stream")
+    count, quantum, coder = struct.unpack_from("<IdB", blob, 4)
+    body = blob[4 + struct.calcsize("<IdB"):]
+    if coder == 1:
+        import zstandard
+        raw = zstandard.ZstdDecompressor().decompress(body)
+    elif coder == 0:
+        raw = gzip.decompress(body)
+    else:
+        raise ValueError(f"unknown correction coder {coder}")
+    gaps, pos = _read_varints(raw, count)
+    zz, pos = _read_varints(raw, count, pos)
+    if pos != len(raw):
+        raise ValueError("correction stream has trailing bytes")
+    indexes = np.cumsum(gaps.astype(np.int64) + 1) - 1
+    codes = (zz >> np.uint64(1)).astype(np.int64) ^ -(zz & np.uint64(1)).astype(np.int64)
+    return indexes, codes, float(quantum)
+
+
+def apply_decoded(coarse: np.ndarray, blob: bytes) -> np.ndarray:
+    """The corrected field a decoder produces from the coarse field and the correction stream alone."""
+    indexes, codes, quantum = decode_corrections(blob)
+    out = np.array(coarse, dtype=np.float64, copy=True).reshape(-1)
+    out[indexes] = out[indexes] + codes * quantum
+    return out.reshape(np.shape(coarse))
 
 
 def apply_corrections(coarse: np.ndarray, reference: np.ndarray, protect: np.ndarray,
                       fine_quantum: float) -> tuple[np.ndarray, dict]:
-    """Replace protected cells with the reference quantized at the fine step.
+    """Encode protected cells as residuals against the coarse reconstruction, then decode them.
 
-    The correction is stored as a residual against the coarse reconstruction, so
-    a protected cell whose coarse value already rounds correctly costs almost
-    nothing.
+    The encoder sees the reference; the returned field is what a decoder rebuilds from the coarse field and
+    the stream, so no reference value reaches the scored surface. A protected cell whose coarse value already
+    rounds correctly costs almost nothing.
     """
-    corrected = coarse.copy()
     exact = np.round(reference / fine_quantum) * fine_quantum
-    corrected[protect] = exact[protect]
     indexes = np.flatnonzero(protect.reshape(-1))
     residual_codes = np.rint((exact - coarse).reshape(-1)[indexes] / fine_quantum).astype(np.int64)
-    return corrected, encode_corrections(indexes, residual_codes)
+    packed = encode_corrections(indexes, residual_codes, fine_quantum)
+    corrected = apply_decoded(coarse, packed["blob"])
+    return corrected, {k: v for k, v in packed.items() if k != "blob"}
 
 
 def sweep(reference: np.ndarray, spacing_m: float, target_m: float,

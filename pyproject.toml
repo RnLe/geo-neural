@@ -15,18 +15,21 @@ dependencies = [
     "rasterio>=1.3.10,<2",
     "pyproj>=3.6,<4",
     "requests>=2.32,<3",
+    "scipy>=1.13,<2",
 ]
 
 [project.optional-dependencies]
-# Codec competitors: zstd, zfp, wavelets, and SZ3 through hdf5plugin.
-codecs = ["zstandard>=0.23,<1", "zfpy>=1.0,<2", "PyWavelets>=1.6,<2", "h5py>=3.12,<4", "hdf5plugin>=5,<8"]
+# Codec competitors: zstd, zfp, wavelets, SZ3 through hdf5plugin, and SPERR and raw LERC through imagecodecs.
+codecs = ["zstandard>=0.23,<1", "zfpy>=1.0,<2", "PyWavelets>=1.6,<2", "h5py>=3.12,<4", "hdf5plugin>=5,<8", "imagecodecs>=2025.3"]
 # Neural models and architecture search.
 ml = ["torch>=2.5,<3", "safetensors>=0.4,<1", "optuna>=4,<6"]
 # JIT drainage routing; optional and guarded at import.
 fast = ["numba>=0.60,<1"]
 # GK100 vector preparation.
 vector = ["fiona>=1.10,<2"]
-all = ["geoneural[codecs,ml,fast,vector]"]
+# Cross-check of the landscape teacher against an established solver.
+physics = ["fastscapelib>=0.3,<1"]
+all = ["geoneural[codecs,ml,fast,vector,physics]"]
 
 [project.scripts]
 geoneural = "geoneural.cli:main"

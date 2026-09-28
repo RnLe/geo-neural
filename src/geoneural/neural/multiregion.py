@@ -173,6 +173,9 @@ class MultiRegionProblem:
                 parts.append(np.flatnonzero(split[key].reshape(-1)) + region * self.area)
             self.indexes[name] = np.concatenate(parts)
         self.indexes["all"] = np.arange(self.flat.size, dtype=np.int64)
+        # Everything a shared model may be pretrained on: every sample except the withheld region's. "all"
+        # still contains it and stays for scoring and for per-region code fitting only.
+        self.indexes["eligible"] = eligible_indexes(self.flat.size, self.area, self.holdout_index)
         for region, name in enumerate(self.names):
             self.indexes[f"region:{name}"] = (
                 np.flatnonzero(self.split_by_region[region]["selectionMask"].reshape(-1))
@@ -388,6 +391,12 @@ OBJECTIVES = {
 }
 
 
+def eligible_indexes(total: int, area: int, held: int | None) -> np.ndarray:
+    """Every flat sample index except those of region `held` (all of them when nothing is withheld)."""
+    every = np.arange(total, dtype=np.int64)
+    return every if held is None else np.concatenate([every[: held * area], every[(held + 1) * area:]])
+
+
 def amortisation(atlas_paths, config: dict, recipe, device: str = "cuda",
                  store_precision: str = "float16", conventional_target_m: float = 1.0,
                  transfer_region: str | None = None, seeds=(1729,),
@@ -418,6 +427,9 @@ def amortisation(atlas_paths, config: dict, recipe, device: str = "cuda",
 
     if objective not in OBJECTIVES:
         raise ValueError(f"Unknown multi-region objective: {objective}")
+    if len(seeds) != 1:
+        raise ValueError("one seed per run: every arm here uses a single seed, so run once per seed "
+                         "rather than recording seeds that were never used")
     spec = OBJECTIVES[objective]
     train_on, score_on = spec["trainOn"], spec["scoreOn"]
     # "all" normalisation is permitted for a codec objective and required to be
@@ -494,9 +506,11 @@ def amortisation(atlas_paths, config: dict, recipe, device: str = "cuda",
         held = MultiRegionProblem(atlas_paths, device, normalisation=scope,
                                   holdout_region=transfer_region)
         pre_config = {**config, "kind": "shared", "tiles": held.tiles}
+        # Pretraining must not see the region it will later be judged on, not even under the codec
+        # objective, which otherwise trains on every sample.
         pre = measure(pre_config, training.with_overrides(recipe, seed=seeds[0]), held,
-                      evaluate_on=(), train_on=train_on, store_precision=store_precision,
-                      limit=None)
+                      evaluate_on=(), train_on="eligible" if train_on == "all" else train_on,
+                      store_precision=store_precision, limit=None)
         backbone = pre["model"]
         counts = _freeze_backbone(backbone, torch)
         before = {name: parameter.detach().clone()

@@ -22,7 +22,9 @@ _RULES: tuple[tuple[str, str], ...] = (
     ("reference.npy", RESEARCH_ONLY),
     ("reference.tif", RESEARCH_ONLY),
     ("nodata-report.json", RESEARCH_ONLY),
-    ("nodata-mask.npy", RESEARCH_ONLY),
+    # A decoder must know which samples are missing, so a shipped validity mask is deployment data. (An
+    # all-valid field can say so with a flag instead; the reference atlases refuse missing values altogether.)
+    ("nodata-mask.npy", "metadata_and_index"),
     ("optimizer.safetensors", RESEARCH_ONLY),
     ("weights.safetensors", "shared_weights"),
     ("factors.safetensors", "shared_weights"),

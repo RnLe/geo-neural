@@ -28,14 +28,28 @@ TARGETS = (0.01, 0.02, 0.05, 0.075, 0.1, 0.15, 0.2, 0.3, 0.5, 0.75, 1.0, 1.5, 2.
 LEVELS = (0, 1, 2, 3, 4, 5, 6)
 
 
-def paged_bytes(codec, grid: np.ndarray, target: float, intervals: int) -> int:
-    """Bytes of the grid as independently compressed pages of `intervals` cells."""
+def paged(codec, grid: np.ndarray, target: float, intervals: int) -> tuple[np.ndarray, int]:
+    """The grid as independently compressed pages of `intervals` cells: decoded from those very pages and
+    stitched (a shared edge comes from the page above or to the left), with their byte count."""
     span = (grid.shape[0] - 1) // intervals
     if span < 1:
-        return len(codec.encode(grid, target))
-    return sum(len(codec.encode(grid[y * intervals:y * intervals + intervals + 1,
-                                     x * intervals:x * intervals + intervals + 1], target))
-               for y in range(span) for x in range(span))
+        blob = codec.encode(grid, target)
+        return np.asarray(codec.decode(blob), np.float64).reshape(grid.shape), len(blob)
+    out = np.empty(grid.shape, np.float64)
+    size = 0
+    for y in range(span - 1, -1, -1):
+        for x in range(span - 1, -1, -1):
+            rows = slice(y * intervals, y * intervals + intervals + 1)
+            cols = slice(x * intervals, x * intervals + intervals + 1)
+            blob = codec.encode(np.ascontiguousarray(grid[rows, cols]), target)
+            size += len(blob)
+            out[rows, cols] = np.asarray(codec.decode(blob), np.float64).reshape(intervals + 1, intervals + 1)
+    return out, size
+
+
+def paged_bytes(codec, grid: np.ndarray, target: float, intervals: int) -> int:
+    """Bytes of the grid as independently compressed pages of `intervals` cells."""
+    return paged(codec, grid, target, intervals)[1]
 
 
 def errors(decoded: np.ndarray, reference: np.ndarray) -> dict:
@@ -59,8 +73,7 @@ def decoded_field(atlas_path: Path, level: int, target: float, codec_name: str =
         for _ in range(level - top):
             grid = smooth_decimate(grid)
     grid = grid.astype(np.float32)
-    size = paged_bytes(codec, grid, target, int(manifest["page_intervals"]))
-    decoded = codec.decode(codec.encode(grid, target)).astype(np.float64)
+    decoded, size = paged(codec, grid, target, int(manifest["page_intervals"]))
     return expand_bilinear(decoded, 2 ** level), size
 
 

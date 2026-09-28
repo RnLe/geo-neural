@@ -101,16 +101,13 @@ def paged_bytes(codec, grid: np.ndarray, target: float, intervals: int) -> int:
     Both conventional curves charge this. Charging one the monolithic rate and
     the other the paged rate would bias the comparison by about 26 %.
     """
-    span = (grid.shape[0] - 1) // intervals
-    if span < 1:
-        return len(codec.encode(grid, target))
-    total = 0
-    for py in range(span):
-        for px in range(span):
-            tile = grid[py * intervals:py * intervals + intervals + 1,
-                        px * intervals:px * intervals + intervals + 1]
-            total += len(codec.encode(tile, target))
-    return total
+    return paged_decode(codec, grid, target, intervals)[1]
+
+
+def paged_decode(codec, grid: np.ndarray, target: float, intervals: int) -> tuple[np.ndarray, int]:
+    """The decoded pages that are charged, stitched, and their bytes (see codecs.envelope.paged)."""
+    from geoneural.codecs.envelope import paged
+    return paged(codec, grid, target, intervals)
 
 
 class Problem:
@@ -191,12 +188,11 @@ class Problem:
         grid = self.level_grid(level)
         codec = codecs.registry()["q32-delta-zstd"]
         measured = codecs.measure(codec, grid.astype(np.float32), target_m)
-        decoded = codec.decode(codec.encode(grid.astype(np.float32), target_m)).astype(np.float64)
         # Charged as independently compressed pages, the convention
         # conventional_curve and base_only_curve both use. Billing a hybrid at the
         # monolithic rate while its control pays the paged rate would give it an
-        # unearned 20-30 % discount.
-        paged = paged_bytes(codec, grid.astype(np.float32), target_m, self.intervals)
+        # unearned 20-30 % discount. The values are decoded from those same pages.
+        decoded, paged = paged_decode(codec, grid.astype(np.float32), target_m, self.intervals)
         return decoded, paged, {
             "level": level, "targetM": target_m, "side": int(grid.shape[0]),
             "bytes": paged, "monolithicBytes": int(measured["bytes"]),
@@ -786,9 +782,8 @@ def conventional_curve(problem: Problem, targets=CONVENTIONAL_TARGETS,
     rows = []
     for target in targets:
         measured = codecs.measure(codec, finest, target)
-        decoded = codec.decode(codec.encode(finest, target))
+        decoded, per_page = paged_decode(codec, finest, target, intervals)
         splits_error = per_split(decoded)
-        per_page = paged(finest, target)
         pyramid = per_page
         for level in range(1, int(problem.manifest["max_level"]) + 1):
             pyramid += paged(problem.level_grid(level).astype(np.float32), target)

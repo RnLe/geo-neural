@@ -45,7 +45,8 @@ def cmd_fetch(a):
 
 def cmd_geology(a):
     from geoneural.data.acquire import fetch_geology
-    print(fetch_geology(region(a.preset), a.out or HOME / "geology" / a.preset, a.max_mib, a.feature_type))
+    print(fetch_geology(region(a.preset), a.out or HOME / "geology" / a.preset, a.max_mib, a.feature_type,
+                        a.page_size))
 
 
 def cmd_prepare(a):
@@ -626,6 +627,7 @@ def parser() -> argparse.ArgumentParser:
     s.add_argument("--out", type=Path)
     s.add_argument("--max-mib", type=int, default=128)
     s.add_argument("--feature-type")
+    s.add_argument("--page-size", type=int, help="Features per WFS page (default 250)")
     s = add("prepare", cmd_prepare, "Build the reference lattice and the compressed page pyramid")
     s.add_argument("--preset", default="essen-ruhr")
     s.add_argument("--input", type=Path)
@@ -958,7 +960,18 @@ def parser() -> argparse.ArgumentParser:
     s.add_argument("--out", type=Path, required=True, help="New directory for process records and the summary")
     s.add_argument("--extra-root", type=Path, help="Second filesystem to stage level-0 pages on")
     s.add_argument("--processes", type=int, default=3)
+    # v2 tracks register their own commands.
+    import importlib
+    for module in V2_COMMANDS:
+        try:
+            importlib.import_module(module).register(add)
+        except ModuleNotFoundError as exc:
+            if not module.startswith(exc.name or "\0"):
+                raise
     return p
+
+
+V2_COMMANDS = ("geoneural.codecs.commands", "geoneural.physics.commands", "geoneural.recon.commands")
 
 
 def main(argv: list[str] | None = None) -> int:

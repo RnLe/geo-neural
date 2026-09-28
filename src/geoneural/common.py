@@ -14,6 +14,8 @@ PACKAGE = Path(__file__).resolve().parent
 # Downloads, atlases, reports and checkpoints. Large and machine-local, so never in Git.
 HOME = Path(os.environ.get("GEONEURAL_HOME", ".data")).expanduser().resolve()
 CONFIG = PACKAGE / "configs" / "regions.json"
+# Confirmation regions, written by data/cohort.py after the selection rule was committed.
+COHORT_CONFIG = PACKAGE / "configs" / "cohort-regions.json"
 
 
 def canonical(value: Any) -> bytes:
@@ -51,6 +53,8 @@ def utc() -> str:
 
 def region(name: str) -> dict:
     choices = read_json(CONFIG)
+    if COHORT_CONFIG.exists():
+        choices.update(read_json(COHORT_CONFIG))
     if name not in choices:
         raise ValueError(f"Unknown preset {name}; choose from {', '.join(choices)}")
     value = dict(choices[name])

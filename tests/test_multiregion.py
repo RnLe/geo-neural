@@ -176,3 +176,20 @@ class ByteVerdictsAreGatedOnMatchedError(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TheWithheldRegionStaysOutOfPretraining(unittest.TestCase):
+    """The transfer arm pretrains on `eligible`, which must not contain a single withheld sample."""
+
+    def test_eligible_excludes_exactly_the_withheld_region(self):
+        import numpy as np
+        from geoneural.neural.multiregion import eligible_indexes
+        eligible = eligible_indexes(30, 10, 1)
+        self.assertFalse(np.isin(np.arange(10, 20), eligible).any())
+        self.assertEqual(eligible.size, 20)
+        self.assertEqual(eligible_indexes(30, 10, None).size, 30)
+
+    def test_more_than_one_seed_is_refused(self):
+        from geoneural.neural.multiregion import amortisation
+        with self.assertRaises(ValueError):
+            amortisation([], {"kind": "mlp"}, None, seeds=(1, 2))

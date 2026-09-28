@@ -196,7 +196,11 @@ def fetch_terrain(config: dict, out: Path, max_mib: int = 512, source_spacing: f
     return out/"input.json"
 
 
-def fetch_geology(config: dict, out: Path, max_mib: int = 128, feature_type: str | None = None) -> Path:
+def fetch_geology(config: dict, out: Path, max_mib: int = 128, feature_type: str | None = None,
+                  page_size: int | None = None) -> Path:
+    """Page through the GK100 WFS. Some responses past the first page announce features they do not contain
+    (seen for the Teutoburg Forest tile); a larger `page_size` fetches such a collection in one page."""
+    page_size = int(page_size or GEOLOGY_PAGE_SIZE)
     out.mkdir(parents=True, exist_ok=True)
     caps = out/"wfs-capabilities.xml"
     download(url(WFS,[("SERVICE","WFS"),("VERSION","2.0.0"),("REQUEST","GetCapabilities")]),caps,4*1024*1024,"xml")
@@ -209,14 +213,15 @@ def fetch_geology(config: dict, out: Path, max_mib: int = 128, feature_type: str
     for index, name in enumerate(chosen):
         start = 0
         for page in range(GEOLOGY_PAGE_LIMIT):
-            params=[("SERVICE","WFS"),("VERSION","2.0.0"),("REQUEST","GetFeature"),("TYPENAMES",name),("SRSNAME","EPSG:25832"),("BBOX",','.join(map(str,config['bbox']))+",EPSG:25832"),("COUNT",str(GEOLOGY_PAGE_SIZE)),("STARTINDEX",str(start))]
+            params=[("SERVICE","WFS"),("VERSION","2.0.0"),("REQUEST","GetFeature"),("TYPENAMES",name),("SRSNAME","EPSG:25832"),("BBOX",','.join(map(str,config['bbox']))+",EPSG:25832"),("COUNT",str(page_size)),("STARTINDEX",str(start))]
             filename=f"geology-{index:02d}-{page:03d}.gml"
             receipt=download(url(WFS,params),out/filename,max_mib*1024*1024-total,"xml")
             tree=xml_root(out/filename)
             members=[e for e in tree if e.tag.split('}')[-1] in ('member','featureMember')]
             count=int(tree.attrib.get('numberReturned',len(members)))
             if count != len(members):
-                raise ValueError("Unsupported WFS member framing; inspect GML before continuing")
+                raise ValueError(f"WFS page announces {count} features but holds {len(members)}; inspect the GML, "
+                                 f"or retry with a page size above numberMatched={tree.attrib.get('numberMatched')}")
             total += receipt['bytes']
             records.append({"path":filename,"type":name,"count":count,**receipt})
             print(f"geology {name} offset {start}: {count} features",flush=True)
@@ -228,7 +233,7 @@ def fetch_geology(config: dict, out: Path, max_mib: int = 128, feature_type: str
             # only reliable end-of-collection signal, and completed pages are kept
             # either way: discarding real downloaded features to signal a cap is
             # worse than reporting the acquisition as incomplete.
-            if count < GEOLOGY_PAGE_SIZE:
+            if count < page_size:
                 break
             if matched.isdigit() and start>=int(matched):
                 break

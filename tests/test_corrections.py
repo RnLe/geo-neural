@@ -132,3 +132,18 @@ class Application(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TheDecoderNeedsOnlyTheStream(unittest.TestCase):
+    def test_decoded_corrections_rebuild_the_protected_cells(self):
+        import numpy as np
+        from geoneural.metrics import corrections
+        rng = np.random.default_rng(3)
+        reference = rng.normal(100, 5, (40, 40))
+        coarse = np.round(reference / 1.0) * 1.0
+        protect = rng.random((40, 40)) < 0.1
+        corrected, info = corrections.apply_corrections(coarse, reference, protect, 0.01)
+        exact = np.round(reference / 0.01) * 0.01
+        self.assertLess(np.abs(corrected[protect] - exact[protect]).max(), 1e-9)
+        self.assertTrue(np.array_equal(corrected[~protect], coarse[~protect]))
+        self.assertGreater(info["deployedBytes"], 13)

@@ -191,6 +191,19 @@ nvtx = [
 ]
 
 [[package]]
+name = "fastscapelib"
+version = "0.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/66/50/45c85efe569d553e4d7752533a3a338a114310b3a04b62a42f5883d88ac2/fastscapelib-0.3.0.tar.gz", hash = "sha256:bc7084b4bfd4ce2e156064f7fe14708082779d501d9f54ee8ec9526b0626ab8e", size = 727450, upload-time = "2025-06-25T15:06:52.896Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cc/d8/0ede8e555e9efc5de30196f42453bec2667752ef0a7a11a7ee8cc54950cf/fastscapelib-0.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:5a0d3539d261f4958d76429c0f4150c97459d7a8fbf0af2b7523f83487a4987d", size = 486577, upload-time = "2025-06-25T15:06:44.666Z" },
+    { url = "https://files.pythonhosted.org/packages/35/4a/8ed9df395a955ffe58f19e33973eb5abfc579124a1b72383dabbf0d6cb0c/fastscapelib-0.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:87bac3b8efdc6e373d7376a5e98d404e3593352f4a54dfa4b7a5679b700c2472", size = 486807, upload-time = "2025-06-25T15:06:49.92Z" },
+]
+
+[[package]]
 name = "filelock"
 version = "4.0.9"
 source = { registry = "https://pypi.org/simple" }
@@ -234,13 +247,16 @@ dependencies = [
     { name = "pyproj" },
     { name = "rasterio" },
     { name = "requests" },
+    { name = "scipy" },
 ]
 
 [package.optional-dependencies]
 all = [
+    { name = "fastscapelib" },
     { name = "fiona" },
     { name = "h5py" },
     { name = "hdf5plugin" },
+    { name = "imagecodecs" },
     { name = "numba" },
     { name = "optuna" },
     { name = "pywavelets" },
@@ -252,6 +268,7 @@ all = [
 codecs = [
     { name = "h5py" },
     { name = "hdf5plugin" },
+    { name = "imagecodecs" },
     { name = "pywavelets" },
     { name = "zfpy" },
     { name = "zstandard" },
@@ -264,6 +281,9 @@ ml = [
     { name = "safetensors" },
     { name = "torch" },
 ]
+physics = [
+    { name = "fastscapelib" },
+]
 vector = [
     { name = "fiona" },
 ]
@@ -275,10 +295,12 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "fastscapelib", marker = "extra == 'physics'", specifier = ">=0.3,<1" },
     { name = "fiona", marker = "extra == 'vector'", specifier = ">=1.10,<2" },
-    { name = "geoneural", extras = ["codecs", "ml", "fast", "vector"], marker = "extra == 'all'" },
+    { name = "geoneural", extras = ["codecs", "ml", "fast", "vector", "physics"], marker = "extra == 'all'" },
     { name = "h5py", marker = "extra == 'codecs'", specifier = ">=3.12,<4" },
     { name = "hdf5plugin", marker = "extra == 'codecs'", specifier = ">=5,<8" },
+    { name = "imagecodecs", marker = "extra == 'codecs'", specifier = ">=2025.3" },
     { name = "numba", marker = "extra == 'fast'", specifier = ">=0.60,<1" },
     { name = "numpy", specifier = ">=1.26,<3" },
     { name = "optuna", marker = "extra == 'ml'", specifier = ">=4,<6" },
@@ -287,11 +309,12 @@ requires-dist = [
     { name = "rasterio", specifier = ">=1.3.10,<2" },
     { name = "requests", specifier = ">=2.32,<3" },
     { name = "safetensors", marker = "extra == 'ml'", specifier = ">=0.4,<1" },
+    { name = "scipy", specifier = ">=1.13,<2" },
     { name = "torch", marker = "extra == 'ml'", specifier = ">=2.5,<3", index = "https://download.pytorch.org/whl/cu130" },
     { name = "zfpy", marker = "extra == 'codecs'", specifier = ">=1.0,<2" },
     { name = "zstandard", marker = "extra == 'codecs'", specifier = ">=0.23,<1" },
 ]
-provides-extras = ["codecs", "ml", "fast", "vector", "all"]
+provides-extras = ["codecs", "ml", "fast", "vector", "physics", "all"]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pytest", specifier = ">=8" }]
@@ -334,6 +357,22 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz", hash = "sha256:a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44", size = 216463, upload-time = "2026-09-17T14:11:04.752Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl", hash = "sha256:ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c", size = 69583, upload-time = "2026-09-17T14:11:03.168Z" },
+]
+
+[[package]]
+name = "imagecodecs"
+version = "2026.8.16"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/87/da/c2488dd650a72f65e6f7c808fecea4650e1fe9d34783583870056399e378/imagecodecs-2026.8.16.tar.gz", hash = "sha256:03a6add9ad9ba61dce1520489fd090b1b5cf2a2701a9666d1ab8e7653278175f", size = 9703497, upload-time = "2026-08-15T16:07:19.803Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/67/1b/0771f9b93a8f43b1e98a20d33fab02a6eceb8bb75c32764b5d47ee4db36f/imagecodecs-2026.8.16-cp312-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:c1068e0db9bc09cbd32510e543caed50f231096aecbb4c9cf7bcfbd2ffc53a50", size = 28080673, upload-time = "2026-08-15T16:06:15.463Z" },
+    { url = "https://files.pythonhosted.org/packages/66/57/876bf8245b672b1fc901b65b9d1d0a37c60f7ed36e6ae8815c4af49e2779/imagecodecs-2026.8.16-cp312-abi3-pyemscripten_2025_0_wasm32.whl", hash = "sha256:59e16b27641bd08b5162de01a8bc382cd32a5e448cb5c2f4a1b252ea96d37fed", size = 2280993, upload-time = "2026-08-15T16:06:17.576Z" },
+    { url = "https://files.pythonhosted.org/packages/ac/a2/b0ea5fee8c2c4f3cf68bb2243f640ea087885598aedb2f98bde0298f73ec/imagecodecs-2026.8.16-cp312-abi3-pyemscripten_2026_0_wasm32.whl", hash = "sha256:fcb28f8e552f26c195710bddbf7e8685e789ee9309725df4a275df16d7a136bc", size = 2273594, upload-time = "2026-08-15T16:06:19.082Z" },
+    { url = "https://files.pythonhosted.org/packages/6d/e3/92588bf8bddcf642fa4370adb6ad2aad92bed92c6f3b5a02f3c1c00f0199/imagecodecs-2026.8.16-cp314-cp314t-manylinux_2_28_x86_64.whl", hash = "sha256:8afd5d0802ee1ebcbdb809fe1758f8ca2b1900eabb7d737453297c7f218b4f6f", size = 32438276, upload-time = "2026-08-15T16:06:42.633Z" },
+    { url = "https://files.pythonhosted.org/packages/3e/ac/4ddd09edc70dccb68ba0ed0074b9389b0cb05862cfb9b351adc4f0adf1ae/imagecodecs-2026.8.16-cp315-cp315t-manylinux_2_28_x86_64.whl", hash = "sha256:70959750594ab4fb16cc966e344979109efac0d3d3897bc8bac20cf560a825bd", size = 32271785, upload-time = "2026-08-15T16:07:07.154Z" },
 ]
 
 [[package]]
@@ -774,6 +813,29 @@ sdist = { url = "https://files.pythonhosted.org/packages/45/06/f955dbbb1859e3bd2
 wheels = [
     { url = "https://files.pythonhosted.org/packages/28/50/f203ff3a3ddfe19308efc83c5a3a29ed02bf786732ec35e68bf9162f3365/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fd6f3f93c9a0a7cc2788ee63fb763353d4bd2e89b0751bc78fcf7dda00bea774", size = 516040, upload-time = "2026-06-09T07:52:16.29Z" },
     { url = "https://files.pythonhosted.org/packages/27/43/41c1621732edd934d868a00d1b891584c892a7b62a9aab82ea5a0a5623ee/safetensors-0.8.0-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:8e080062fcde23be189565e1c3305d16751a218ecf9412c8601e64204eb6f846", size = 722361, upload-time = "2026-06-09T07:52:23.924Z" },
+]
+
+[[package]]
+name = "scipy"
+version = "1.18.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/7e/74/66de6258867beb2ef08f35f9f2ac017a52cacd5081714d239ff1a442d458/scipy-1.18.1.tar.gz", hash = "sha256:52c4b7422442aba924d03ad4019852b08a92e64ea187b933135687bfe2747307", size = 30781235, upload-time = "2026-08-21T23:28:50.599Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/df/64/ff35eb9e54894cf471ff4716abd3c81eb0a0626869217ce3e6ba4ccf17d7/scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:f55fa87b6c612ecd6b058f167c53231b1d14e412efe361d3d6e38b3631c73218", size = 35344199, upload-time = "2026-08-21T23:24:07.844Z" },
+    { url = "https://files.pythonhosted.org/packages/91/4c/075e4f66471bac101141ac739e9e135549be1bae584571bd03a530c056e1/scipy-1.18.1-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:d2924a03db38dc2e848bca2fe9f077dafb891480b91a00a0963a8cf86dfc31c1", size = 37480330, upload-time = "2026-08-21T23:24:19.608Z" },
+    { url = "https://files.pythonhosted.org/packages/41/48/6450ed9243315322bbc19ac57b9b70d66a20bf1d38d124c96bc4bf6af9ea/scipy-1.18.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:fdaf5ea890a6183d0565f51a61799d67081bd5b1cf03c5f4b3fd3732108625c9", size = 35312578, upload-time = "2026-08-21T23:25:00.44Z" },
+    { url = "https://files.pythonhosted.org/packages/bd/4e/3c45c33e00a77996c4b1cb707929f833ba7b1d522ee29f882512c330676d/scipy-1.18.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:e3b417bf8c2c7c16e8f58ad91db17783ec911ac16e7b50eb6eab6e809b4f5b07", size = 37457323, upload-time = "2026-08-21T23:25:12.483Z" },
+    { url = "https://files.pythonhosted.org/packages/6b/89/2a844506d49651e9aa1af6ef95b6bd8031cb1d5a4375edec6155037e04cf/scipy-1.18.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:ac0333bdf38309aa3dcbe7e3fa7ea29e7a2c37c6ea306a757b700ded8e4596ad", size = 35329183, upload-time = "2026-08-21T23:25:53.522Z" },
+    { url = "https://files.pythonhosted.org/packages/24/16/ec8536f351421f8bf60a1120930638f83790f4710b8230446aca3d6159d4/scipy-1.18.1-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:95298364e251be3e60249facbeeca03631d3bb7584f85879516ec55ac717b81f", size = 37469416, upload-time = "2026-08-21T23:26:05.432Z" },
+    { url = "https://files.pythonhosted.org/packages/87/53/39d046cc7574ed6acacb6bd5723e220107ece80bff12faaf3efc4ddeede4/scipy-1.18.1-cp314-cp314t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a1d33a7836f7ddc1993427966a0823468ec41bcbdb1a9f9942d1d7e57f803ba3", size = 35380876, upload-time = "2026-08-21T23:26:46.1Z" },
+    { url = "https://files.pythonhosted.org/packages/88/2e/f97a666d362fee68b18f41c9c30ed502ca5c98b549749bfcb52a8b74d1eb/scipy-1.18.1-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:11c423f1049c5755ad4409af52a9ada1cff96fe9b50795d4af3619f292901239", size = 37525424, upload-time = "2026-08-21T23:26:56.751Z" },
+    { url = "https://files.pythonhosted.org/packages/91/d4/bf3e735dc0b9d5a8ff45079d2540e17d3aff7a2f0048dd8f552ffd031d2b/scipy-1.18.1-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:0ac49ea97594532dd44b7136094d35f5440fa06e6d9c6384a74c01764df388c5", size = 35333883, upload-time = "2026-08-21T23:27:34.293Z" },
+    { url = "https://files.pythonhosted.org/packages/70/cd/886219313a1012a48e6ae0ec4f302c837151beb92e1ff0d709ef8fdfc488/scipy-1.18.1-cp315-cp315-musllinux_1_2_x86_64.whl", hash = "sha256:f29633129f9fa7e88a3f0fca835de2d030bfc9643f7799e1a0c46cee24d38fc7", size = 37470753, upload-time = "2026-08-21T23:27:44.435Z" },
+    { url = "https://files.pythonhosted.org/packages/fc/3e/8572ef536957ddb8aa81bb4090d9e25f257e3b4e05d97deb54319deb8a3a/scipy-1.18.1-cp315-cp315t-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:49023963c193dacee096301452f223ee24d86ec5807f8df93c0f7221d119e305", size = 35374253, upload-time = "2026-08-21T23:28:23.732Z" },
+    { url = "https://files.pythonhosted.org/packages/cf/d9/135be205d9de8783193aff9cc3bf483a03a38e4b29432c954e8cb66ac14e/scipy-1.18.1-cp315-cp315t-musllinux_1_2_x86_64.whl", hash = "sha256:179ce34a8d0fe273d8883ba59e17e052247d08973dfcb743ca52bb1cce2d60b0", size = 37521946, upload-time = "2026-08-21T23:28:35.245Z" },
 ]
 
 [[package]]
