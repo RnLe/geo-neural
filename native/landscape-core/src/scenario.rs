@@ -339,7 +339,8 @@ impl Scenario {
                 face_gradients(grid, false, height, east, south);
                 closure.check(height, max_abs(east).max(max_abs(south)))?;
                 match closure.tendency(grid, height, work, tendency) {
-                    // The K-field update is a convex combination below dx^2 / (4 K_max).
+                    // The K-field and conductance updates are convex combinations
+                    // below dx^2 / (4 K_max), with K_max = a_max for the conductance.
                     Some(k_max) => linear_stable_dt(dx, k_max),
                     // A learned flux has no closed bound; use the teacher it imitates.
                     None => teacher_stable_dt(dx, &closure.teacher),

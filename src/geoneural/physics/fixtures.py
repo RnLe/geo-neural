@@ -4,7 +4,9 @@
 runs the trained closures from exported weights. This module writes what it
 needs, into one directory:
 
-* `closure.json` and `<arm>.bin` for the three arms of `hybrid.train_closure`.
+* `closure.json` and `<arm>.bin` for the three original arms of
+  `hybrid.train_closure` and the bounded conductance arm (written through
+  `hybrid.conductance_export`).
   Weights are little-endian float32, layer by layer; everything needed to run
   them is described in the JSON. The browser bundle ships these same files.
 * one `<case>.json` per parity case. Arrays are stored as
@@ -13,7 +15,7 @@ needs, into one directory:
 
 Regenerate with
 
-    uv run python -m geoneural.physics.fixtures [out_dir] [--device cuda]
+    uv run python -m geoneural.physics.fixtures [out_dir] [--device cuda] [--new-arms-only]
 
 Training on a GPU is not bitwise repeatable, so a rerun changes the weights
 and the learned-arm fixtures together. They always agree with each other: the
@@ -252,7 +254,10 @@ def load_closure(directory, arm: str, torch, device: str = "cpu"):
     if blob.size != spec["floats"]:
         raise ValueError(f"{spec['file']} holds {blob.size} floats, expected {spec['floats']}")
     parts = hybrid._modules(torch)
-    model = parts["FluxClosure"]() if spec["apply"] == "flux" else parts["DiffusivityField"]()
+    if spec["apply"] == "conductance":
+        model = parts["Conductance"](spec["floor"], spec["aMax"])
+    else:
+        model = parts["FluxClosure"]() if spec["apply"] == "flux" else parts["DiffusivityField"]()
     convs = _check_layout(model, torch)
     if len(convs) != len(spec["layers"]):
         raise ValueError("layer count differs from the default closure")
@@ -291,6 +296,7 @@ def _closure_meta(arms: dict, validated: dict, training: dict) -> dict:
                   "count float32 elements from the start of the file.",
         "activations": {"gelu": "0.5 x (1 + erf(x / sqrt 2)), exact erf",
                         "softplus": "log(1 + exp(x)), and x itself above 20",
+                        "sigmoid": "1 / (1 + exp(-x))",
                         "identity": "x"},
         "normalisation": "none: inputs enter the network in metres and rise over run, "
                          "as hybrid.py feeds them",
@@ -307,7 +313,8 @@ def _closure_meta(arms: dict, validated: dict, training: dict) -> dict:
                       "note": "range of the training surfaces; states outside it are "
                               "extrapolation and the kernel refuses to step them"},
         "stability": "explicit Euler; kfield and penalty: dt <= spacing^2 / (4 max K); "
-                     "flux: the teacher bound spacing^2 (1 - 0.99^2) / (4 D)",
+                     "flux: the teacher bound spacing^2 (1 - 0.99^2) / (4 D); conductance: "
+                     "dt <= spacing^2 / (4 aMax) for every state",
         "training": training,
         "arms": arms,
     }
@@ -369,8 +376,12 @@ def arm_case(arm: str, directory: pathlib.Path, torch, device: str, validated: d
                                         SPACING_M, torch)[0].numpy()
     # The kernel splits a step beyond 0.9 of the stability bound, and a split
     # rollout is not the torch rollout. A K-field arm can exceed the teacher's
-    # largest diffusivity, so its step is halved until the rollout fits.
+    # largest diffusivity, so its step is halved until the rollout fits; the
+    # conductance arm's bound is fixed by aMax.
     dt_years = DT_YEARS
+    if apply == "conductance":
+        while dt_years > 0.9 * SPACING_M ** 2 / (4.0 * model.a_max):
+            dt_years /= 2.0
     while True:
         final64, integrals64, max_k = _rollout(apply, model64, start, steps, dt_years,
                                                torch, torch.float64, "cpu")
@@ -399,19 +410,38 @@ def arm_case(arm: str, directory: pathlib.Path, torch, device: str, validated: d
     return record
 
 
+def _train_conductance(out: pathlib.Path, torch, device: str, seed: int, steps: int) -> tuple[dict, dict]:
+    fitted = hybrid.train_closure("conductance", torch, steps=steps, side=SIDE, spacing_m=SPACING_M,
+                                  device=device, seed=seed, a_max=hybrid.A_MAX)
+    meta, blob = hybrid.conductance_export(fitted["model"], torch)
+    (out / meta["file"]).write_bytes(blob)
+    return meta, {"parameters": fitted["parameters"], "finalLoss": fitted["history"][-1]["loss"],
+                  "seconds": round(fitted["seconds"], 1)}
+
+
 def export(out_dir=DEFAULT_OUT, device: str = "cuda", seed: int = 1729, steps: int = 1500,
-           train: bool = True) -> dict:
-    """Train the three arms as `hybrid.campaign` does, write weights and fixtures.
+           train: bool = True, new_arms_only: bool = False) -> dict:
+    """Train the arms as `hybrid.campaign` does, write weights and fixtures.
 
     With `train=False` the weights already in `out_dir` are reused and only the
-    fixtures are rewritten.
+    fixtures are rewritten. With `new_arms_only`, the existing weights of the
+    original three arms are kept and only the conductance arm is trained and
+    added to `closure.json`, so the browser lab's existing arms do not change.
     """
     import torch
 
     out = pathlib.Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     validated = training_range(seed, steps)
-    if train:
+    if new_arms_only:
+        meta = json.loads((out / "closure.json").read_text())
+        arm_meta, arm_training = _train_conductance(out, torch, device, seed, steps)
+        fresh = _closure_meta(meta["arms"], meta["validated"], meta["training"])
+        meta["activations"], meta["stability"] = fresh["activations"], fresh["stability"]
+        meta["arms"]["conductance"] = arm_meta
+        meta["training"]["arms"]["conductance"] = arm_training
+        (out / "closure.json").write_text(json.dumps(meta, indent=1) + "\n")
+    elif train:
         arms, training = {}, {"steps": steps, "batch": BATCH, "side": SIDE, "lr": 3e-4,
                               "seed": seed, "device": device, "arms": {}}
         for arm in hybrid.ARMS:
@@ -423,10 +453,11 @@ def export(out_dir=DEFAULT_OUT, device: str = "cuda", seed: int = 1729, steps: i
                                      "finalLoss": fitted["history"][-1]["loss"],
                                      "seconds": round(fitted["seconds"], 1)}
             del fitted
+        arms["conductance"], training["arms"]["conductance"] = _train_conductance(out, torch, device, seed, steps)
         meta = _closure_meta(arms, validated, training)
         (out / "closure.json").write_text(json.dumps(meta, indent=1) + "\n")
     cases = [sine_case(), closed_case(), variable_case(), fixed_case(), teacher_case()]
-    cases += [arm_case(arm, out, torch, device, validated) for arm in hybrid.ARMS]
+    cases += [arm_case(arm, out, torch, device, validated) for arm in hybrid.ARMS + ("conductance",)]
     for case in cases:
         _write(out / f"{case['case']}.json", case)
     sizes = {p.name: p.stat().st_size for p in sorted(out.iterdir()) if p.is_file()}
@@ -442,6 +473,8 @@ if __name__ == "__main__":
     parser.add_argument("--steps", type=int, default=1500)
     parser.add_argument("--reuse-weights", action="store_true",
                         help="keep the weights in out_dir and rewrite only the fixtures")
+    parser.add_argument("--new-arms-only", action="store_true",
+                        help="keep the original arms' weights; train and add the conductance arm")
     args = parser.parse_args()
     print(json.dumps(export(args.out_dir, args.device, args.seed, args.steps,
-                            train=not args.reuse_weights), indent=1))
+                            train=not args.reuse_weights, new_arms_only=args.new_arms_only), indent=1))

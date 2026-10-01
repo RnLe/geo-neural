@@ -24,7 +24,7 @@
           </li>
         </ul>
         <p class="gn-page-status" id="gn-load-status" role="status">Loading the data bundle...</p>
-        <noscript><p class="gn-page-status">This page needs JavaScript for the viewer, the chart and the lab.</p></noscript>
+        <noscript><p class="gn-page-status">This page needs JavaScript for the viewer, the charts, the lab and the codec views.</p></noscript>
       </header>
 
       <section class="gn-page-section" aria-labelledby="gn-h-viewer">
@@ -46,6 +46,25 @@
         <h2 class="gn-page-h2" id="gn-h-lab">Landscape lab</h2>
         <p class="gn-page-text">Small hillslope experiments recomputed in the browser.</p>
         <div id="gn-lab"></div>
+      </section>
+
+      <section class="gn-page-section" aria-labelledby="gn-h-microscope">
+        <h2 class="gn-page-h2" id="gn-h-microscope">Compression microscope</h2>
+        <p class="gn-page-text">
+          One region at one error bound, coded three ways: SZ3, a conventional error-bounded codec; cubic-ctx, a multilevel coder with a fixed
+          predictor; and the same multilevel coder with a small learned predictor shared by every field. Every byte of every product is counted,
+          and the learned product is decoded again in your browser from its file.
+        </p>
+        <div id="gn-microscope"></div>
+      </section>
+
+      <section class="gn-page-section" aria-labelledby="gn-h-bytes">
+        <h2 class="gn-page-h2" id="gn-h-bytes">Where the bytes go</h2>
+        <p class="gn-page-text">
+          The learned coder needs its model at the decoder. Stored once for a corpus, the model costs less per field the more fields share it;
+          SZ3 and cubic-ctx carry everything in each file.
+        </p>
+        <div id="gn-bytes"></div>
       </section>
 
       <footer class="gn-page-footer">

@@ -92,8 +92,12 @@ pub fn closure(arm: &str) -> Closure {
         })
         .collect();
     let v = &meta["validated"];
+    let apply = match spec["apply"].as_str().unwrap() {
+        "conductance" => Apply::conductance(num(spec, "floor"), num(spec, "aMax")).unwrap(),
+        name => Apply::parse(name).unwrap(),
+    };
     Closure::from_f32(
-        Apply::parse(spec["apply"].as_str().unwrap()).unwrap(),
+        apply,
         &layers,
         &weights,
         num(&meta, "spacingM"),

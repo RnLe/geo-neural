@@ -56,7 +56,7 @@ pub struct Scenario {
 impl Scenario {
     /// - `side`, `spacing_m`: a `side * side` grid of cells, metres.
     /// - `initial`: `side * side` heights in metres, row-major, row 0 north.
-    /// - `model`: `"linear"`, `"nonlinear"`, `"flux"`, `"kfield"` or `"penalty"`.
+    /// - `model`: `"linear"`, `"nonlinear"`, `"flux"`, `"kfield"`, `"penalty"` or `"conductance"`.
     /// - `boundary`: `"closed"`, `"fixed"` or `"periodic"` (learned models: closed or fixed).
     /// - `params_json`: `diffusivity` (m^2/yr, default 0.05) for linear and
     ///   nonlinear; `criticalSlope` (default 0.6) for nonlinear; `uplift`
@@ -85,7 +85,7 @@ impl Scenario {
         } else {
             params_json
         })?;
-        let learned = matches!(model, "flux" | "kfield" | "penalty");
+        let learned = matches!(model, "flux" | "kfield" | "penalty" | "conductance");
         let allowed: &[&str] = match model {
             "linear" => &["diffusivity", "uplift", "safety", "maxSubsteps"],
             "nonlinear" => &[
@@ -255,8 +255,12 @@ fn closure(arm: &str, weights: &[f32], meta: &JsValue) -> Result<Closure, JsErro
     }
     let teacher = field(meta, "teacher")?;
     let validated = field(meta, "validated")?;
+    let apply = match text(&spec, "apply")?.as_str() {
+        "conductance" => Apply::conductance(required(&spec, "floor")?, required(&spec, "aMax")?)?,
+        name => Apply::parse(name)?,
+    };
     Ok(Closure::from_f32(
-        Apply::parse(&text(&spec, "apply")?)?,
+        apply,
         &specs,
         weights,
         required(meta, "spacingM")?,

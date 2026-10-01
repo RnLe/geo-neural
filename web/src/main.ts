@@ -1,12 +1,14 @@
-// Standalone demo page: intro, then the viewer, the chart and the lab.
-// three.js loads only with the viewer chunk (dynamic import below).
+// Standalone demo page: intro, then the viewer, the chart, the lab and the codec views.
+// three.js loads only with the viewer chunk (dynamic import below). The codec views read their own bundle.
 
 import "./styles.css";
 import { mountChart } from "./charts";
+import { loadCodecBundle, mountBytes, mountMicroscope } from "./codec";
 import { loadBundle } from "./data/bundle";
 import { h } from "./data/dom";
 import { createSelectionStore } from "./data/store";
 import { mountLab } from "./lab";
+import gncWasmUrl from "./wasm/gnc_wasm_bg.wasm?url";
 import wasmUrl from "./wasm/landscape_wasm_bg.wasm?url";
 
 const handles: { dispose(): void }[] = [];
@@ -17,7 +19,24 @@ function slot(id: string): HTMLElement {
   return el;
 }
 
+async function codecViews(): Promise<void> {
+  const microscope = slot("gn-microscope");
+  const bytes = slot("gn-bytes");
+  let bundle;
+  try {
+    bundle = await loadCodecBundle(new URL("bundle/codec/", document.baseURI).href);
+  } catch (err) {
+    const text = `The codec bundle could not be loaded: ${err instanceof Error ? err.message : String(err)}`;
+    microscope.append(h("p", { class: "gn-message" }, text));
+    bytes.append(h("p", { class: "gn-message" }, text));
+    return;
+  }
+  handles.push(mountMicroscope(microscope, { bundle, wasmUrl: gncWasmUrl }));
+  handles.push(mountBytes(bytes, { bundle }));
+}
+
 async function main(): Promise<void> {
+  void codecViews();
   const status = slot("gn-load-status");
   let bundle;
   try {

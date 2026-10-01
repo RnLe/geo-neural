@@ -6,23 +6,32 @@ the input reproduces most of it. So every gate is a comparison against baselines
 that do exactly that, and the emulator has to beat them:
 
 * persistence: return the input unchanged. The floor for any one-step claim.
-* linear uplift: add `U dt` everywhere. What the surface does if erosion is
-  ignored entirely, which on short steps is most of what happens.
+* linear uplift: add `U dt` to every free cell. What the surface does if
+  erosion is ignored entirely, which on short steps is most of what happens.
 
-Three gates beyond height, because a surface can be close in metres and wrong as
-a landscape:
+The contract is identity plus increment with pinned fixed edges
+(`emulator.make_increment`): an untrained model is persistence and the
+outermost ring is the base level for any weights. The legacy absolute
+contract is trained beside it as a labelled comparison.
 
-* drainage, through `hydrology.compare` at the ensemble's own spacing. This
-  catches a plausible smooth field with the channels in the wrong places.
-* conservation, against the teacher's own ledger. An emulator that gains or
-  loses mass per step is integrating something other than the equation.
-* long rollout, free-running to the end of the recorded window. One-step
-  accuracy is not stability: a model can be excellent at one step and diverge
-  over eight.
+Beyond height, because a surface can be close in metres and wrong as a
+landscape:
 
-Everything is scored on the test split, the top-decile corner of
-(log Nf, log Nh) held out whole: a regime the emulator has not seen rather than
-the interior of one it has.
+* drainage, through `hydrology.compare` with a fixed physical stream
+  threshold of 0.05 km^2;
+* the volume balance including the boundary: the emulator's volume change over
+  a rollout against the teacher's ledger for the same interval (uplift minus
+  incision minus what left through the fixed edges), relative to the uplift
+  volume. A full-surface emulator has no terms for these, so only their sum
+  is compared;
+* errors by distance to the edge: the outermost ring (exactly zero when
+  pinned), the next ring and the interior, reported separately;
+* rollouts of 1, 2, 4 and 8 intervals at the realised physical times of the
+  teacher frames.
+
+Everything is scored on held-out trajectories: whole parameter blocks for
+interpolation and extrapolation, and a held-out initial family, reported
+separately.
 """
 from __future__ import annotations
 
@@ -36,7 +45,8 @@ from geoneural.physics import emulator
 
 from geoneural.metrics import hydrology
 
-SCHEMA = "geoneural-emulator-train-v1"
+SCHEMA = "geoneural-emulator-train-v2"
+STREAM_AREA_M2 = 5e4
 
 
 class EnsembleData:
@@ -67,23 +77,16 @@ class EnsembleData:
             self.scale[key] = max(float(first.std()), 1e-3)
         mask = np.zeros((self.side, self.side), dtype=np.float32)
         mask[0, :] = mask[-1, :] = mask[:, 0] = mask[:, -1] = 1.0
+        self.mask = mask
         self.boundary = torch.from_numpy(mask).to(device)
 
     def conditioners(self, key):
         record = self.by_id[key]["job"]
-        return (float(record["fluvialNumber"]), float(record["hillslopeNumber"]),
+        return (float(record["logFluvialNumber"]), float(record["logHillslopeNumber"]),
                 float(self.by_id[key]["dimensionlessStep"]))
 
     def pair(self, key, index, stride: int = 1):
-        """Normalised (input, target) `stride` recorded intervals apart.
-
-        Stride is how `dimensionlessStep` becomes a real conditioner. The
-        ensemble records every simulation at one interval, so dt* is 2.5 for all
-        of them and, without strides, the conditioner would be a constant
-        (a dead channel). Asking for one, two or four intervals gives dt* in
-        {2.5, 5, 10} from the same frames, which is the variable-step behaviour
-        the conditioner exists to provide.
-        """
+        """Normalised (input, target) `stride` recorded intervals apart."""
         stack = self.frames[key]
         centre, scale = self.centre[key], self.scale[key]
         target = min(index + stride, stack.shape[0] - 1)
@@ -98,17 +101,20 @@ class EnsembleData:
         mask = self.boundary.unsqueeze(0).expand(height.shape[0], -1, -1)
         channels = emulator.input_channels(height, mask, torch)
         scalars = torch.tensor(
-            [[np.log(max(self.conditioners(k)[0], 1e-12)),
-              np.log(max(self.conditioners(k)[1], 1e-12)),
+            [[self.conditioners(k)[0], self.conditioners(k)[1],
               self.conditioners(k)[2] * stride] for k in keys],
             dtype=torch.float32, device=self.device)
         return channels, scalars, height, target
 
 
+def build(config: dict, torch, contract: str = "increment"):
+    return emulator.make_increment(config, torch, pin_edges=(contract == "increment"), contract=contract)
+
+
 def train(config: dict, data: EnsembleData, torch, steps: int = 2000,
           batch: int = 8, lr: float = 1e-3, seed: int = 1729,
           rollout_from: float = 0.5, rollout_length: int = 2,
-          strides=(1, 2, 4)) -> dict:
+          strides=(1, 2, 4), contract: str = "increment") -> dict:
     """One-step training, then a short rollout curriculum on the back half.
 
     A model trained only on single steps is optimised for a distribution it
@@ -116,7 +122,7 @@ def train(config: dict, data: EnsembleData, torch, steps: int = 2000,
     resulting drift is invisible at one step and dominant at eight.
     """
     torch.manual_seed(seed)
-    model = emulator.make_emulator(config, torch).to(data.device).train()
+    model = build(config, torch, contract).to(data.device).train()
     optimiser = torch.optim.Adam(model.parameters(), lr=lr)
     rng = np.random.default_rng(seed)
     train_ids = data.split["trainIds"]
@@ -148,175 +154,130 @@ def train(config: dict, data: EnsembleData, torch, steps: int = 2000,
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         optimiser.step()
         if step % max(1, steps // 10) == 0 or step == steps - 1:
-            history.append({"step": step, "loss": float(loss.detach()),
-                            "rolloutLength": length})
-    return {"model": model, "history": history, "strides": list(strides),
+            history.append({"step": step, "loss": float(loss.detach()), "rolloutLength": length})
+    return {"model": model, "history": history, "strides": list(strides), "contract": contract,
             "seconds": time.perf_counter() - started,
             "parameters": int(sum(p.numel() for p in model.parameters()))}
 
 
-def _denormalise(values, centre, scale):
-    return values * scale + centre
+def _rings(side: int):
+    rows, cols = np.meshgrid(np.arange(side), np.arange(side), indexing="ij")
+    distance = np.minimum.reduce([rows, cols, side - 1 - rows, side - 1 - cols])
+    return {"edge": distance == 0, "nextRing": distance == 1, "interior": distance >= 2}
 
 
-def evaluate(model, config, data, torch, ids=None, rollout=(1, 2, 4, 8),
-             stream_cells: int = 500, drainage_simulations: int = 8) -> dict:
-    """Every gate, on the held-out corner, against baselines that do the easy part.
-
-    `persistence` and `linearUplift` exist because most of a landscape is a ramp
-    that barely moves in one step. An emulator that beats neither has learned
-    nothing, and one that beats persistence only at one step has learned nothing
-    that survives being run.
-    """
-    ids = data.split["testIds"] if ids is None else ids
+def evaluate(model, data, torch, ids, rollout=(1, 2, 4, 8), drainage_simulations: int = 8) -> dict:
+    """Every gate on one set of held-out trajectories, against persistence and linear uplift."""
     intervals = data.manifest["framesPerSimulation"] - 1
-    # Drainage over a sample of the test set rather than one simulation: routing
-    # agreement varies enough between landscapes that a single case is anecdote.
+    rings = _rings(data.side)
+    cell_area = data.spacing_m ** 2
+    stream_cells = max(1, int(round(STREAM_AREA_M2 / cell_area)))
     drainage_ids = set(ids[:drainage_simulations])
     model.eval()
-    out = {"rollout": [], "ids": len(ids)}
+    out = {"rollout": [], "ids": len(ids), "streamCells": stream_cells}
     with torch.no_grad():
         for length in rollout:
             if length > intervals:
                 continue
-            errors = {"emulator": [], "persistence": [], "linearUplift": []}
+            errors = {name: {ring: [] for ring in ("all", *rings)} for name in ("emulator", "persistence", "linearUplift")}
             drainage = {"emulator": [], "persistence": []}
-            drift = []
+            balance, physical = [], []
             for key in ids:
                 stack = data.frames[key]
                 centre, scale = data.centre[key], data.scale[key]
-                job = data.by_id[key]["job"]
-                start = 0
-                current = torch.from_numpy(
-                    ((stack[start] - centre) / scale)[None]).to(data.device)
-                scalars = torch.tensor(
-                    [[np.log(max(job["fluvialNumber"], 1e-12)),
-                      np.log(max(job["hillslopeNumber"], 1e-12)),
-                      float(data.by_id[key]["dimensionlessStep"])]],
-                    dtype=torch.float32, device=data.device)
+                record = data.by_id[key]
+                job = record["job"]
+                current = torch.from_numpy(((stack[0] - centre) / scale)[None]).to(data.device)
+                scalars = torch.tensor([data.conditioners(key)], dtype=torch.float32, device=data.device)
                 mask = data.boundary.unsqueeze(0)
                 for _ in range(length):
-                    channels = emulator.input_channels(current, mask, torch)
-                    current = model(channels, scalars).squeeze(1)
-                predicted = _denormalise(current[0].cpu().numpy(), centre, scale)
-                truth = stack[start + length]
-                persistence = stack[start]
-                span = float(job["years"]) / intervals * length
-                uplift = persistence + float(job["uplift"]) * span
-                errors["emulator"].append(float(np.abs(predicted - truth).mean()))
-                errors["persistence"].append(float(np.abs(persistence - truth).mean()))
-                errors["linearUplift"].append(float(np.abs(uplift - truth).mean()))
-                # Conservation, reported three ways. The ratio alone is a poor
-                # statistic because its denominator (the mass uplift adds over
-                # the span) varies by three orders of magnitude across the
-                # ensemble (U spans 2e-7 to 2e-4 m/yr), so its mean is set by
-                # whichever runs uplift least. The absolute error in metres says
-                # how wrong the mass is; the median ratio says how wrong it is
-                # for a typical run.
-                added = float(job["uplift"]) * span
-                mass_error = float(abs(predicted.mean() - truth.mean()))
-                drift.append({"ratio": mass_error / max(abs(added), 1e-12),
-                              "massErrorM": mass_error, "upliftAddedM": abs(added)})
+                    current = model(emulator.input_channels(current, mask, torch), scalars).squeeze(1)
+                predicted = current[0].cpu().numpy() * scale + centre
+                truth = stack[length].astype(np.float64)
+                start = stack[0].astype(np.float64)
+                span = float(record["frameTimesYears"][length])
+                physical.append(span)
+                uplift = start + np.where(data.mask > 0.5, 0.0, float(job["uplift"]) * span)
+                for name, field in (("emulator", predicted), ("persistence", start), ("linearUplift", uplift)):
+                    diff = np.abs(field - truth)
+                    errors[name]["all"].append(float(diff.mean()))
+                    for ring, where in rings.items():
+                        errors[name][ring].append(float(diff[where].mean()))
+                ledger = record["balances"][:length]
+                teacher_change = sum(b["observedVolumeChangeM3"] for b in ledger)
+                uplift_volume = sum(b["upliftVolumeM3"] for b in ledger)
+                outflow = sum(b["boundaryOutflowVolumeM3"] for b in ledger)
+                emulator_change = float((predicted - start).sum()) * cell_area
+                balance.append({"relative": abs(emulator_change - teacher_change) / max(abs(uplift_volume), 1e-9),
+                                "outflowShareOfUplift": outflow / max(abs(uplift_volume), 1e-9)})
                 if key in drainage_ids:
-                    spacing = data.spacing_m
-                    drainage["emulator"].append(
-                        hydrology.compare(truth.astype(np.float64),
-                                          predicted.astype(np.float64),
-                                          spacing, stream_cells))
-                    drainage["persistence"].append(
-                        hydrology.compare(truth.astype(np.float64),
-                                          persistence.astype(np.float64),
-                                          spacing, stream_cells))
-            ratios = np.array([d["ratio"] for d in drift])
-            mass = np.array([d["massErrorM"] for d in drift])
-            added_m = np.array([d["upliftAddedM"] for d in drift])
-            row = {"steps": length,
-                   "emulatorMaeM": float(np.mean(errors["emulator"])),
-                   "persistenceMaeM": float(np.mean(errors["persistence"])),
-                   "linearUpliftMaeM": float(np.mean(errors["linearUplift"])),
-                   "conservationDriftFractionOfUplift": float(np.mean(ratios)),
-                   "conservationDriftMedian": float(np.median(ratios)),
-                   "massErrorMeanM": float(np.mean(mass)),
-                   "massErrorMedianM": float(np.median(mass)),
-                   "upliftAddedMedianM": float(np.median(added_m)),
-                   "upliftAddedRangeM": [float(added_m.min()), float(added_m.max())]}
-            row["beatsPersistence"] = row["emulatorMaeM"] < row["persistenceMaeM"]
-            row["beatsLinearUplift"] = row["emulatorMaeM"] < row["linearUpliftMaeM"]
+                    drainage["emulator"].append(hydrology.compare(truth, predicted.astype(np.float64),
+                                                                  data.spacing_m, stream_cells))
+                    drainage["persistence"].append(hydrology.compare(truth, start, data.spacing_m, stream_cells))
+            row = {"steps": length, "physicalYearsMedian": float(np.median(physical))}
+            for name in errors:
+                row[name] = {ring: float(np.mean(v)) for ring, v in errors[name].items()}
+            row["beatsPersistence"] = row["emulator"]["all"] < row["persistence"]["all"]
+            row["beatsLinearUplift"] = row["emulator"]["all"] < row["linearUplift"]["all"]
+            row["balanceErrorOverUpliftMedian"] = float(np.median([b["relative"] for b in balance]))
+            row["balanceErrorOverUpliftP90"] = float(np.quantile([b["relative"] for b in balance], 0.9))
+            row["teacherOutflowShareOfUpliftMedian"] = float(np.median([b["outflowShareOfUplift"] for b in balance]))
             if drainage["emulator"]:
                 def summarise(records):
-                    return {"receiverAgreementFraction": float(np.mean(
-                                [r["receiverAgreementFraction"] for r in records])),
-                            "streamJaccard": float(np.mean(
-                                [r["streamJaccard"] for r in records])),
+                    return {"receiverAgreementFraction": float(np.mean([r["receiverAgreementFraction"] for r in records])),
+                            "streamJaccard": float(np.mean([r["streamJaccard"] for r in records])),
                             "simulations": len(records)}
-                row["drainage"] = {
-                    "emulator": summarise(drainage["emulator"]),
-                    "persistence": summarise(drainage["persistence"]),
-                    "beatsPersistenceOnStreams":
-                        float(np.mean([r["streamJaccard"] for r in drainage["emulator"]])) >
-                        float(np.mean([r["streamJaccard"] for r in drainage["persistence"]])),
-                    "beatsPersistenceOnReceivers":
-                        float(np.mean([r["receiverAgreementFraction"] for r in drainage["emulator"]])) >
-                        float(np.mean([r["receiverAgreementFraction"] for r in drainage["persistence"]]))}
+                row["drainage"] = {"emulator": summarise(drainage["emulator"]),
+                                   "persistence": summarise(drainage["persistence"])}
             out["rollout"].append(row)
     every = out["rollout"]
     out["gates"] = {
         "beatsPersistenceAtEveryLength": all(r["beatsPersistence"] for r in every),
         "beatsLinearUpliftAtEveryLength": all(r["beatsLinearUplift"] for r in every),
-        "conservationWithinOnePercent": all(
-            r["conservationDriftMedian"] <= 0.01 for r in every),
-        # Drainage is part of the verdict, not only reported. A surface closer
-        # in metres that routes water worse than not updating at all has not
-        # learned landscape evolution, and height error cannot see the
-        # difference.
+        "balanceWithinOnePercent": all(r["balanceErrorOverUpliftMedian"] <= 0.01 for r in every),
+        "edgeExact": all(r["emulator"]["edge"] == 0.0 for r in every),
         "beatsPersistenceOnDrainage": all(
-            r["drainage"]["beatsPersistenceOnStreams"] for r in every
-            if r.get("drainage")),
-        "longestRollout": max((r["steps"] for r in every), default=0),
+            r["drainage"]["emulator"]["receiverAgreementFraction"] >
+            r["drainage"]["persistence"]["receiverAgreementFraction"] for r in every if r.get("drainage")),
     }
-    out["gates"]["passes"] = all(v for k, v in out["gates"].items()
-                                 if isinstance(v, bool))
-    out["note"] = ("Baselines do the easy part on purpose: most of a landscape is a "
-                   "ramp that barely moves in one interval, so height error alone "
-                   "flatters any model. Drainage is read at the ensemble's own "
-                   "spacing with a 500-cell stream threshold.")
     return out
 
 
 def campaign(folder, torch, kinds=("unet", "fno"), steps: int = 2000,
              batch: int = 8, lr: float = 1e-3, seed: int = 1729,
-             device: str = "cuda") -> dict:
-    """Train and gate each emulator family, returning one combined result."""
+             device: str = "cuda", legacy: bool = True) -> dict:
+    """Train and gate each emulator family, plus the legacy absolute U-Net, on every held-out split."""
     data = EnsembleData(folder, torch, device)
     if not data.manifest.get("spacingIsAdequate", False):
         raise ValueError(
             f"the ensemble was generated at {data.manifest['spacingM']} m, coarser "
-            f"than the {data.manifest['adequateSpacingM']} m the teacher audit found "
-            "adequate; an emulator trained on it learns a teacher that does not obey "
-            "its own steady-state law")
+            f"than the {data.manifest['adequateSpacingM']} m the teacher audit found adequate")
+    configs = {"unet": {"kind": "unet", "stages": 3, "base": 32, "blocks": 1, "in_channels": 4},
+               "fno": {"kind": "fno", "blocks": 4, "width": 32, "modes": 16, "in_channels": 4}}
+    arms = [(kind, configs[kind], "increment") for kind in kinds]
+    if legacy:
+        arms.append(("unet-absolute", configs["unet"], "absolute"))
+    splits = {name: data.split[name] for name in ("testInterpolationIds", "testExtrapolationIds",
+                                                   "testInitialFamilyIds", "testIds") if data.split.get(name)}
+    if "testInterpolationIds" in splits:
+        splits.pop("testIds")
     rows = []
-    for kind in kinds:
-        config = ({"kind": "unet", "stages": 3, "base": 32, "blocks": 1, "in_channels": 4}
-                  if kind == "unet" else
-                  {"kind": "fno", "blocks": 4, "width": 32, "modes": 16, "in_channels": 4})
-        fitted = train(config, data, torch, steps=steps, batch=batch, lr=lr, seed=seed)
-        gates = evaluate(fitted["model"], config, data, torch)
-        rows.append({"kind": kind, "config": config,
-                     "parameters": fitted["parameters"],
-                     "seconds": fitted["seconds"], "history": fitted["history"],
-                     "evaluation": gates})
+    for name, config, contract in arms:
+        fitted = train(config, data, torch, steps=steps, batch=batch, lr=lr, seed=seed, contract=contract)
+        scores = {split: evaluate(fitted["model"], data, torch, ids) for split, ids in splits.items()}
+        rows.append({"arm": name, "kind": config["kind"], "contract": contract, "pinnedEdges": contract == "increment",
+                     "config": config, "parameters": fitted["parameters"], "seconds": fitted["seconds"],
+                     "history": fitted["history"], "evaluation": scores})
         del fitted
         if str(device).startswith("cuda"):
             torch.cuda.empty_cache()
     return {"schema": SCHEMA, "rows": rows,
-            "ensemble": {k: data.manifest[k] for k in
-                         ("count", "side", "spacingM", "domainM", "years",
-                          "adequateSpacingM", "spacingIsAdequate",
-                          "framesPerSimulation")},
+            "ensemble": {k: data.manifest.get(k) for k in
+                         ("count", "side", "spacingM", "domainM", "years", "adequateSpacingM",
+                          "spacingIsAdequate", "framesPerSimulation", "solver", "solverHash", "splitRule")},
             "split": {k: len(v) for k, v in data.split.items() if k.endswith("Ids")},
             "steps": steps, "batch": batch, "lr": lr, "seed": seed,
-            "qualification":
-                "Scored on the top-decile corner of (log Nf, log Nh), held out whole. "
-                "Under the similarity law a random split over simulations leaves a "
-                "rescaled twin of every test case in training, so it holds nothing "
-                "out; this split is the only one here that does."}
+            "qualification": "Scored on whole held-out trajectories: parameter blocks for interpolation and "
+                             "extrapolation, and a held-out initial family, reported separately. The balance "
+                             "compares the emulator's volume change with the teacher's ledger sum including "
+                             "boundary outflow; it cannot attribute the change to individual terms."}

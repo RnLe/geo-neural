@@ -67,10 +67,11 @@ class ClassicalControlsAreRealCompetitors(unittest.TestCase):
         coarse = superres.observe(fine, 10)
         for method in ("bilinear", "bicubic", "lanczos"):
             raw = superres.classical(coarse, 10, method)
-            fixed = superres.back_project(raw, coarse, 10)
+            fixed, report = superres.back_project(raw, coarse, 10)
             before = superres.operator_consistency(raw, coarse, 10)["maeM"]
             after = superres.operator_consistency(fixed, coarse, 10)["maeM"]
             self.assertLess(after, before, method)
+            self.assertTrue(report["converged"], method)
 
     def test_an_unknown_method_is_refused(self):
         with self.assertRaises(KeyError):

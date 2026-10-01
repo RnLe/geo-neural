@@ -8,18 +8,26 @@ interpolation is a different question from beating an entropy coder.
 
 Constraints on the experiment:
 
-The observation operator is declared and hashed. O = area-average of the 1 m
-source onto the canonical 10 m lattice, with the same node-centred transform,
-edge trim and datum the atlas uses. Training on a coarse grid built by one
-operator and testing against another measures the operator, not the model.
+The observation operator is declared and fingerprinted. `observe` is a
+node-centred trapezoidal area average: coarse node j averages the fine nodes
+from j*f - f/2 to j*f + f/2 with half weight on the two endpoints, separably
+in rows and columns, and an edge node renormalises the half window that
+exists. `operator_fingerprint` hashes the weights `observe` actually applies,
+its response to a fixed probe and the source of both functions, so a changed
+weight or implementation changes the identity even if nobody edits the label.
+Training on a coarse grid built by one operator and testing against another
+measures the operator, not the model.
 
 The operator-mismatch test is required. The provider's own 10 m response is a
 different coarsening of the same terrain (on essen-ruhr: 0.196 m mean absolute
 difference, 1.41 m p99, 7.2 m max). Feeding that instead of O(1 m) tests
 whether a model learned terrain or one resampler's kernel.
 
-Nothing at 1 m enters training, selection, normalisation or tuning. The fine
-data is validation and test only. Normalisers come from the coarse patch.
+Roles of the 1 m data. In a training region the 1 m reference is the
+supervision label: the residual a network is fitted to. It is never an input,
+never a normaliser and never used to choose a scale; inputs and their scales
+come from the coarse grid alone. In a held-out region the 1 m reference is
+used only as the truth the reconstruction is scored against.
 
 Evaluating a continuous function at 1 m intervals is not 1 m accuracy. That
 claim requires independent higher-resolution measurement, which is what the
@@ -32,15 +40,20 @@ within-region one.
 """
 from __future__ import annotations
 
+import hashlib
+import inspect
 import pathlib
+import time
 
 import numpy as np
 
-SCHEMA = "geoneural-superres-v1"
+SCHEMA = "geoneural-superres-v2"
 
-#: The declared observation operator. Changing this string changes the experiment.
-OPERATOR = "area-average of the 1 m source onto the node-centred 10 m lattice " \
-           "(rasterio Resampling.average, edge_trim 2, EPSG:25832 / EPSG:7837)"
+#: What `observe` does, in words. The identity of the operator is `operator_fingerprint`, not this text.
+OPERATOR = ("node-centred trapezoidal area average: coarse node j averages fine nodes j*f-f/2 .. j*f+f/2 "
+            "with half weight on both endpoints (trapezoid rule), separable in rows and columns, edge nodes "
+            "renormalise the part of the window inside the lattice; 1 m source on the canonical 10 m "
+            "lattice, EPSG:25832 / EPSG:7837")
 
 
 def fine_reference(input_json, out_path, spacing_m: float = 1.0,
@@ -147,17 +160,77 @@ def _axis_weights(side: int, factor: int) -> np.ndarray:
     return weights
 
 
+def _sparse_axis(side: int, factor: int):
+    from scipy import sparse
+    return sparse.csr_matrix(_axis_weights(side, factor))
+
+
 def observe(fine: np.ndarray, factor: int = 10) -> np.ndarray:
-    """The declared operator: area-average the fine field onto the coarse lattice.
+    """The declared operator: trapezoidal area average onto the coarse lattice.
 
     Each coarse node averages the fine samples in the cell centred on it. See
     `_axis_weights` for why the endpoints are half-weighted and for what the two
-    obvious alternatives get wrong.
+    obvious alternatives get wrong. The weights are applied as banded sparse
+    matrices, so a 10241^2 field costs two sparse products rather than a dense
+    one.
     """
     fine = np.asarray(fine, dtype=np.float64)
-    rows = _axis_weights(fine.shape[0], factor)
-    columns = _axis_weights(fine.shape[1], factor)
-    return rows @ fine @ columns.T
+    rows = _sparse_axis(fine.shape[0], factor)
+    columns = _sparse_axis(fine.shape[1], factor)
+    return np.asarray((columns @ (rows @ fine).T).T)
+
+
+def operator_schema(factor: int = 10) -> dict:
+    """The operator as data: interior weights, edge rule and the fingerprint of the code that applies them."""
+    weights = _axis_weights(4 * factor + 1, factor)
+    support = np.flatnonzero(weights[2])
+    return {"name": "trapezoid-node-average", "label": OPERATOR, "factor": int(factor),
+            "separable": True,
+            "interiorOffsets": (support - 2 * factor).tolist(),
+            "interiorWeights": weights[2, support].tolist(),
+            "edgeRule": "window truncated at the lattice edge and renormalised to sum one",
+            "fingerprint": operator_fingerprint(factor)}
+
+
+def operator_fingerprint(factor: int = 10) -> str:
+    """Hash of what the operator does, not of what it is called.
+
+    Three things enter: the declared axis weights on two probe lattices (one
+    aligned with the coarse grid, one not, so edge windows are covered), the
+    output of `observe` on a fixed random probe (so the weights that are
+    actually applied are hashed, not only the declared ones), and the source of
+    `_axis_weights` and `observe`. The label `OPERATOR` does not enter.
+    """
+    digest = hashlib.sha256(f"factor={int(factor)}".encode())
+    for side in (4 * factor + 1, 5 * factor + 3):
+        digest.update(np.ascontiguousarray(_axis_weights(side, factor), dtype="<f8").tobytes())
+    probe = np.random.default_rng(1729).standard_normal((3 * factor + 2, 4 * factor + 1))
+    digest.update(np.ascontiguousarray(np.round(observe(probe, factor), 10), dtype="<f8").tobytes())
+    for function in (_axis_weights, observe):
+        digest.update(inspect.getsource(function).encode())
+    return digest.hexdigest()[:16]
+
+
+def _bilinear_axis(coarse_side: int, factor: int):
+    """Node-aligned linear interpolation weights, fine node i from coarse nodes i//f and i//f + 1."""
+    from scipy import sparse
+    fine_side = (coarse_side - 1) * factor + 1
+    index = np.arange(fine_side)
+    low = np.minimum(index // factor, coarse_side - 1)
+    t = (index - low * factor) / float(factor)
+    high = np.minimum(low + 1, coarse_side - 1)
+    rows = np.concatenate([index, index])
+    columns = np.concatenate([low, high])
+    values = np.concatenate([1.0 - t, t])
+    return sparse.csr_matrix((values, (rows, columns)), shape=(fine_side, coarse_side))
+
+
+def upsample_bilinear(coarse: np.ndarray, factor: int) -> np.ndarray:
+    """Bilinear interpolation onto the node-centred fine lattice; coarse node j sits on fine node j*f."""
+    coarse = np.asarray(coarse, dtype=np.float64)
+    rows = _bilinear_axis(coarse.shape[0], factor)
+    columns = _bilinear_axis(coarse.shape[1], factor)
+    return np.asarray((columns @ (rows @ coarse).T).T)
 
 
 def classical(coarse: np.ndarray, factor: int, method: str) -> np.ndarray:
@@ -196,21 +269,42 @@ def classical(coarse: np.ndarray, factor: int, method: str) -> np.ndarray:
 
 
 def back_project(estimate: np.ndarray, coarse: np.ndarray, factor: int,
-                 iterations: int = 5) -> np.ndarray:
-    """Force the estimate to average back to the coarse grid it was given.
+                 tolerance: float = 1e-4, max_iterations: int = 500, observe_fn=None):
+    """Force the estimate to average back to the coarse grid it was given, to a stated tolerance.
 
-    Iterative back-projection. It is not specific to neural methods, so it is
-    applied to every method here, including the classical ones. A
-    super-resolution result that does not reproduce its own input under the
-    declared operator violates the one constraint it was given for free, and
-    enforcing that constraint only for the network would bias the comparison in
-    its favour.
+    Iterative back-projection, z <- z + bilinear(y - H z), repeated until
+    max |H z - y| <= `tolerance` metres or `max_iterations` is reached. A fixed
+    number of iterations is not a projection: what it leaves is reported, and
+    so is whether the tolerance was met. The update only adds a bilinear field
+    of coarse residuals, so it fixes what the observation determines and
+    leaves everything finer than the coarse grid to the estimate.
+
+    Returns `(field, report)`. `observe_fn` replaces the declared trapezoid
+    with another linear operator (the reconstruction track uses Gaussian,
+    point and provider-style operators). Convergence is not assumed for those:
+    `converged` and `achievedMaxM` say whether the tolerance was reached.
+
+    It is not specific to neural methods, so it is applied to every method,
+    including the classical ones. Enforcing the constraint only for the
+    network would bias the comparison in its favour.
     """
+    observe_fn = observe_fn or (lambda field: observe(field, factor))
+    target = np.asarray(coarse, dtype=np.float64)
     current = np.array(estimate, dtype=np.float64, copy=True)
-    for _ in range(iterations):
-        residual = np.asarray(coarse, dtype=np.float64) - observe(current, factor)
-        current = current + classical(residual, factor, "bilinear")
-    return current
+    start = time.perf_counter()
+    iterations = 0
+    while True:
+        residual = target - observe_fn(current)
+        worst = float(np.abs(residual).max())
+        if worst <= tolerance or iterations >= max_iterations:
+            break
+        current += upsample_bilinear(residual, factor)
+        iterations += 1
+    report = {"toleranceM": float(tolerance), "achievedMaxM": worst,
+              "achievedRmsM": float(np.sqrt(np.mean(residual ** 2))),
+              "iterations": iterations, "converged": worst <= tolerance,
+              "seconds": time.perf_counter() - start}
+    return current, report
 
 
 def operator_consistency(estimate: np.ndarray, coarse: np.ndarray, factor: int) -> dict:
@@ -222,12 +316,13 @@ def operator_consistency(estimate: np.ndarray, coarse: np.ndarray, factor: int) 
                     "handed is not reconstructing detail, it is changing the answer it was given."}
 
 
-BASELINE_SCHEMA = "geoneural-superres-baseline-v1"
+BASELINE_SCHEMA = "geoneural-superres-baseline-v2"
 
 
 def classical_baselines(fine_path, coarse_grid, factor: int = 10,
                         methods=("bilinear", "bicubic", "lanczos", "cubic_spline"),
-                        back_projection: bool = True, tile: int = 2048) -> dict:
+                        back_projection: bool = True, tile: int = 2048,
+                        tolerance: float = 1e-4) -> dict:
     """What interpolation achieves at 1 m, which is the bar a network must clear.
 
     Evaluated in tiles because a 10241^2 float64 field and four upsampled copies
@@ -239,6 +334,13 @@ def classical_baselines(fine_path, coarse_grid, factor: int = 10,
     their coarse values mean something slightly different from the interior's,
     and including them would charge every method for the operator's edge
     convention.
+
+    Back-projection runs per band to `tolerance`. A band's first and last
+    coarse rows are band edges, not lattice edges, so the operator there
+    averages a truncated window that the full-field coarse value did not; four
+    coarse rows of overlap keep that distortion out of the scored rows. The
+    report keeps the worst achieved residual and the largest iteration count
+    over bands.
     """
     fine = np.load(fine_path, mmap_mode="r")
     coarse = np.asarray(coarse_grid, dtype=np.float64)
@@ -251,15 +353,20 @@ def classical_baselines(fine_path, coarse_grid, factor: int = 10,
             square = 0.0
             worst = 0.0
             count = 0
+            projection = {"toleranceM": tolerance, "achievedMaxM": 0.0, "iterations": 0,
+                          "converged": True}
             for begin in range(0, side - 1, tile):
                 stop = min(begin + tile, side)
-                # Overlap by one coarse cell so interpolation has support at the
-                # tile edge; the overlap is scored once.
-                lo_c = max(begin // factor - 2, 0)
-                hi_c = min(-(-stop // factor) + 3, coarse.shape[0])
+                # Overlap by four coarse cells so interpolation and the band-edge
+                # projection distortion stay outside the scored rows.
+                lo_c = max(begin // factor - 4, 0)
+                hi_c = min(-(-stop // factor) + 5, coarse.shape[0])
                 block = classical(coarse[lo_c:hi_c, :], factor, method)
                 if projected:
-                    block = back_project(block, coarse[lo_c:hi_c, :], factor, iterations=3)
+                    block, report = back_project(block, coarse[lo_c:hi_c, :], factor, tolerance)
+                    projection["achievedMaxM"] = max(projection["achievedMaxM"], report["achievedMaxM"])
+                    projection["iterations"] = max(projection["iterations"], report["iterations"])
+                    projection["converged"] &= report["converged"]
                 offset = lo_c * factor
                 take_lo = max(begin, margin) - offset
                 take_hi = min(stop, side - margin) - offset
@@ -282,7 +389,9 @@ def classical_baselines(fine_path, coarse_grid, factor: int = 10,
             rows[name] = {"maeM": total / max(count, 1),
                           "rmseM": float(np.sqrt(square / max(count, 1))),
                           "maxM": worst, "samples": count}
-    return {"schema": BASELINE_SCHEMA, "factor": factor, "operator": OPERATOR,
+            if projected:
+                rows[name]["backProjection"] = projection
+    return {"schema": BASELINE_SCHEMA, "factor": factor, "operator": operator_schema(factor),
             "byMethod": rows,
             "qualification": "Interior only: the operator's edge cells average a half cell and "
                              "mean something different from the interior's, so scoring them would "

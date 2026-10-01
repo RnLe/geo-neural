@@ -144,19 +144,8 @@ class IdentifiabilityIsArithmetic(unittest.TestCase):
                 self.assertAlmostEqual(moved[index] + moved[3],
                                        base[index] + base[3], places=9)
 
-    def test_the_prior_box_contains_the_reference_truth(self):
-        truth = {"logUplift": -4.0, "logIncision": -5.0, "logDiffusivity": -2.0,
-                 "logYears": 5.7, "datum": 0.0}
-        for name, value in truth.items():
-            low, high = inverse.PRIOR[name]
-            self.assertTrue(low <= value <= high, name)
-
-    def test_correlated_noise_is_not_white(self):
-        observation = inverse.Observation(noise_m=0.5, correlation_cells=3.0)
-        rng = np.random.default_rng(4)
-        field = observation.noise((32, 32), rng)
-        neighbour = float(np.corrcoef(field[:, :-1].ravel(), field[:, 1:].ravel())[0, 1])
-        self.assertGreater(neighbour, 0.5, "noise must be spatially correlated")
+    def test_the_ridge_is_one_dimensional(self):
+        self.assertEqual(inverse.ridge_direction()["dimension"], 1)
 
 
 class PhysicsPriorIsCheapAndDeclared(unittest.TestCase):

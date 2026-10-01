@@ -1,4 +1,20 @@
-"""Does a physics prior help a terrain decoder, at equal bytes?
+"""A diagnostic, not a codec: does a slope-area raster help a coordinate fit of the same terrain?
+
+Classification. This experiment is a diagnostic. It is not a codec and its
+numbers are not compression results. The conditioning raster of the
+`teacher` and `generic` arms is built from the D8 paths and the slope-area fit
+of the full target field itself (`slope_area_fit` and `physics_prior` both read
+`coarse`, which is the field being fitted), so a decoder would need the target
+to construct its own input. The 24 bytes charged for the three fitted scalars
+are therefore not the cost of what the decoder uses: the flow paths come from
+the target too and are not priced at all. A codec version would have to build
+the prior only from a decoded base that every arm shares and is charged for;
+that rebuild is not done here. Records written by `campaign` carry
+`classification: "diagnostic"` and `notACodec: true`.
+
+Original framing, kept for what it still measures (whether the slope-area
+structure of a field is informative to a small coordinate network at equal
+capacity):
 
 Giving a decoder physics-derived side information and showing that it fits
 better proves nothing, because the side information is extra bytes and extra
@@ -22,6 +38,7 @@ such, not a stored raster.
 """
 from __future__ import annotations
 
+import pathlib
 import time
 
 import numpy as np
@@ -30,7 +47,7 @@ from geoneural.metrics import hydrology_fast
 
 from geoneural.physics import landscape
 
-SCHEMA = "geoneural-distillation-v1"
+SCHEMA = "geoneural-distillation-v2"
 
 ARMS = ("none", "generic", "teacher")
 
@@ -66,9 +83,9 @@ def slope_area_fit(surface: np.ndarray, spacing_m: float,
     return {"ok": True, "concavity": float(-slope_fit),
             "logSteepness": float(intercept), "bins": len(centres),
             "bytes": 3 * 8,
-            "note": "Three float64 scalars (concavity, steepness and the "
-                    "spacing they were fitted at), charged as 24 bytes, not as a "
-                    "stored raster."}
+            "note": "Three float64 scalars (concavity, steepness and the spacing they were "
+                    "fitted at). Fitted on the full target, so the 24 bytes are not the cost "
+                    "of a decoder-available input: this is a diagnostic, not a codec."}
 
 
 def physics_prior(surface: np.ndarray, spacing_m: float, fit: dict) -> np.ndarray:
@@ -215,7 +232,11 @@ def campaign(coarse_path, torch, spacing_m: float = 10.0, side: int = 257,
     gain = generic["heldOutMaeM"]["mean"] - teacher["heldOutMaeM"]["mean"]
     return {
         "schema": SCHEMA, "rows": rows, "spacingM": spacing_m, "side": side,
-        "steps": steps, "coarse": str(coarse_path),
+        "classification": "diagnostic", "notACodec": True,
+        "classificationNote": "The conditioning raster is derived from the full target field (its own D8 "
+                              "paths and slope-area fit), so no standalone decoder could build it; the "
+                              "24 bytes charged do not price the dependency. Not a compression result.",
+        "steps": steps, "coarse": pathlib.Path(coarse_path).name,
         "verdict": {
             "physicsGainM": float(gain),
             "seedSpread": float(spread),
@@ -228,9 +249,9 @@ def campaign(coarse_path, torch, spacing_m: float = 10.0, side: int = 257,
                     "input channel helps whatever is in it. A gain smaller than the "
                     "seed spread is not a gain."},
         "qualification":
-            "The physics prior is three fitted scalars integrated along the coarse "
-            "grid's own D8 paths, charged as 24 bytes rather than as a stored "
-            "raster. The generic arm is the same field rotated and flipped: same "
+            "Diagnostic only. The physics prior is three fitted scalars integrated along the "
+            "target grid's own D8 paths; the 24 bytes charged for the scalars do not price the "
+            "paths, which come from the target. The generic arm is the same field rotated and flipped: same "
             "statistics, same domain, aligned with nothing. Noise would be a weaker "
             "control, since a network can tell noise from structure and learn to "
             "ignore it.",

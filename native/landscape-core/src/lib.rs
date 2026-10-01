@@ -1,6 +1,6 @@
 //! Hillslope evolution on a square grid: linear diffusion, the critical-slope
 //! teacher from `geoneural.physics.hybrid`, and inference for the closures
-//! trained against it.
+//! trained against it, including the bounded symmetric conductance arm.
 //!
 //! # Grid semantics
 //!
@@ -34,7 +34,7 @@ mod physics;
 mod scenario;
 
 pub use closure::{
-    erf, gelu, softplus, Activation, Apply, Closure, Conv, LayerSpec, Validated, Work,
+    erf, gelu, sigmoid, softplus, Activation, Apply, Closure, Conv, LayerSpec, Validated, Work,
 };
 pub use grid::{assemble, face_gradients, Boundary, Grid};
 pub use physics::{

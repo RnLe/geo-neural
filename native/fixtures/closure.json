@@ -4,6 +4,7 @@
  "activations": {
   "gelu": "0.5 x (1 + erf(x / sqrt 2)), exact erf",
   "softplus": "log(1 + exp(x)), and x itself above 20",
+  "sigmoid": "1 / (1 + exp(-x))",
   "identity": "x"
  },
  "normalisation": "none: inputs enter the network in metres and rise over run, as hybrid.py feeds them",
@@ -23,7 +24,7 @@
   "maxHeightM": 144.1744842529297,
   "note": "range of the training surfaces; states outside it are extrapolation and the kernel refuses to step them"
  },
- "stability": "explicit Euler; kfield and penalty: dt <= spacing^2 / (4 max K); flux: the teacher bound spacing^2 (1 - 0.99^2) / (4 D)",
+ "stability": "explicit Euler; kfield and penalty: dt <= spacing^2 / (4 max K); flux: the teacher bound spacing^2 (1 - 0.99^2) / (4 D); conductance: dt <= spacing^2 / (4 aMax) for every state",
  "training": {
   "steps": 1500,
   "batch": 8,
@@ -46,6 +47,11 @@
     "parameters": 28353,
     "finalLoss": 0.014925003983080387,
     "seconds": 5.4
+   },
+   "conductance": {
+    "parameters": 28353,
+    "finalLoss": 0.003308303188532591,
+    "seconds": 29.6
    }
   }
  },
@@ -200,6 +206,59 @@
      "weightOffset": 28064,
      "biasOffset": 28352,
      "activation": "softplus"
+    }
+   ]
+  },
+  "conductance": {
+   "apply": "conductance",
+   "conservative": true,
+   "floor": 0.05,
+   "aMax": 3.0,
+   "inputs": [
+    "face gradient magnitude |h[c+1] - h[c]| / spacingM"
+   ],
+   "inputGrid": "east faces, side rows by side-1 columns; south faces run the same network on the transposed field",
+   "tendency": "a = floor + (aMax - floor) * sigmoid(output) per face; G = a (h[c+1] - h[c]) / spacingM; the west (north) cell gains G / spacingM and the east (south) cell loses it",
+   "stability": "dt <= spacingM^2 / (4 aMax) for every state",
+   "file": "conductance.bin",
+   "floats": 28353,
+   "bytes": 113412,
+   "sha256": "3e5c3e87ba1a6c457eef4dabbe3419a7614ef8ff405001e89d7358aa714e5725",
+   "layers": [
+    {
+     "in": 1,
+     "out": 32,
+     "weightOffset": 0,
+     "biasOffset": 288,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 320,
+     "biasOffset": 9536,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 9568,
+     "biasOffset": 18784,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 32,
+     "weightOffset": 18816,
+     "biasOffset": 28032,
+     "activation": "gelu"
+    },
+    {
+     "in": 32,
+     "out": 1,
+     "weightOffset": 28064,
+     "biasOffset": 28352,
+     "activation": "sigmoid"
     }
    ]
   }

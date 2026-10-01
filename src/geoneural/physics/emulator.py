@@ -12,8 +12,9 @@ Conditioning is on dimensionless groups, not on raw parameters. `landscape` has
 a similarity law, (U, K, D, t) -> (λU, λK, λD, t/λ) leaves the surface
 unchanged, so four dimensional parameters collapse to three numbers. Feeding the
 raw four asks the network to discover a known symmetry and lets it learn
-spurious structure along the redundant direction. It sees (log Nf, log Nh, dt*)
-and the scales are stored for the inverse mapping.
+spurious structure along the redundant direction. It sees (log10 Nf, log10 Nh,
+dt*) as defined in `units` (T = H / U, dt* = dt / T) and the scales are stored
+for the inverse mapping.
 
 Non-periodic domains are handled explicitly. An FFT assumes the field wraps.
 Terrain does not, and the teacher's boundary is where the mass leaves. The
@@ -21,6 +22,14 @@ spectral stack is replicate-padded by an eighth of the domain and cropped
 afterwards, coordinate channels and a boundary mask are supplied, and the
 outermost rows' error is reported separately so periodicity leakage is visible
 rather than averaged away.
+
+The contract is identity plus increment. `Increment` wraps either network:
+the network predicts a change of the normalised surface over one interval, the
+wrapper adds the input to it, and the fixed edges are copied from the input, so
+the outermost ring is exactly the base level whatever the weights. The head is
+initialised at zero, so an untrained emulator is exactly persistence. An
+earlier version described an increment while training on the absolute next
+surface; the absolute contract is kept only as a labelled legacy arm.
 
 The target is a macro-step, not a single step. One 200-year step says little
 about an emulator: the interesting failure is drift over a rollout. Training
@@ -33,8 +42,6 @@ one that was never given the channel, which is what makes an ablation against
 it meaningful.
 """
 from __future__ import annotations
-
-import math
 
 SCHEMA = "geoneural-emulator-v1"
 
@@ -186,6 +193,39 @@ def _modules(torch):
             "SpectralConv2d": SpectralConv2d, "ConditionalFNO": ConditionalFNO}
 
 
+def make_increment(config: dict, torch, pin_edges: bool = True, contract: str = "increment"):
+    """An emulator under the identity-plus-increment contract, with pinned fixed edges.
+
+    `contract="absolute"` reproduces the legacy behaviour (the network output is
+    the next surface) for comparison; it is not pinned unless asked.
+    """
+    if contract not in ("increment", "absolute"):
+        raise ValueError(f"unknown emulator contract {contract!r}")
+    net = make_emulator(config, torch)
+    if contract == "increment":
+        head = net.head if hasattr(net, "head") else net.project[-1]
+        with torch.no_grad():
+            head.weight.zero_()
+            head.bias.zero_()
+
+    class Increment(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.net, self.contract, self.pin_edges = net, contract, bool(pin_edges)
+
+        def forward(self, fields, scalars):
+            base = fields[:, :1]
+            out = self.net(fields, scalars)
+            if self.contract == "increment":
+                out = base + out
+            if self.pin_edges:
+                ring = fields[:, 1:2] > 0.5
+                out = torch.where(ring, base, out)
+            return out
+
+    return Increment()
+
+
 def make_emulator(config: dict, torch):
     """Build one emulator. `kind` is 'unet' or 'fno'."""
     parts = _modules(torch)
@@ -217,6 +257,7 @@ def input_channels(height, boundary_mask, torch):
     return torch.cat([height.unsqueeze(1), boundary_mask.unsqueeze(1), grid_x, grid_y], dim=1)
 
 
-def scalars_from(fluvial: float, hillslope: float, step: float, torch, device="cpu"):
-    return torch.tensor([[math.log(max(fluvial, 1e-12)), math.log(max(hillslope, 1e-12)),
-                          float(step)]], dtype=torch.float32, device=device)
+def scalars_from(log_fluvial: float, log_hillslope: float, step: float, torch, device="cpu"):
+    """The conditioner row: log10 Nf and log10 Nh from `units.uplift_groups`, and dt* = dt U / H."""
+    return torch.tensor([[float(log_fluvial), float(log_hillslope), float(step)]],
+                        dtype=torch.float32, device=device)

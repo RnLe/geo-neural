@@ -243,8 +243,11 @@ fn learned_arm(arm: &str) {
     assert!(error64 <= 1e-9);
     assert!(ledger64 <= 1e-12);
     assert!(error32 <= 1e-5);
-    if closure.apply == landscape_core::Apply::Flux {
-        assert!(drift <= 1e-14, "the flux arm must conserve to rounding");
+    if matches!(
+        closure.apply,
+        landscape_core::Apply::Flux | landscape_core::Apply::Conductance { .. }
+    ) {
+        assert!(drift <= 1e-14, "the {arm} arm must conserve to rounding");
     }
 }
 
@@ -264,8 +267,13 @@ fn penalty_arm_matches_torch() {
 }
 
 #[test]
+fn conductance_arm_matches_torch_and_conserves() {
+    learned_arm("conductance");
+}
+
+#[test]
 fn weights_meta_round_trips() {
-    for arm in ["flux", "kfield", "penalty"] {
+    for arm in ["flux", "kfield", "penalty", "conductance"] {
         let c: Closure = closure(arm);
         assert_eq!(c.layers.len(), 5);
         assert_eq!(c.layers.last().unwrap().cout, 1);

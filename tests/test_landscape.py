@@ -18,9 +18,10 @@ import unittest
 
 import numpy as np
 
-from geoneural.physics.landscape import (Parameters, drainage_area, evolve, laplacian, nondimensional,
-                                   slope_area, steady_state_report,
-                                   stable_timestep, step, steepest_slope)
+from geoneural.physics import units
+from geoneural.physics.landscape import (Parameters, drainage_area, evolve, laplacian,
+                                         slope_area, steady_state_report,
+                                         stable_timestep, steepest_slope)
 
 SLOW = unittest.skipUnless(os.environ.get("GEONEURAL_SLOW"), "long solver run; set GEONEURAL_SLOW=1")
 
@@ -227,40 +228,81 @@ if __name__ == "__main__":
     unittest.main()
 
 
-class NonDimensionalGroups(unittest.TestCase):
-    """What non-dimensionalisation provides.
+class ExactTimeAndReceiverLimiter(unittest.TestCase):
+    """The two counterexamples that version 1 of the teacher failed."""
 
-    Two numbers govern the equation, and the similarity law that follows says
-    which parameters a single present-day surface can and cannot identify. That
-    is a precondition for inferring landscape history.
-    """
+    def test_a_non_divisible_duration_is_integrated_exactly(self):
+        """1000 years at dt 400: two full steps and one 200-year step, not round(2.5) = 2."""
+        parameters = Parameters(uplift_m_per_year=1.0, k_incision=0.0,
+                                diffusivity_m2_per_year=0.0)
+        for dt in (400.0, 300.0, 600.0):
+            surface, record = evolve(np.zeros((8, 8)), parameters, 1000.0, dt_years=dt)
+            self.assertAlmostEqual(float(surface.mean()), 1000.0, places=9)
+            self.assertAlmostEqual(record["realisedYears"], 1000.0, places=9)
+            self.assertEqual(record["partialSteps"], 1)
+
+    def test_a_peak_is_cut_no_lower_than_its_receiver(self):
+        """Extreme incision on a 3 x 3 peak, receiver cardinal and then diagonal."""
+        parameters = Parameters(uplift_m_per_year=0.0, k_incision=1e3,
+                                diffusivity_m2_per_year=0.0)
+        cardinal = np.zeros((3, 3))
+        cardinal[1, 1] = 1.0
+        diagonal = np.full((3, 3), 0.9)
+        diagonal[1, 1], diagonal[0, 0] = 1.0, 0.0
+        for start in (cardinal, diagonal):
+            surface, record = evolve(start, parameters, 1.0, dt_years=1.0)
+            self.assertEqual(float(surface[1, 1]), 0.0)
+            self.assertGreater(record["cellsIncisionLimitedTotal"], 0)
+
+
+class NonDimensionalGroups(unittest.TestCase):
+    """`units` holds the only definition of the groups; these pin its algebra."""
 
     def test_the_groups_match_the_algebra(self):
-        parameters = Parameters(uplift_m_per_year=1e-4, k_incision=1e-5,
-                                area_exponent=0.5, slope_exponent=1.0,
-                                diffusivity_m2_per_year=1e-2, spacing_m=100.0)
-        groups = nondimensional(parameters, length_m=6400.0, relief_m=200.0)
-        # m=0.5, n=1 makes L^(2m-n) = L^0 = 1, so Nf = K H / U exactly.
-        self.assertAlmostEqual(groups["fluvialNumber"], 1e-5 * 200.0 / 1e-4, places=9)
-        self.assertAlmostEqual(groups["hillslopeNumber"],
-                               1e-2 * 200.0 / (1e-4 * 6400.0 ** 2), places=12)
-        self.assertAlmostEqual(groups["timescaleYears"], 200.0 / 1e-4, places=3)
+        scales = units.Scales(6400.0, 200.0, 2e6)
+        groups = units.groups(1e-4, 1e-5, 1e-2, scales, 0.5, 1.0)
+        self.assertAlmostEqual(groups["logPiU"], math.log10(1e-4 * 2e6 / 200.0), places=12)
+        # m = 1/2, n = 1: L^(2m-n) = 1 and H^(n-1) = 1, so Pi_K = K T.
+        self.assertAlmostEqual(groups["logPiK"], math.log10(1e-5 * 2e6), places=12)
+        self.assertAlmostEqual(groups["logPiD"], math.log10(1e-2 * 2e6 / 6400.0 ** 2), places=12)
+        uplift = units.uplift_groups(1e-4, 1e-5, 1e-2, 6400.0, 200.0)
+        self.assertAlmostEqual(uplift["logFluvialNumber"], math.log10(1e-5 * 200.0 / 1e-4), places=12)
+        self.assertAlmostEqual(uplift["logHillslopeNumber"],
+                               math.log10(1e-2 * 200.0 / (1e-4 * 6400.0 ** 2)), places=12)
 
-    def test_uplift_and_incision_are_confounded(self):
-        """Doubling both leaves every dimensionless group untouched."""
-        one = nondimensional(Parameters(uplift_m_per_year=1e-4, k_incision=1e-5,
-                                        diffusivity_m2_per_year=1e-2), 6400.0, 200.0)
-        two = nondimensional(Parameters(uplift_m_per_year=2e-4, k_incision=2e-5,
-                                        diffusivity_m2_per_year=2e-2), 6400.0, 200.0)
-        for key in ("fluvialNumber", "hillslopeNumber", "pecletNumber"):
-            self.assertAlmostEqual(one[key], two[key], places=9)
+    def test_rescaling_length_relief_and_time_leaves_the_groups_unchanged(self):
+        """(L, H, T) -> (a L, b H, c T) with the rates of `units.rescale`, for n != 1 too."""
+        for m, n in ((0.5, 1.0), (0.4, 1.3)):
+            base = units.groups(2e-4, 3e-6, 5e-3, units.Scales(3000.0, 150.0, 1e6), m, n)
+            a, b, c = 2.5, 0.3, 7.0
+            rates = units.rescale(2e-4, 3e-6, 5e-3, a, b, c, m, n)
+            moved = units.groups(rates["uplift"], rates["kIncision"], rates["diffusivity"],
+                                 units.Scales(3000.0 * a, 150.0 * b, 1e6 * c), m, n)
+            for key in units.GROUPS:
+                self.assertAlmostEqual(base[key], moved[key], places=12, msg=(m, n, key))
+
+    def test_the_solver_obeys_the_same_rescaling(self):
+        """Spacing a dx, heights b z, the rescaled rates and duration c t: the run is the
+        original drawn at another scale. Only the 1e-6 m fill epsilon does not scale."""
+        rows = np.linspace(0.0, 1.0, 32)
+        start = 40.0 * np.sin(2.5 * rows)[:, None] + 25.0 * np.cos(1.7 * rows)[None, :] + 100.0
+        base = Parameters(uplift_m_per_year=1e-4, k_incision=1e-5,
+                          diffusivity_m2_per_year=1e-2, spacing_m=100.0)
+        a, b, c = 2.0, 3.0, 0.5
+        rates = units.rescale(1e-4, 1e-5, 1e-2, a, b, c)
+        moved = Parameters(uplift_m_per_year=rates["uplift"], k_incision=rates["kIncision"],
+                           diffusivity_m2_per_year=rates["diffusivity"], spacing_m=100.0 * a)
+        one, _ = evolve(start, base, 20_000.0, dt_years=100.0, base_level="fixed-edges")
+        two, _ = evolve(b * start, moved, 20_000.0 * c, dt_years=100.0 * c, base_level="fixed-edges")
+        self.assertLess(float(np.abs(two / b - one).max()), 1e-5)
+        self.assertGreater(float(np.abs(one - start).max()), 0.1)
 
     def test_degenerate_scales_are_refused(self):
-        for bad in ((0.0, 200.0), (6400.0, 0.0), (-1.0, 200.0)):
+        for bad in ((0.0, 200.0, 1.0), (6400.0, 0.0, 1.0), (-1.0, 200.0, 1.0)):
             with self.assertRaises(ValueError):
-                nondimensional(Parameters(), *bad)
+                units.Scales(*bad)
         with self.assertRaises(ValueError):
-            nondimensional(Parameters(uplift_m_per_year=0.0), 6400.0, 200.0)
+            units.uplift_scales(6400.0, 200.0, 0.0)
 
 
 class SimilarityHoldsInTheSolver(unittest.TestCase):

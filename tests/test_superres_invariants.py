@@ -53,14 +53,91 @@ class TheOperatorIsUnbiased(unittest.TestCase):
         interior = (slice(1, -1), slice(1, -1))
         self.assertLess(float(np.abs(observed[interior] - expected[interior]).max()), 1e-9)
 
-    def test_back_projection_reduces_operator_inconsistency(self):
+    def test_back_projection_reaches_its_stated_tolerance_and_says_so(self):
+        """A fixed iteration count is not a projection; the achieved residual is the claim."""
         rng = np.random.default_rng(5)
         coarse = np.cumsum(rng.normal(0.0, 1.0, (13, 13)), axis=0)
         estimate = superres.classical(coarse, 10, "bilinear")
-        before = superres.operator_consistency(estimate, coarse, 10)["maxM"]
-        after = superres.operator_consistency(
-            superres.back_project(estimate, coarse, 10), coarse, 10)["maxM"]
-        self.assertLess(after, before)
+        projected, report = superres.back_project(estimate, coarse, 10, tolerance=1e-6)
+        achieved = superres.operator_consistency(projected, coarse, 10)["maxM"]
+        self.assertTrue(report["converged"])
+        self.assertLessEqual(achieved, 1e-6)
+        self.assertAlmostEqual(achieved, report["achievedMaxM"], places=12)
+        self.assertGreater(report["iterations"], 0)
+        _, capped = superres.back_project(estimate, coarse, 10, tolerance=1e-12, max_iterations=2)
+        self.assertFalse(capped["converged"])
+        self.assertEqual(capped["iterations"], 2)
+
+
+class TheOperatorIdentityIsWhatItDoes(unittest.TestCase):
+    """The fingerprint hashes weights and code. Editing the label alone must not change it,
+    and editing one weight must."""
+
+    def test_a_changed_weight_changes_the_fingerprint(self):
+        original = superres._axis_weights
+        before = superres.operator_fingerprint(10)
+
+        def nudged(side, factor):
+            weights = original(side, factor)
+            weights[1, 10] += 1e-6
+            return weights
+
+        superres._axis_weights = nudged
+        try:
+            after = superres.operator_fingerprint(10)
+        finally:
+            superres._axis_weights = original
+        self.assertNotEqual(before, after)
+        self.assertEqual(before, superres.operator_fingerprint(10))
+
+    def test_the_label_does_not_enter_the_fingerprint(self):
+        before = superres.operator_fingerprint(10)
+        label = superres.OPERATOR
+        superres.OPERATOR = "rasterio Resampling.average"
+        try:
+            self.assertEqual(before, superres.operator_fingerprint(10))
+        finally:
+            superres.OPERATOR = label
+
+    def test_the_label_describes_trapezoidal_node_averaging(self):
+        self.assertIn("trapezoid", superres.OPERATOR)
+        self.assertNotIn("rasterio", superres.OPERATOR)
+        schema = superres.operator_schema(10)
+        self.assertEqual(schema["interiorOffsets"], list(range(-5, 6)))
+        self.assertAlmostEqual(schema["interiorWeights"][0] * 2, schema["interiorWeights"][1])
+
+
+class TilesAndPatchesSeeTheWholeField(unittest.TestCase):
+    """Training patches, evaluation tiles and drainage windows are crops of one normalised field."""
+
+    def setUp(self):
+        if MISSING:
+            self.skipTest("torch is not installed")
+        rng = np.random.default_rng(11)
+        self.coarse = np.cumsum(np.cumsum(rng.normal(0.0, 1.0, (41, 37)), 0), 1) * 0.3 + 100.0
+        self.features = superres_train.coarse_inputs(self.coarse)
+
+    def test_tiled_reconstruction_equals_the_whole_domain(self):
+        torch.manual_seed(0)
+        for arm in ("edsr", "liif"):
+            config = {"arm": arm, "width": 8, "blocks": 2, "hidden": 16, "depth": 2,
+                      "factor": 4, "channels": superres_train.INPUT_CHANNELS}
+            model = superres_models.make_model(config, torch).eval()
+            inputs, scale = self.features
+            full = superres_train.reconstruct_window(model, config, inputs, scale, torch, 4, "cpu")
+            tiled = superres_train.reconstruct_tiled(model, config, self.features, torch, 4, "cpu",
+                                                     tile=8)
+            self.assertEqual(full.shape, tiled.shape)
+            self.assertLess(float(np.abs(full - tiled).max()), 1e-4 * float(np.abs(full).max()) + 1e-6,
+                            arm)
+
+    def test_patch_inputs_do_not_depend_on_the_fine_labels(self):
+        fine = np.zeros(((41 - 1) * 4 + 1, (37 - 1) * 4 + 1))
+        base = np.zeros_like(fine)
+        a = superres_train._patch(self.features, self.coarse, fine, base, 5, 7, 9, 4)
+        b = superres_train._patch(self.features, self.coarse, fine + 50.0, base, 5, 7, 9, 4)
+        np.testing.assert_array_equal(a[0], b[0])
+        np.testing.assert_array_equal(a[0], self.features[0][:, 5:14, 7:16])
 
 
 class EveryArmAnswersOnTheNodeLattice(unittest.TestCase):

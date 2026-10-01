@@ -11,3 +11,5 @@ export { mountChart } from "./charts";
 export type { ChartHandle, ChartOptions } from "./charts";
 export { mountLab } from "./lab";
 export type { LabHandle, LabOptions } from "./lab";
+export { loadCodecBundle, mountBytes, mountMicroscope } from "./codec";
+export type { BytesHandle, BytesOptions, CodecBundle, CodecManifest, MicroscopeHandle, MicroscopeOptions } from "./codec";

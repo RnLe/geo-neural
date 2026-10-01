@@ -31,8 +31,12 @@ it:
   plain supervised baseline that shows whether the other two need their extra
   machinery.
 
-Only the coarse grid enters. The fine reference is the target and is never an
-input, at training or at evaluation.
+Only the coarse grid enters, as the whole-field channels of
+`superres_train.coarse_inputs`: local relief, gradients, both divided by a
+local height scale, and the log of that scale. The arms predict the residual in
+units of the same scale, so a patch and a full window see the same numbers for
+the same nodes. The fine reference is the target and is never an input, at
+training or at evaluation.
 """
 from __future__ import annotations
 
@@ -52,9 +56,9 @@ def _modules(torch):
         depth instead.
         """
 
-        def __init__(self, width: int = 64, blocks: int = 4):
+        def __init__(self, width: int = 64, blocks: int = 4, channels: int = 1):
             super().__init__()
-            self.head = nn.Conv2d(1, width, 3, padding=1, padding_mode="replicate")
+            self.head = nn.Conv2d(channels, width, 3, padding=1, padding_mode="replicate")
             self.blocks = nn.ModuleList([
                 nn.Sequential(
                     nn.Conv2d(width, width, 3, padding=1, padding_mode="replicate"),
@@ -141,19 +145,19 @@ def _modules(torch):
         the head runs at that resolution so all three arms answer on one grid.
         """
 
-        def __init__(self, width: int = 64, blocks: int = 8, factor: int = 10):
+        def __init__(self, width: int = 64, blocks: int = 8, factor: int = 10, channels: int = 1):
             super().__init__()
-            self.encoder = Encoder(width, blocks)
+            self.encoder = Encoder(width, blocks, channels)
             self.refine = nn.Conv2d(width, width, 3, padding=1, padding_mode="replicate")
             self.out = nn.Conv2d(width, 1, 3, padding=1, padding_mode="replicate")
             self.factor = int(factor)
 
         def forward(self, coarse):
-            side = coarse.shape[-1]
-            nodes = (side - 1) * self.factor + 1
+            rows = (coarse.shape[-2] - 1) * self.factor + 1
+            columns = (coarse.shape[-1] - 1) * self.factor + 1
             features = self.encoder(coarse)
             features = nn.functional.interpolate(
-                features, size=(nodes, nodes), mode="bilinear", align_corners=True)
+                features, size=(rows, columns), mode="bilinear", align_corners=True)
             return self.out(nn.functional.relu(self.refine(features)))
 
     class QueryModel(nn.Module):
@@ -185,9 +189,10 @@ def make_model(config: dict, torch):
     blocks = int(config.get("blocks", 4))
     hidden = int(config.get("hidden", 256))
     depth = int(config.get("depth", 4))
+    channels = int(config.get("channels", 1))
     if arm == "edsr":
-        return parts["Edsr"](width, blocks, int(config.get("factor", 10)))
-    encoder = parts["Encoder"](width, blocks)
+        return parts["Edsr"](width, blocks, int(config.get("factor", 10)), channels)
+    encoder = parts["Encoder"](width, blocks, channels)
     head = (parts["LocalFrameHead"](width, hidden, depth) if arm == "liif"
             else parts["FilmSiren"](width, hidden, depth,
                                     float(config.get("omega", 30.0))))

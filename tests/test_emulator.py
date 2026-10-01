@@ -97,3 +97,34 @@ class TheSpectralStackHandlesANonPeriodicDomain(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class IdentityPlusIncrement(unittest.TestCase):
+    """The contract the training and evaluation code rely on."""
+
+    def test_an_untrained_increment_emulator_is_exact_persistence(self):
+        import torch
+        for config in ({"kind": "unet", "stages": 2, "base": 16}, {"kind": "fno", "blocks": 2, "width": 16, "modes": 8}):
+            model = emulator.make_increment(config, torch)
+            height = torch.randn(2, 32, 32)
+            mask = torch.zeros(2, 32, 32)
+            mask[:, 0, :] = mask[:, -1, :] = mask[:, :, 0] = mask[:, :, -1] = 1.0
+            with torch.no_grad():
+                out = model(emulator.input_channels(height, mask, torch), torch.randn(2, 3))
+            self.assertTrue(torch.equal(out[:, 0], height), config)
+
+    def test_fixed_edges_are_exact_for_any_weights(self):
+        import torch
+        torch.manual_seed(3)
+        model = emulator.make_increment({"kind": "unet", "stages": 2, "base": 16}, torch)
+        with torch.no_grad():
+            for parameter in model.parameters():
+                parameter.uniform_(-0.5, 0.5)
+        height = torch.randn(1, 32, 32)
+        mask = torch.zeros(1, 32, 32)
+        mask[:, 0, :] = mask[:, -1, :] = mask[:, :, 0] = mask[:, :, -1] = 1.0
+        with torch.no_grad():
+            out = model(emulator.input_channels(height, mask, torch), torch.randn(1, 3))[:, 0]
+        ring = mask > 0.5
+        self.assertTrue(torch.equal(out[ring], height[ring]))
+        self.assertGreater(float((out[~ring] - height[~ring]).abs().mean()), 1e-4)

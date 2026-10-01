@@ -41,6 +41,12 @@ that artificial gradient drives an artificial incision of order
 at the parameters used here. It is negligible in magnitude but systematic in
 direction, growing with drainage area, so it is documented rather than rounded
 away.
+
+Version 2 of the teacher fixes two counterexamples of version 1: `evolve`
+integrated round(years / dt) steps while reporting the requested time, and the
+incision limiter allowed a cell to be cut 41 % below a cardinal receiver. Both
+change results, so anything generated with version 1 is legacy evidence. The
+dimensionless groups of this equation are defined in `units` and nowhere else.
 """
 from __future__ import annotations
 import math
@@ -50,7 +56,7 @@ import numpy as np
 
 from geoneural.metrics import hydrology
 
-SCHEMA = "geoneural-landscape-teacher-v1"
+SCHEMA = "geoneural-landscape-teacher-v2"
 
 
 @dataclass(frozen=True)
@@ -86,26 +92,45 @@ def laplacian(height: np.ndarray, spacing_m: float) -> np.ndarray:
             + padded[1:-1, 2:] - 4.0 * height) / (spacing_m ** 2)
 
 
-def steepest_slope(height: np.ndarray, spacing_m: float) -> np.ndarray:
+def routing(height: np.ndarray, spacing_m: float, router=None) -> dict:
+    """Filled surface, D8 receivers, drop and slope to the receiver, and drainage area.
+
+    Everything the incision term needs comes from one depression filling, so the
+    slope, the drop that limits incision and the area are computed on the same
+    routed surface. `router` swaps in a compiled fill and accumulation; the only
+    admissible substitute is one that passes
+    `hydrology_fast.bit_identical_to_reference`.
+    """
+    router = hydrology if router is None else router
+    filled = router.fill_depressions(height)
+    receiver = hydrology.d8_receivers(filled, spacing_m)
+    flat = filled.reshape(-1)
+    cols = height.shape[1]
+    targets = receiver.reshape(-1)
+    has_receiver = targets != hydrology.NO_RECEIVER
+    target = targets[has_receiver]
+    source = np.flatnonzero(has_receiver)
+    dr = np.abs(target // cols - source // cols)
+    dc = np.abs(target % cols - source % cols)
+    distance = np.hypot(dr, dc) * spacing_m
+    drop = np.zeros(height.size, dtype=np.float64)
+    drop[source] = np.maximum(flat[source] - flat[target], 0.0)
+    slope = np.zeros(height.size, dtype=np.float64)
+    slope[source] = drop[source] / np.maximum(distance, 1e-12)
+    cells = router.flow_accumulation(filled, receiver)
+    return {"filled": filled, "receiver": receiver,
+            "drop": drop.reshape(height.shape), "slope": slope.reshape(height.shape),
+            "area": cells.astype(np.float64) * (spacing_m ** 2)}
+
+
+def steepest_slope(height: np.ndarray, spacing_m: float, router=None) -> np.ndarray:
     """Downhill slope to the D8 receiver, in rise over run.
 
     Incision is driven by the gradient along the flow path, so this is the slope
     to the cell water actually leaves by, not a centred gradient magnitude,
     which would mix in directions no water takes.
     """
-    filled = hydrology.fill_depressions(height)
-    receiver = hydrology.d8_receivers(filled, spacing_m)
-    flat = filled.reshape(-1)
-    rows, cols = height.shape
-    slope = np.zeros(height.size, dtype=np.float64)
-    has_receiver = receiver.reshape(-1) != hydrology.NO_RECEIVER
-    target = receiver.reshape(-1)[has_receiver]
-    source = np.flatnonzero(has_receiver)
-    dr = np.abs(target // cols - source // cols)
-    dc = np.abs(target % cols - source % cols)
-    distance = np.hypot(dr, dc) * spacing_m
-    slope[source] = np.maximum(flat[source] - flat[target], 0.0) / np.maximum(distance, 1e-12)
-    return slope.reshape(height.shape)
+    return routing(height, spacing_m, router)["slope"]
 
 
 def drainage_area(height: np.ndarray, spacing_m: float, router=None) -> np.ndarray:
@@ -149,16 +174,19 @@ def step(height: np.ndarray, parameters: Parameters, dt_years: float,
     """
     spacing = parameters.spacing_m
     rise = (parameters.uplift_m_per_year if uplift is None else uplift) * dt_years
-    area = drainage_area(height, spacing, router)
-    slope = steepest_slope(height, spacing)
+    routed = routing(height, spacing, router)
+    area, slope = routed["area"], routed["slope"]
     incision = (parameters.k_incision
                 * area ** parameters.area_exponent
                 * slope ** parameters.slope_exponent) * dt_years
     # Never incise a cell below the neighbour it drains to within one step: that
     # inverts the gradient that produced the incision and is the explicit
-    # scheme's characteristic failure here, not a physical outcome.
-    reach = slope * spacing * math.sqrt(2.0)
-    limited = np.minimum(incision, np.maximum(reach, 0.0))
+    # scheme's characteristic failure here, not a physical outcome. The cap is
+    # the actual drop to the receiver on the routed surface. An earlier version
+    # used slope * spacing * sqrt(2), which is the drop only for a diagonal
+    # receiver and lets a cell with a cardinal receiver overshoot it by 41 %.
+    reach = routed["drop"]
+    limited = np.minimum(incision, reach)
     clipped = int(np.count_nonzero(limited < incision))
     spread = parameters.diffusivity_m2_per_year * laplacian(height, spacing) * dt_years
     updated = height + rise - limited + spread
@@ -177,10 +205,30 @@ def step(height: np.ndarray, parameters: Parameters, dt_years: float,
     }
 
 
+def step_plan(years: float, dt_years: float) -> list[float]:
+    """floor(years / dt) full steps, then one remainder step if anything is left.
+
+    Rounding the step count instead (an earlier version) integrates 800 years
+    when asked for 1000 at dt 400, and 1200 at dt 600, while reporting 1000.
+    A remainder within a part in 1e9 of zero or of a full step is treated as
+    rounding of the division, not as a step.
+    """
+    if years < 0.0 or not math.isfinite(years):
+        raise ValueError("duration must be finite and non-negative")
+    ratio = years / dt_years
+    full = int(math.floor(ratio))
+    remainder = years - full * dt_years
+    if remainder >= dt_years * (1.0 - 1e-9):
+        full, remainder = full + 1, 0.0
+    if remainder <= dt_years * 1e-9:
+        remainder = 0.0
+    return [dt_years] * full + ([remainder] if remainder > 0.0 else [])
+
+
 def evolve(height: np.ndarray, parameters: Parameters, years: float,
            dt_years: float | None = None, uplift: np.ndarray | None = None,
            record_every: int = 0, base_level: str | None = None,
-           router=None) -> tuple[np.ndarray, dict]:
+           router=None, snapshots=None) -> tuple[np.ndarray, dict]:
     """Integrate forward, refusing a step the scheme cannot take.
 
     A run that silently exceeded its stability limit would produce a smooth,
@@ -205,6 +253,12 @@ def evolve(height: np.ndarray, parameters: Parameters, years: float,
 
     The default is `None` so that existing callers keep their behaviour. Nothing
     should be distilled from a `None` run.
+
+    Time is exact: `step_plan` takes floor(years / dt) full steps and one
+    remainder step, and the record carries the realised duration (the sum of
+    the steps actually taken) beside the requested one. `snapshots` is an
+    optional list of times within the run; each is reached the same way, so
+    the surfaces in `record["snapshotSurfaces"]` sit at exactly those times.
     """
     limit = stable_timestep(parameters)
     dt = min(limit, years / 100.0) if dt_years is None else float(dt_years)
@@ -216,7 +270,15 @@ def evolve(height: np.ndarray, parameters: Parameters, years: float,
             "reduce dt or the diffusivity rather than accepting a smooth wrong answer")
     if base_level not in (None, "fixed-edges"):
         raise ValueError(f"Unsupported base level: {base_level!r}")
-    steps = max(int(round(years / dt)), 1)
+    targets = sorted({float(t) for t in (snapshots or ()) if 0.0 < float(t) < years} | {float(years)})
+    plan, previous = [], 0.0
+    for target in targets:
+        plan += [(h, None) for h in step_plan(target - previous, dt)]
+        if plan:
+            plan[-1] = (plan[-1][0], target)
+        previous = target
+    steps = len(plan)
+    full_steps = sum(1 for h, _ in plan if h == dt)
     surface = np.array(height, dtype=np.float64, copy=True)
     initial = surface.copy()
     boundary = np.zeros(surface.shape, dtype=bool)
@@ -231,10 +293,10 @@ def evolve(height: np.ndarray, parameters: Parameters, years: float,
     cell_area = parameters.spacing_m ** 2
     ledger = {"upliftVolumeM3": 0.0, "incisionVolumeM3": 0.0,
               "diffusionVolumeM3": 0.0, "boundaryOutflowVolumeM3": 0.0}
-    history, clipped_total = [], 0
-    for index in range(steps):
-        before = surface
-        surface, record = step(surface, parameters, dt, uplift, router)
+    history, clipped_total, realised, captured = [], 0, 0.0, {}
+    for index, (h, mark) in enumerate(plan):
+        surface, record = step(surface, parameters, h, uplift, router)
+        realised += h
         ledger["upliftVolumeM3"] += record["upliftMeanM"] * surface.size * cell_area
         ledger["incisionVolumeM3"] += record["incisionAppliedMeanM"] * surface.size * cell_area
         ledger["diffusionVolumeM3"] += record["diffusionMeanM"] * surface.size * cell_area
@@ -251,9 +313,14 @@ def evolve(height: np.ndarray, parameters: Parameters, years: float,
                             "maxM": float(surface.max()), **record})
         if not np.isfinite(surface).all():
             raise FloatingPointError(f"surface became non-finite at step {index}")
+        if mark is not None and mark != float(years):
+            captured[mark] = surface.copy()
     return surface, {
         "schema": SCHEMA, "parameters": parameters.as_dict(),
-        "years": years, "dtYears": dt, "steps": steps,
+        "years": years, "realisedYears": realised, "dtYears": dt, "steps": steps,
+        "fullSteps": full_steps, "partialSteps": steps - full_steps,
+        "timeNote": "floor(years/dt) full steps plus one remainder step per requested time; "
+                    "realisedYears is the sum of the steps taken",
         "baseLevel": base_level or "none (closed system)",
         "reliefM": float(surface.max() - surface.min()),
         "baseLevelNote": (
@@ -264,6 +331,7 @@ def evolve(height: np.ndarray, parameters: Parameters, years: float,
         "cellsIncisionLimitedTotal": clipped_total,
         "ledger": {**ledger, **_closure(surface, initial, ledger, cell_area)},
         "history": history,
+        **({"snapshotSurfaces": captured} if snapshots else {}),
         "discretisationArtefacts": [
             "zero-flux edges give a tilted plane non-zero curvature in the outermost row and column, "
             "so a plane is not a steady state there; this is the same choice that makes diffusion "
@@ -277,56 +345,10 @@ def evolve(height: np.ndarray, parameters: Parameters, years: float,
                   "human alteration"],
         "qualification": "A synthetic generator, not a model of any real landscape. Drainage area is "
                          "area, not discharge. Explicit Euler on a five-point Laplacian with reflective "
-                         "edges; the incision term is limited per step so it cannot invert the gradient "
-                         "that drives it, and the number of cells that hit that limit is reported.",
+                         "edges; the incision term is limited per step to the actual drop to the D8 "
+                         "receiver, so it cannot invert the gradient that drives it, and the number "
+                         "of cells that hit that limit is reported.",
     }
-
-
-def nondimensional(parameters: Parameters, length_m: float, relief_m: float) -> dict:
-    """The dimensionless groups that actually govern the equation.
-
-    Non-dimensionalisation says which parameter combinations a landscape can
-    identify, and therefore which inverse-history problems are well posed. With
-    `h* = h/H`, `x* = x/L` and `t* = t U / H`, the stream-power equation
-
-        dh/dt = U - K A^m |grad h|^n + D div(grad h)
-
-    becomes
-
-        dh*/dt* = 1 - Nf A*^m S*^n + Nh div*(grad* h*)
-
-    with only two free numbers:
-
-        Nf = K L^(2m - n) H^n / U      fluvial efficiency against uplift
-        Nh = D H / (U L^2)             hillslope efficiency against uplift
-
-    Their ratio is the landscape Peclet number: how far a signal travels by
-    channel incision before hillslope diffusion erases it, and hence whether the
-    terrain is ridge-and-valley or smooth.
-
-    The consequence is a similarity law: two landscapes with equal (Nf, Nh, m, n)
-    are the same landscape up to rescaling, whatever their dimensional U, K and
-    D. So `U` and `K` are not separately identifiable from a single present-day
-    surface; only `Nf` is.
-    """
-    if length_m <= 0.0 or relief_m <= 0.0:
-        raise ValueError("length and relief scales must be positive")
-    m, n = parameters.area_exponent, parameters.slope_exponent
-    uplift = parameters.uplift_m_per_year
-    if uplift <= 0.0:
-        raise ValueError("non-dimensionalisation by uplift needs a positive uplift rate")
-    fluvial = parameters.k_incision * length_m ** (2 * m - n) * relief_m ** n / uplift
-    hillslope = parameters.diffusivity_m2_per_year * relief_m / (uplift * length_m ** 2)
-    return {"lengthM": float(length_m), "reliefM": float(relief_m),
-            "fluvialNumber": float(fluvial), "hillslopeNumber": float(hillslope),
-            "pecletNumber": float(fluvial / hillslope) if hillslope > 0 else float("inf"),
-            "areaExponent": float(m), "slopeExponent": float(n),
-            "timescaleYears": float(relief_m / uplift),
-            "similarity": "Two parameter sets with equal (fluvialNumber, hillslopeNumber, m, n) "
-                          "produce the same landscape up to rescaling by L and H. U and K are not "
-                          "separately identifiable from one present-day surface; only their "
-                          "combination in fluvialNumber is.",
-            "convention": "h* = h/H, x* = x/L, t* = t U / H."}
 
 
 def slope_area(height: np.ndarray, spacing_m: float, min_area_m2: float | None = None,

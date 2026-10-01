@@ -1,6 +1,13 @@
 //! Inference for the learned closures of `hybrid._modules`: stacks of 3x3
 //! convolutions (stride 1, replicate padding), evaluated in `f64` from
 //! `float32` weights.
+//!
+//! The conductance arm is the structured law: one bounded conductance per
+//! face, `a = floor + (a_max - floor) * sigmoid(net(|g|))`, applied as
+//! `G = a g`. A flat surface gives `g = 0` and so no flux for any weights,
+//! adding a constant changes nothing, `a >= floor >= 0` dissipates under
+//! closed edges, and `a <= a_max` gives the state-independent explicit bound
+//! `dx^2 / (4 a_max)`.
 
 use crate::grid::{assemble, max_abs, Grid};
 use crate::physics::Teacher;
@@ -42,6 +49,16 @@ pub fn gelu(x: f64) -> f64 {
     0.5 * x * (1.0 + erf(x * std::f64::consts::FRAC_1_SQRT_2))
 }
 
+/// `torch.sigmoid`, written to avoid overflow for large `|x|`.
+pub fn sigmoid(x: f64) -> f64 {
+    if x >= 0.0 {
+        1.0 / (1.0 + (-x).exp())
+    } else {
+        let e = x.exp();
+        e / (1.0 + e)
+    }
+}
+
 /// `torch.nn.functional.softplus` with `beta = 1`, `threshold = 20`.
 pub fn softplus(x: f64) -> f64 {
     if x > 20.0 {
@@ -57,15 +74,17 @@ pub enum Activation {
     Identity,
     Gelu,
     Softplus,
+    Sigmoid,
 }
 
 impl Activation {
-    /// Parses `"identity"`, `"gelu"` or `"softplus"`.
+    /// Parses `"identity"`, `"gelu"`, `"softplus"` or `"sigmoid"`.
     pub fn parse(name: &str) -> Result<Self, Error> {
         match name {
             "identity" => Ok(Self::Identity),
             "gelu" => Ok(Self::Gelu),
             "softplus" => Ok(Self::Softplus),
+            "sigmoid" => Ok(Self::Sigmoid),
             _ => fail(format!("unknown activation {name:?}")),
         }
     }
@@ -75,12 +94,13 @@ impl Activation {
             Self::Identity => x,
             Self::Gelu => gelu(x),
             Self::Softplus => softplus(x),
+            Self::Sigmoid => sigmoid(x),
         }
     }
 }
 
 /// How the network output becomes a tendency.
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub enum Apply {
     /// Inputs (face gradient, face mean height) on east faces; output is the
     /// face value `G`. South faces reuse the network on the transposed field.
@@ -90,22 +110,42 @@ pub enum Apply {
     /// in softplus) used as `K * laplacian(h)` with replicate edges. Not
     /// conservative: a varying `K` outside the divergence does not telescope.
     KField,
+    /// Input is the face gradient magnitude `|g|` on east faces; the stack
+    /// ends in a sigmoid `s` and the face conductance is
+    /// `floor + (a_max - floor) * s`, so `G = a g`. South faces reuse the
+    /// network on the transposed field. Conservative, still on a flat
+    /// surface, invariant to a constant offset and stable below
+    /// `dx^2 / (4 a_max)`, all for any weights.
+    Conductance { floor: f64, a_max: f64 },
 }
 
 impl Apply {
-    /// Parses `"flux"` or `"kfield"`.
+    /// Parses `"flux"` or `"kfield"`. The conductance arm needs its bounds;
+    /// use [`Apply::conductance`].
     pub fn parse(name: &str) -> Result<Self, Error> {
         match name {
             "flux" => Ok(Self::Flux),
             "kfield" => Ok(Self::KField),
+            "conductance" => fail("the conductance arm needs its floor and aMax"),
             _ => fail(format!("unknown closure application {name:?}")),
+        }
+    }
+
+    /// The conductance arm with `0 <= floor < a_max`, both finite.
+    pub fn conductance(floor: f64, a_max: f64) -> Result<Self, Error> {
+        if floor.is_finite() && a_max.is_finite() && floor >= 0.0 && floor < a_max {
+            Ok(Self::Conductance { floor, a_max })
+        } else {
+            fail(format!(
+                "conductance bounds must satisfy 0 <= floor < aMax, got {floor} and {a_max}"
+            ))
         }
     }
 
     fn inputs(self) -> usize {
         match self {
             Self::Flux => 2,
-            Self::KField => 1,
+            Self::KField | Self::Conductance { .. } => 1,
         }
     }
 }
@@ -225,8 +265,10 @@ impl Closure {
     }
 
     /// Fills `out` with the closure tendency on a closed domain (the boundary
-    /// the closures were trained with). Returns the largest `K` for
-    /// [`Apply::KField`], or `None` for [`Apply::Flux`].
+    /// the closures were trained with). Returns the largest diffusivity the
+    /// explicit bound must respect: the largest `K` for [`Apply::KField`],
+    /// `a_max` for [`Apply::Conductance`], or `None` for [`Apply::Flux`],
+    /// which has no bound of its own.
     pub fn tendency(
         &self,
         grid: &Grid,
@@ -240,7 +282,51 @@ impl Closure {
                 None
             }
             Apply::KField => Some(self.kfield(grid, height, work, out)),
+            Apply::Conductance { floor, a_max } => {
+                self.conductance(grid, height, floor, a_max, work, out);
+                Some(a_max)
+            }
         }
+    }
+
+    /// `hybrid._apply_conductance`: a bounded conductance per face from `|g|`.
+    fn conductance(
+        &self,
+        grid: &Grid,
+        height: &[f64],
+        floor: f64,
+        a_max: f64,
+        work: &mut Work,
+        out: &mut [f64],
+    ) {
+        let n = grid.side;
+        let ec = n - 1;
+        let dx = grid.spacing_m;
+        // Face values G = a g on the east faces of `at(r, c)`.
+        let faces = |at: &dyn Fn(usize, usize) -> f64, work: &mut Work| -> Vec<f64> {
+            let mut gradient = vec![0.0; n * ec];
+            for r in 0..n {
+                for c in 0..ec {
+                    gradient[r * ec + c] = (at(r, c + 1) - at(r, c)) / dx;
+                }
+            }
+            let magnitude: Vec<f64> = gradient.iter().map(|g| g.abs()).collect();
+            let fraction = self.forward(&magnitude, n, ec, work);
+            gradient
+                .iter()
+                .zip(fraction)
+                .map(|(g, s)| (floor + (a_max - floor) * s) * g)
+                .collect()
+        };
+        let east = faces(&|r, c| height[r * n + c], work);
+        let turned = faces(&|r, c| height[c * n + r], work);
+        let mut south = vec![0.0; ec * n];
+        for r in 0..ec {
+            for c in 0..n {
+                south[r * n + c] = turned[c * ec + r];
+            }
+        }
+        assemble(grid, false, &east, &south, out);
     }
 
     /// `hybrid._apply_flux`: face fluxes both ways through one network.

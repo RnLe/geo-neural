@@ -59,8 +59,8 @@ fn teacher() -> Model {
     })
 }
 
-/// A flux closure with arbitrary weights, to show conservation does not depend on training.
-fn arbitrary_flux() -> Closure {
+/// Layers with deterministic pseudo-random weights in [-0.2, 0.2).
+fn arbitrary_layers(shapes: &[(usize, usize)], last: Activation) -> (Vec<LayerSpec>, Vec<f32>) {
     let mut state = 12345u64;
     let mut next = || {
         state = state
@@ -68,7 +68,6 @@ fn arbitrary_flux() -> Closure {
             .wrapping_add(1442695040888963407);
         ((state >> 40) as f32 / (1u64 << 24) as f32 - 0.5) * 0.4
     };
-    let shapes = [(2, 8), (8, 8), (8, 1)];
     let mut weights = Vec::new();
     let mut specs = Vec::new();
     for (i, &(cin, cout)) in shapes.iter().enumerate() {
@@ -77,7 +76,7 @@ fn arbitrary_flux() -> Closure {
         let bias_offset = weights.len();
         weights.extend((0..cout).map(|_| next()));
         let activation = if i + 1 == shapes.len() {
-            Activation::Identity
+            last
         } else {
             Activation::Gelu
         };
@@ -89,6 +88,28 @@ fn arbitrary_flux() -> Closure {
             activation,
         });
     }
+    (specs, weights)
+}
+
+/// A conductance closure with arbitrary weights: its guarantees must not depend on training.
+fn arbitrary_conductance() -> Closure {
+    let (specs, weights) = arbitrary_layers(&[(1, 8), (8, 8), (8, 1)], Activation::Sigmoid);
+    let teacher = Teacher {
+        diffusivity: 0.05,
+        critical_slope: 0.6,
+    };
+    let open = Validated {
+        max_slope: f64::INFINITY,
+        min_height_m: f64::NEG_INFINITY,
+        max_height_m: f64::INFINITY,
+    };
+    let apply = Apply::conductance(0.05, 3.0).unwrap();
+    Closure::from_f32(apply, &specs, &weights, 50.0, teacher, open).unwrap()
+}
+
+/// A flux closure with arbitrary weights, to show conservation does not depend on training.
+fn arbitrary_flux() -> Closure {
+    let (specs, weights) = arbitrary_layers(&[(2, 8), (8, 8), (8, 1)], Activation::Identity);
     let teacher = Teacher {
         diffusivity: 0.05,
         critical_slope: 0.6,
@@ -122,6 +143,9 @@ fn erf_and_activations_match_reference_values() {
     assert_eq!(gelu(0.0), 0.0);
     assert!((gelu(1.0) - 0.8413447460685429).abs() < 1e-15);
     assert_eq!(softplus(25.0), 25.0);
+    assert_eq!(sigmoid(0.0), 0.5);
+    assert!((sigmoid(2.0) - 0.8807970779778823).abs() < 1e-15);
+    assert!((sigmoid(-800.0)).abs() < 1e-300 && sigmoid(800.0) == 1.0);
     assert!((softplus(0.0) - std::f64::consts::LN_2).abs() < 1e-16);
 }
 
@@ -137,6 +161,9 @@ fn a_constant_surface_does_not_move() {
         (teacher(), Boundary::Periodic),
         (Model::Learned(closure("kfield")), Boundary::Closed),
         (Model::Learned(closure("penalty")), Boundary::Fixed),
+        (Model::Learned(closure("conductance")), Boundary::Closed),
+        (Model::Learned(closure("conductance")), Boundary::Fixed),
+        (Model::Learned(arbitrary_conductance()), Boundary::Closed),
     ];
     for (model, boundary) in models {
         let mut s = run(model, boundary, &flat);
@@ -180,6 +207,11 @@ fn closed_domains_conserve_to_rounding() {
             "flux arm, arbitrary weights",
             Model::Learned(arbitrary_flux()),
         ),
+        ("conductance arm", Model::Learned(closure("conductance"))),
+        (
+            "conductance arm, arbitrary weights",
+            Model::Learned(arbitrary_conductance()),
+        ),
     ];
     for (name, model) in models {
         let mut s = run(model, Boundary::Closed, &start);
@@ -197,6 +229,52 @@ fn closed_domains_conserve_to_rounding() {
     let d = s.step(6, 100.0);
     println!("kfield arm: residual {:e} of sum|h|a", d.residual_relative);
     assert!(d.residual_relative.abs() > 1e-10);
+}
+
+#[test]
+fn the_conductance_arm_is_offset_invariant_dissipative_and_bounded_for_any_weights() {
+    let g = grid();
+    let start = rough(&g);
+    for closure in [arbitrary_conductance(), closure("conductance")] {
+        // Adding a constant leaves every face gradient, and so the tendency, unchanged.
+        let shifted: Vec<f64> = start.iter().map(|h| h + 100.0).collect();
+        let (mut a, mut b) = (vec![0.0; g.cells()], vec![0.0; g.cells()]);
+        let bound = closure.tendency(&g, &start, &mut Work::default(), &mut a);
+        closure.tendency(&g, &shifted, &mut Work::default(), &mut b);
+        let scale = a.iter().fold(0.0f64, |m, v| m.max(v.abs()));
+        let offset = a
+            .iter()
+            .zip(&b)
+            .fold(0.0f64, |m, (x, y)| m.max((x - y).abs()));
+        assert!(
+            offset <= 1e-12 * scale,
+            "offset changed the tendency by {offset:e}"
+        );
+        assert_eq!(bound, Some(3.0));
+        // Below the bound the update is a convex combination: the energy about the
+        // mean never increases and no new extrema appear.
+        let mut s = run(Model::Learned(closure), Boundary::Closed, &start);
+        let mean = start.iter().sum::<f64>() / start.len() as f64;
+        let energy = |h: &[f64]| h.iter().map(|v| (v - mean) * (v - mean)).sum::<f64>();
+        let mut previous = energy(&start);
+        let (lo, hi) = start
+            .iter()
+            .fold((f64::INFINITY, f64::NEG_INFINITY), |(l, h), &v| {
+                (l.min(v), h.max(v))
+            });
+        for _ in 0..10 {
+            let d = s.step(1, 500.0);
+            assert!(!d.rejected, "{}", d.message);
+            assert!(d.max_substep_years <= 0.9 * 2500.0 / 12.0 * (1.0 + 1e-12));
+            let now = energy(s.height());
+            assert!(
+                now <= previous * (1.0 + 1e-14),
+                "energy rose from {previous} to {now}"
+            );
+            assert!(d.min_height_m >= lo - 1e-9 && d.max_height_m <= hi + 1e-9);
+            previous = now;
+        }
+    }
 }
 
 #[test]
