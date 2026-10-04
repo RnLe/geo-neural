@@ -103,3 +103,19 @@ class ContextAndAllocationTests(unittest.TestCase):
         self.assertGreater(info["tightenedFraction"], 0.0)
         self.assertTrue(np.array_equal(package.decode(blob), recon))
         self.assertLessEqual(np.abs(recon - z.astype(np.float64)).max(), 0.5)
+
+
+class TruncationTests(unittest.TestCase):
+    def test_a_short_stream_with_repaired_checksums_is_refused(self):
+        import struct
+        import zlib
+        z = terrain()
+        blob, _, _ = package.encode(z, 0.05, "cubic-ctx")
+        prod = package.read(blob)
+        prod.components["stream"] = prod.components["stream"][: len(prod.components["stream"]) // 2]
+        with self.assertRaises(ValueError):
+            package.decode(prod.to_bytes())
+        prod = package.read(blob)
+        prod.components["raw"] = prod.components["raw"] + b"\0\0"
+        with self.assertRaises(ValueError):
+            package.decode(prod.to_bytes())

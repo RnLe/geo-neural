@@ -1,0 +1,2146 @@
+{
+ "createdUtc": "2026-10-04T12:21:20.417328+00:00",
+ "evidence": "exploratory",
+ "failures": [
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "unet:testInterpolationIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "edgeExact",
+   "gate": "unet:testInterpolationIds:edgeExact",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "unet:testInterpolationIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "unet:testExtrapolationIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "edgeExact",
+   "gate": "unet:testExtrapolationIds:edgeExact",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "unet:testExtrapolationIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "unet:testInitialFamilyIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "edgeExact",
+   "gate": "unet:testInitialFamilyIds:edgeExact",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "unet:testInitialFamilyIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "fno:testInterpolationIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "edgeExact",
+   "gate": "fno:testInterpolationIds:edgeExact",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "fno:testInterpolationIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "fno:testExtrapolationIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "edgeExact",
+   "gate": "fno:testExtrapolationIds:edgeExact",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "fno:testExtrapolationIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "fno:testInitialFamilyIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "edgeExact",
+   "gate": "fno:testInitialFamilyIds:edgeExact",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "fno:testInitialFamilyIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "unet-absolute:testInterpolationIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "unet-absolute:testInterpolationIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "unet-absolute:testExtrapolationIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "unet-absolute:testExtrapolationIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  },
+  {
+   "detail": "balanceWithinOnePercent",
+   "gate": "unet-absolute:testInitialFamilyIds:balanceWithinOnePercent",
+   "thresholds": {}
+  },
+  {
+   "detail": "beatsPersistenceOnDrainage",
+   "gate": "unet-absolute:testInitialFamilyIds:beatsPersistenceOnDrainage",
+   "thresholds": {}
+  }
+ ],
+ "gates": {
+  "fno:testExtrapolationIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testExtrapolationIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "fno:testExtrapolationIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "fno:testExtrapolationIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testExtrapolationIds:edgeExact": {
+   "detail": "edgeExact",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testInitialFamilyIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testInitialFamilyIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "fno:testInitialFamilyIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "fno:testInitialFamilyIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testInitialFamilyIds:edgeExact": {
+   "detail": "edgeExact",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testInterpolationIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testInterpolationIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "fno:testInterpolationIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "fno:testInterpolationIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "fno:testInterpolationIds:edgeExact": {
+   "detail": "edgeExact",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet-absolute:testExtrapolationIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet-absolute:testExtrapolationIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet-absolute:testExtrapolationIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet-absolute:testExtrapolationIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet-absolute:testInitialFamilyIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet-absolute:testInitialFamilyIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet-absolute:testInitialFamilyIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet-absolute:testInitialFamilyIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet-absolute:testInterpolationIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet-absolute:testInterpolationIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet-absolute:testInterpolationIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet-absolute:testInterpolationIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testExtrapolationIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testExtrapolationIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet:testExtrapolationIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet:testExtrapolationIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testExtrapolationIds:edgeExact": {
+   "detail": "edgeExact",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testInitialFamilyIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testInitialFamilyIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet:testInitialFamilyIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet:testInitialFamilyIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testInitialFamilyIds:edgeExact": {
+   "detail": "edgeExact",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testInterpolationIds:balanceWithinOnePercent": {
+   "detail": "balanceWithinOnePercent",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testInterpolationIds:beatsLinearUpliftAtEveryLength": {
+   "detail": "beatsLinearUpliftAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet:testInterpolationIds:beatsPersistenceAtEveryLength": {
+   "detail": "beatsPersistenceAtEveryLength",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "unet:testInterpolationIds:beatsPersistenceOnDrainage": {
+   "detail": "beatsPersistenceOnDrainage",
+   "state": "fail",
+   "thresholds": {}
+  },
+  "unet:testInterpolationIds:edgeExact": {
+   "detail": "edgeExact",
+   "state": "fail",
+   "thresholds": {}
+  }
+ },
+ "name": "emulator-v2",
+ "notes": "",
+ "product": null,
+ "recipe": {
+  "batch": 8,
+  "contract": "identity plus increment, pinned edges; legacy absolute U-Net",
+  "kinds": [
+   "unet",
+   "fno"
+  ],
+  "lr": 0.001,
+  "steps": 1500
+ },
+ "recipeHash": "255ed53509b4e26b18bbfb246dba1d5543fab3c2b303b9416a9134d7e2aa29b5",
+ "results": {
+  "batch": 8,
+  "ensemble": {
+   "adequateSpacingM": 100.0,
+   "count": 300,
+   "domainM": 6300.0,
+   "framesPerSimulation": 9,
+   "side": 64,
+   "solver": "geoneural-landscape-teacher-v2",
+   "solverHash": "297f94245df5420c97b6ff32061eb83642df502cf9674a9299d71269f0b76942",
+   "spacingIsAdequate": true,
+   "spacingM": 100.0,
+   "splitRule": "block",
+   "years": 2000000.0
+  },
+  "lr": 0.001,
+  "qualification": "Scored on whole held-out trajectories: parameter blocks for interpolation and extrapolation, and a held-out initial family, reported separately. The balance compares the emulator's volume change with the teacher's ledger sum including boundary outflow; it cannot attribute the change to individual terms.",
+  "rows": [
+   {
+    "arm": "unet",
+    "config": {
+     "base": 32,
+     "blocks": 1,
+     "in_channels": 4,
+     "kind": "unet",
+     "stages": 3
+    },
+    "contract": "increment",
+    "evaluation": {
+     "testExtrapolationIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 46,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 2.0099906854392877,
+        "balanceErrorOverUpliftP90": 48.00533228913227,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.36183012486992716,
+          "simulations": 8,
+          "streamJaccard": 0.357284251682475
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3582856399583767,
+          "simulations": 8,
+          "streamJaccard": 0.3750455986638403
+         }
+        },
+        "emulator": {
+         "all": 7.052737827686334,
+         "edge": 3.782118088353156e-08,
+         "interior": 7.604741083158893,
+         "nextRing": 6.192402595492922
+        },
+        "linearUplift": {
+         "all": 8.82430369588506,
+         "edge": 0.0,
+         "interior": 9.123146910750599,
+         "nextRing": 13.52876663788132
+        },
+        "persistence": {
+         "all": 10.997990158990284,
+         "edge": 0.0,
+         "interior": 12.07679913420684,
+         "nextRing": 6.439716426555572
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -1.2953856355213977
+       },
+       {
+        "balanceErrorOverUpliftMedian": 1.7216808841142628,
+        "balanceErrorOverUpliftP90": 24.58355819646389,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2774778876170656,
+          "simulations": 8,
+          "streamJaccard": 0.29985144476049785
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.29224115504682624,
+          "simulations": 8,
+          "streamJaccard": 0.334445848738379
+         }
+        },
+        "emulator": {
+         "all": 9.911062383974649,
+         "edge": 3.782118088353156e-08,
+         "interior": 10.810249625785207,
+         "nextRing": 6.88038058361672
+        },
+        "linearUplift": {
+         "all": 18.354803893668645,
+         "edge": 0.0,
+         "interior": 19.050825085272635,
+         "nextRing": 27.042239514283953
+        },
+        "persistence": {
+         "all": 17.553279513632702,
+         "edge": 0.0,
+         "interior": 19.338647228670567,
+         "nextRing": 9.34058551076015
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -2.808040868209999
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.32391245039937666,
+        "balanceErrorOverUpliftP90": 17.864262997387335,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2584547346514048,
+          "simulations": 8,
+          "streamJaccard": 0.27643402164194025
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.2548126951092612,
+          "simulations": 8,
+          "streamJaccard": 0.3170117586499777
+         }
+        },
+        "emulator": {
+         "all": 12.387068338042532,
+         "edge": 3.782118088353156e-08,
+         "interior": 13.570751361800419,
+         "nextRing": 7.716094264794188
+        },
+        "linearUplift": {
+         "all": 38.104599176993396,
+         "edge": 0.0,
+         "interior": 39.90302270437689,
+         "nextRing": 50.92441185741051
+        },
+        "persistence": {
+         "all": 21.651515189839134,
+         "edge": 0.0,
+         "interior": 23.83651123822991,
+         "nextRing": 11.775269508005719
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -5.800001965529752
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.6862017722612838,
+        "balanceErrorOverUpliftP90": 13.505985822579786,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2487317898022893,
+          "simulations": 8,
+          "streamJaccard": 0.26565833903920383
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.22167663891779396,
+          "simulations": 8,
+          "streamJaccard": 0.29808414065700417
+         }
+        },
+        "emulator": {
+         "all": 13.455022016077008,
+         "edge": 3.782118088353156e-08,
+         "interior": 14.601908430154085,
+         "nextRing": 10.429917294122035
+        },
+        "linearUplift": {
+         "all": 78.83973880821735,
+         "edge": 0.0,
+         "interior": 83.29045591417483,
+         "nextRing": 94.59806912880676
+        },
+        "persistence": {
+         "all": 22.478390679393147,
+         "edge": 0.0,
+         "interior": 24.715891853867387,
+         "nextRing": 12.681465364228403
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -7.727759430037552
+       }
+      ],
+      "streamCells": 5
+     },
+     "testInitialFamilyIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 47,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 3.276795807048153,
+        "balanceErrorOverUpliftP90": 34.41270077118509,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.42855749219562955,
+          "simulations": 8,
+          "streamJaccard": 0.40713727989695214
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.48367585848074923,
+          "simulations": 8,
+          "streamJaccard": 0.5142654308972942
+         }
+        },
+        "emulator": {
+         "all": 4.144443729563759,
+         "edge": 8.726467312622171e-08,
+         "interior": 4.490429264617904,
+         "nextRing": 3.320066154418032
+        },
+        "linearUplift": {
+         "all": 4.193591243524576,
+         "edge": 0.0,
+         "interior": 4.444014810862927,
+         "nextRing": 4.82990333758249
+        },
+        "persistence": {
+         "all": 4.552887629329665,
+         "edge": 0.0,
+         "interior": 5.015546502416863,
+         "nextRing": 2.428935741940972
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -0.3278009502508194
+       },
+       {
+        "balanceErrorOverUpliftMedian": 2.132107029493106,
+        "balanceErrorOverUpliftP90": 22.932962167725204,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.34261186264308013,
+          "simulations": 8,
+          "streamJaccard": 0.3134436652331513
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.43177679500520294,
+          "simulations": 8,
+          "streamJaccard": 0.4536387838070124
+         }
+        },
+        "emulator": {
+         "all": 5.592242853378944,
+         "edge": 8.726467312622171e-08,
+         "interior": 6.081242552499003,
+         "nextRing": 4.153088182184648
+        },
+        "linearUplift": {
+         "all": 10.07313769661175,
+         "edge": 0.0,
+         "interior": 10.69732783099127,
+         "nextRing": 11.267179564562097
+        },
+        "persistence": {
+         "all": 7.355085016580336,
+         "edge": 0.0,
+         "interior": 8.101599109412453,
+         "nextRing": 3.937178008312381
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -0.5542376102032064
+       },
+       {
+        "balanceErrorOverUpliftMedian": 1.9438027079865272,
+        "balanceErrorOverUpliftP90": 16.75017605116464,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.28713579604578565,
+          "simulations": 8,
+          "streamJaccard": 0.2874495813529644
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3837473985431842,
+          "simulations": 8,
+          "streamJaccard": 0.40727067319443966
+         }
+        },
+        "emulator": {
+         "all": 6.9024930581701005,
+         "edge": 8.726467312622171e-08,
+         "interior": 7.541639996781837,
+         "nextRing": 4.601260474833648
+        },
+        "linearUplift": {
+         "all": 21.01228827391393,
+         "edge": 0.0,
+         "interior": 22.33406046413743,
+         "nextRing": 23.211947127281597
+        },
+        "persistence": {
+         "all": 9.210898227687105,
+         "edge": 0.0,
+         "interior": 10.090323679668932,
+         "nextRing": 5.748663499173083
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -1.0789371092439808
+       },
+       {
+        "balanceErrorOverUpliftMedian": 1.506397416601985,
+        "balanceErrorOverUpliftP90": 13.053326898464645,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2672671696149844,
+          "simulations": 8,
+          "streamJaccard": 0.27208473320380877
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3357180020811655,
+          "simulations": 8,
+          "streamJaccard": 0.35177538110023654
+         }
+        },
+        "emulator": {
+         "all": 8.753105636763612,
+         "edge": 8.726467312622171e-08,
+         "interior": 9.497391511137943,
+         "nextRing": 6.811931254493664
+        },
+        "linearUplift": {
+         "all": 40.572906656837866,
+         "edge": 0.0,
+         "interior": 43.17818641180301,
+         "nextRing": 44.03751878654526
+        },
+        "persistence": {
+         "all": 9.767691621274677,
+         "edge": 0.0,
+         "interior": 10.681238286663739,
+         "nextRing": 6.377078068654185
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -1.7340020757114059
+       }
+      ],
+      "streamCells": 5
+     },
+     "testInterpolationIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 36,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 0.9983179141959477,
+        "balanceErrorOverUpliftP90": 5.796860804991468,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.4145421436004162,
+          "simulations": 8,
+          "streamJaccard": 0.4006606413653046
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.48611472424557756,
+          "simulations": 8,
+          "streamJaccard": 0.49895601231687975
+         }
+        },
+        "emulator": {
+         "all": 3.7296749713204544,
+         "edge": 6.170090815548893e-08,
+         "interior": 3.983776779086363,
+         "nextRing": 3.8325912388075767
+        },
+        "linearUplift": {
+         "all": 7.3944117937373415,
+         "edge": 0.0,
+         "interior": 7.952885123798767,
+         "nextRing": 6.791492874887663
+        },
+        "persistence": {
+         "all": 6.179976783721971,
+         "edge": 0.0,
+         "interior": 6.669855468901463,
+         "nextRing": 5.334857451147264
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -0.18457260485393795
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.6585723940589933,
+        "balanceErrorOverUpliftP90": 3.623179930307762,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.32632023933402704,
+          "simulations": 8,
+          "streamJaccard": 0.31071485595446047
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.40852627471383973,
+          "simulations": 8,
+          "streamJaccard": 0.4184618486245061
+         }
+        },
+        "emulator": {
+         "all": 4.357896071304925,
+         "edge": 6.170090815548893e-08,
+         "interior": 4.652900703471133,
+         "nextRing": 4.5061465574601165
+        },
+        "linearUplift": {
+         "all": 13.285043515036929,
+         "edge": 0.0,
+         "interior": 14.324966646136968,
+         "nextRing": 11.662534063517104
+        },
+        "persistence": {
+         "all": 10.031506019478236,
+         "edge": 0.0,
+         "interior": 10.871556390056176,
+         "nextRing": 7.997728080248505
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -0.3095753747034476
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.5928435529151556,
+        "balanceErrorOverUpliftP90": 3.064212258613131,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.276307232049948,
+          "simulations": 8,
+          "streamJaccard": 0.2566601709563384
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3654071279916753,
+          "simulations": 8,
+          "streamJaccard": 0.3711033166048966
+         }
+        },
+        "emulator": {
+         "all": 4.938519530346205,
+         "edge": 6.170090815548893e-08,
+         "interior": 5.303696538209865,
+         "nextRing": 4.6511001770242215
+        },
+        "linearUplift": {
+         "all": 20.98501985832268,
+         "edge": 0.0,
+         "interior": 22.502651211729688,
+         "nextRing": 20.26679089124107
+        },
+        "persistence": {
+         "all": 13.531568769971015,
+         "edge": 0.0,
+         "interior": 14.577046575244806,
+         "nextRing": 12.081713159508073
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -0.6243695385335983
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.36894226956576803,
+        "balanceErrorOverUpliftP90": 2.5063480606661317,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.259332726326743,
+          "simulations": 8,
+          "streamJaccard": 0.23892165229137519
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.32462929240374605,
+          "simulations": 8,
+          "streamJaccard": 0.32939176162372763
+         }
+        },
+        "emulator": {
+         "all": 6.43740370833432,
+         "edge": 6.170090815548893e-08,
+         "interior": 6.877385687035824,
+         "nextRing": 6.59433237893351
+        },
+        "linearUplift": {
+         "all": 30.376448771115818,
+         "edge": 0.0,
+         "interior": 32.47912089190112,
+         "nextRing": 30.725815391993237
+        },
+        "persistence": {
+         "all": 14.656029774840867,
+         "edge": 0.0,
+         "interior": 15.743016478660605,
+         "nextRing": 13.755076371188581
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -0.8794552139559989
+       }
+      ],
+      "streamCells": 5
+     }
+    },
+    "history": [
+     {
+      "loss": 0.8979153633117676,
+      "rolloutLength": 1,
+      "step": 0
+     },
+     {
+      "loss": 0.6596057415008545,
+      "rolloutLength": 1,
+      "step": 150
+     },
+     {
+      "loss": 0.2945796847343445,
+      "rolloutLength": 1,
+      "step": 300
+     },
+     {
+      "loss": 0.6732804775238037,
+      "rolloutLength": 1,
+      "step": 450
+     },
+     {
+      "loss": 0.20232640206813812,
+      "rolloutLength": 1,
+      "step": 600
+     },
+     {
+      "loss": 0.33163565397262573,
+      "rolloutLength": 2,
+      "step": 750
+     },
+     {
+      "loss": 0.2149478793144226,
+      "rolloutLength": 2,
+      "step": 900
+     },
+     {
+      "loss": 0.2099897265434265,
+      "rolloutLength": 2,
+      "step": 1050
+     },
+     {
+      "loss": 0.4099877178668976,
+      "rolloutLength": 2,
+      "step": 1200
+     },
+     {
+      "loss": 0.21836735308170319,
+      "rolloutLength": 2,
+      "step": 1350
+     },
+     {
+      "loss": 0.12263207137584686,
+      "rolloutLength": 2,
+      "step": 1499
+     }
+    ],
+    "kind": "unet",
+    "parameters": 670753,
+    "pinnedEdges": true,
+    "seconds": 61.52060424699448
+   },
+   {
+    "arm": "fno",
+    "config": {
+     "blocks": 4,
+     "in_channels": 4,
+     "kind": "fno",
+     "modes": 16,
+     "width": 32
+    },
+    "contract": "increment",
+    "evaluation": {
+     "testExtrapolationIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 46,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 0.7771823409255679,
+        "balanceErrorOverUpliftP90": 27.95852923252719,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.35809053069719043,
+          "simulations": 8,
+          "streamJaccard": 0.3097677379536571
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3582856399583767,
+          "simulations": 8,
+          "streamJaccard": 0.3750455986638403
+         }
+        },
+        "emulator": {
+         "all": 4.027723562104485,
+         "edge": 3.782118088353156e-08,
+         "interior": 4.358226329024366,
+         "nextRing": 3.3112332637758892
+        },
+        "linearUplift": {
+         "all": 8.82430369588506,
+         "edge": 0.0,
+         "interior": 9.123146910750599,
+         "nextRing": 13.52876663788132
+        },
+        "persistence": {
+         "all": 10.997990158990284,
+         "edge": 0.0,
+         "interior": 12.07679913420684,
+         "nextRing": 6.439716426555572
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -1.2953856355213977
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.41555103025234846,
+        "balanceErrorOverUpliftP90": 30.219475425289637,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.31282518210197713,
+          "simulations": 8,
+          "streamJaccard": 0.2631610258855004
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.29224115504682624,
+          "simulations": 8,
+          "streamJaccard": 0.334445848738379
+         }
+        },
+        "emulator": {
+         "all": 5.908894342390785,
+         "edge": 3.782118088353156e-08,
+         "interior": 6.468715464434152,
+         "nextRing": 3.751866987453954
+        },
+        "linearUplift": {
+         "all": 18.354803893668645,
+         "edge": 0.0,
+         "interior": 19.050825085272635,
+         "nextRing": 27.042239514283953
+        },
+        "persistence": {
+         "all": 17.553279513632702,
+         "edge": 0.0,
+         "interior": 19.338647228670567,
+         "nextRing": 9.34058551076015
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -2.808040868209999
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.2335664543557065,
+        "balanceErrorOverUpliftP90": 21.148288439710676,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2838514568158168,
+          "simulations": 8,
+          "streamJaccard": 0.24621837351154452
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.2548126951092612,
+          "simulations": 8,
+          "streamJaccard": 0.3170117586499777
+         }
+        },
+        "emulator": {
+         "all": 7.786505267288924,
+         "edge": 3.782118088353156e-08,
+         "interior": 8.572603393007658,
+         "nextRing": 4.230136682200498
+        },
+        "linearUplift": {
+         "all": 38.104599176993396,
+         "edge": 0.0,
+         "interior": 39.90302270437689,
+         "nextRing": 50.92441185741051
+        },
+        "persistence": {
+         "all": 21.651515189839134,
+         "edge": 0.0,
+         "interior": 23.83651123822991,
+         "nextRing": 11.775269508005719
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -5.800001965529752
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.11454470256695352,
+        "balanceErrorOverUpliftP90": 9.631721938161617,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2603082726326743,
+          "simulations": 8,
+          "streamJaccard": 0.2373865051151746
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.22167663891779396,
+          "simulations": 8,
+          "streamJaccard": 0.29808414065700417
+         }
+        },
+        "emulator": {
+         "all": 8.042145835629901,
+         "edge": 3.782118088353156e-08,
+         "interior": 8.837607522531979,
+         "nextRing": 4.611648574155813
+        },
+        "linearUplift": {
+         "all": 78.83973880821735,
+         "edge": 0.0,
+         "interior": 83.29045591417483,
+         "nextRing": 94.59806912880676
+        },
+        "persistence": {
+         "all": 22.478390679393147,
+         "edge": 0.0,
+         "interior": 24.715891853867387,
+         "nextRing": 12.681465364228403
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -7.727759430037552
+       }
+      ],
+      "streamCells": 5
+     },
+     "testInitialFamilyIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 47,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 2.3870386078716272,
+        "balanceErrorOverUpliftP90": 26.216598953897318,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.34976586888657646,
+          "simulations": 8,
+          "streamJaccard": 0.33132008371810145
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.48367585848074923,
+          "simulations": 8,
+          "streamJaccard": 0.5142654308972942
+         }
+        },
+        "emulator": {
+         "all": 3.565587274234596,
+         "edge": 8.726467312622171e-08,
+         "interior": 3.891997495056032,
+         "nextRing": 2.4321904552151334
+        },
+        "linearUplift": {
+         "all": 4.193591243524576,
+         "edge": 0.0,
+         "interior": 4.444014810862927,
+         "nextRing": 4.82990333758249
+        },
+        "persistence": {
+         "all": 4.552887629329665,
+         "edge": 0.0,
+         "interior": 5.015546502416863,
+         "nextRing": 2.428935741940972
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -0.3278009502508194
+       },
+       {
+        "balanceErrorOverUpliftMedian": 2.7410295007613614,
+        "balanceErrorOverUpliftP90": 31.343277569042762,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.278778616024974,
+          "simulations": 8,
+          "streamJaccard": 0.26695847125425953
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.43177679500520294,
+          "simulations": 8,
+          "streamJaccard": 0.4536387838070124
+         }
+        },
+        "emulator": {
+         "all": 5.360134229255675,
+         "edge": 8.726467312622171e-08,
+         "interior": 5.908559490613347,
+         "nextRing": 2.804490224723365
+        },
+        "linearUplift": {
+         "all": 10.07313769661175,
+         "edge": 0.0,
+         "interior": 10.69732783099127,
+         "nextRing": 11.267179564562097
+        },
+        "persistence": {
+         "all": 7.355085016580336,
+         "edge": 0.0,
+         "interior": 8.101599109412453,
+         "nextRing": 3.937178008312381
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -0.5542376102032064
+       },
+       {
+        "balanceErrorOverUpliftMedian": 1.8790446685660527,
+        "balanceErrorOverUpliftP90": 20.13695964571294,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.24239073881373568,
+          "simulations": 8,
+          "streamJaccard": 0.24986487291087822
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3837473985431842,
+          "simulations": 8,
+          "streamJaccard": 0.40727067319443966
+         }
+        },
+        "emulator": {
+         "all": 6.187704103948494,
+         "edge": 8.726467312622171e-08,
+         "interior": 6.794387031023936,
+         "nextRing": 3.6272240823613293
+        },
+        "linearUplift": {
+         "all": 21.01228827391393,
+         "edge": 0.0,
+         "interior": 22.33406046413743,
+         "nextRing": 23.211947127281597
+        },
+        "persistence": {
+         "all": 9.210898227687105,
+         "edge": 0.0,
+         "interior": 10.090323679668932,
+         "nextRing": 5.748663499173083
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -1.0789371092439808
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.9197328288703341,
+        "balanceErrorOverUpliftP90": 8.81286131015812,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.23370837669094693,
+          "simulations": 8,
+          "streamJaccard": 0.24315580479834525
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3357180020811655,
+          "simulations": 8,
+          "streamJaccard": 0.35177538110023654
+         }
+        },
+        "emulator": {
+         "all": 5.846801014948264,
+         "edge": 8.726467312622171e-08,
+         "interior": 6.411921879495276,
+         "nextRing": 3.5474515125179895
+        },
+        "linearUplift": {
+         "all": 40.572906656837866,
+         "edge": 0.0,
+         "interior": 43.17818641180301,
+         "nextRing": 44.03751878654526
+        },
+        "persistence": {
+         "all": 9.767691621274677,
+         "edge": 0.0,
+         "interior": 10.681238286663739,
+         "nextRing": 6.377078068654185
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -1.7340020757114059
+       }
+      ],
+      "streamCells": 5
+     },
+     "testInterpolationIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 36,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 0.3884220573764453,
+        "balanceErrorOverUpliftP90": 4.758983755794636,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.4082986472424558,
+          "simulations": 8,
+          "streamJaccard": 0.3750249814796353
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.48611472424557756,
+          "simulations": 8,
+          "streamJaccard": 0.49895601231687975
+         }
+        },
+        "emulator": {
+         "all": 2.854896873832432,
+         "edge": 6.170090815548893e-08,
+         "interior": 3.038582831736713,
+         "nextRing": 3.0932761697411553
+        },
+        "linearUplift": {
+         "all": 7.3944117937373415,
+         "edge": 0.0,
+         "interior": 7.952885123798767,
+         "nextRing": 6.791492874887663
+        },
+        "persistence": {
+         "all": 6.179976783721971,
+         "edge": 0.0,
+         "interior": 6.669855468901463,
+         "nextRing": 5.334857451147264
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -0.18457260485393795
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.5662217323785655,
+        "balanceErrorOverUpliftP90": 4.839060313935079,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.31571930280957333,
+          "simulations": 8,
+          "streamJaccard": 0.289770049532059
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.40852627471383973,
+          "simulations": 8,
+          "streamJaccard": 0.4184618486245061
+         }
+        },
+        "emulator": {
+         "all": 3.7925370594591477,
+         "edge": 6.170090815548893e-08,
+         "interior": 4.078504547722775,
+         "nextRing": 3.4902270827624897
+        },
+        "linearUplift": {
+         "all": 13.285043515036929,
+         "edge": 0.0,
+         "interior": 14.324966646136968,
+         "nextRing": 11.662534063517104
+        },
+        "persistence": {
+         "all": 10.031506019478236,
+         "edge": 0.0,
+         "interior": 10.871556390056176,
+         "nextRing": 7.997728080248505
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -0.3095753747034476
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.39719276535599635,
+        "balanceErrorOverUpliftP90": 4.071945889537031,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2631373569198751,
+          "simulations": 8,
+          "streamJaccard": 0.2369728772404467
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3654071279916753,
+          "simulations": 8,
+          "streamJaccard": 0.3711033166048966
+         }
+        },
+        "emulator": {
+         "all": 4.550442671456772,
+         "edge": 6.170090815548893e-08,
+         "interior": 4.864844041069663,
+         "nextRing": 4.611371388883282
+        },
+        "linearUplift": {
+         "all": 20.98501985832268,
+         "edge": 0.0,
+         "interior": 22.502651211729688,
+         "nextRing": 20.26679089124107
+        },
+        "persistence": {
+         "all": 13.531568769971015,
+         "edge": 0.0,
+         "interior": 14.577046575244806,
+         "nextRing": 12.081713159508073
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -0.6243695385335983
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.2117167728968199,
+        "balanceErrorOverUpliftP90": 1.7361588080588504,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2305215920915713,
+          "simulations": 8,
+          "streamJaccard": 0.222408543766643
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.32462929240374605,
+          "simulations": 8,
+          "streamJaccard": 0.32939176162372763
+         }
+        },
+        "emulator": {
+         "all": 4.357867165359643,
+         "edge": 6.170090815548893e-08,
+         "interior": 4.637190484824025,
+         "nextRing": 4.737451427860552
+        },
+        "linearUplift": {
+         "all": 30.376448771115818,
+         "edge": 0.0,
+         "interior": 32.47912089190112,
+         "nextRing": 30.725815391993237
+        },
+        "persistence": {
+         "all": 14.656029774840867,
+         "edge": 0.0,
+         "interior": 15.743016478660605,
+         "nextRing": 13.755076371188581
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -0.8794552139559989
+       }
+      ],
+      "streamCells": 5
+     }
+    },
+    "history": [
+     {
+      "loss": 0.8979153633117676,
+      "rolloutLength": 1,
+      "step": 0
+     },
+     {
+      "loss": 0.4807560443878174,
+      "rolloutLength": 1,
+      "step": 150
+     },
+     {
+      "loss": 0.1923767775297165,
+      "rolloutLength": 1,
+      "step": 300
+     },
+     {
+      "loss": 0.38148173689842224,
+      "rolloutLength": 1,
+      "step": 450
+     },
+     {
+      "loss": 0.15301263332366943,
+      "rolloutLength": 1,
+      "step": 600
+     },
+     {
+      "loss": 0.17588570713996887,
+      "rolloutLength": 2,
+      "step": 750
+     },
+     {
+      "loss": 0.09429027140140533,
+      "rolloutLength": 2,
+      "step": 900
+     },
+     {
+      "loss": 0.09954406321048737,
+      "rolloutLength": 2,
+      "step": 1050
+     },
+     {
+      "loss": 0.17491039633750916,
+      "rolloutLength": 2,
+      "step": 1200
+     },
+     {
+      "loss": 0.08485901355743408,
+      "rolloutLength": 2,
+      "step": 1350
+     },
+     {
+      "loss": 0.03369826823472977,
+      "rolloutLength": 2,
+      "step": 1499
+     }
+    ],
+    "kind": "fno",
+    "parameters": 2123553,
+    "pinnedEdges": true,
+    "seconds": 70.20977832301287
+   },
+   {
+    "arm": "unet-absolute",
+    "config": {
+     "base": 32,
+     "blocks": 1,
+     "in_channels": 4,
+     "kind": "unet",
+     "stages": 3
+    },
+    "contract": "absolute",
+    "evaluation": {
+     "testExtrapolationIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 46,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 5.834160584156518,
+        "balanceErrorOverUpliftP90": 44.11143482138727,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.3377666493236212,
+          "simulations": 8,
+          "streamJaccard": 0.33160828528794284
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3582856399583767,
+          "simulations": 8,
+          "streamJaccard": 0.3750455986638403
+         }
+        },
+        "emulator": {
+         "all": 7.881650847326834,
+         "edge": 4.090038056001416,
+         "interior": 8.391135816817282,
+         "nextRing": 4.280587459000548
+        },
+        "linearUplift": {
+         "all": 8.82430369588506,
+         "edge": 0.0,
+         "interior": 9.123146910750599,
+         "nextRing": 13.52876663788132
+        },
+        "persistence": {
+         "all": 10.997990158990284,
+         "edge": 0.0,
+         "interior": 12.07679913420684,
+         "nextRing": 6.439716426555572
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -1.2953856355213977
+       },
+       {
+        "balanceErrorOverUpliftMedian": 6.112805388032374,
+        "balanceErrorOverUpliftP90": 39.510282269894,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.2680150884495317,
+          "simulations": 8,
+          "streamJaccard": 0.28947407518833057
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.29224115504682624,
+          "simulations": 8,
+          "streamJaccard": 0.334445848738379
+         }
+        },
+        "emulator": {
+         "all": 11.402935595055236,
+         "edge": 6.457071189698003,
+         "interior": 12.161089236022079,
+         "nextRing": 5.325086097798597
+        },
+        "linearUplift": {
+         "all": 18.354803893668645,
+         "edge": 0.0,
+         "interior": 19.050825085272635,
+         "nextRing": 27.042239514283953
+        },
+        "persistence": {
+         "all": 17.553279513632702,
+         "edge": 0.0,
+         "interior": 19.338647228670567,
+         "nextRing": 9.34058551076015
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -2.808040868209999
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.26996804680585695,
+        "balanceErrorOverUpliftP90": 24.77348009864904,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.21806711758584807,
+          "simulations": 8,
+          "streamJaccard": 0.26767827942749367
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.2548126951092612,
+          "simulations": 8,
+          "streamJaccard": 0.3170117586499777
+         }
+        },
+        "emulator": {
+         "all": 13.250888770367975,
+         "edge": 9.528750277001492,
+         "interior": 13.952008804514954,
+         "nextRing": 6.75067064495502
+        },
+        "linearUplift": {
+         "all": 38.104599176993396,
+         "edge": 0.0,
+         "interior": 39.90302270437689,
+         "nextRing": 50.92441185741051
+        },
+        "persistence": {
+         "all": 21.651515189839134,
+         "edge": 0.0,
+         "interior": 23.83651123822991,
+         "nextRing": 11.775269508005719
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -5.800001965529752
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.1105947839906327,
+        "balanceErrorOverUpliftP90": 12.631411495682602,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.19901144640998958,
+          "simulations": 8,
+          "streamJaccard": 0.2562441336036023
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.22167663891779396,
+          "simulations": 8,
+          "streamJaccard": 0.29808414065700417
+         }
+        },
+        "emulator": {
+         "all": 12.99455834094887,
+         "edge": 13.87151518902391,
+         "interior": 13.179121439967364,
+         "nextRing": 9.365786692664107
+        },
+        "linearUplift": {
+         "all": 78.83973880821735,
+         "edge": 0.0,
+         "interior": 83.29045591417483,
+         "nextRing": 94.59806912880676
+        },
+        "persistence": {
+         "all": 22.478390679393147,
+         "edge": 0.0,
+         "interior": 24.715891853867387,
+         "nextRing": 12.681465364228403
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -7.727759430037552
+       }
+      ],
+      "streamCells": 5
+     },
+     "testInitialFamilyIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 47,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 0.5674465576742681,
+        "balanceErrorOverUpliftP90": 10.602055790606956,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.28151014568158167,
+          "simulations": 8,
+          "streamJaccard": 0.24298217312786208
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.48367585848074923,
+          "simulations": 8,
+          "streamJaccard": 0.5142654308972942
+         }
+        },
+        "emulator": {
+         "all": 3.802044963512481,
+         "edge": 1.438423673950834,
+         "interior": 4.076300593075763,
+         "nextRing": 2.196767498519536
+        },
+        "linearUplift": {
+         "all": 4.193591243524576,
+         "edge": 0.0,
+         "interior": 4.444014810862927,
+         "nextRing": 4.82990333758249
+        },
+        "persistence": {
+         "all": 4.552887629329665,
+         "edge": 0.0,
+         "interior": 5.015546502416863,
+         "nextRing": 2.428935741940972
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -0.3278009502508194
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.3613878483597206,
+        "balanceErrorOverUpliftP90": 11.563815186591292,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.23965920915712802,
+          "simulations": 8,
+          "streamJaccard": 0.229472244319261
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.43177679500520294,
+          "simulations": 8,
+          "streamJaccard": 0.4536387838070124
+         }
+        },
+        "emulator": {
+         "all": 4.896616093166259,
+         "edge": 2.568550814396412,
+         "interior": 5.212551759648062,
+         "nextRing": 2.639665482164234
+        },
+        "linearUplift": {
+         "all": 10.07313769661175,
+         "edge": 0.0,
+         "interior": 10.69732783099127,
+         "nextRing": 11.267179564562097
+        },
+        "persistence": {
+         "all": 7.355085016580336,
+         "edge": 0.0,
+         "interior": 8.101599109412453,
+         "nextRing": 3.937178008312381
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -0.5542376102032064
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.20566262536877924,
+        "balanceErrorOverUpliftP90": 5.708371263312433,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.22983870967741934,
+          "simulations": 8,
+          "streamJaccard": 0.2346760168740622
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3837473985431842,
+          "simulations": 8,
+          "streamJaccard": 0.40727067319443966
+         }
+        },
+        "emulator": {
+         "all": 4.685904163939143,
+         "edge": 4.111756481247044,
+         "interior": 4.840245219651078,
+         "nextRing": 3.0017132437565075
+        },
+        "linearUplift": {
+         "all": 21.01228827391393,
+         "edge": 0.0,
+         "interior": 22.33406046413743,
+         "nextRing": 23.211947127281597
+        },
+        "persistence": {
+         "all": 9.210898227687105,
+         "edge": 0.0,
+         "interior": 10.090323679668932,
+         "nextRing": 5.748663499173083
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -1.0789371092439808
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.10823427028919448,
+        "balanceErrorOverUpliftP90": 0.3683649907177039,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.23136706555671177,
+          "simulations": 8,
+          "streamJaccard": 0.23690639529544957
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3357180020811655,
+          "simulations": 8,
+          "streamJaccard": 0.35177538110023654
+         }
+        },
+        "emulator": {
+         "all": 3.8237044033612437,
+         "edge": 6.37613763093952,
+         "interior": 3.7169552876262073,
+         "nextRing": 2.7625717939202716
+        },
+        "linearUplift": {
+         "all": 40.572906656837866,
+         "edge": 0.0,
+         "interior": 43.17818641180301,
+         "nextRing": 44.03751878654526
+        },
+        "persistence": {
+         "all": 9.767691621274677,
+         "edge": 0.0,
+         "interior": 10.681238286663739,
+         "nextRing": 6.377078068654185
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -1.7340020757114059
+       }
+      ],
+      "streamCells": 5
+     },
+     "testInterpolationIds": {
+      "gates": {
+       "balanceWithinOnePercent": false,
+       "beatsLinearUpliftAtEveryLength": true,
+       "beatsPersistenceAtEveryLength": true,
+       "beatsPersistenceOnDrainage": false,
+       "edgeExact": false
+      },
+      "ids": 36,
+      "rollout": [
+       {
+        "balanceErrorOverUpliftMedian": 0.5022571519377991,
+        "balanceErrorOverUpliftP90": 7.600605670242217,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.28326612903225806,
+          "simulations": 8,
+          "streamJaccard": 0.2552900465265895
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.48611472424557756,
+          "simulations": 8,
+          "streamJaccard": 0.49895601231687975
+         }
+        },
+        "emulator": {
+         "all": 3.5956002938207945,
+         "edge": 3.475776930381579,
+         "interior": 3.610136907007865,
+         "nextRing": 3.504877671334028
+        },
+        "linearUplift": {
+         "all": 7.3944117937373415,
+         "edge": 0.0,
+         "interior": 7.952885123798767,
+         "nextRing": 6.791492874887663
+        },
+        "persistence": {
+         "all": 6.179976783721971,
+         "edge": 0.0,
+         "interior": 6.669855468901463,
+         "nextRing": 5.334857451147264
+        },
+        "physicalYearsMedian": 249999.99999999645,
+        "steps": 1,
+        "teacherOutflowShareOfUpliftMedian": -0.18457260485393795
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.4911921680262007,
+        "balanceErrorOverUpliftP90": 5.7625262275303735,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.23165972944849117,
+          "simulations": 8,
+          "streamJaccard": 0.21145384054171268
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.40852627471383973,
+          "simulations": 8,
+          "streamJaccard": 0.4184618486245061
+         }
+        },
+        "emulator": {
+         "all": 4.503670179433834,
+         "edge": 5.224601279640149,
+         "interior": 4.453364086426589,
+         "nextRing": 4.501323038344021
+        },
+        "linearUplift": {
+         "all": 13.285043515036929,
+         "edge": 0.0,
+         "interior": 14.324966646136968,
+         "nextRing": 11.662534063517104
+        },
+        "persistence": {
+         "all": 10.031506019478236,
+         "edge": 0.0,
+         "interior": 10.871556390056176,
+         "nextRing": 7.997728080248505
+        },
+        "physicalYearsMedian": 499999.9999999929,
+        "steps": 2,
+        "teacherOutflowShareOfUpliftMedian": -0.3095753747034476
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.48335901056885433,
+        "balanceErrorOverUpliftP90": 5.191279423131717,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.21367715920915714,
+          "simulations": 8,
+          "streamJaccard": 0.20275235677640893
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.3654071279916753,
+          "simulations": 8,
+          "streamJaccard": 0.3711033166048966
+         }
+        },
+        "emulator": {
+         "all": 5.046738824029049,
+         "edge": 7.19682847817976,
+         "interior": 4.885242444228244,
+         "nextRing": 5.208887899590172
+        },
+        "linearUplift": {
+         "all": 20.98501985832268,
+         "edge": 0.0,
+         "interior": 22.502651211729688,
+         "nextRing": 20.26679089124107
+        },
+        "persistence": {
+         "all": 13.531568769971015,
+         "edge": 0.0,
+         "interior": 14.577046575244806,
+         "nextRing": 12.081713159508073
+        },
+        "physicalYearsMedian": 999999.9999999858,
+        "steps": 4,
+        "teacherOutflowShareOfUpliftMedian": -0.6243695385335983
+       },
+       {
+        "balanceErrorOverUpliftMedian": 0.1007891634718365,
+        "balanceErrorOverUpliftP90": 2.7724312526554913,
+        "beatsLinearUplift": true,
+        "beatsPersistence": true,
+        "drainage": {
+         "emulator": {
+          "receiverAgreementFraction": 0.20974245577523415,
+          "simulations": 8,
+          "streamJaccard": 0.2040061680907559
+         },
+         "persistence": {
+          "receiverAgreementFraction": 0.32462929240374605,
+          "simulations": 8,
+          "streamJaccard": 0.32939176162372763
+         }
+        },
+        "emulator": {
+         "all": 5.470991333898727,
+         "edge": 10.446582654660968,
+         "interior": 5.14002841557105,
+         "nextRing": 5.215325322208378
+        },
+        "linearUplift": {
+         "all": 30.376448771115818,
+         "edge": 0.0,
+         "interior": 32.47912089190112,
+         "nextRing": 30.725815391993237
+        },
+        "persistence": {
+         "all": 14.656029774840867,
+         "edge": 0.0,
+         "interior": 15.743016478660605,
+         "nextRing": 13.755076371188581
+        },
+        "physicalYearsMedian": 1999999.9999999718,
+        "steps": 8,
+        "teacherOutflowShareOfUpliftMedian": -0.8794552139559989
+       }
+      ],
+      "streamCells": 5
+     }
+    },
+    "history": [
+     {
+      "loss": 1.4801809787750244,
+      "rolloutLength": 1,
+      "step": 0
+     },
+     {
+      "loss": 0.6458688974380493,
+      "rolloutLength": 1,
+      "step": 150
+     },
+     {
+      "loss": 0.5735205411911011,
+      "rolloutLength": 1,
+      "step": 300
+     },
+     {
+      "loss": 0.6443109512329102,
+      "rolloutLength": 1,
+      "step": 450
+     },
+     {
+      "loss": 0.4531015157699585,
+      "rolloutLength": 1,
+      "step": 600
+     },
+     {
+      "loss": 0.36695143580436707,
+      "rolloutLength": 2,
+      "step": 750
+     },
+     {
+      "loss": 0.4040850102901459,
+      "rolloutLength": 2,
+      "step": 900
+     },
+     {
+      "loss": 0.38690948486328125,
+      "rolloutLength": 2,
+      "step": 1050
+     },
+     {
+      "loss": 0.5215453505516052,
+      "rolloutLength": 2,
+      "step": 1200
+     },
+     {
+      "loss": 0.36349087953567505,
+      "rolloutLength": 2,
+      "step": 1350
+     },
+     {
+      "loss": 0.23824413120746613,
+      "rolloutLength": 2,
+      "step": 1499
+     }
+    ],
+    "kind": "unet",
+    "parameters": 670753,
+    "pinnedEdges": false,
+    "seconds": 43.91830421198392
+   }
+  ],
+  "schema": "geoneural-emulator-train-v2",
+  "seed": 1729,
+  "split": {
+   "testExtrapolationIds": 46,
+   "testIds": 82,
+   "testInitialFamilyIds": 47,
+   "testInterpolationIds": 36,
+   "trainIds": 137,
+   "validationIds": 34
+  },
+  "steps": 1500
+ },
+ "schema": "geoneural-experiment-v2",
+ "seeds": [
+  1729
+ ],
+ "sourceRevision": "61664f044f0e609c696f11880175a3fad1f18446",
+ "split": {
+  "testExtrapolationIds": 46,
+  "testIds": 82,
+  "testInitialFamilyIds": 47,
+  "testInterpolationIds": 36,
+  "trainIds": 137,
+  "validationIds": 34
+ },
+ "splitHash": "95da834db0dce24b77b82f198496a7435c20ef18df8254044f9a9e15fa363efc",
+ "task": "dynamics",
+ "timing": {
+  "note": "shared host and GPU",
+  "qualified": false,
+  "seconds": 175.64868678199127
+ }
+}

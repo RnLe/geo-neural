@@ -1,0 +1,5125 @@
+{
+ "createdUtc": "2026-10-04T12:05:08.278798+00:00",
+ "evidence": "selected",
+ "failures": [
+  {
+   "arm": "flux",
+   "detail": "fails a structural gate (recorded, not selectable)",
+   "structure": {
+    "conservationResidualRelative": 1.6281747629726952e-17,
+    "negationEquivarianceRelative": 0.22796418515796138,
+    "offset100Relative": 0.45869936287771595,
+    "rot90EquivarianceRelative": 0.19189977947217035
+   }
+  },
+  {
+   "arm": "kfield",
+   "detail": "fails a structural gate (recorded, not selectable)",
+   "structure": {
+    "conservationResidualRelative": 0.027642082504464097,
+    "negationEquivarianceRelative": 0.16505599821419142,
+    "offset100Relative": 0.29645412378031244,
+    "rot90EquivarianceRelative": 0.16794956803097194
+   }
+  },
+  {
+   "arm": "penalty",
+   "detail": "fails a structural gate (recorded, not selectable)",
+   "structure": {
+    "conservationResidualRelative": 0.00019494060161003607,
+    "negationEquivarianceRelative": 0.004835865726588061,
+    "offset100Relative": 0.03295396114973382,
+    "rot90EquivarianceRelative": 0.005676127166424409
+   }
+  }
+ ],
+ "gates": {
+  "acceptedArmStructural": {
+   "detail": "flat surface exactly still, offset invariant, conservative, bounded",
+   "state": "pass",
+   "thresholds": {
+    "conservationTolerance": 1e-12,
+    "offsetTolerance": 1e-09
+   }
+  },
+  "acceptedBeatsLinear": {
+   "detail": "worst seed of the accepted arm below analytic linear diffusion, in-range rollouts",
+   "state": "pass",
+   "thresholds": {}
+  },
+  "acceptedDissipates": {
+   "detail": "sum of squared deviations never increases over the rollout",
+   "state": "pass",
+   "thresholds": {
+    "tolerance": 1e-12
+   }
+  }
+ },
+ "name": "closure-study",
+ "notes": "Structured closure against linear diffusion, the teacher, a conservative face diffusivity, the free flux arm, the penalty arm and the K-field arm, selected on rollouts at matched physical times.",
+ "product": null,
+ "recipe": {
+  "aMax": 3.0,
+  "criticalSlope": 0.6,
+  "diffusivity": 0.05,
+  "evaluationSets": {
+   "in-range": 16,
+   "relief-x0.4": 16,
+   "relief-x1.6": 16,
+   "ridges": 24,
+   "rot90": 16,
+   "spectrum-2.0": 16
+  },
+  "horizons": [
+   8,
+   32,
+   64
+  ],
+  "intervalYears": 200.0,
+  "referenceSafety": 0.25,
+  "seeds": [
+   1729,
+   2,
+   3,
+   4,
+   5
+  ],
+  "side": 48,
+  "spacingM": 50.0,
+  "steps": 1500
+ },
+ "recipeHash": "41dd8d81086f075807c42a3a4a62371321bd683920308ed74e896cb5dc391ea6",
+ "results": {
+  "baselines": {
+   "linear": {
+    "in-range": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 4.010542117602795,
+      "64": 3.2403315898542364,
+      "8": 4.488019222542202
+     },
+     "substeps": 0
+    },
+    "relief-x0.4": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.230637145445335,
+      "64": 0.2105811179179891,
+      "8": 0.14621149753108334
+     },
+     "substeps": 0
+    },
+    "relief-x1.6": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 9.648279362218615,
+      "64": 7.860040424314334,
+      "8": 11.240920932053864
+     },
+     "substeps": 0
+    },
+    "ridges": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.6462892821105065,
+      "64": 0.9869490442515837,
+      "8": 0.22088936078771287
+     },
+     "substeps": 0
+    },
+    "rot90": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 4.010542117602795,
+      "64": 3.2403315898542364,
+      "8": 4.488019222542202
+     },
+     "substeps": 0
+    },
+    "spectrum-2.0": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.1158961905118129,
+      "64": 0.14852575317314193,
+      "8": 0.05010591137788571
+     },
+     "substeps": 0
+    }
+   },
+   "teacher": {
+    "in-range": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.9256563985602397,
+      "64": 0.5438233902799646,
+      "8": 1.8570645187034853
+     },
+     "substeps": 0
+    },
+    "relief-x0.4": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.018695829048064636,
+      "64": 0.013413712258368356,
+      "8": 0.033640800073842944
+     },
+     "substeps": 0
+    },
+    "relief-x1.6": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 1.6693824831409225,
+      "64": 1.0040212502192731,
+      "8": 3.1732289324753826
+     },
+     "substeps": 0
+    },
+    "ridges": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.004815559146729342,
+      "64": 0.004896121049533159,
+      "8": 0.0030958573711273303
+     },
+     "substeps": 0
+    },
+    "rot90": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.9256563985602397,
+      "64": 0.5438233902799645,
+      "8": 1.8570645187034853
+     },
+     "substeps": 0
+    },
+    "spectrum-2.0": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.0037083862551862863,
+      "64": 0.0039257232579795335,
+      "8": 0.002058978349476844
+     },
+     "substeps": 0
+    }
+   }
+  },
+  "material": {
+   "baselines": {
+    "linear-uniform": {
+     "meanRmseM": 3.0553019272002993,
+     "rmseM": {
+      "32": 2.9658657241314508,
+      "64": 2.8339533700837753,
+      "8": 3.3660866873856725
+     }
+    },
+    "teacher": {
+     "meanRmseM": 0.6688633159329817,
+     "rmseM": {
+      "32": 0.5550055181666933,
+      "64": 0.32821396388788726,
+      "8": 1.1233704657443646
+     }
+    }
+   },
+   "classes": "random half-plane per surface",
+   "ratio": 0.2,
+   "runs": [
+    {
+     "arm": "facek",
+     "finalLoss": 0.003891115076839924,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 0.1148866853552756
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 0.15750853087920377
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 0.18543036573801555
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.892399747082648,
+       "64": 3.9399549378811347,
+       "8": 3.1016803451344916
+      },
+      "substeps": 65
+     },
+     "seed": 1729
+    },
+    {
+     "arm": "conductance",
+     "finalLoss": 0.001527457032352686,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 0.9995320191410053
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 0.9999256856040066
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 1.2227366995084332
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.9456285158663322,
+       "64": 2.7652960124311403,
+       "8": 1.3358258418472206
+      },
+      "substeps": 64
+     },
+     "seed": 1729
+    },
+    {
+     "arm": "facek",
+     "finalLoss": 0.005417313892394304,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 0.5129599535794533
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 0.3682234451450575
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 0.19376568771972547
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.9288309376147885,
+       "64": 4.003671750828808,
+       "8": 3.0877002309371036
+      },
+      "substeps": 66
+     },
+     "seed": 2
+    },
+    {
+     "arm": "conductance",
+     "finalLoss": 0.002290506847202778,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 1.000084622290295
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 1.0015431272906075
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 2.6788255248570096
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.167644911075764,
+       "64": 2.959150846340018,
+       "8": 1.4180143573871804
+      },
+      "substeps": 64
+     },
+     "seed": 2
+    },
+    {
+     "arm": "facek",
+     "finalLoss": 0.004663845989853144,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 0.16767835267116526
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 0.17862227557633786
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 0.16175710861049988
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.8163950661702195,
+       "64": 3.8618179328920097,
+       "8": 3.0816800497318084
+      },
+      "substeps": 65
+     },
+     "seed": 3
+    },
+    {
+     "arm": "conductance",
+     "finalLoss": 0.0018299990333616734,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 0.9999177066471746
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 1.0003443785824517
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 1.1637523038393274
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.9730812032769407,
+       "64": 2.790809406135893,
+       "8": 1.3314735333542067
+      },
+      "substeps": 64
+     },
+     "seed": 3
+    },
+    {
+     "arm": "facek",
+     "finalLoss": 0.005912316497415304,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 0.15257924868576395
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 0.16437815661977223
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 0.18425924829398682
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.105258656092193,
+       "64": 4.171303066109018,
+       "8": 3.242808960729825
+      },
+      "substeps": 65
+     },
+     "seed": 4
+    },
+    {
+     "arm": "conductance",
+     "finalLoss": 0.002500272123143077,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 1.0000252978881294
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 1.0008199424083335
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 1.2874448694069787
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.9978947833794132,
+       "64": 2.8015799833950816,
+       "8": 1.3578827814993826
+      },
+      "substeps": 64
+     },
+     "seed": 4
+    },
+    {
+     "arm": "facek",
+     "finalLoss": 0.006001293659210205,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 0.2141389812028915
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 0.2270953567347548
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 0.18330819468138648
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.95159067079181,
+       "64": 3.983050298240334,
+       "8": 3.1640472624420597
+      },
+      "substeps": 65
+     },
+     "seed": 5
+    },
+    {
+     "arm": "conductance",
+     "finalLoss": 0.0024562589824199677,
+     "learnedRatio": [
+      {
+       "gradient": 0.02,
+       "ratio": 1.000134416853405
+      },
+      {
+       "gradient": 0.1,
+       "ratio": 1.0012824740574453
+      },
+      {
+       "gradient": 0.3,
+       "ratio": 1.2772810116830018
+      }
+     ],
+     "rollout": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.0075367011733563,
+       "64": 2.814097654218245,
+       "8": 1.4077609701549705
+      },
+      "substeps": 64
+     },
+     "seed": 5
+    }
+   ],
+   "summary": {
+    "conductance": {
+     "failedRollouts": 0,
+     "learnedRatioAtGradient0.02": {
+      "max": 1.000134416853405,
+      "median": 1.0000252978881294,
+      "min": 0.9995320191410053
+     },
+     "meanRmseM": {
+      "max": 2.1816033716009873,
+      "median": 2.0524525160912925,
+      "min": 2.015583456714898
+     },
+     "trueRatio": 0.2
+    },
+    "facek": {
+     "failedRollouts": 0,
+     "learnedRatioAtGradient0.02": {
+      "max": 0.5129599535794533,
+      "median": 0.16767835267116526,
+      "min": 0.1148866853552756
+     },
+     "meanRmseM": {
+      "max": 3.839790227643679,
+      "median": 3.6734009731269004,
+      "min": 3.586631016264679
+     },
+     "trueRatio": 0.2
+    }
+   },
+   "surfaces": 16
+  },
+  "runs": [
+   {
+    "arm": "flux",
+    "finalLoss": 0.0047135129570961,
+    "parameters": 28641,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.817221026597918,
+       "64": 5.637192195773353,
+       "8": 2.0117857305843003
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.8292487292395743,
+       "64": 3.9817011593503167,
+       "8": 1.419143069097063
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.4778304020436273,
+       "64": 4.792808614980647,
+       "8": 2.785262318821789
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.2399478388962897,
+       "64": 3.4147581100940227,
+       "8": 0.9248581741079029
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.79078245882986,
+       "64": 5.603986346020146,
+       "8": 2.006046757262685
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.282656050732828,
+       "64": 1.8954944035721573,
+       "8": 0.5733685441212348
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 41.61479030299233,
+    "seed": 1729,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.004738309645980728,
+     "relativeError": 0.2800277556368658
+    },
+    "structure": {
+     "conservationResidualRelative": 1.4275446774356803e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.00011623011033848316,
+       "rollout64MaxDeviationM": 1.5960665077360112
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0004767186464783331,
+       "rollout64MaxDeviationM": 4.995043726932167
+      }
+     },
+     "flatStill": false,
+     "negationEquivarianceRelative": 0.20544649392419517,
+     "offset100Relative": 0.31734648869690246,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.18038292725734187
+    }
+   },
+   {
+    "arm": "kfield",
+    "finalLoss": 0.005671944934874773,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.41348571689526,
+       "64": 2.9772192954822896,
+       "8": 2.3144917101824642
+      },
+      "substeps": 66
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8039445396670014,
+       "64": 1.0489154829328842,
+       "8": 0.4873573820100736
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.9544907611036115,
+       "64": 3.94356028480798,
+       "8": 3.883639359560819
+      },
+      "substeps": 70
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8976616501410164,
+       "64": 1.7067851864301689,
+       "8": 0.28025422110335674
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.4128402184929363,
+       "64": 2.979357329759871,
+       "8": 2.307198278324792
+      },
+      "substeps": 66
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.5436946335352736,
+       "64": 0.8868329704746082,
+       "8": 0.18281506191199376
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 26.403472302976297,
+    "seed": 1729,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.005835044763403073,
+     "relativeError": 0.34484333258431693
+    },
+    "structure": {
+     "conservationResidualRelative": 0.01326052998641984,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.14710920339072858,
+     "offset100Relative": 0.235331973279553,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.153345970191359
+    }
+   },
+   {
+    "arm": "penalty",
+    "finalLoss": 0.014827546663582325,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 9.026698457898418,
+       "64": 10.363474930670092,
+       "8": 5.744786365584033
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.343206394190711,
+       "64": 4.650621502074706,
+       "8": 3.213280597000783
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 10.251915175061058,
+       "64": 12.707786171062962,
+       "8": 5.428126127102172
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.564269533900552,
+       "64": 13.376626688595309,
+       "8": 2.6628199068169343
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 9.026637020886847,
+       "64": 10.363609266670576,
+       "8": 5.7446674207894155
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.574095495750287,
+       "64": 5.010308151381927,
+       "8": 1.7103635275337843
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 24.738996975996997,
+    "seed": 1729,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.014192146399050651,
+     "relativeError": 0.8387368493671773
+    },
+    "structure": {
+     "conservationResidualRelative": 0.00010976839384528344,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.0026455330151698596,
+     "offset100Relative": 0.0094675766470217,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.0026508474648464803
+    }
+   },
+   {
+    "arm": "facek",
+    "finalLoss": 0.009380495175719261,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.346542969785769,
+       "64": 3.8476132008731088,
+       "8": 4.3632369923111
+      },
+      "substeps": 65
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.6343569296987249,
+       "64": 0.8740514624365608,
+       "8": 0.26353950549051386
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.214416522132124,
+       "64": 7.705068157880939,
+       "8": 7.282611307325653
+      },
+      "substeps": 66
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 5.136636531757871,
+       "64": 5.673943642620481,
+       "8": 3.334411631188925
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.343379306149847,
+       "64": 3.8440304677233983,
+       "8": 4.360765374643988
+      },
+      "substeps": 65
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.6551514266291549,
+       "64": 0.7927850410252344,
+       "8": 0.38921126480810153
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 33.01849371998105,
+    "seed": 1729,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.009388307373722248,
+     "relativeError": 0.5548363951525451
+    },
+    "structure": {
+     "conservationResidualRelative": 8.705474385702042e-18,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.04337946310229252
+    }
+   },
+   {
+    "arm": "conductance",
+    "curve": [
+     {
+      "conductance": 0.05000074263546688,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 0.05000070960155666,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 0.050000712823376585,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 0.050000886105829444,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 0.050003374818659824,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.050053023442701614,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.05480431036501133,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.4976864202089132,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 1.095373347577332,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.4206764296400134,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 1.6647130147375608,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.003307588631287217,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.1152309631155994,
+       "64": 0.9272471498210556,
+       "8": 1.9917245271968904
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.2141330200741661,
+       "64": 0.20046371373664168,
+       "8": 0.12479572629222932
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.776638991108362,
+       "64": 1.2695966851974145,
+       "8": 3.4898001413441935
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.4937909209882009,
+       "64": 0.8138685959155881,
+       "8": 0.15048744531887648
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.1166782727242583,
+       "64": 0.9285806551550897,
+       "8": 1.9927362384746787
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.1097275484734169,
+       "64": 0.14395534391979994,
+       "8": 0.04385758872939978
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 35.10130771299009,
+    "seed": 1729,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.0033007042226028908,
+     "relativeError": 0.19506720002156078
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      0.050000033993093336,
+      2.9999994717871448
+     ],
+     "conservationResidualRelative": 9.740155056852599e-18,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.05,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.031711222296400686
+    }
+   },
+   {
+    "arm": "conductance-nofloor",
+    "curve": [
+     {
+      "conductance": 1.1185595084266412e-05,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 1.0417967918951635e-05,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 9.970105767577606e-06,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 1.1121172868491356e-05,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 3.052069236089356e-05,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.00030026823923099994,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.016423529456338223,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.55745807786413,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 1.0187411344429544,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.322922153430353,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 1.7134245166308424,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.0033774992916733027,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.131403841378257,
+       "64": 4.951962235674032,
+       "8": 1.9321916192790438
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.8723958826617257,
+       "64": 2.9032429738348497,
+       "8": 0.6098986215245651
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.924181758811365,
+       "64": 4.665671610724727,
+       "8": 3.2150092439733045
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.2372353508763487,
+       "64": 2.360715772469193,
+       "8": 0.3178638049268615
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.1309933493678885,
+       "64": 4.951091506134356,
+       "8": 1.9336183091416532
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.841041342816786,
+       "64": 1.421814325559775,
+       "8": 0.2482842962633204
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 36.297016033990076,
+    "seed": 1729,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.003356861460490285,
+     "relativeError": 0.19838601758801336
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      7.699346633986316e-07,
+      2.9999649088299867
+     ],
+     "conservationResidualRelative": 7.932610942618606e-18,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.0,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.03990367653630987
+    }
+   },
+   {
+    "arm": "flux",
+    "finalLoss": 0.003630873980000615,
+    "parameters": 28641,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.569027901846711,
+       "64": 4.8706324866045465,
+       "8": 1.9858355056118622
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.0558769131060095,
+       "64": 4.034517702242971,
+       "8": 1.6611427281448246
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.0430472587898296,
+       "64": 4.107083587754492,
+       "8": 2.581706125569712
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.3860411864085265,
+       "64": 3.714141302245104,
+       "8": 0.8868625207687044
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.5854402717679847,
+       "64": 4.907600619195934,
+       "8": 1.992957924069088
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.4546931736873112,
+       "64": 2.1715421642276476,
+       "8": 0.6141972366558325
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 34.86466354699223,
+    "seed": 2,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.004194795426990372,
+     "relativeError": 0.24790679304217847
+    },
+    "structure": {
+     "conservationResidualRelative": 1.6023320388787665e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0011150481623801506,
+       "rollout64MaxDeviationM": 20.896276390197357
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 1.7260322171358013e-05,
+       "rollout64MaxDeviationM": 0.18224942660108923
+      }
+     },
+     "flatStill": false,
+     "negationEquivarianceRelative": 0.18637040631234889,
+     "offset100Relative": 0.28371643160252136,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.16175948611861451
+    }
+   },
+   {
+    "arm": "kfield",
+    "finalLoss": 0.004827757366001606,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.459835915920116,
+       "64": 3.1836687930687977,
+       "8": 2.136371212784616
+      },
+      "substeps": 67
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.7447784886196738,
+       "64": 2.7356450964173713,
+       "8": 0.6651131779071771
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.8492668033488453,
+       "64": 4.003930483455806,
+       "8": 3.7760621955714635
+      },
+      "substeps": 71
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8621488572308421,
+       "64": 1.652589246294546,
+       "8": 0.2435805357978514
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.46818712146705,
+       "64": 3.1839988553235776,
+       "8": 2.16085343769309
+      },
+      "substeps": 66
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.9632907582148081,
+       "64": 1.5006347032048037,
+       "8": 0.3598776150653095
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 24.755842636019224,
+    "seed": 2,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.005883794127479847,
+     "relativeError": 0.34772435472746105
+    },
+    "structure": {
+     "conservationResidualRelative": 0.027642082504464097,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.13561595461389014,
+     "offset100Relative": 0.26208623573431944,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.14946166428054167
+    }
+   },
+   {
+    "arm": "penalty",
+    "finalLoss": 0.012725144624710083,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.746946341093771,
+       "64": 10.084827966586209,
+       "8": 5.4532403328690195
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.292729200920007,
+       "64": 4.603521696183105,
+       "8": 3.1424759540694978
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 9.825332172799333,
+       "64": 12.259695679470761,
+       "8": 5.166159255204746
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.089918870145347,
+       "64": 12.816311983758263,
+       "8": 2.4878031479372194
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.746342377372756,
+       "64": 10.083908285421076,
+       "8": 5.453300730624496
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.4386543396160234,
+       "64": 4.823624359223763,
+       "8": 1.6352272621857389
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 24.889873595995596,
+    "seed": 2,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.014245941682455918,
+     "relativeError": 0.8419160785863155
+    },
+    "structure": {
+     "conservationResidualRelative": 0.00010547435677430362,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.002410549814588677,
+     "offset100Relative": 0.03295396114973382,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.002639419075263808
+    }
+   },
+   {
+    "arm": "facek",
+    "finalLoss": 0.00788134802132845,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.247201772414447,
+       "64": 3.75621641396503,
+       "8": 4.338481867217905
+      },
+      "substeps": 65
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.43605115214691714,
+       "64": 0.56113335473488,
+       "8": 0.21081490766565922
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.130626407797514,
+       "64": 7.588705594485291,
+       "8": 7.248709680312341
+      },
+      "substeps": 66
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 5.041250049814995,
+       "64": 5.498478056098613,
+       "8": 3.3639179453863624
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.249044327648638,
+       "64": 3.762452551688467,
+       "8": 4.319835199699705
+      },
+      "substeps": 65
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.5977709939989201,
+       "64": 0.6995815213025957,
+       "8": 0.372745119948928
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 47.00263632799033,
+    "seed": 2,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.009410920115562915,
+     "relativeError": 0.5561727779176118
+    },
+    "structure": {
+     "conservationResidualRelative": 1.1095100349746057e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.049049754835161045
+    }
+   },
+   {
+    "arm": "conductance",
+    "curve": [
+     {
+      "conductance": 0.05000168357001116,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 0.050001840396962045,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 0.050002220951837185,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 0.05000353557013758,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 0.05001668885561729,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.050207793270942526,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.059355675749163006,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.5484319904461172,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 1.1009613762968904,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.425495253267267,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 1.8239039614747552,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.002655042102560401,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.0920583087885714,
+       "64": 0.8858006686030031,
+       "8": 2.010828521965804
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.2089647911325664,
+       "64": 0.19696172356498434,
+       "8": 0.12027249975224215
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.7648084579577357,
+       "64": 1.2153173185013366,
+       "8": 3.5030677870349156
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.46237340328717536,
+       "64": 0.7699840616869583,
+       "8": 0.13829655470017047
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.0935765771955652,
+       "64": 0.8858632967883913,
+       "8": 2.014582112140112
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.1075647468505554,
+       "64": 0.14178489309440992,
+       "8": 0.042577073263980504
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 64.42145352598163,
+    "seed": 2,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.003302602236849498,
+     "relativeError": 0.1951793701221567
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      0.05000034433913419,
+      2.99999900115599
+     ],
+     "conservationResidualRelative": 2.1455590186966078e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.05,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.03277136736668883
+    }
+   },
+   {
+    "arm": "conductance-nofloor",
+    "curve": [
+     {
+      "conductance": 5.308888644639346e-07,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 5.352324952295277e-07,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 5.890704181968751e-07,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 8.87165931511165e-07,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 6.105547000027343e-06,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.0001594919326263056,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.005065801956166534,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.15681086050467835,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 0.6532498131984583,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.4737634296874047,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 2.5023294827982987,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.0016489707631990314,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.328030523468988,
+       "64": 5.256503114764282,
+       "8": 1.8271824610247505
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.892789083920035,
+       "64": 2.9353479969682383,
+       "8": 0.6172278923375867
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.1206098531974447,
+       "64": 5.121063761145026,
+       "8": 2.9841715379719926
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.327834944666178,
+       "64": 2.4746098404084558,
+       "8": 0.3616311305903851
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.3271997547129417,
+       "64": 5.255753644590884,
+       "8": 1.826184202205542
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8447765336229204,
+       "64": 1.427534786013997,
+       "8": 0.24966802528543164
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 65.66507824600558,
+    "seed": 2,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.0018224653529863022,
+     "relativeError": 0.10770526214039207
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      1.372014915103742e-07,
+      2.860357627500532
+     ],
+     "conservationResidualRelative": 1.2045174636381349e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.0,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.03853126688449582
+    }
+   },
+   {
+    "arm": "flux",
+    "finalLoss": 0.00470139691606164,
+    "parameters": 28641,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.9019085855925675,
+       "64": 5.67148194483544,
+       "8": 2.0696682048907005
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.534890333225229,
+       "64": 4.81777016828273,
+       "8": 1.598712829509484
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.6653246158285926,
+       "64": 5.024862028968148,
+       "8": 2.7877473661075336
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.7951563046162793,
+       "64": 4.53536662687797,
+       "8": 0.9937301033102902
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.90554191472215,
+       "64": 5.6853935506901045,
+       "8": 2.0778974422279877
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.5762106753219278,
+       "64": 2.4736644489970114,
+       "8": 0.6073272862699404
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 31.050145822984632,
+    "seed": 3,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.004758857594058175,
+     "relativeError": 0.2812421118552171
+    },
+    "structure": {
+     "conservationResidualRelative": 1.6281747629726952e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0015500607723378387,
+       "rollout64MaxDeviationM": 17.00153971767947
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.00048529322533157786,
+       "rollout64MaxDeviationM": 5.051858321864543
+      }
+     },
+     "flatStill": false,
+     "negationEquivarianceRelative": 0.21255360144692861,
+     "offset100Relative": 0.3622759350861978,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.18041716108365893
+    }
+   },
+   {
+    "arm": "kfield",
+    "finalLoss": 0.005900487303733826,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.550632162827622,
+       "64": 3.2762825000451277,
+       "8": 2.2232499554412897
+      },
+      "substeps": 66
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.887624177871552,
+       "64": 1.201053659128482,
+       "8": 0.4680367599089005
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.155789319583418,
+       "64": 4.290864809601537,
+       "8": 3.9048173740570333
+      },
+      "substeps": 71
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.9479274066166675,
+       "64": 1.7873304428637067,
+       "8": 0.29522655045305496
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.544637897262182,
+       "64": 3.2718530184402757,
+       "8": 2.2238832779291444
+      },
+      "substeps": 66
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.5798681736610313,
+       "64": 0.9489500485631384,
+       "8": 0.1886056940976246
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 19.97202646700316,
+    "seed": 3,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.005913140213818856,
+     "relativeError": 0.34945866913665313
+    },
+    "structure": {
+     "conservationResidualRelative": 0.02466670787912755,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.1490246635642894,
+     "offset100Relative": 0.24108441605682626,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.15479413758532254
+    }
+   },
+   {
+    "arm": "penalty",
+    "finalLoss": 0.015437672846019268,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.749498718009242,
+       "64": 10.079796762016713,
+       "8": 5.461680799016703
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.2773336328241784,
+       "64": 4.583584665018696,
+       "8": 3.133049329456319
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 9.82913118887041,
+       "64": 12.263988346066798,
+       "8": 5.167266602821363
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.095708681057959,
+       "64": 12.80919798379372,
+       "8": 2.489353004392442
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.748715584307586,
+       "64": 10.079169418115782,
+       "8": 5.4614882154706
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.437734536122409,
+       "64": 4.821164564715546,
+       "8": 1.6352609632268649
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 23.550948882999364,
+    "seed": 3,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.014249518248843138,
+     "relativeError": 0.8421274488708955
+    },
+    "structure": {
+     "conservationResidualRelative": 8.47443855468942e-05,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.0032902068719807757,
+     "offset100Relative": 0.031066301629923875,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.0038404714561594703
+    }
+   },
+   {
+    "arm": "facek",
+    "finalLoss": 0.009342839941382408,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.171175646931037,
+       "64": 3.660236200086726,
+       "8": 4.238003174490848
+      },
+      "substeps": 65
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.25426096903659107,
+       "64": 0.24083086510072535,
+       "8": 0.16556432592990192
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 7.995698234424566,
+       "64": 7.456288565166941,
+       "8": 7.115738432141759
+      },
+      "substeps": 66
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.8539105642469105,
+       "64": 5.318083498158559,
+       "8": 3.2260143229288536
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.177155888872839,
+       "64": 3.6597282695927245,
+       "8": 4.282433388862396
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.5505370173715911,
+       "64": 0.6189381137565854,
+       "8": 0.3524201090766001
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 41.14900986399152,
+    "seed": 3,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.009413784214308928,
+     "relativeError": 0.5563420423185672
+    },
+    "structure": {
+     "conservationResidualRelative": 1.5135485292158584e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.047016648852215105
+    }
+   },
+   {
+    "arm": "conductance",
+    "curve": [
+     {
+      "conductance": 0.05000000281408924,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 0.05000000282888384,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 0.050000003194963255,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 0.050000005494548264,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 0.050000079318473896,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.05001145433326002,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.05274251022366493,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.18576282565543417,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 0.6464436975009052,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.416084605358017,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 2.7449180281957664,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.0018019319977611303,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.024844425245136,
+       "64": 0.9535213730911438,
+       "8": 1.7042186519767804
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.21630076013414662,
+       "64": 0.2018628349516867,
+       "8": 0.12725636539317808
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.5878521655112254,
+       "64": 1.3143987502256822,
+       "8": 3.078387472458199
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.5164588698015857,
+       "64": 0.8383335459696485,
+       "8": 0.16297479489551028
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.0259207273197108,
+       "64": 0.9533973128292094,
+       "8": 1.7084970974238516
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.11089872799604933,
+       "64": 0.14506002900475035,
+       "8": 0.04446804702947041
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 41.6306047179969,
+    "seed": 3,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.0018502575975412976,
+     "relativeError": 0.10934774658069198
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      0.050000000685786826,
+      2.844525410916929
+     ],
+     "conservationResidualRelative": 1.435272508922383e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.05,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.04895406698913041
+    }
+   },
+   {
+    "arm": "conductance-nofloor",
+    "curve": [
+     {
+      "conductance": 3.1804294879961996e-09,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 3.3063471098038937e-09,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 3.928002739768e-09,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 7.433084988506334e-09,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 1.3085857038985647e-07,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 1.2711072445523717e-05,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.0012277842926831908,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.07724828369307726,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 0.4709561324428178,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.4003913108014618,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 2.6973215592548856,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.001828809967264533,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.624797935512611,
+       "64": 5.630516011337507,
+       "8": 1.8628597219978769
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.9065958139744157,
+       "64": 2.9542737493567475,
+       "8": 0.6242180013070499
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.4736213801074913,
+       "64": 5.641461307177026,
+       "8": 2.8891992421573325
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.3983664228053505,
+       "64": 2.568658370515758,
+       "8": 0.3905465911252713
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.624525182080497,
+       "64": 5.62899786738612,
+       "8": 1.8679662497688283
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8475908851224188,
+       "64": 1.4314102883750088,
+       "8": 0.2510061683538357
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 40.785311575978994,
+    "seed": 3,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.0018766089502134972,
+     "relativeError": 0.11090507624002542
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      2.0447975759783316e-09,
+      2.7571070424303645
+     ],
+     "conservationResidualRelative": 1.430640096066556e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.0,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.042339141299433676
+    }
+   },
+   {
+    "arm": "flux",
+    "finalLoss": 0.0039593991823494434,
+    "parameters": 28641,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.458108889426665,
+       "64": 6.884168924834909,
+       "8": 1.892805348377412
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 6.57743699118949e-05,
+      "rmseM": {
+       "32": 3.8936391628925606,
+       "64": 5.811473437424493,
+       "8": 1.7006085154024972
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.575977163009769,
+       "64": 5.500167346082386,
+       "8": 2.2871845872089396
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.079651569195335,
+       "64": 5.415516389682554,
+       "8": 1.1252467645887898
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.43251874459673,
+       "64": 6.84659626369672,
+       "8": 1.8874343866138723
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0001193717916349188,
+      "rmseM": {
+       "32": 2.2045933822356973,
+       "64": 3.661385146327393,
+       "8": 0.7781668448230472
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 38.220479779993184,
+    "seed": 4,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.005080036929653264,
+     "relativeError": 0.3002233805403321
+    },
+    "structure": {
+     "conservationResidualRelative": 1.2800749465130557e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0014892521631345015,
+       "rollout64MaxDeviationM": 19.54494209511158
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0006544822525486797,
+       "rollout64MaxDeviationM": 8.192111873022583
+      }
+     },
+     "flatStill": false,
+     "negationEquivarianceRelative": 0.22796418515796138,
+     "offset100Relative": 0.45869936287771595,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.19189977947217035
+    }
+   },
+   {
+    "arm": "kfield",
+    "finalLoss": 0.004465839359909296,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.490522775859147,
+       "64": 3.3190426656911685,
+       "8": 1.931154025304542
+      },
+      "substeps": 66
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.7954720413308314,
+       "64": 2.5708612435809206,
+       "8": 0.6833740522594898
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.8673936601024566,
+       "64": 4.188180897951169,
+       "8": 3.6116405832076417
+      },
+      "substeps": 70
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.969740861491977,
+       "64": 1.8244951905919806,
+       "8": 0.26218413751743114
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.486505143044406,
+       "64": 3.316489601418263,
+       "8": 1.9282809313843137
+      },
+      "substeps": 67
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8239874350516264,
+       "64": 1.2585646674416524,
+       "8": 0.316761550438796
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 26.176015123986872,
+    "seed": 4,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.0057739957278939,
+     "relativeError": 0.34123541632837323
+    },
+    "structure": {
+     "conservationResidualRelative": 0.019069821708019633,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.14423821786701366,
+     "offset100Relative": 0.23548189872653116,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.1561776347478299
+    }
+   },
+   {
+    "arm": "penalty",
+    "finalLoss": 0.01137241069227457,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 9.29510323591382,
+       "64": 10.646214488070365,
+       "8": 6.0068265555555636
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.443655512426551,
+       "64": 4.754977180622247,
+       "8": 3.325642476787822
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 10.646392242946021,
+       "64": 13.128973318447128,
+       "8": 5.693519154417302
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.99607762494452,
+       "64": 13.914838091517192,
+       "8": 2.824782308326057
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 9.295135852013972,
+       "64": 10.646379590606804,
+       "8": 6.0068064657341775
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.7114983354061333,
+       "64": 5.200675817502649,
+       "8": 1.7858050628198738
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 26.419250032980926,
+    "seed": 4,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.014141022612262452,
+     "relativeError": 0.8357155020210619
+    },
+    "structure": {
+     "conservationResidualRelative": 5.235559264776978e-06,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 9.771308435998566e-05,
+     "offset100Relative": 6.280763850268906e-05,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 9.66801646710209e-05
+    }
+   },
+   {
+    "arm": "facek",
+    "finalLoss": 0.007241653278470039,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.232874557567281,
+       "64": 3.7373359326852174,
+       "8": 4.279885360075605
+      },
+      "substeps": 66
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8024535554661295,
+       "64": 1.1720523542291517,
+       "8": 0.29856916587505233
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.11118501966245,
+       "64": 7.57023212100728,
+       "8": 7.163509038213319
+      },
+      "substeps": 66
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.963664019261032,
+       "64": 5.413148851459278,
+       "8": 3.2836712512514374
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.234859467210078,
+       "64": 3.7397365684909323,
+       "8": 4.282788128812418
+      },
+      "substeps": 66
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.6553137503271624,
+       "64": 0.835539237590654,
+       "8": 0.3814511432311427
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 34.00470366398804,
+    "seed": 4,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.009440846254956201,
+     "relativeError": 0.5579413726856398
+    },
+    "structure": {
+     "conservationResidualRelative": 1.2897721304453766e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.0449136563224398
+    }
+   },
+   {
+    "arm": "conductance",
+    "curve": [
+     {
+      "conductance": 0.050000088443612735,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 0.050000100938239395,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 0.0500001307372581,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 0.05000023871252754,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 0.05000160495762001,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.05003159895566425,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.05257991254026835,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.36053154953608224,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 0.9590788875888477,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.3444493214291509,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 1.6628581912095006,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.0026055118069052696,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.2000412092999646,
+       "64": 0.9746152362700458,
+       "8": 2.1048331096000044
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.21296337981547106,
+       "64": 0.1998054702857426,
+       "8": 0.1234803790719319
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.9009707167029506,
+       "64": 1.3665475017728832,
+       "8": 3.6653200981833085
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.5442012727937563,
+       "64": 0.8672877773003528,
+       "8": 0.17730634014419186
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.1958343453613927,
+       "64": 0.9735049853389172,
+       "8": 2.0962814906738436
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.11041622359315996,
+       "64": 0.14458451228727215,
+       "8": 0.04432457544057167
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 38.59324049099814,
+    "seed": 4,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.003543377353446418,
+     "relativeError": 0.20940885712308166
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      0.050000005404052715,
+      2.9999999293126764
+     ],
+     "conservationResidualRelative": 1.1522833425794737e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.05,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.039973939953376426
+    }
+   },
+   {
+    "arm": "conductance-nofloor",
+    "curve": [
+     {
+      "conductance": 1.4269255133186646e-06,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 1.5676442234208712e-06,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 1.9018929289613787e-06,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 3.0462975709621085e-06,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 1.4516323011014527e-05,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.00017892055646898298,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.007848921239033833,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.4075594006759258,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 1.0191602008328955,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 1.3912034766330037,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 1.6969205218439916,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.002818648936226964,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.2308622509909872,
+       "64": 5.045854495401111,
+       "8": 2.0794333909041907
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.8726177285422012,
+       "64": 2.90516567541978,
+       "8": 0.6093656790065891
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.102172926152866,
+       "64": 4.845439332829808,
+       "8": 3.449098592153962
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.3003184011329887,
+       "64": 2.441575901657021,
+       "8": 0.347907762969199
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.2310987323334457,
+       "64": 5.048031899241899,
+       "8": 2.0716538308190064
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8421187671767304,
+       "64": 1.4235329426311747,
+       "8": 0.2486706123797862
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 39.124899221002124,
+    "seed": 4,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.003687255866542469,
+     "relativeError": 0.2179118845984668
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      1.2474306069793103e-07,
+      2.9999985583040973
+     ],
+     "conservationResidualRelative": 1.1203735398386014e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.0,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.044124798025607
+    }
+   },
+   {
+    "arm": "flux",
+    "finalLoss": 0.004065240733325481,
+    "parameters": 28641,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.350773693472605,
+       "64": 4.5470872806251545,
+       "8": 1.8887636858416113
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.5068668452426044,
+       "64": 3.951643097597706,
+       "8": 0.9545284523411804
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.3770028997044457,
+       "64": 4.407536530926075,
+       "8": 2.6411948286984916
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.7252396249565725,
+       "64": 2.9427696688826015,
+       "8": 0.6797171765079358
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.3398034017230995,
+       "64": 4.538440819957028,
+       "8": 1.8836153467814263
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.00013425502650027477,
+      "rmseM": {
+       "32": 1.586164503476625,
+       "64": 2.9081440390629516,
+       "8": 0.46417069886276646
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 37.39482616400346,
+    "seed": 5,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.004785947641869885,
+     "relativeError": 0.2828430974082071
+    },
+    "structure": {
+     "conservationResidualRelative": 1.2966429319960886e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0018007783644922338,
+       "rollout64MaxDeviationM": 18.025021564370114
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0005058169635132121,
+       "rollout64MaxDeviationM": 4.568449392632985
+      }
+     },
+     "flatStill": false,
+     "negationEquivarianceRelative": 0.2134273587749129,
+     "offset100Relative": 0.30473078693607014,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.18118592559762728
+    }
+   },
+   {
+    "arm": "kfield",
+    "finalLoss": 0.004771812353283167,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.5125337972823103,
+       "64": 3.326176274739794,
+       "8": 1.9336455215365966
+      },
+      "substeps": 66
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.0995329988475258,
+       "64": 1.8196949239413438,
+       "8": 0.5359738595180631
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.9022488122810324,
+       "64": 4.332046403728393,
+       "8": 3.464550500669275
+      },
+      "substeps": 71
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8760111828060237,
+       "64": 1.673694175101636,
+       "8": 0.2641130428459687
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.505204889913862,
+       "64": 3.3210080842096468,
+       "8": 1.9305563180385545
+      },
+      "substeps": 66
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.6399215479433568,
+       "64": 1.0131818906618546,
+       "8": 0.22364374692766545
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 25.40535837999778,
+    "seed": 5,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.006024782830013957,
+     "relativeError": 0.3560565982679966
+    },
+    "structure": {
+     "conservationResidualRelative": 0.02243216322195923,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.16505599821419142,
+     "offset100Relative": 0.29645412378031244,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.16794956803097194
+    }
+   },
+   {
+    "arm": "penalty",
+    "finalLoss": 0.012710264883935452,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.073620336838324,
+       "64": 9.383620327195217,
+       "8": 4.811253701243496
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.088414890894898,
+       "64": 4.397719942592176,
+       "8": 2.903586702448766
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.848527646624792,
+       "64": 11.216728978954825,
+       "8": 4.698951485472458
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 7.060375854378934,
+       "64": 11.456047506028622,
+       "8": 2.125898173262493
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.073747537320473,
+       "64": 9.38377799918146,
+       "8": 4.810828515906315
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.125226931824198,
+       "64": 4.389378580020942,
+       "8": 1.4630847168350711
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 28.03535970300436,
+    "seed": 5,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.014368727958974427,
+     "relativeError": 0.8491725831217781
+    },
+    "structure": {
+     "conservationResidualRelative": 0.00019494060161003607,
+     "conservative": false,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.004835865726588061,
+     "offset100Relative": 0.016964364856444203,
+     "offsetInvariant": false,
+     "rot90EquivarianceRelative": 0.005676127166424409
+    }
+   },
+   {
+    "arm": "facek",
+    "finalLoss": 0.007845018990337849,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.355004556128034,
+       "64": 3.8590363803030914,
+       "8": 4.361151980573669
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.7394093650602793,
+       "64": 1.0369582314022006,
+       "8": 0.2965035343222446
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 8.18966135696517,
+       "64": 7.6995112886192425,
+       "8": 7.230674597780301
+      },
+      "substeps": 65
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 5.074069344996463,
+       "64": 5.678035056329356,
+       "8": 3.2789041840971023
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 4.354670071619728,
+       "64": 3.8581081147391045,
+       "8": 4.361541492044291
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.6719188254977241,
+       "64": 0.8294192153518158,
+       "8": 0.38833264357469294
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 38.26922308001667,
+    "seed": 5,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.009416345448451451,
+     "relativeError": 0.5564934078269822
+    },
+    "structure": {
+     "conservationResidualRelative": 1.3113157811560877e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.04056085267595919
+    }
+   },
+   {
+    "arm": "conductance",
+    "curve": [
+     {
+      "conductance": 0.0500000174424592,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 0.05000002025531292,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 0.050000027524911624,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 0.050000058065656286,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 0.05000068971190452,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.0500334266017035,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.05605759974282295,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.4624398753638688,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 0.7954478245112986,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 0.9356462670838279,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 1.0449816882790781,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.0026110978797078133,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.1153464804662663,
+       "64": 0.9418138459970736,
+       "8": 1.9659611537912887
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.2165615106245291,
+       "64": 0.20203344487440744,
+       "8": 0.12727969802391198
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.6543583285584835,
+       "64": 1.2541696706722403,
+       "8": 3.2171538691966113
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.4864925637344782,
+       "64": 0.8076330195483654,
+       "8": 0.14645937810200402
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.1194948213718925,
+       "64": 0.9436737637252691,
+       "8": 1.9721796167970853
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.11043104564059014,
+       "64": 0.1446045859148704,
+       "8": 0.0442568290333611
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 46.51799638499506,
+    "seed": 5,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.003304076970828537,
+     "relativeError": 0.19526652492569765
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      0.05000000324004922,
+      2.9999986866186923
+     ],
+     "conservationResidualRelative": 2.311118573490394e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.05,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.03337060483673328
+    }
+   },
+   {
+    "arm": "conductance-nofloor",
+    "curve": [
+     {
+      "conductance": 1.5443168822849553e-08,
+      "gradient": 0.0
+     },
+     {
+      "conductance": 1.8247333615504748e-08,
+      "gradient": 0.02
+     },
+     {
+      "conductance": 2.6078247471170302e-08,
+      "gradient": 0.05
+     },
+     {
+      "conductance": 6.447841597848293e-08,
+      "gradient": 0.1
+     },
+     {
+      "conductance": 1.4386464985663635e-06,
+      "gradient": 0.2
+     },
+     {
+      "conductance": 0.00017324730574522424,
+      "gradient": 0.3
+     },
+     {
+      "conductance": 0.0221987651834785,
+      "gradient": 0.4
+     },
+     {
+      "conductance": 0.3842894281212041,
+      "gradient": 0.5
+     },
+     {
+      "conductance": 0.7125057891041346,
+      "gradient": 0.55
+     },
+     {
+      "conductance": 0.9760680154201768,
+      "gradient": 0.59
+     },
+     {
+      "conductance": 1.4005251542897497,
+      "gradient": 0.7
+     }
+    ],
+    "finalLoss": 0.0023210332728922367,
+    "parameters": 28353,
+    "rollouts": {
+     "in-range": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.181291894717212,
+       "64": 5.077170550955275,
+       "8": 1.6739295775466154
+      },
+      "substeps": 64
+     },
+     "relief-x0.4": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.8934078721870848,
+       "64": 2.9362918454502873,
+       "8": 0.6175185556743625
+      },
+      "substeps": 64
+     },
+     "relief-x1.6": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 2.856332508965659,
+       "64": 4.753571164413793,
+       "8": 2.636257020220523
+      },
+      "substeps": 64
+     },
+     "ridges": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 1.2230146410329044,
+       "64": 2.3349750827161198,
+       "8": 0.3188441683598013
+      },
+      "substeps": 64
+     },
+     "rot90": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 3.181807169494494,
+       "64": 5.076490710160124,
+       "8": 1.679435211580873
+      },
+      "substeps": 64
+     },
+     "spectrum-2.0": {
+      "intervalsCompleted": 64,
+      "maxEnergyIncreaseRelative": 0.0,
+      "rmseM": {
+       "32": 0.8434230766807683,
+       "64": 1.4259664727081358,
+       "8": 0.2489784839050255
+      },
+      "substeps": 64
+     }
+    },
+    "seconds": 47.27642575500067,
+    "seed": 5,
+    "singleStep": {
+     "linearDiffusionMae": 0.016199921804087494,
+     "maeVsTeacher": 0.002684474678859482,
+     "relativeError": 0.15864885909739349
+    },
+    "structure": {
+     "aMax": 3.0,
+     "bounded": true,
+     "cflDtYears": 208.33333333333334,
+     "cflNumberAtInterval": 0.96,
+     "conductanceRange": [
+      7.55280524256285e-09,
+      2.97574396586566
+     ],
+     "conservationResidualRelative": 1.665800661271688e-17,
+     "conservative": true,
+     "flat": {
+      "c0": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      },
+      "c100": {
+       "maxAbsTendencyMPerYear": 0.0,
+       "rollout64MaxDeviationM": 0.0
+      }
+     },
+     "flatStill": true,
+     "floor": 0.0,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "offsetInvariant": true,
+     "rot90EquivarianceRelative": 0.05051259946422002
+    }
+   }
+  ],
+  "schema": "geoneural-hybrid-closure-study-v1",
+  "seconds": 2869.5814838130027,
+  "selection": {
+   "accepted": "conductance",
+   "ranking": [
+    {
+     "arm": "conductance",
+     "medianMeanRmseM": 1.3410404934182096,
+     "singleStepMae": 0.003302602236849498,
+     "worstSeed": 1.426496518390005
+    },
+    {
+     "arm": "conductance-nofloor",
+     "medianMeanRmseM": 3.45205004576543,
+     "singleStepMae": 0.002684474678859482,
+     "worstSeed": 3.706057889615998
+    },
+    {
+     "arm": "facek",
+     "medianMeanRmseM": 4.1139666845324605,
+     "singleStepMae": 0.009413784214308928,
+     "worstSeed": 4.191730972334931
+    }
+   ],
+   "removed": [
+    {
+     "arm": "flux",
+     "reason": "fails a structural gate"
+    },
+    {
+     "arm": "penalty",
+     "reason": "fails a structural gate"
+    }
+   ],
+   "rule": "lowest median over seeds of the mean in-range rollout RMSE at 8, 32 and 64 intervals of 200 years, among candidates passing flat, offset, conservation and bound gates"
+  },
+  "settings": {
+   "aMax": 3.0,
+   "criticalSlope": 0.6,
+   "diffusivity": 0.05,
+   "evaluationSets": {
+    "in-range": 16,
+    "relief-x0.4": 16,
+    "relief-x1.6": 16,
+    "ridges": 24,
+    "rot90": 16,
+    "spectrum-2.0": 16
+   },
+   "horizons": [
+    8,
+    32,
+    64
+   ],
+   "intervalYears": 200.0,
+   "referenceSafety": 0.25,
+   "seeds": [
+    1729,
+    2,
+    3,
+    4,
+    5
+   ],
+   "side": 48,
+   "spacingM": 50.0,
+   "steps": 1500
+  },
+  "summary": {
+   "baselines": {
+    "linear": {
+     "in-range": {
+      "meanRmseM": 3.912964309999744,
+      "rmseM": {
+       "32": 4.010542117602795,
+       "64": 3.2403315898542364,
+       "8": 4.488019222542202
+      }
+     },
+     "relief-x0.4": {
+      "meanRmseM": 0.19580992029813582,
+      "rmseM": {
+       "32": 0.230637145445335,
+       "64": 0.2105811179179891,
+       "8": 0.14621149753108334
+      }
+     },
+     "relief-x1.6": {
+      "meanRmseM": 9.583080239528938,
+      "rmseM": {
+       "32": 9.648279362218615,
+       "64": 7.860040424314334,
+       "8": 11.240920932053864
+      }
+     },
+     "ridges": {
+      "meanRmseM": 0.6180425623832676,
+      "rmseM": {
+       "32": 0.6462892821105065,
+       "64": 0.9869490442515837,
+       "8": 0.22088936078771287
+      }
+     },
+     "rot90": {
+      "meanRmseM": 3.912964309999744,
+      "rmseM": {
+       "32": 4.010542117602795,
+       "64": 3.2403315898542364,
+       "8": 4.488019222542202
+      }
+     },
+     "spectrum-2.0": {
+      "meanRmseM": 0.10484261835428017,
+      "rmseM": {
+       "32": 0.1158961905118129,
+       "64": 0.14852575317314193,
+       "8": 0.05010591137788571
+      }
+     }
+    },
+    "teacher": {
+     "in-range": {
+      "meanRmseM": 1.1088481025145631,
+      "rmseM": {
+       "32": 0.9256563985602397,
+       "64": 0.5438233902799646,
+       "8": 1.8570645187034853
+      }
+     },
+     "relief-x0.4": {
+      "meanRmseM": 0.02191678046009198,
+      "rmseM": {
+       "32": 0.018695829048064636,
+       "64": 0.013413712258368356,
+       "8": 0.033640800073842944
+      }
+     },
+     "relief-x1.6": {
+      "meanRmseM": 1.948877555278526,
+      "rmseM": {
+       "32": 1.6693824831409225,
+       "64": 1.0040212502192731,
+       "8": 3.1732289324753826
+      }
+     },
+     "ridges": {
+      "meanRmseM": 0.004269179189129943,
+      "rmseM": {
+       "32": 0.004815559146729342,
+       "64": 0.004896121049533159,
+       "8": 0.0030958573711273303
+      }
+     },
+     "rot90": {
+      "meanRmseM": 1.1088481025145631,
+      "rmseM": {
+       "32": 0.9256563985602397,
+       "64": 0.5438233902799645,
+       "8": 1.8570645187034853
+      }
+     },
+     "spectrum-2.0": {
+      "meanRmseM": 0.003231029287547555,
+      "rmseM": {
+       "32": 0.0037083862551862863,
+       "64": 0.0039257232579795335,
+       "8": 0.002058978349476844
+      }
+     }
+    }
+   },
+   "conductance": {
+    "in-range": {
+     "byHorizon": {
+      "32": {
+       "max": 1.2000412092999646,
+       "median": 1.1152309631155994,
+       "min": 1.024844425245136
+      },
+      "64": {
+       "max": 0.9746152362700458,
+       "median": 0.9418138459970736,
+       "min": 0.8858006686030031
+      },
+      "8": {
+       "max": 2.1048331096000044,
+       "median": 1.9917245271968904,
+       "min": 1.7042186519767804
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 1.426496518390005,
+      "median": 1.3410404934182096,
+      "min": 1.2275281501043533
+     }
+    },
+    "relief-x0.4": {
+     "byHorizon": {
+      "32": {
+       "max": 0.2165615106245291,
+       "median": 0.2141330200741661,
+       "min": 0.2089647911325664
+      },
+      "64": {
+       "max": 0.20203344487440744,
+       "median": 0.20046371373664168,
+       "min": 0.19696172356498434
+      },
+      "8": {
+       "max": 0.12727969802391198,
+       "median": 0.12479572629222932,
+       "min": 0.12027249975224215
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 0.18195821784094948,
+      "median": 0.17979748670101237,
+      "min": 0.1753996714832643
+     }
+    },
+    "relief-x1.6": {
+     "byHorizon": {
+      "32": {
+       "max": 1.9009707167029506,
+       "median": 1.7648084579577357,
+       "min": 1.5878521655112254
+      },
+      "64": {
+       "max": 1.3665475017728832,
+       "median": 1.2695966851974145,
+       "min": 1.2153173185013366
+      },
+      "8": {
+       "max": 3.6653200981833085,
+       "median": 3.4898001413441935,
+       "min": 3.078387472458199
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 2.3109461055530476,
+      "median": 2.1610645211646626,
+      "min": 1.9935461293983687
+     }
+    },
+    "ridges": {
+     "byHorizon": {
+      "32": {
+       "max": 0.5442012727937563,
+       "median": 0.4937909209882009,
+       "min": 0.46237340328717536
+      },
+      "64": {
+       "max": 0.8672877773003528,
+       "median": 0.8138685959155881,
+       "min": 0.7699840616869583
+      },
+      "8": {
+       "max": 0.17730634014419186,
+       "median": 0.15048744531887648,
+       "min": 0.13829655470017047
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 0.529598463412767,
+      "median": 0.48604898740755514,
+      "min": 0.456884673224768
+     }
+    },
+    "rot90": {
+     "byHorizon": {
+      "32": {
+       "max": 1.1958343453613927,
+       "median": 1.1166782727242583,
+       "min": 1.0259207273197108
+      },
+      "64": {
+       "max": 0.9735049853389172,
+       "median": 0.9436737637252691,
+       "min": 0.8858632967883913
+      },
+      "8": {
+       "max": 2.0962814906738436,
+       "median": 1.9927362384746787,
+       "min": 1.7084970974238516
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 1.421873607124718,
+      "median": 1.3451160672980824,
+      "min": 1.2292717125242574
+     }
+    },
+    "seeds": 5,
+    "singleStepMae": 0.003302602236849498,
+    "spectrum-2.0": {
+     "byHorizon": {
+      "32": {
+       "max": 0.11089872799604933,
+       "median": 0.11041622359315996,
+       "min": 0.1075647468505554
+      },
+      "64": {
+       "max": 0.14506002900475035,
+       "median": 0.14458451228727215,
+       "min": 0.14178489309440992
+      },
+      "8": {
+       "max": 0.04446804702947041,
+       "median": 0.0442568290333611,
+       "min": 0.042577073263980504
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 0.10014226801009003,
+      "median": 0.09976415352960721,
+      "min": 0.09730890440298194
+     }
+    },
+    "structuralPass": true,
+    "structure": {
+     "conservationResidualRelative": 2.311118573490394e-17,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "rot90EquivarianceRelative": 0.04895406698913041
+    }
+   },
+   "conductance-nofloor": {
+    "in-range": {
+     "byHorizon": {
+      "32": {
+       "max": 3.624797935512611,
+       "median": 3.2308622509909872,
+       "min": 3.131403841378257
+      },
+      "64": {
+       "max": 5.630516011337507,
+       "median": 5.077170550955275,
+       "min": 4.951962235674032
+      },
+      "8": {
+       "max": 2.0794333909041907,
+       "median": 1.8628597219978769,
+       "min": 1.6739295775466154
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 3.706057889615998,
+      "median": 3.45205004576543,
+      "min": 3.310797341073034
+     }
+    },
+    "relief-x0.4": {
+     "byHorizon": {
+      "32": {
+       "max": 1.9065958139744157,
+       "median": 1.892789083920035,
+       "min": 1.8723958826617257
+      },
+      "64": {
+       "max": 2.9542737493567475,
+       "median": 2.9353479969682383,
+       "min": 2.9032429738348497
+      },
+      "8": {
+       "max": 0.6242180013070499,
+       "median": 0.6172278923375867,
+       "min": 0.6093656790065891
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 1.8283625215460713,
+      "median": 1.8151216577419536,
+      "min": 1.79517915934038
+     }
+    },
+    "relief-x1.6": {
+     "byHorizon": {
+      "32": {
+       "max": 3.4736213801074913,
+       "median": 3.102172926152866,
+       "min": 2.856332508965659
+      },
+      "64": {
+       "max": 5.641461307177026,
+       "median": 4.845439332829808,
+       "min": 4.665671610724727
+      },
+      "8": {
+       "max": 3.449098592153962,
+       "median": 2.9841715379719926,
+       "min": 2.636257020220523
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.001427309813949,
+      "median": 3.741948384104821,
+      "min": 3.4153868978666586
+     }
+    },
+    "ridges": {
+     "byHorizon": {
+      "32": {
+       "max": 1.3983664228053505,
+       "median": 1.3003184011329887,
+       "min": 1.2230146410329044
+      },
+      "64": {
+       "max": 2.568658370515758,
+       "median": 2.441575901657021,
+       "min": 2.3349750827161198
+      },
+      "8": {
+       "max": 0.3905465911252713,
+       "median": 0.347907762969199,
+       "min": 0.3178638049268615
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 1.45252379481546,
+      "median": 1.3632673552530694,
+      "min": 1.2922779640362752
+     }
+    },
+    "rot90": {
+     "byHorizon": {
+      "32": {
+       "max": 3.624525182080497,
+       "median": 3.2310987323334457,
+       "min": 3.1309933493678885
+      },
+      "64": {
+       "max": 5.62899786738612,
+       "median": 5.076490710160124,
+       "min": 4.951091506134356
+      },
+      "8": {
+       "max": 2.0716538308190064,
+       "median": 1.8679662497688283,
+       "min": 1.679435211580873
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 3.7071630997451486,
+      "median": 3.450261487464784,
+      "min": 3.3125776970784973
+     }
+    },
+    "seeds": 5,
+    "singleStepMae": 0.002684474678859482,
+    "spectrum-2.0": {
+     "byHorizon": {
+      "32": {
+       "max": 0.8475908851224188,
+       "median": 0.8434230766807683,
+       "min": 0.841041342816786
+      },
+      "64": {
+       "max": 1.4314102883750088,
+       "median": 1.4259664727081358,
+       "min": 1.421814325559775
+      },
+      "8": {
+       "max": 0.2510061683538357,
+       "median": 0.2489784839050255,
+       "min": 0.2482842962633204
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 0.8433357806170877,
+      "median": 0.8394560110979765,
+      "min": 0.8370466548799605
+     }
+    },
+    "structuralPass": true,
+    "structure": {
+     "conservationResidualRelative": 1.665800661271688e-17,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "rot90EquivarianceRelative": 0.05051259946422002
+    }
+   },
+   "facek": {
+    "in-range": {
+     "byHorizon": {
+      "32": {
+       "max": 4.355004556128034,
+       "median": 4.247201772414447,
+       "min": 4.171175646931037
+      },
+      "64": {
+       "max": 3.8590363803030914,
+       "median": 3.75621641396503,
+       "min": 3.660236200086726
+      },
+      "8": {
+       "max": 4.3632369923111,
+       "median": 4.338481867217905,
+       "min": 4.238003174490848
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.191730972334931,
+      "median": 4.1139666845324605,
+      "min": 4.023138340502871
+     }
+    },
+    "relief-x0.4": {
+     "byHorizon": {
+      "32": {
+       "max": 0.8024535554661295,
+       "median": 0.6343569296987249,
+       "min": 0.25426096903659107
+      },
+      "64": {
+       "max": 1.1720523542291517,
+       "median": 0.8740514624365608,
+       "min": 0.24083086510072535
+      },
+      "8": {
+       "max": 0.29856916587505233,
+       "median": 0.26353950549051386,
+       "min": 0.16556432592990192
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 0.7576916918567779,
+      "median": 0.5906492992085999,
+      "min": 0.22021872002240614
+     }
+    },
+    "relief-x1.6": {
+     "byHorizon": {
+      "32": {
+       "max": 8.214416522132124,
+       "median": 8.130626407797514,
+       "min": 7.995698234424566
+      },
+      "64": {
+       "max": 7.705068157880939,
+       "median": 7.588705594485291,
+       "min": 7.456288565166941
+      },
+      "8": {
+       "max": 7.282611307325653,
+       "median": 7.230674597780301,
+       "min": 7.115738432141759
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 7.734031995779572,
+      "median": 7.656013894198382,
+      "min": 7.522575077244422
+     }
+    },
+    "ridges": {
+     "byHorizon": {
+      "32": {
+       "max": 5.136636531757871,
+       "median": 5.041250049814995,
+       "min": 4.8539105642469105
+      },
+      "64": {
+       "max": 5.678035056329356,
+       "median": 5.498478056098613,
+       "min": 5.318083498158559
+      },
+      "8": {
+       "max": 3.3639179453863624,
+       "median": 3.2836712512514374,
+       "min": 3.2260143229288536
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.714997268522425,
+      "median": 4.634548683766656,
+      "min": 4.466002795111441
+     }
+    },
+    "rot90": {
+     "byHorizon": {
+      "32": {
+       "max": 4.354670071619728,
+       "median": 4.249044327648638,
+       "min": 4.177155888872839
+      },
+      "64": {
+       "max": 3.8581081147391045,
+       "median": 3.762452551688467,
+       "min": 3.6597282695927245
+      },
+      "8": {
+       "max": 4.361541492044291,
+       "median": 4.319835199699705,
+       "min": 4.282433388862396
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.191439892801042,
+      "median": 4.110444026345603,
+      "min": 4.0397725157759865
+     }
+    },
+    "seeds": 5,
+    "singleStepMae": 0.009413784214308928,
+    "spectrum-2.0": {
+     "byHorizon": {
+      "32": {
+       "max": 0.6719188254977241,
+       "median": 0.6551514266291549,
+       "min": 0.5505370173715911
+      },
+      "64": {
+       "max": 0.835539237590654,
+       "median": 0.7927850410252344,
+       "min": 0.6189381137565854
+      },
+      "8": {
+       "max": 0.38921126480810153,
+       "median": 0.3814511432311427,
+       "min": 0.3524201090766001
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 0.6298902281414109,
+      "median": 0.6123825774874969,
+      "min": 0.5072984134015922
+     }
+    },
+    "structuralPass": true,
+    "structure": {
+     "conservationResidualRelative": 1.5135485292158584e-17,
+     "negationEquivarianceRelative": 0.0,
+     "offset100Relative": 0.0,
+     "rot90EquivarianceRelative": 0.049049754835161045
+    }
+   },
+   "flux": {
+    "in-range": {
+     "byHorizon": {
+      "32": {
+       "max": 4.458108889426665,
+       "median": 3.817221026597918,
+       "min": 3.350773693472605
+      },
+      "64": {
+       "max": 6.884168924834909,
+       "median": 5.637192195773353,
+       "min": 4.5470872806251545
+      },
+      "8": {
+       "max": 2.0696682048907005,
+       "median": 1.9858355056118622,
+       "min": 1.8887636858416113
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.411694387546329,
+      "median": 3.8220663176518577,
+      "min": 3.26220821997979
+     }
+    },
+    "relief-x0.4": {
+     "byHorizon": {
+      "32": {
+       "max": 3.8936391628925606,
+       "median": 3.0558769131060095,
+       "min": 2.5068668452426044
+      },
+      "64": {
+       "max": 5.811473437424493,
+       "median": 4.034517702242971,
+       "min": 3.951643097597706
+      },
+      "8": {
+       "max": 1.7006085154024972,
+       "median": 1.598712829509484,
+       "min": 0.9545284523411804
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 6.57743699118949e-05,
+     "meanRmseM": {
+      "max": 3.8019070385731837,
+      "median": 2.917179114497935,
+      "min": 2.4710127983938306
+     }
+    },
+    "relief-x1.6": {
+     "byHorizon": {
+      "32": {
+       "max": 3.6653246158285926,
+       "median": 3.4778304020436273,
+       "min": 3.0430472587898296
+      },
+      "64": {
+       "max": 5.500167346082386,
+       "median": 4.792808614980647,
+       "min": 4.107083587754492
+      },
+      "8": {
+       "max": 2.7877473661075336,
+       "median": 2.6411948286984916,
+       "min": 2.2871845872089396
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 3.825978003634758,
+      "median": 3.685300445282021,
+      "min": 3.2439456573713445
+     }
+    },
+    "ridges": {
+     "byHorizon": {
+      "32": {
+       "max": 3.079651569195335,
+       "median": 2.3860411864085265,
+       "min": 1.7252396249565725
+      },
+      "64": {
+       "max": 5.415516389682554,
+       "median": 3.714141302245104,
+       "min": 2.9427696688826015
+      },
+      "8": {
+       "max": 1.1252467645887898,
+       "median": 0.9248581741079029,
+       "min": 0.6797171765079358
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 3.2068049078222263,
+      "median": 2.3290150031407784,
+      "min": 1.7825754901157034
+     }
+    },
+    "rot90": {
+     "byHorizon": {
+      "32": {
+       "max": 4.43251874459673,
+       "median": 3.79078245882986,
+       "min": 3.3398034017230995
+      },
+      "64": {
+       "max": 6.84659626369672,
+       "median": 5.603986346020146,
+       "min": 4.538440819957028
+      },
+      "8": {
+       "max": 2.0778974422279877,
+       "median": 1.992957924069088,
+       "min": 1.8836153467814263
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.388849798302441,
+      "median": 3.8002718540375633,
+      "min": 3.2539531894871843
+     }
+    },
+    "seeds": 5,
+    "singleStepMae": 0.004758857594058175,
+    "spectrum-2.0": {
+     "byHorizon": {
+      "32": {
+       "max": 2.2045933822356973,
+       "median": 1.5762106753219278,
+       "min": 1.282656050732828
+      },
+      "64": {
+       "max": 3.661385146327393,
+       "median": 2.4736644489970114,
+       "min": 1.8954944035721573
+      },
+      "8": {
+       "max": 0.7781668448230472,
+       "median": 0.6073272862699404,
+       "min": 0.46417069886276646
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.00013425502650027477,
+     "meanRmseM": {
+      "max": 2.214715124462046,
+      "median": 1.5524008035296266,
+      "min": 1.25050633280874
+     }
+    },
+    "structuralPass": false,
+    "structure": {
+     "conservationResidualRelative": 1.6281747629726952e-17,
+     "negationEquivarianceRelative": 0.22796418515796138,
+     "offset100Relative": 0.45869936287771595,
+     "rot90EquivarianceRelative": 0.19189977947217035
+    }
+   },
+   "kfield": {
+    "in-range": {
+     "byHorizon": {
+      "32": {
+       "max": 2.550632162827622,
+       "median": 2.490522775859147,
+       "min": 2.41348571689526
+      },
+      "64": {
+       "max": 3.326176274739794,
+       "median": 3.2762825000451277,
+       "min": 2.9772192954822896
+      },
+      "8": {
+       "max": 2.3144917101824642,
+       "median": 2.136371212784616,
+       "min": 1.931154025304542
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 2.6833882061046794,
+      "median": 2.5907851978529,
+      "min": 2.5683989075200047
+     }
+    },
+    "relief-x0.4": {
+     "byHorizon": {
+      "32": {
+       "max": 1.7954720413308314,
+       "median": 1.0995329988475258,
+       "min": 0.8039445396670014
+      },
+      "64": {
+       "max": 2.7356450964173713,
+       "median": 1.8196949239413438,
+       "min": 1.0489154829328842
+      },
+      "8": {
+       "max": 0.6833740522594898,
+       "median": 0.5359738595180631,
+       "min": 0.4680367599089005
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 1.7151789209814072,
+      "median": 1.1517339274356442,
+      "min": 0.7800724682033197
+     }
+    },
+    "relief-x1.6": {
+     "byHorizon": {
+      "32": {
+       "max": 4.155789319583418,
+       "median": 3.9022488122810324,
+       "min": 3.8492668033488453
+      },
+      "64": {
+       "max": 4.332046403728393,
+       "median": 4.188180897951169,
+       "min": 3.94356028480798
+      },
+      "8": {
+       "max": 3.9048173740570333,
+       "median": 3.7760621955714635,
+       "min": 3.464550500669275
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.1171571677473295,
+      "median": 3.8996152388929004,
+      "min": 3.8764198274587045
+     }
+    },
+    "ridges": {
+     "byHorizon": {
+      "32": {
+       "max": 0.969740861491977,
+       "median": 0.8976616501410164,
+       "min": 0.8621488572308421
+      },
+      "64": {
+       "max": 1.8244951905919806,
+       "median": 1.7067851864301689,
+       "min": 1.652589246294546
+      },
+      "8": {
+       "max": 0.29522655045305496,
+       "median": 0.2641130428459687,
+       "min": 0.2435805357978514
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 1.0188067298671297,
+      "median": 0.9615670192248474,
+      "min": 0.91943954644108
+     }
+    },
+    "rot90": {
+     "byHorizon": {
+      "32": {
+       "max": 2.544637897262182,
+       "median": 2.486505143044406,
+       "min": 2.4128402184929363
+      },
+      "64": {
+       "max": 3.3210080842096468,
+       "median": 3.2718530184402757,
+       "min": 2.979357329759871
+      },
+      "8": {
+       "max": 2.307198278324792,
+       "median": 2.16085343769309,
+       "min": 1.9282809313843137
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 2.6801247312105336,
+      "median": 2.585589764054021,
+      "min": 2.5664652755258666
+     }
+    },
+    "seeds": 5,
+    "singleStepMae": 0.005883794127479847,
+    "spectrum-2.0": {
+     "byHorizon": {
+      "32": {
+       "max": 0.9632907582148081,
+       "median": 0.6399215479433568,
+       "min": 0.5436946335352736
+      },
+      "64": {
+       "max": 1.5006347032048037,
+       "median": 1.0131818906618546,
+       "min": 0.8868329704746082
+      },
+      "8": {
+       "max": 0.3598776150653095,
+       "median": 0.22364374692766545,
+       "min": 0.18281506191199376
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 0.9412676921616404,
+      "median": 0.6255823951776256,
+      "min": 0.5377808886406252
+     }
+    },
+    "structuralPass": false,
+    "structure": {
+     "conservationResidualRelative": 0.027642082504464097,
+     "negationEquivarianceRelative": 0.16505599821419142,
+     "offset100Relative": 0.29645412378031244,
+     "rot90EquivarianceRelative": 0.16794956803097194
+    }
+   },
+   "penalty": {
+    "in-range": {
+     "byHorizon": {
+      "32": {
+       "max": 9.29510323591382,
+       "median": 8.749498718009242,
+       "min": 8.073620336838324
+      },
+      "64": {
+       "max": 10.646214488070365,
+       "median": 10.084827966586209,
+       "min": 9.383620327195217
+      },
+      "8": {
+       "max": 6.0068265555555636,
+       "median": 5.461680799016703,
+       "min": 4.811253701243496
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 8.64938142651325,
+      "median": 8.09699209301422,
+      "min": 7.4228314550923455
+     }
+    },
+    "relief-x0.4": {
+     "byHorizon": {
+      "32": {
+       "max": 4.443655512426551,
+       "median": 4.292729200920007,
+       "min": 4.088414890894898
+      },
+      "64": {
+       "max": 4.754977180622247,
+       "median": 4.603521696183105,
+       "min": 4.397719942592176
+      },
+      "8": {
+       "max": 3.325642476787822,
+       "median": 3.1424759540694978,
+       "min": 2.903586702448766
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 4.1747583899455405,
+      "median": 4.01290895039087,
+      "min": 3.796573845311947
+     }
+    },
+    "relief-x1.6": {
+     "byHorizon": {
+      "32": {
+       "max": 10.646392242946021,
+       "median": 9.82913118887041,
+       "min": 8.848527646624792
+      },
+      "64": {
+       "max": 13.128973318447128,
+       "median": 12.263988346066798,
+       "min": 11.216728978954825
+      },
+      "8": {
+       "max": 5.693519154417302,
+       "median": 5.167266602821363,
+       "min": 4.698951485472458
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 9.822961571936817,
+      "median": 9.086795379252857,
+      "min": 8.254736037017357
+     }
+    },
+    "ridges": {
+     "byHorizon": {
+      "32": {
+       "max": 8.99607762494452,
+       "median": 8.095708681057959,
+       "min": 7.060375854378934
+      },
+      "64": {
+       "max": 13.914838091517192,
+       "median": 12.816311983758263,
+       "min": 11.456047506028622
+      },
+      "8": {
+       "max": 2.824782308326057,
+       "median": 2.489353004392442,
+       "min": 2.125898173262493
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 8.57856600826259,
+      "median": 7.798086556414707,
+      "min": 6.880773844556683
+     }
+    },
+    "rot90": {
+     "byHorizon": {
+      "32": {
+       "max": 9.295135852013972,
+       "median": 8.748715584307586,
+       "min": 8.073747537320473
+      },
+      "64": {
+       "max": 10.646379590606804,
+       "median": 10.083908285421076,
+       "min": 9.38377799918146
+      },
+      "8": {
+       "max": 6.0068064657341775,
+       "median": 5.4614882154706,
+       "min": 4.810828515906315
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 8.64944063611832,
+      "median": 8.096457739297989,
+      "min": 7.422784684136083
+     }
+    },
+    "seeds": 5,
+    "singleStepMae": 0.014245941682455918,
+    "spectrum-2.0": {
+     "byHorizon": {
+      "32": {
+       "max": 3.7114983354061333,
+       "median": 3.4386543396160234,
+       "min": 3.125226931824198
+      },
+      "64": {
+       "max": 5.200675817502649,
+       "median": 4.823624359223763,
+       "min": 4.389378580020942
+      },
+      "8": {
+       "max": 1.7858050628198738,
+       "median": 1.6352609632268649,
+       "min": 1.4630847168350711
+      }
+     },
+     "failedRollouts": 0,
+     "maxEnergyIncreaseRelative": 0.0,
+     "meanRmseM": {
+      "max": 3.5659930719095523,
+      "median": 3.2991686536751756,
+      "min": 2.9925634095600704
+     }
+    },
+    "structuralPass": false,
+    "structure": {
+     "conservationResidualRelative": 0.00019494060161003607,
+     "negationEquivarianceRelative": 0.004835865726588061,
+     "offset100Relative": 0.03295396114973382,
+     "rot90EquivarianceRelative": 0.005676127166424409
+    }
+   }
+  },
+  "teacherAnisotropy": {
+   "note": "Interior mean |tendency| of a cosine ridge (600 m wavelength) along an axis and along a diagonal. A ratio away from one is the per-direction critical slope.",
+   "rows": [
+    {
+     "amplitudeM": 10.0,
+     "axisMeanAbsTendency": 3.5286353514698716e-05,
+     "diagonalMeanAbsTendency": 3.499677572765475e-05,
+     "diagonalOverAxis": 0.9917934907350701,
+     "maxTrueSlope": 0.10471975511965977
+    },
+    {
+     "amplitudeM": 30.0,
+     "axisMeanAbsTendency": 0.00013633974596215592,
+     "diagonalMeanAbsTendency": 0.00011949719064498898,
+     "diagonalOverAxis": 0.8764662850270972,
+     "maxTrueSlope": 0.3141592653589793
+    },
+    {
+     "amplitudeM": 45.0,
+     "axisMeanAbsTendency": 0.00034607511689187795,
+     "diagonalMeanAbsTendency": 0.00022245788071645545,
+     "diagonalOverAxis": 0.6428022988603268,
+     "maxTrueSlope": 0.47123889803846897
+    }
+   ]
+  }
+ },
+ "schema": "geoneural-experiment-v2",
+ "seeds": [
+  1729,
+  2,
+  3,
+  4,
+  5
+ ],
+ "sourceRevision": "61664f044f0e609c696f11880175a3fad1f18446",
+ "split": {
+  "evaluation": "seed 31337 surfaces, held-out relief and spectrum, rot90, ridges",
+  "train": "fresh rough surfaces from each seed's generator"
+ },
+ "splitHash": "97ab38285531084be85bf5dbc754ae8efffcedbeb53da543a99413713cc93cc2",
+ "task": "dynamics",
+ "timing": {
+  "note": "shared host and GPU",
+  "qualified": false,
+  "seconds": 2869.5814838130027
+ }
+}

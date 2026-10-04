@@ -1,0 +1,93 @@
+{
+ "createdUtc": "2026-10-04T11:33:36.332623+00:00",
+ "evidence": "exploratory",
+ "failures": [
+  {
+   "detail": "diagnostic only; a codec rebuild from a priced, decoder-available base was not attempted",
+   "gate": "isACodec"
+  }
+ ],
+ "gates": {
+  "isACodec": {
+   "detail": "conditioning depends on the full target; not priced",
+   "state": "fail",
+   "thresholds": {}
+  }
+ },
+ "name": "distillation-diagnostic",
+ "notes": "Re-labelled from the legacy report without rerunning.",
+ "product": null,
+ "recipe": {},
+ "recipeHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+ "results": {
+  "classification": "diagnostic",
+  "legacyReport": "distillation.json",
+  "legacySchema": "geoneural-distillation-v1",
+  "notACodec": true,
+  "rows": [
+   {
+    "arm": "none",
+    "heldOutMaeM": {
+     "mean": 2.1424507300059,
+     "sd": 0.3879468344260308,
+     "values": [
+      2.69035267829895,
+      1.8438682556152344,
+      1.8931312561035156
+     ]
+    },
+    "parameters": 28417,
+    "sideChannelBytes": 0,
+    "totalBytes": 56834
+   },
+   {
+    "arm": "generic",
+    "heldOutMaeM": {
+     "mean": 2.040604511896769,
+     "sd": 0.061489930645572316,
+     "values": [
+      2.083951950073242,
+      1.9536447525024414,
+      2.084216833114624
+     ]
+    },
+    "parameters": 28417,
+    "sideChannelBytes": 24,
+    "totalBytes": 56858
+   },
+   {
+    "arm": "teacher",
+    "heldOutMaeM": {
+     "mean": 2.811610539754232,
+     "sd": 0.019958743463581365,
+     "values": [
+      2.785945177078247,
+      2.8346164226531982,
+      2.81427001953125
+     ]
+    },
+    "parameters": 28417,
+    "sideChannelBytes": 24,
+    "totalBytes": 56858
+   }
+  ],
+  "verdict": {
+   "capacityGainM": -0.669159809748332,
+   "informative": false,
+   "note": "teacher against generic is the experiment: same capacity, same bytes, same input shape, and only the raster's content differs. teacher against none is the confound it controls for: an extra input channel helps whatever is in it. A gain smaller than the seed spread is not a gain.",
+   "physicsGainM": -0.7710060278574629,
+   "seedSpread": 0.061489930645572316
+  },
+  "why": "The teacher and generic arms are conditioned on a raster built from the full target field (its own D8 paths and slope-area fit). No standalone decoder could build it, and the 24 bytes charged for three scalars do not price the paths. The numbers say whether slope-area structure is informative to a small coordinate network at equal capacity; they are not compression results."
+ },
+ "schema": "geoneural-experiment-v2",
+ "seeds": [],
+ "sourceRevision": "8c0d2d07e20fa6e899cc98f8ebf05a10f2319902",
+ "split": {},
+ "splitHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+ "task": "compression",
+ "timing": {
+  "note": "not measured",
+  "qualified": false
+ }
+}

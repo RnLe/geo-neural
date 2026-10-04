@@ -1,0 +1,61 @@
+{
+  "arms": [
+    "sz3",
+    "sz3-best",
+    "sperr",
+    "zfp",
+    "lerc",
+    "q32dz",
+    "cubic-order0",
+    "cubic-ctx",
+    "learned"
+  ],
+  "cohort": [
+    "nrw-313-5659",
+    "nrw-324-5648",
+    "nrw-368-5747",
+    "nrw-390-5780",
+    "nrw-401-5791",
+    "nrw-412-5769",
+    "nrw-445-5703"
+  ],
+  "command": "geoneural codec-confirm-h1",
+  "frozenUtc": "2026-10-04T12:40:38.712723+00:00",
+  "hypothesis": "H1",
+  "models": {
+    "final-s0.gnm": "7350d6e2f234a6ce5f644400b927bbdf8287d99995544ec2af62662aec3612e7",
+    "final-s1.gnm": "9f2c1a761000bd47ad0bb5dc055fecd526d399831a36bfc3a36d7cfd8ec49d99",
+    "final-s2.gnm": "e941c1b53c00702fd99f68ffb59da5d9113621d1d94a4806f1489cd828a2e4e0"
+  },
+  "recipe": {
+    "predictor": "FEATURES -> 32 -> 32 -> 2, hard-swish, float16 weights",
+    "rounds": 2,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "steps": 5000,
+    "trainingBounds": [
+      0.0005,
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "trainingRegions": [
+      "essen-ruhr",
+      "muensterland-plain",
+      "lower-rhine",
+      "teutoburg-forest",
+      "bergisches-land",
+      "rothaar-sauerland"
+    ]
+  },
+  "rule": "docs/protocol-v2.md, H1",
+  "schema": "geoneural-recipe-freeze-v1"
+}

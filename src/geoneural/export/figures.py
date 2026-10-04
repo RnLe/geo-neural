@@ -135,3 +135,68 @@ def build(atlas: Path, candidates: dict, out_dir: Path) -> list[Path]:
     (out_dir / "bytes-vs-error.svg").write_text(error)
     written.append(out_dir / "bytes-vs-error.svg")
     return written
+
+
+LINE_COLOURS = ("#1f5f99", "#c0392b", "#2e8b57", "#8e44ad", "#d4801c", "#6b4f2a", "#c2185b", "#00838f")
+
+
+def line_svg(series: list[tuple[str, list[tuple[float, float]], str]], title: str, x_label: str, y_label: str,
+             log_x: bool = True, refs: tuple[tuple[float, str], ...] = (), width: int = 760, height: int = 420,
+             y_range: tuple[float, float] | None = None, xticks=None) -> str:
+    """A small line chart. series: (label, [(x, y)], dash) with dash '' for solid or e.g. '5 4'."""
+    pts = [(x, y) for _, s, _ in series for x, y in s if y is not None]
+    fx = (lambda v: math.log10(v)) if log_x else (lambda v: v)
+    xs = [fx(x) for x, _ in pts]
+    x0, x1 = min(xs), max(xs)
+    pad = (x1 - x0) * 0.04 or 0.1
+    x0, x1 = x0 - pad, x1 + pad
+    if y_range:
+        y0, y1 = y_range
+    else:
+        ys = [y for _, y in pts] + [r for r, _ in refs]
+        y0, y1 = min(ys), max(ys)
+        py = (y1 - y0) * 0.08 or 0.1
+        y0, y1 = y0 - py, y1 + py
+    left, right, top, bottom = 64, 230, 40, 50
+
+    def sx(v):
+        return left + (fx(v) - x0) / (x1 - x0) * (width - left - right)
+
+    def sy(v):
+        return height - bottom - (v - y0) / (y1 - y0) * (height - top - bottom)
+
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" font-family="sans-serif" '
+           f'font-size="12">', f'<rect width="{width}" height="{height}" fill="white"/>',
+           f'<text x="{left}" y="24" font-size="14" font-weight="600">{title}</text>']
+    if xticks is not None:
+        xt = xticks
+    else:
+        xt = [v for k in range(-4, 4) for v in (10 ** k, 2 * 10 ** k, 5 * 10 ** k)] if log_x else np.linspace(x0, x1, 6)
+    for v in xt:
+        if x0 <= fx(v) <= x1:
+            out.append(f'<line x1="{sx(v):.1f}" x2="{sx(v):.1f}" y1="{top}" y2="{height - bottom}" stroke="#e6e6e6"/>')
+            out.append(f'<text x="{sx(v):.1f}" y="{height - bottom + 16}" text-anchor="middle">{v:g}</text>')
+    for v in np.linspace(y0, y1, 6):
+        out.append(f'<line x1="{left}" x2="{width - right}" y1="{sy(v):.1f}" y2="{sy(v):.1f}" stroke="#e6e6e6"/>')
+        out.append(f'<text x="{left - 6}" y="{sy(v) + 4:.1f}" text-anchor="end">{v:.2f}</text>')
+    for value, label in refs:
+        out.append(f'<line x1="{left}" x2="{width - right}" y1="{sy(value):.1f}" y2="{sy(value):.1f}" '
+                   f'stroke="#888" stroke-dasharray="3 3"/>')
+        out.append(f'<text x="{width - right + 4}" y="{sy(value) + 4:.1f}" fill="#666">{label}</text>')
+    out.append(f'<text x="{(left + width - right) / 2}" y="{height - 10}" text-anchor="middle">{x_label}</text>')
+    out.append(f'<text transform="translate(16,{(top + height - bottom) / 2}) rotate(-90)" '
+               f'text-anchor="middle">{y_label}</text>')
+    for i, (label, s, dash) in enumerate(series):
+        colour = LINE_COLOURS[i % len(LINE_COLOURS)]
+        s = sorted((x, y) for x, y in s if y is not None)
+        if not s:
+            continue
+        d = " ".join(f"{'M' if j == 0 else 'L'}{sx(x):.1f},{sy(y):.1f}" for j, (x, y) in enumerate(s))
+        out.append(f'<path d="{d}" fill="none" stroke="{colour}" stroke-width="2"'
+                   + (f' stroke-dasharray="{dash}"' if dash else "") + "/>")
+        ly = top + 16 + 18 * i
+        out.append(f'<line x1="{width - right + 60}" x2="{width - right + 80}" y1="{ly - 4}" y2="{ly - 4}" '
+                   f'stroke="{colour}" stroke-width="2"' + (f' stroke-dasharray="{dash}"' if dash else "") + "/>")
+        out.append(f'<text x="{width - right + 86}" y="{ly}">{label}</text>')
+    out.append("</svg>")
+    return "\n".join(out)

@@ -1,0 +1,170 @@
+{
+ "createdUtc": "2026-10-04T12:11:12.341020+00:00",
+ "evidence": "exploratory",
+ "failures": [],
+ "gates": {
+  "exactTime": {
+   "detail": "realised minus requested years",
+   "state": "pass",
+   "thresholds": {
+    "toleranceYears": 1e-06
+   }
+  },
+  "ledgerCloses": {
+   "detail": "worst per-interval closure residual",
+   "state": "pass",
+   "thresholds": {
+    "tolerance": 1e-09
+   }
+  },
+  "underBudget": {
+   "detail": "wall seconds",
+   "state": "pass",
+   "thresholds": {
+    "maxSeconds": 1800
+   }
+  }
+ },
+ "name": "pilot-ensemble",
+ "notes": "",
+ "product": null,
+ "recipe": {
+  "count": 300,
+  "courantMax": 0.1,
+  "frames": 9,
+  "logFluvialRange": [
+   0.0,
+   3.0
+  ],
+  "logPecletRange": [
+   3.0,
+   6.0
+  ],
+  "reliefScaleM": 20.0,
+  "side": 64,
+  "spacingM": 100.0,
+  "years": 2000000.0
+ },
+ "recipeHash": "dadedb1d38b4eaf31545d63a57bf0db4d03041536b5381b7b9ba61e4897514a9",
+ "results": {
+  "cellsIncisionLimitedTotal": 0,
+  "count": 300,
+  "dtYearsRange": [
+   274.9286996141075,
+   274.9286996141075
+  ],
+  "finalReliefM": {
+   "max": 177.22560323439228,
+   "median": 30.0,
+   "min": 21.675266152031707
+  },
+  "manifest": "ensemble/pilot-v2",
+  "maxRealisedTimeErrorYears": 2.8172507882118225e-08,
+  "seconds": 307.30687467899406,
+  "side": 64,
+  "solver": "geoneural-landscape-teacher-v2",
+  "solverHash": "297f94245df5420c97b6ff32061eb83642df502cf9674a9299d71269f0b76942",
+  "spacingM": 100.0,
+  "split": {
+   "testExtrapolationIds": 46,
+   "testIds": 82,
+   "testInitialFamilyIds": 47,
+   "testInterpolationIds": 36,
+   "trainIds": 137,
+   "validationIds": 34
+  },
+  "splitRule": {
+   "blocks": 4,
+   "coordinates": "log10 Nf and log10 Pe from units",
+   "extrapolationCells": [
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "heldInitialFamily": "abrupt-uplift-shift",
+   "interpolationCells": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "validationCells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     2
+    ]
+   ]
+  },
+  "stepsMedian": 7280.0,
+  "worstClosureResidualRelative": 2.238257226135778e-11,
+  "years": 2000000.0
+ },
+ "schema": "geoneural-experiment-v2",
+ "seeds": [
+  20261004
+ ],
+ "sourceRevision": "61664f044f0e609c696f11880175a3fad1f18446",
+ "split": {
+  "rule": {
+   "blocks": 4,
+   "coordinates": "log10 Nf and log10 Pe from units",
+   "extrapolationCells": [
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "heldInitialFamily": "abrupt-uplift-shift",
+   "interpolationCells": [
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "validationCells": [
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     2
+    ]
+   ]
+  },
+  "testExtrapolationIds": 46,
+  "testIds": 82,
+  "testInitialFamilyIds": 47,
+  "testInterpolationIds": 36,
+  "trainIds": 137,
+  "validationIds": 34
+ },
+ "splitHash": "1dea229fde27624de350fa3d226a247c0feda557c6847fc322cf1fd28404db7b",
+ "task": "dynamics",
+ "timing": {
+  "note": "shared host",
+  "qualified": false,
+  "seconds": 307.30687467899406
+ }
+}

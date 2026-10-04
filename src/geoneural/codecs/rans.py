@@ -172,12 +172,16 @@ if AVAILABLE:
             start = np.uint64(cdf[b, tok])
             x = f * (x >> np.uint64(PROB_BITS)) + np.uint64(c) - start
             while x < np.uint64(RANS_L):
+                if pos >= stream.shape[0]:
+                    raise ValueError("rANS stream ends early")
                 x = (x << np.uint64(8)) | np.uint64(stream[pos])
                 pos += 1
             if tok == 0:
                 out[i] = 0
             else:
                 e = (tok - 1) >> 1
+                if bp + e > raw.shape[0] * 8:
+                    raise ValueError("raw bit stream ends early")
                 o = np.int64(0)
                 for _ in range(e):
                     o = (o << 1) | np.int64((raw[bp >> 3] >> (7 - (bp & 7))) & 1)
@@ -218,4 +222,7 @@ class Decoder:
         return out
 
     def finished(self) -> bool:
-        return int(self.state[1]) == self.stream.size and int(self.state[0]) == RANS_L
+        """All rANS bytes and all raw bits used (up to the padding of the last byte), state back at its start."""
+        bits = int(self.state[2])
+        return (int(self.state[1]) == self.stream.size and int(self.state[0]) == RANS_L
+                and (bits + 7) // 8 == self.raw.size)

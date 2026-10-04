@@ -34,6 +34,7 @@ from geoneural.codecs import rans
 MAGIC = b"GNC1"
 VERSION = 1
 FLAG_MODEL_EMBEDDED = 1
+MAX_SIDE = 16385
 CODERS = {"cubic-order0": 0, "cubic-ctx": 1, "learned": 2, "foreign": 16}
 CODER_NAMES = {v: k for k, v in CODERS.items()}
 KINDS = {"coarse": 1, "params": 2, "stream": 3, "raw": 4, "model": 5, "context": 6, "mask": 7, "rule": 8,
@@ -88,6 +89,12 @@ def read(blob: bytes) -> Product:
         raise ValueError(f"unknown coder {coder}")
     if node != 1:
         raise ValueError("only node-centred lattices are defined")
+    if flags & ~FLAG_MODEL_EMBEDDED:
+        raise ValueError("unknown flag bits")
+    if coder != CODERS["foreign"] and lattice != ml.LATTICE_M:
+        raise ValueError(f"lattice {lattice} m is not the {ml.LATTICE_M} m lattice this decoder implements")
+    if not (2 <= rows <= MAX_SIDE and 2 <= cols <= MAX_SIDE):
+        raise ValueError("product dimensions outside the supported range")
     if coder != CODERS["foreign"] and table != bytes.fromhex(rans.TABLE_ID):
         raise ValueError("product was written with other rANS tables")
     off = _HEAD.size

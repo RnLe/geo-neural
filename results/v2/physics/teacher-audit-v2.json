@@ -1,0 +1,770 @@
+{
+ "createdUtc": "2026-10-04T11:44:28.746562+00:00",
+ "evidence": "exploratory",
+ "failures": [
+  {
+   "detail": "teacher error at dt 400 below 10 % of a budget of 10 % of the mean change",
+   "gate": "dynamicsBudget",
+   "thresholds": {
+    "maxRatio": 0.1
+   }
+  },
+  {
+   "detail": "teacher error at dt 400 below 10 % of the observation noise",
+   "gate": "inverseBudget",
+   "thresholds": {
+    "maxRatio": 0.1,
+    "noiseM": 0.5
+   }
+  }
+ ],
+ "gates": {
+  "analyticIncision": {
+   "detail": "steady state on the final network",
+   "state": "pass",
+   "thresholds": {
+    "maxRelativeToRelief": 0.001
+   }
+  },
+  "conservation": {
+   "detail": "ledger closes, diffusion volume zero",
+   "state": "pass",
+   "thresholds": {
+    "tolerance": 1e-09
+   }
+  },
+  "dynamicsBudget": {
+   "detail": "teacher error at dt 400 below 10 % of a budget of 10 % of the mean change",
+   "state": "fail",
+   "thresholds": {
+    "maxRatio": 0.1
+   }
+  },
+  "fastscape": {
+   "detail": "differences shrink with dt and stay below 2 % of the change; steady mean elevation within 2 % of relief",
+   "state": "pass",
+   "thresholds": {
+    "maxRelative": 0.02
+   }
+  },
+  "gridExponent": {
+   "detail": "concavity converges and is recovered",
+   "state": "pass",
+   "thresholds": {
+    "maxConcavityError": 0.15
+   }
+  },
+  "inverseBudget": {
+   "detail": "teacher error at dt 400 below 10 % of the observation noise",
+   "state": "fail",
+   "thresholds": {
+    "maxRatio": 0.1,
+    "noiseM": 0.5
+   }
+  },
+  "manufacturedDiffusion": {
+   "detail": "second order in dx",
+   "state": "pass",
+   "thresholds": {
+    "minimumOrder": 1.7
+   }
+  },
+  "nonDivisibleTime": {
+   "detail": "exact realised time; error within 1.5x of the nearest divisible duration",
+   "state": "pass",
+   "thresholds": {
+    "maxErrorRatio": 1.5
+   }
+  },
+  "persistentSteadyState": {
+   "detail": "rate below threshold for the persistence window",
+   "state": "pass",
+   "thresholds": {
+    "persistenceYears": 200000.0,
+    "threshold": 0.001
+   }
+  },
+  "quarterTurn": {
+   "detail": "rot90 commutes with the teacher",
+   "state": "pass",
+   "thresholds": {
+    "tolerance": 1e-09
+   }
+  },
+  "timestepOrder": {
+   "detail": "finest observed order and monotone error",
+   "state": "pass",
+   "thresholds": {
+    "minimumOrder": 0.8
+   }
+  }
+ },
+ "name": "teacher-audit-v2",
+ "notes": "Teacher v2 audit: exact elapsed time and receiver-drop limiter. Thresholds are declared in the audit module; the budget criterion is the research plan's proposed 10 % rule.",
+ "product": null,
+ "recipe": {
+  "parameters": {
+   "area_exponent": 0.5,
+   "diffusivity_m2_per_year": 0.005,
+   "k_incision": 4e-05,
+   "slope_exponent": 1.0,
+   "spacing_m": 100.0,
+   "uplift_m_per_year": 0.0005
+  },
+  "referenceDtYears": 12.5,
+  "solver": "geoneural-landscape-teacher-v2"
+ },
+ "recipeHash": "457a771e56f35b9a485547e624a6594ae5f0225d90fc7bceb249a82a7cc3139a",
+ "results": {
+  "analyticIncision": {
+   "agrees": true,
+   "cellsIncisionLimitedTotal": 0,
+   "dtYears": 400.0,
+   "maxAbsDifferenceM": 8.668621376273222e-13,
+   "maxRelativeToRelief": 1.0277162996909211e-14,
+   "meanAbsDifferenceM": 1.410022592279075e-13,
+   "note": "Exact discrete steady state on the teacher's final D8 network, integrated upstream from the fixed edges. Tolerance 0.1 % of relief.",
+   "parameters": {
+    "area_exponent": 0.5,
+    "diffusivity_m2_per_year": 0.0,
+    "k_incision": 4e-05,
+    "slope_exponent": 1.0,
+    "spacing_m": 100.0,
+    "uplift_m_per_year": 0.0005
+   },
+   "reliefM": 84.34838854730876,
+   "side": 48,
+   "spacingM": 100.0,
+   "years": 3000000.0
+  },
+  "budget": {
+   "dynamics": {
+    "budgetM": 2.017043738908914,
+    "meanAbsChangeM": 20.17043738908914,
+    "passes": false,
+    "ratio": 0.941460729589334
+   },
+   "inverse": {
+    "noiseM": 0.5,
+    "passes": false,
+    "ratio": 3.797934940093569
+   },
+   "largestPassingDtYears": {
+    "dynamics": 50.0,
+    "inverse": null
+   },
+   "note": "Criterion proposed in the research plan (teacher error below 10 % of the prediction error budget). The dynamics budget of 10 % of the change over the interval and the inverse budget of the observation noise are declared here, not derived.",
+   "productionDtYears": 400.0,
+   "receiverChangeFractionAtProductionDt": 0.1572265625,
+   "teacherL1M": 1.8989674700467845
+  },
+  "conservation": {
+   "agrees": true,
+   "note": "Zero-flux edges make the discrete Laplacian sum to zero exactly. Boundary outflow is non-zero only under a base level, which makes the system open.",
+   "rows": [
+    {
+     "baseLevel": "none (closed system)",
+     "boundaryOutflowVolumeM3": 0.0,
+     "closes": true,
+     "closureNote": "observed minus expected, relative to the uplift volume. Diffusion must contribute exactly zero with zero-flux edges; a non-zero diffusion volume is a Laplacian bug, not physics.",
+     "closureResidualM3": 1.5497207641601562e-05,
+     "closureResidualRelative": 7.566995918750762e-15,
+     "diffusionIsZero": true,
+     "diffusionVolumeM3": -5.0962923117681136e-12,
+     "expectedVolumeChangeM3": 1272182914.370243,
+     "incisionVolumeM3": 775817085.6297569,
+     "observedVolumeChangeM3": 1272182914.3702586,
+     "upliftVolumeM3": 2048000000.0
+    },
+    {
+     "baseLevel": "fixed-edges",
+     "boundaryOutflowVolumeM3": 51522977.97479027,
+     "closes": true,
+     "closureNote": "observed minus expected, relative to the uplift volume. Diffusion must contribute exactly zero with zero-flux edges; a non-zero diffusion volume is a Laplacian bug, not physics.",
+     "closureResidualM3": 1.2159347534179688e-05,
+     "closureResidualRelative": 5.9371814131736755e-15,
+     "diffusionIsZero": true,
+     "diffusionVolumeM3": -5.160802341031001e-12,
+     "expectedVolumeChangeM3": 720848759.9679047,
+     "incisionVolumeM3": 1275628262.057305,
+     "observedVolumeChangeM3": 720848759.9679168,
+     "upliftVolumeM3": 2048000000.0
+    }
+   ],
+   "tolerance": 1e-09
+  },
+  "fastscape": {
+   "agrees": true,
+   "available": true,
+   "cases": [
+    {
+     "agrees": true,
+     "case": "spl-transient",
+     "differenceShrinksWithDt": true,
+     "diffusivity": 0.0,
+     "kIncision": 2e-05,
+     "rows": [
+      {
+       "dtYears": 400.0,
+       "maxAbsDifferenceM": 0.10820249934930848,
+       "meanAbsChangeM": 8.189060873543301,
+       "meanAbsDifferenceM": 0.0253170897490135,
+       "receiverAgreement": 0.9982638888888888
+      },
+      {
+       "dtYears": 100.0,
+       "maxAbsDifferenceM": 0.02705229485283711,
+       "meanAbsChangeM": 8.183566564513614,
+       "meanAbsDifferenceM": 0.006328308968101731,
+       "receiverAgreement": 0.9986979166666666
+      },
+      {
+       "dtYears": 25.0,
+       "maxAbsDifferenceM": 0.006763133964072576,
+       "meanAbsChangeM": 8.182189941789067,
+       "meanAbsDifferenceM": 0.0015824202047890399,
+       "receiverAgreement": 0.9995659722222222
+      }
+     ],
+     "uplift": 0.0,
+     "years": 50000.0
+    },
+    {
+     "agrees": true,
+     "case": "spl-diffusion-uplift-transient",
+     "differenceShrinksWithDt": true,
+     "diffusivity": 0.01,
+     "kIncision": 2e-05,
+     "rows": [
+      {
+       "dtYears": 400.0,
+       "maxAbsDifferenceM": 0.03883288696323106,
+       "meanAbsChangeM": 2.3583283124663192,
+       "meanAbsDifferenceM": 0.011549493236487218,
+       "receiverAgreement": 0.9986979166666666
+      },
+      {
+       "dtYears": 100.0,
+       "maxAbsDifferenceM": 0.009709103604739866,
+       "meanAbsChangeM": 2.3552777927401127,
+       "meanAbsDifferenceM": 0.0028914557023707013,
+       "receiverAgreement": 0.9995659722222222
+      },
+      {
+       "dtYears": 25.0,
+       "maxAbsDifferenceM": 0.002427333945989929,
+       "meanAbsChangeM": 2.3545136389427768,
+       "meanAbsDifferenceM": 0.0007228661426968281,
+       "receiverAgreement": 1.0
+      }
+     ],
+     "uplift": 0.0002,
+     "years": 50000.0
+    },
+    {
+     "agrees": true,
+     "case": "spl-uplift-steady",
+     "diffusivity": 0.0,
+     "dtYears": {
+      "fastscapelib": 2000.0,
+      "teacher": 400.0
+     },
+     "kIncision": 4e-05,
+     "maxAbsDifferenceM": 23.992712372997765,
+     "meanAbsDifferenceM": 0.7947520121157317,
+     "meanElevationM": {
+      "fastscapelib": 25.230057415470963,
+      "teacher": 25.20476047014909
+     },
+     "receiverAgreement": 0.9444444444444444,
+     "reliefM": 69.20650866531795,
+     "uplift": 0.0005,
+     "years": 2000000.0
+    }
+   ],
+   "conventions": {
+    "area": "cells times dx^2, self included",
+    "boundary": "all edges fixed value",
+    "m": 0.5,
+    "n": 1.0,
+    "routing": "D8 after priority-flood filling",
+    "slope": "drop to receiver over receiver distance",
+    "uplift": "core nodes"
+   },
+   "note": "Steady states are compared by mean elevation because a steady state depends on the network, and the two codes break D8 ties and fill flats differently; receiverAgreement says how often they chose the same network.",
+   "side": 48,
+   "spacingM": 100.0,
+   "version": "0.3.0"
+  },
+  "gridRefinement": {
+   "adequateSpacingM": 100.0,
+   "agrees": true,
+   "converging": true,
+   "domainM": 6400.0,
+   "note": "The steady-state exponent is the one property the closed form predicts independently of the mesh, so it is what a grid refinement can falsify. `adequateSpacingM` is the coarsest spacing that still recovers it.",
+   "predictedConcavity": 0.5,
+   "rows": [
+    {
+     "agrees": false,
+     "closureResidualRelative": 2.4178468163020027e-14,
+     "concavity": 0.9883533992217701,
+     "concavityError": 0.4883533992217701,
+     "dtYears": 50.0,
+     "medianRatio": null,
+     "predictedConcavity": 0.5,
+     "reliefM": 84.80118123330828,
+     "side": 33,
+     "spacingM": 200.0
+    },
+    {
+     "agrees": true,
+     "closureResidualRelative": 2.8074140379414757e-14,
+     "concavity": 0.6398140519291584,
+     "concavityError": 0.1398140519291584,
+     "dtYears": 50.0,
+     "medianRatio": 1.0199098403590208,
+     "predictedConcavity": 0.5,
+     "reliefM": 109.76371702077402,
+     "side": 65,
+     "spacingM": 100.0
+    },
+    {
+     "agrees": true,
+     "closureResidualRelative": 1.9198419325526933e-14,
+     "concavity": 0.4943298137303964,
+     "concavityError": 0.005670186269603583,
+     "dtYears": 50.0,
+     "medianRatio": 1.0939349111795693,
+     "predictedConcavity": 0.5,
+     "reliefM": 121.29622600113741,
+     "side": 129,
+     "spacingM": 50.0
+    }
+   ]
+  },
+  "manufacturedDiffusion": {
+   "agrees": true,
+   "diffusivity": 0.01,
+   "lengthM": 400.0,
+   "note": "Manufactured solution with a steady source passed as the spatial uplift field and fixed (Dirichlet) edges. dt is the teacher's own limit, so it scales with dx^2 and the expected order is two.",
+   "observedOrders": [
+    2.00312786627175,
+    2.0007868239072417
+   ],
+   "rows": [
+    {
+     "dtYears": 3125.0,
+     "maxErrorM": 0.08039367232006711,
+     "meanErrorM": 0.0275649677858043,
+     "realisedYears": 400000.0,
+     "side": 17,
+     "spacingM": 25.0
+    },
+    {
+     "dtYears": 781.25,
+     "maxErrorM": 0.02005489047135356,
+     "meanErrorM": 0.00737025143041045,
+     "realisedYears": 400000.0,
+     "side": 33,
+     "spacingM": 12.5
+    },
+    {
+     "dtYears": 195.3125,
+     "maxErrorM": 0.005010988955383766,
+     "meanErrorM": 0.0019020534885095795,
+     "realisedYears": 400000.0,
+     "side": 65,
+     "spacingM": 6.25
+    }
+   ],
+   "years": 400000.0
+  },
+  "nonDivisible": {
+   "agrees": true,
+   "divisibleNeighbourL1M": 0.856862148024411,
+   "dtYears": 400.0,
+   "errorRatio": 1.003653453795856,
+   "l1M": 0.859992654291636,
+   "note": "The odd duration ends with a remainder step; its error against the dt 12.5 reference must be comparable to that of the nearest divisible duration.",
+   "partialSteps": 1,
+   "realisedYears": 99900.0,
+   "upliftOnly": {
+    "dtYears": 400.0,
+    "meanM": 1000.0,
+    "partialSteps": 1,
+    "realisedYears": 1000.0,
+    "requestedYears": 1000.0,
+    "steps": 3
+   },
+   "years": 99900.0
+  },
+  "parameters": {
+   "area_exponent": 0.5,
+   "diffusivity_m2_per_year": 0.005,
+   "k_incision": 4e-05,
+   "slope_exponent": 1.0,
+   "spacing_m": 100.0,
+   "uplift_m_per_year": 0.0005
+  },
+  "qualification": "These gates establish that the solver integrates the equation it claims to. They establish nothing about whether that equation describes any real landscape: the omissions listed by `evolve` (sediment transport, lithology, flexure, climate, sea level, human alteration) are unaffected by any amount of numerical convergence.",
+  "rotation": {
+   "agrees": true,
+   "coneIncisionAzimuthalCv": 0.32974919556401544,
+   "coneIncisionMeanM": 4.457939594945415,
+   "coneIncisionOnSpokesOverOffSpokes": 1.5156014984495099,
+   "note": "Gate: the quarter turn. The cone numbers are a recorded property of D8: incision only, 20 kyr, on a circular cone whose exact solution is radially symmetric. On the ring between 30 and 70 % of the cone radius, the azimuthal coefficient of variation of the incised depth and the ratio of incision within 3 degrees of the eight D8 directions to incision elsewhere measure how far the routing is from rotational invariance.",
+   "quarterTurnCommutes": true,
+   "quarterTurnMaxDifferenceM": 1.4210854715202004e-14
+  },
+  "schema": "geoneural-teacher-audit-v2",
+  "seconds": 221.58548481299658,
+  "solver": "geoneural-landscape-teacher-v2",
+  "steadyState": {
+   "finalRate": 3.7483047850260374e-07,
+   "finalReliefM": 97.18325436564227,
+   "firstCrossingYears": 1570800.0,
+   "maxRateInLastWindow": 0.0002194653778485066,
+   "note": "Settled means the rate fell below the threshold and stayed below it for persistenceYears until the end of the run; a first crossing alone is reported but is not the criterion.",
+   "persistenceYears": 200000.0,
+   "reliefTimescaleYears": 194366.50873128453,
+   "settledAtYears": 1689800.0,
+   "thresholdNormalisedRate": 0.001,
+   "trace": [
+    {
+     "normalisedRate": 0.6649140373238186,
+     "reliefM": 69.98135092004898,
+     "step": 0,
+     "years": 200.0
+    },
+    {
+     "normalisedRate": 0.4394773638439748,
+     "reliefM": 88.5906596013508,
+     "step": 250,
+     "years": 50200.0
+    },
+    {
+     "normalisedRate": 0.2507980191499691,
+     "reliefM": 101.77571024902272,
+     "step": 500,
+     "years": 100200.0
+    },
+    {
+     "normalisedRate": 0.1687077045446074,
+     "reliefM": 105.28308853226305,
+     "step": 750,
+     "years": 150200.0
+    },
+    {
+     "normalisedRate": 0.12393148501305305,
+     "reliefM": 107.36514993051051,
+     "step": 1000,
+     "years": 200200.0
+    },
+    {
+     "normalisedRate": 0.10299613844724341,
+     "reliefM": 105.78153303646955,
+     "step": 1250,
+     "years": 250200.0
+    },
+    {
+     "normalisedRate": 0.08720529657105924,
+     "reliefM": 107.69659371038672,
+     "step": 1500,
+     "years": 300200.0
+    },
+    {
+     "normalisedRate": 0.0747526334506832,
+     "reliefM": 100.11185016048293,
+     "step": 1750,
+     "years": 350200.0
+    },
+    {
+     "normalisedRate": 0.0592516915887735,
+     "reliefM": 97.8396730622121,
+     "step": 2000,
+     "years": 400200.0
+    },
+    {
+     "normalisedRate": 0.04921099894110017,
+     "reliefM": 97.45294185182154,
+     "step": 2250,
+     "years": 450200.0
+    },
+    {
+     "normalisedRate": 0.04566518635423709,
+     "reliefM": 100.78733692516978,
+     "step": 2500,
+     "years": 500200.0
+    },
+    {
+     "normalisedRate": 0.0421318123306698,
+     "reliefM": 98.72713033184462,
+     "step": 2750,
+     "years": 550200.0
+    },
+    {
+     "normalisedRate": 0.03575902149567748,
+     "reliefM": 96.79889064563461,
+     "step": 3000,
+     "years": 600200.0
+    },
+    {
+     "normalisedRate": 0.032133537910267636,
+     "reliefM": 97.62730195555844,
+     "step": 3250,
+     "years": 650200.0
+    },
+    {
+     "normalisedRate": 0.027064711731820547,
+     "reliefM": 96.97257743494195,
+     "step": 3500,
+     "years": 700200.0
+    },
+    {
+     "normalisedRate": 0.02514798485644482,
+     "reliefM": 98.18235453377011,
+     "step": 3750,
+     "years": 750200.0
+    },
+    {
+     "normalisedRate": 0.01851184012513182,
+     "reliefM": 98.66409008378494,
+     "step": 4000,
+     "years": 800200.0
+    },
+    {
+     "normalisedRate": 0.017191336906594145,
+     "reliefM": 99.98828349119269,
+     "step": 4250,
+     "years": 850200.0
+    },
+    {
+     "normalisedRate": 0.01736895502372505,
+     "reliefM": 99.91944266052886,
+     "step": 4500,
+     "years": 900200.0
+    },
+    {
+     "normalisedRate": 0.014536684277672253,
+     "reliefM": 95.59803941284409,
+     "step": 4750,
+     "years": 950200.0
+    },
+    {
+     "normalisedRate": 0.014859783167057205,
+     "reliefM": 95.52595737981841,
+     "step": 5000,
+     "years": 1000200.0
+    },
+    {
+     "normalisedRate": 0.015171657236482386,
+     "reliefM": 96.70896414665641,
+     "step": 5250,
+     "years": 1050200.0
+    },
+    {
+     "normalisedRate": 0.016305809696592243,
+     "reliefM": 97.86525092018766,
+     "step": 5500,
+     "years": 1100200.0
+    },
+    {
+     "normalisedRate": 0.012617835755953604,
+     "reliefM": 98.30379107769643,
+     "step": 5750,
+     "years": 1150200.0
+    },
+    {
+     "normalisedRate": 0.012797574776672246,
+     "reliefM": 93.96428649274173,
+     "step": 6000,
+     "years": 1200200.0
+    },
+    {
+     "normalisedRate": 0.013034183395329278,
+     "reliefM": 94.86476528975146,
+     "step": 6250,
+     "years": 1250200.0
+    },
+    {
+     "normalisedRate": 0.00891983160589901,
+     "reliefM": 92.37586033549445,
+     "step": 6500,
+     "years": 1300200.0
+    },
+    {
+     "normalisedRate": 0.005708352776676098,
+     "reliefM": 95.12507655169738,
+     "step": 6750,
+     "years": 1350200.0
+    },
+    {
+     "normalisedRate": 0.006181640605857268,
+     "reliefM": 96.58229159739895,
+     "step": 7000,
+     "years": 1400200.0
+    },
+    {
+     "normalisedRate": 0.0038796793484873154,
+     "reliefM": 97.29031409118399,
+     "step": 7250,
+     "years": 1450200.0
+    },
+    {
+     "normalisedRate": 0.00218837643733612,
+     "reliefM": 97.67086008041747,
+     "step": 7500,
+     "years": 1500200.0
+    },
+    {
+     "normalisedRate": 0.001515662663992201,
+     "reliefM": 97.96353934189051,
+     "step": 7750,
+     "years": 1550200.0
+    },
+    {
+     "normalisedRate": 0.0012846579864111388,
+     "reliefM": 96.72916971553256,
+     "step": 8000,
+     "years": 1600200.0
+    },
+    {
+     "normalisedRate": 0.001075977106630871,
+     "reliefM": 96.38495360773045,
+     "step": 8250,
+     "years": 1650200.0
+    },
+    {
+     "normalisedRate": 0.0008060834039484864,
+     "reliefM": 96.66356320666004,
+     "step": 8500,
+     "years": 1700200.0
+    },
+    {
+     "normalisedRate": 0.0004871766116910541,
+     "reliefM": 97.00283568338439,
+     "step": 8750,
+     "years": 1750200.0
+    },
+    {
+     "normalisedRate": 0.00021816896115555657,
+     "reliefM": 97.13568950591407,
+     "step": 9000,
+     "years": 1800200.0
+    },
+    {
+     "normalisedRate": 4.540546315900646e-05,
+     "reliefM": 97.17194701721152,
+     "step": 9250,
+     "years": 1850200.0
+    },
+    {
+     "normalisedRate": 8.923245120814265e-06,
+     "reliefM": 97.18074792802418,
+     "step": 9500,
+     "years": 1900200.0
+    },
+    {
+     "normalisedRate": 1.7887272925180424e-06,
+     "reliefM": 97.18279126672772,
+     "step": 9750,
+     "years": 1950200.0
+    }
+   ],
+   "upliftPerStepM": 0.1
+  },
+  "timestepRefinement": {
+   "agrees": true,
+   "finestObservedOrder": 2.233739568491675,
+   "meanAbsChangeM": 20.17043738908914,
+   "monotone": true,
+   "note": "Explicit Euler on this splitting is first order. receiverChangeFraction is the share of cells whose D8 receiver on the final surface differs from the reference run's; receiver switching is discontinuous and is what can pull the observed order below one.",
+   "observedOrders": [
+    0.23634204012465038,
+    1.9406601138444444,
+    0.24122183578864467,
+    2.233739568491675
+   ],
+   "referenceDtYears": 12.5,
+   "rows": [
+    {
+     "cellsIncisionLimitedTotal": 7368,
+     "closureResidualRelative": 1.8335413187742233e-15,
+     "dtYears": 800.0,
+     "l1M": 2.236987557598563,
+     "l1RelativeToChange": 0.11090426620141731,
+     "lInfM": 38.94423341977643,
+     "realisedYears": 200000.0,
+     "receiverChangeFraction": 0.179443359375
+    },
+    {
+     "cellsIncisionLimitedTotal": 0,
+     "closureResidualRelative": 2.6193447411060335e-15,
+     "dtYears": 400.0,
+     "l1M": 1.8989674700467845,
+     "l1RelativeToChange": 0.0941460729589334,
+     "lInfM": 24.668028549935617,
+     "realisedYears": 200000.0,
+     "receiverChangeFraction": 0.1572265625
+    },
+    {
+     "cellsIncisionLimitedTotal": 0,
+     "closureResidualRelative": 7.421476766467095e-15,
+     "dtYears": 200.0,
+     "l1M": 0.49467574844721574,
+     "l1RelativeToChange": 0.024524790360510588,
+     "lInfM": 23.75272812713755,
+     "realisedYears": 200000.0,
+     "receiverChangeFraction": 0.0400390625
+    },
+    {
+     "cellsIncisionLimitedTotal": 0,
+     "closureResidualRelative": 9.10949893295765e-15,
+     "dtYears": 100.0,
+     "l1M": 0.4185097800363392,
+     "l1RelativeToChange": 0.020748671531670655,
+     "lInfM": 19.306620855953433,
+     "realisedYears": 200000.0,
+     "receiverChangeFraction": 0.034912109375
+    },
+    {
+     "cellsIncisionLimitedTotal": 0,
+     "closureResidualRelative": 2.741580829024315e-14,
+     "dtYears": 50.0,
+     "l1M": 0.08897807356255354,
+     "l1RelativeToChange": 0.004411311061141626,
+     "lInfM": 10.249010413010861,
+     "realisedYears": 200000.0,
+     "receiverChangeFraction": 0.006103515625
+    }
+   ],
+   "years": 200000.0
+  },
+  "verdict": {
+   "agreesWithFastscape": true,
+   "analyticIncision": true,
+   "booksClose": true,
+   "coarsestAdequateSpacingM": 100.0,
+   "dynamicsBudget": false,
+   "exponentSurvivesTheMesh": true,
+   "fitToTeach": true,
+   "inverseBudget": false,
+   "manufacturedDiffusion": true,
+   "nonDivisibleExact": true,
+   "quarterTurnCommutes": true,
+   "reachesPersistentSteadyState": true,
+   "timestepConverges": true
+  }
+ },
+ "schema": "geoneural-experiment-v2",
+ "seeds": [],
+ "sourceRevision": "61664f044f0e609c696f11880175a3fad1f18446",
+ "split": {},
+ "splitHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+ "task": "audit",
+ "timing": {
+  "note": "shared host",
+  "qualified": false,
+  "seconds": 221.58548481299658
+ }
+}

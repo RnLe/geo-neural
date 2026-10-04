@@ -971,7 +971,8 @@ def parser() -> argparse.ArgumentParser:
     return p
 
 
-V2_COMMANDS = ("geoneural.codecs.commands", "geoneural.physics.commands", "geoneural.recon.commands")
+V2_COMMANDS = ("geoneural.codecs.commands", "geoneural.codecs.fixtures", "geoneural.physics.commands",
+               "geoneural.recon.commands")
 
 
 def main(argv: list[str] | None = None) -> int:

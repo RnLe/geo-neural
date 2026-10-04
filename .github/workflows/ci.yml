@@ -30,6 +30,9 @@ jobs:
       - name: Parity and property tests
         working-directory: native
         run: cargo test --release
+      - name: Product decoder parity
+        working-directory: native/gnc
+        run: cargo test --release
       - name: WebAssembly build
         run: |
           curl -sSf https://rustwasm.github.io/wasm-pack/installer/init.sh | sh
@@ -46,14 +49,12 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
-      - name: Build the kernel
-        run: |
-          curl -sSf https://rustwasm.github.io/wasm-pack/installer/init.sh | sh
-          RUSTFLAGS="--remap-path-prefix=$HOME=~" wasm-pack build native/landscape-wasm --target web --release
       - name: Typecheck, test, build
         working-directory: web
         run: |
+          curl -sSf https://rustwasm.github.io/wasm-pack/installer/init.sh | sh
           npm ci
+          npm run wasm
           npm run typecheck
           npm test
           npm run build

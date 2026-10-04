@@ -1,146 +1,138 @@
 # Methods
 
-## The question
+The question, hypotheses and decision rules are in [scientific-question.md](scientific-question.md) and
+[protocol-v2.md](protocol-v2.md). This file describes how the products, models and measurements are built. The
+v1 methods are kept in [methods-v1.md](methods-v1.md).
 
-How small and fast can a terrain representation get before it stops being useful? "Useful" is
-measured three ways: height error against the reference, the drainage network a routing algorithm
-derives from the surface, and the cost of reading the representation back.
+## Products and bytes
 
-Two experiments that look alike are kept apart:
+Every compared product is one `.gnc` file ([`codecs/package.py`](../src/geoneural/codecs/package.py)): a fixed
+header (shape, lattice, bound, georeference, coder, model hash, table id), a component directory with lengths and
+CRC32 checksums, and the components. A decoder needs this file and nothing else, except a shared model for corpus
+products, which the header names by its SHA-256. The reader refuses unknown versions, flags, lattices, coders,
+component kinds, damaged components, trailing bytes and streams that end early or leave bits unused.
 
-* **Codec fit.** The encoder sees every node of the field it compresses. Training a network on all
-  nodes is the encoding step, and the result is judged like any other codec: bytes against
-  reconstruction error on the same field.
-* **Held-out prediction.** Pages withheld from training are scored. Normalisation statistics then
-  come from the training pages only, because a withheld page must not reach the model even
-  through a mean. A held-out score says something about generalisation; a codec fit does not.
+Conventional codecs are wrapped in the same container (their raw stream as one component), so container overhead
+is charged alike. The byte count of a product is the file length. Bytes per node use the 1025^2 unique nodes.
 
-## Counting bytes
+* **Standalone**: one field per file; a learned model is embedded (3,674 bytes for the development models, 3,678
+  for the frozen ones, whose file format also records the size of an optional class embedding).
+* **Corpus**: the same file without the model, which is stored once for all fields; the difference per field is
+  the model plus its 9-byte directory entry.
+* **Paged**: 257 x 257 pages with shared edges, coded alone, plus an 8-byte directory entry per page; duplicated
+  edge nodes are charged.
 
-A representation is charged for everything its decoder needs. Two package conventions exist and
-never share an axis.
+## The multilevel coder
 
-* `finest-per-page`: the finest lattice in independently compressed 65 x 65 pages. This is the
-  product that matches a neural field, which answers any coordinate without reading neighbours.
-  A coarse grid is charged the same way, at its own resolution. A hybrid network is charged its
-  weights plus its conventional base at this convention. Quantised weights are entropy coded and
-  their scales and tables are counted.
-* `pyramid`: all five pyramid levels plus the JSON page index, as the atlas ships. The index alone
-  is 220,815 bytes, about a third of the package at the 1 m target.
+[`codecs/multilevel.py`](../src/geoneural/codecs/multilevel.py) codes a (2^k+1)^2 field under a maximum error e.
 
-Bytes are decimal. Bits per sample divide by the 1,050,625 finest nodes unless stated.
+* **Lattice.** Heights are rounded to a 1 mm integer lattice. The bound becomes E = floor((e - 0.5 mm) / 1 mm)
+  lattice units and the quantisation step q = 2E + 1, so every reconstructed node is within E mm of its lattice
+  value and within e of the original height. E = 0 is lossless on the lattice.
+* **Traversal.** As in SZ3's interpolation mode: the stride-64 sub-lattice is stored directly (zigzag deltas,
+  zstd); then, for strides 64 down to 2, the new rows are predicted along columns from four known rows, and the
+  remaining nodes along rows from four known columns. Predictions use only reconstructed values.
+* **Residuals.** The integer error k = floor((Z - P + E) / q) is coded with rANS
+  ([`codecs/rans.py`](../src/geoneural/codecs/rans.py)): a token (zero, or the sign and bit length of |k|) under one
+  of 72 fixed tables, and the remaining bits raw. The tables are discretised Laplace distributions on a geometric
+  scale grid, quantised to 15-bit integers and part of the format. Coding is within a few bytes of the tables'
+  ideal length.
+* **Exactness.** The decoder path uses only float32 add, multiply, divide and square root in a fixed order,
+  integer arithmetic and rounding half to even. A log2 approximation reads the float32 bits. A separate Rust crate
+  ([`native/gnc`](../native/gnc)) decodes the same files bit for bit, natively and as WebAssembly, on 28 parity
+  fixtures and on a full 1025^2 field.
 
-## Errors
+## Predictors
 
-Mean, RMS, 99th percentile and maximum absolute error are taken over all 1,050,625 reference
-nodes. A maximum is either a guarantee (a quantiser at step 2t meets max error t by construction)
-or an observation (a coarse grid or a network has no bound on what it discards). The candidate
-table records which one each row has.
+* **cubic-order0**: the cubic stencil (-1, 9, 9, -1) / 16 (quadratic or linear near the edges) and one rANS table
+  per pass, chosen by the encoder.
+* **cubic-ctx**: the same stencil; the table index per node is A + C log2(spread / q), where the spread is the
+  standard deviation of the 4 x 3 stencil of reconstructed neighbours. A and C are fitted per pass by the encoder
+  (grid search on the ideal code length) and stored. This is a conventional method and part of the conventional
+  frontier.
+* **learned**: an MLP (21 inputs, two hidden layers of 32 with hard-swish, 2 outputs) corrects the cubic prediction
+  in units of the local spread and returns log2 of the symbol scale, which selects the table. Inputs: the 4 x 3
+  stencil relative to the cubic prediction and divided by the spread, log2(spread / q), the level (one-hot), the
+  pass and log2 of the bound in metres, so one model serves every bound. Weights are float16 in the model file
+  ([`codecs/predictor.py`](../src/geoneural/codecs/predictor.py)).
 
-## Comparing candidates
+**Training.** Closed loop: training samples are taken from real encodings of the training fields at all nine
+bounds (40,000 per pass and field). Round 1 encodes with the cubic predictor, round 2 with the round-1 model, so the
+features describe reconstructions a decoder really sees. Loss: code length under a discretised Laplace with
+additive uniform noise standing in for rounding. 5,000 Adam steps per round, batch 65,536, cosine schedule. Models
+for development results are trained leave one region out (the model for a region never sees it); the frozen
+confirmation models are trained on all six development regions, seeds 0, 1 and 2.
 
-For one dataset and package convention, each candidate has measurements
-(bytes, mean error, maximum error). A row dominates another only if it is no worse on every axis
-and strictly better on at least one. One comparator row has to satisfy all inequalities: two
-different conventional rows that each win one axis do not jointly dominate a candidate.
+## Conventional arms
 
-Dominance is yes or no, so the table also gives each learned row its best conventional comparator
-(lowest mean error at no more bytes) and the margins between them. The conventional side is swept
-densely: grids from the 10 m lattice down to 640 m (the five pyramid levels and two coarser
-decimations), each at 19 error targets from 0.01 m to 16 m, plus the trivial control of a stored
-field mean. A neural row that looks
-undominated against a sparse sweep can simply sit between two unmeasured conventional points.
+SZ3 3.3.2, SPERR 0.8.5 and raw LERC through imagecodecs 2026.8.16, zfp through zfpy (fixed accuracy), q32 from
+this package, each at its absolute-error setting. `sz3-best` runs the SZ3 3.3.2 command-line tool over 14
+configurations (interpolation with Lorenzo, cubic, linear, other direction, Lorenzo with regression, first and
+second order, and eight level-wise bound settings) and keeps the smallest stream that holds the bound
+([`codecs/sz3tuned.py`](../src/geoneural/codecs/sz3tuned.py)). The best conventional product for a region and bound
+is the smallest conventional product with no bound violation beyond one float32 ulp.
 
-## Drainage diagnostic
+## Geology (H2)
 
-Both surfaces go through the same routing, with the same parameters:
+GK100 units are rasterised by their INSPIRE material label onto a 40 m lattice with one class dictionary for all
+regions (11 classes plus "no mapped unit"). A 4-dimensional class embedding (nearest coarse node) is appended to the
+predictor's inputs. Every arm starts from the H1 model of the same fold and seed and gets one identical extra
+closed-loop round (3,000 steps): no context, constant class, the real map, the map rolled by 2.56 km, 1 km blocks
+shuffled, and the map of another region. The class raster of the real and control maps is stored in the product
+(zstd) and charged; "map already at the decoder" is reported separately.
 
-1. priority-flood depression filling with a 1e-6 m gradient across flats,
-2. D8 steepest descent by ground slope,
-3. contributing-area accumulation,
-4. stream cells where the contributing area reaches 500 cells (0.05 km2 at 10 m),
-5. basin membership by pointer jumping.
+## Bound allocation (H3)
 
-The headline number is the Jaccard index of the two stream masks,
-J = |S ∩ S'| / |S ∪ S'|, with J = 0 when both are empty. Exact-cell Jaccard punishes a one-cell
-shift hard, so receiver agreement, recall and basin counts are reported next to it. This is a
-self-consistency check between two surfaces. It says nothing about real discharge, culverts or
-sewers.
+The bound may be tightened for the levels finer than stride 8, by a rule the decoder repeats on already decoded
+values: near the drainage network routed on the decoded coarse lattice (factor 0.25 or 0.5 of E), or on gentle
+slopes of the decoded coarse lattice (E scaled by (slope / 2%)^gamma, floored at 0.25 or 0.5). Allocated and uniform
+bounds are compared at equal bytes by interpolating the uniform curve in log bytes.
 
-## Sparse corrections
+## Process prior (H4)
 
-The encoder knows the reference stream network. It stores the coarse quantised field plus exact
-corrections (to the 1 cm quantum) on a band of cells around the reference streams. Positions are
-stored as varint gaps between sorted indexes and values as zigzag varints, then compressed with
-zstd or gzip, whichever is smaller. All of it is charged.
-The decoder needs nothing it does not receive. Off the band the error bound is the coarse target;
-on it, the fine quantum.
+Two matched sets of 48 synthetic 513 x 513 fields at 10 m ([`physics/synthetic.py`](../src/geoneural/physics/synthetic.py)):
+landscapes evolved by the stream-power and diffusion teacher from noise, and procedural fields (power-law spectrum
+plus ridged noise) matched to them in height standard deviation and median slope, with no routing or erosion.
+Arms per fold: the H1 model (real only); the H1 model trained two more rounds on real data (same optimiser steps as
+the pretrained arms, more real exposure); pretraining on process or procedural fields followed by the two real
+rounds of H1; and the pretrained models without real data.
 
-## Neural families
+## Measurements and statistics
 
-All networks map a lattice coordinate (and for some families a tile index) to a height. Families:
+Height: maximum, RMSE, MAE, p99, bias, bound violations. Drainage
+([`metrics/drainage.py`](../src/geoneural/metrics/drainage.py)): priority-flood filling, D8 by slope per metre,
+accumulation; streams at a fixed contributing area of 0.05 km2 (0.025, 0.1 and 0.2 km2 as secondary thresholds);
+exact Jaccard, recall and precision, a tolerant F1 that counts a stream cell as found when the other surface has
+one within one cell, receiver agreement on interior cells, outlet agreement, and the changes of the deepest fill
+(m) and the filled volume (m3). Every edge cell is an outlet. The reference noise floor (1 cm white noise on the
+reference itself) is reported next to drainage results. Regions are the statistical unit: paired log ratios of bytes
+per region, their geometric mean, a bootstrap over regions and the leave-one-region-out range.
 
-| Family | Idea |
-|---|---|
-| mlp | Plain MLP on raw coordinates; the control |
-| siren | Sine activations (Sitzmann et al. 2020) |
-| fourier | Random Fourier features before an MLP |
-| bandlimited | Multiplicative filter network with bounded frequencies per layer (BACON-like) |
-| grid | Multiresolution feature grid (dense or hashed) plus a small decoder |
-| codegrid | Per-tile latent codes on a grid, shared decoder |
-| shared | One decoder shared by all tiles, a latent code per tile |
-| residual / hybrid | A stored conventional coarse grid plus a network for the residual |
-| liif | Local implicit image function: a latent grid decoded by a small network at each query |
+## Physics (H5, H6)
 
-Architectures and recipes were chosen by a per-family Optuna search under a byte ceiling, then the
-finalists were retrained across seeds, serialised and evaluated from the stored weights. The
-quantised ladder stores each finalist at float16 and at 8, 6 and 4 bit, both after training (PTQ)
-and with quantisation-aware fine-tuning (QAT), and measures error after quantisation.
+* **Teacher.** Stream power with m = 0.5 and n = 1 on priority-flood filled D8 areas, five-point hillslope
+  diffusion and uniform uplift, explicit Euler ([`physics/landscape.py`](../src/geoneural/physics/landscape.py)).
+  It takes whole steps plus one remainder step and records the realised time; incision is limited by the actual
+  drop to the receiver. Nondimensional groups are defined once in
+  [`physics/units.py`](../src/geoneural/physics/units.py). The audit adds a non-divisible step, an analytic steady
+  state, a manufactured diffusion solution, grid and step refinement, a rotated surface and a cross-check against
+  fastscapelib 0.3.0.
+* **Closures** ([`physics/hybrid.py`](../src/geoneural/physics/hybrid.py)): one flux per cell face. The accepted
+  arm is a bounded symmetric conductance a = D_lin + (a_max - D_lin) sigmoid(NN(face features)), F_ij = a_ij
+  (z_i - z_j), so a flat surface stays still, a constant offset changes nothing and the explicit step follows from
+  a_max. Arms are selected by rollout error at 8, 32 and 64 steps in physical time over five seeds, not by
+  one-step error.
+* **Identifiability** ([`physics/inverse.py`](../src/geoneural/physics/inverse.py),
+  [`physics/diagnostics.py`](../src/geoneural/physics/diagnostics.py)): observations at absolute epochs, noise from a
+  declared exponential covariance, a Cholesky likelihood with an optional per-epoch datum, the scale c profiled
+  along (cU, cK, cD, t/c) with timesteps rescaled consistently, and rank-normalised split R-hat with bulk and tail
+  ESS for samplers.
 
-## Landscape physics
+## Reconstruction
 
-The teacher is an idealised landscape-evolution model on a node grid,
-
-  dh/dt = U + div(D grad h) - K A^m |grad h|^n,
-
-with uplift U (m/yr), hillslope diffusivity D (m2/yr), contributing area A and stream-power
-parameters K, m, n. The audit checks timestep and grid refinement, the closed-domain balance and
-the slope-area law S = (U/K)^(1/n) A^(-m/n). Uplifting a closed domain including its outlet
-produces a rising flat surface, so boundary conditions are part of the model.
-
-### Learned conservative fluxes
-
-For the hillslope term, write the update in flux form over cell faces:
-
-  h_i(t+dt) = h_i(t) + dt s_i - (dt / a_i) sum_j F_ij,   with F_ij = -F_ji.
-
-Summed over the domain with cell areas, every interior face cancels:
-
-  sum_i a_i (h_i(t+dt) - h_i(t)) = dt sum_i a_i s_i - dt (flux through the boundary).
-
-A network that predicts one flux per face and applies it with opposite signs to the two cells
-conserves the integral for any weights. This guarantees the balance, not accuracy, stability or
-realistic sediment transport.
-
-The target is nonlinear critical-slope diffusion (Roering type, critical slope 0.6), which linear
-diffusion cannot represent at any D. Arms, all with the same data and training budget and about the
-same capacity (28,641 and 28,353 parameters):
-
-* `flux`: one learned flux per face, conservative by construction,
-* `kfield`: a learned per-cell diffusivity inside the five-point Laplacian, not conservative,
-* `penalty-w`: the same K-field with a conservation penalty of weight w in the loss,
-* linear diffusion with the teacher's own coefficient as a reference.
-
-Every arm is trained on five seeds and the penalty weight is swept from 1e-4 to 10, so the
-comparison is against a tuned soft constraint, not one arbitrary weight. Each trained arm predicts
-the rate of height change on 24 unseen surfaces. The error is the mean absolute difference from the
-teacher's rate (m/yr), and the conservation residual is the domain total of the predicted rate over
-the total of its absolute value. A 64-step rollout of 200 years per step then records the drift of
-the integrated height and whether the surface stays finite.
-
-### Browser kernel
-
-The lab in the browser runs the same operators in Rust compiled to WebAssembly: linear and
-nonlinear diffusion in flux form, the three learned arms with exported weights, and closed,
-fixed or periodic boundaries. Parity tests compare it against fixtures exported from the Python
-implementation.
+The prototype coarsens 10 m terrain to 40 m with the node-centred trapezoidal operator, then compares bicubic
+interpolation, bicubic with back-projection run to 1e-4 m, the best linear kernel fitted on training regions and a
+U-Net on local, scale-normalised features computed on the whole field before tiling, trained on four regions and
+tested on two others. Missing blocks are filled by harmonic and biharmonic solves or a U-Net from the surrounding
+10 m data only. The operator label and fingerprint in [`superres`](../src/geoneural/superres) now describe and hash
+the actual weights and code.

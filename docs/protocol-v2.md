@@ -1,8 +1,12 @@
 # Protocol v2
 
-This file fixes how results are produced and judged. It is committed before the confirmation regions are
-downloaded; the commit hash is the freeze record. Changes after that commit are listed at the end with their date
-and reason, and any result they affect is labelled.
+This file fixes how results are produced and judged. It was fixed before the confirmation regions were
+downloaded. The record of the order is written into the files themselves: the cohort draw
+(`results/v2/cohort.json`, `createdUtc`), the recipe freeze with the model hashes
+(`results/v2/frozen/h1-recipe.json`, `frozenUtc`) and the confirmation report (`createdUtc`). Commit dates in this
+repository are not the record, and the `sourceRevision` of a report names the working revision at run time, which
+need not be on `main`. Changes after the freeze are listed at the end with their date and reason, and any result
+they affect is labelled.
 
 ## Data
 
@@ -98,13 +102,22 @@ a threshold but with an interval excluding zero are reported as small effects.
 
 ## Confirmation
 
-After this file is committed: select and download the cohort and prepare it without looking at codec or model
-outputs. Development work continues on the six development regions only. Before the confirmation run, a second
-commit freezes the recipes: for each arm the training recipe, the seeds (0, 1, 2), and the hashes of the model
+After this file is fixed: select and download the cohort and prepare it without looking at codec or model
+outputs. Development work continues on the six development regions only. Before the confirmation run, a recipe
+file freezes the recipes: for each arm the training recipe, the seeds (0, 1, 2), and the hashes of the model
 files, which are trained on all six development regions. Then every frozen arm runs once on the cohort; for
 learned arms the result is the mean over the three seeds. The results are reported whatever they show. A redesign
 after seeing them needs a new cohort.
 
 ## Changes after the freeze
 
-None yet.
+* 2026-10-04: the GK100 download for teutoburg-forest failed because the provider announced features on its second
+  page that the page did not contain. Fetched again in one page of 1000 features; all six development regions
+  now have geology.
+* 2026-10-04: a stronger conventional arm, `sz3-best` (the smallest of 14 SZ3 3.3.2 configurations per field and
+  bound, `codecs/sz3tuned.py`), joins the conventional set. It can only make a neural gain harder to show.
+* 2026-10-04: the decoder now refuses unknown flag bits, a lattice other than 1 mm, oversized products, and
+  streams that end early or leave raw bits unused. No result changes; the Rust decoder applies the same checks.
+* 2026-10-04: confirmation cohort selected by the committed rule: nrw-368-5747, nrw-390-5780, nrw-324-5648,
+  nrw-313-5659, nrw-401-5791, nrw-445-5703, nrw-412-5769 (`results/v2/cohort.json`, with the exposure log of all
+  30 probed candidates). H1 recipe and model hashes frozen in `results/v2/frozen/h1-recipe.json`.

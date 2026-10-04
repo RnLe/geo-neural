@@ -407,3 +407,43 @@ def h4(out: Path, regions=REGIONS, bounds=BOUNDS, seeds=(0,), steps: int = 5000,
                                  **score(z, recon, b, routed)})
                 log(f"h4 {held} seed {seed} {arm} done")
     return rows
+
+
+# ---- Confirmation -----------------------------------------------------------------------------------------
+
+def final_model(seed: int, out: Path, regions=REGIONS, bounds=BOUNDS, widths=(32, 32), steps=5000,
+                rounds=2) -> Predictor:
+    """The frozen learned predictor: the H1 recipe trained on all six development regions."""
+    path = out / "models" / f"final-s{seed}.gnm"
+    if path.exists():
+        return Predictor.from_bytes(path.read_bytes())
+    model = fit([load(r)[0] for r in regions], bounds, rounds=rounds, widths=widths, steps=steps, seed=seed)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(model.to_bytes())
+    return model
+
+
+def confirm_h1(out: Path, cohort, bounds=BOUNDS, seeds=(0, 1, 2), log=print) -> list[dict]:
+    """The frozen H1 arms, run once on the confirmation regions. Model files must already exist (frozen)."""
+    from geoneural.codecs import sz3tuned
+    models = {}
+    for seed in seeds:
+        path = out / "models" / f"final-s{seed}.gnm"
+        if not path.exists():
+            raise FileNotFoundError(f"frozen model {path.name} is missing; freeze the recipe first")
+        models[seed] = Predictor.from_bytes(path.read_bytes())
+    rows = []
+    for region in cohort:
+        z, atlas = load(region)
+        spatial = package.spatial_from_atlas(atlas)
+        routed = drainage.route(z, SPACING_M)
+        floor = drainage.noise_floor(z, SPACING_M)
+        rows += [dict(r, noiseFloor=floor) for r in conventional_rows(region, z, spatial, routed, bounds)]
+        if sz3tuned.binary():
+            rows += sz3_best_rows((region,), bounds, log=lambda *_: None)
+        for coder in ("cubic-order0", "cubic-ctx"):
+            rows += multilevel_rows(region, z, spatial, routed, bounds, coder)
+        for seed, model in models.items():
+            rows += multilevel_rows(region, z, spatial, routed, bounds, "learned", model, seed)
+        log(f"confirm h1 {region} done")
+    return rows

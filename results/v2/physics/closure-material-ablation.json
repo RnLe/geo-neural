@@ -1,0 +1,229 @@
+{
+ "createdUtc": "2026-10-04T12:41:12.686035+00:00",
+ "evidence": "exploratory",
+ "failures": [],
+ "gates": {
+  "recoversRatio": {
+   "detail": "learned class-1 over class-0 conductance at |g| = 0.02",
+   "state": "pass",
+   "thresholds": {
+    "tolerance": 0.05
+   }
+  }
+ },
+ "name": "closure-material-ablation",
+ "notes": "Material-aware conductance trained on oracle face conductances instead of tendencies.",
+ "product": null,
+ "recipe": {},
+ "recipeHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+ "results": {
+  "loss": "mean |log a - log a_true| over faces (oracle face conductances)",
+  "ratio": 0.2,
+  "runs": [
+   {
+    "finalLoss": 0.18238994479179382,
+    "learnedRatio": [
+     {
+      "class0": 0.06058435064844794,
+      "class1": 0.010186711479651951,
+      "gradient": 0.02,
+      "ratio": 0.16814096991419872
+     },
+     {
+      "class0": 0.056241531797839465,
+      "class1": 0.010357109255491166,
+      "gradient": 0.1,
+      "ratio": 0.18415411039514107
+     },
+     {
+      "class0": 0.06686780125174244,
+      "class1": 0.013023258606193192,
+      "gradient": 0.3,
+      "ratio": 0.19476128065230547
+     }
+    ],
+    "rollout": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.6021517265686978,
+      "64": 0.5547633333425142,
+      "8": 0.746358026354912
+     },
+     "substeps": 64
+    },
+    "seconds": 152.88459060699097,
+    "seed": 1729
+   },
+   {
+    "finalLoss": 0.183487206697464,
+    "learnedRatio": [
+     {
+      "class0": 0.05770437296589811,
+      "class1": 0.010269148066281777,
+      "gradient": 0.02,
+      "ratio": 0.17796134917453477
+     },
+     {
+      "class0": 0.055126175146540266,
+      "class1": 0.010451864944074442,
+      "gradient": 0.1,
+      "ratio": 0.1895989503405698
+     },
+     {
+      "class0": 0.06756247845255609,
+      "class1": 0.012925957985844505,
+      "gradient": 0.3,
+      "ratio": 0.1913185880965188
+     }
+    ],
+    "rollout": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.5669491173509785,
+      "64": 0.48547922502235963,
+      "8": 0.7510346911441987
+     },
+     "substeps": 64
+    },
+    "seconds": 48.632877265976276,
+    "seed": 2
+   },
+   {
+    "finalLoss": 0.19668936729431152,
+    "learnedRatio": [
+     {
+      "class0": 0.05853303862988374,
+      "class1": 0.01029544824021725,
+      "gradient": 0.02,
+      "ratio": 0.17589123136622814
+     },
+     {
+      "class0": 0.05558550764721327,
+      "class1": 0.010482307224839914,
+      "gradient": 0.1,
+      "ratio": 0.1885798595448365
+     },
+     {
+      "class0": 0.07269903453803561,
+      "class1": 0.01292550254665666,
+      "gradient": 0.3,
+      "ratio": 0.17779469326919506
+     }
+    ],
+    "rollout": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.525408378707612,
+      "64": 0.4767339103691131,
+      "8": 0.7060626829430138
+     },
+     "substeps": 64
+    },
+    "seconds": 15.588667452015216,
+    "seed": 3
+   },
+   {
+    "finalLoss": 0.22019176185131073,
+    "learnedRatio": [
+     {
+      "class0": 0.05906514784055766,
+      "class1": 0.010360370589662712,
+      "gradient": 0.02,
+      "ratio": 0.17540581829456903
+     },
+     {
+      "class0": 0.05631860596646395,
+      "class1": 0.010575046084245733,
+      "gradient": 0.1,
+      "ratio": 0.1877718012150879
+     },
+     {
+      "class0": 0.06839900358019162,
+      "class1": 0.012956535170988104,
+      "gradient": 0.3,
+      "ratio": 0.18942578828356385
+     }
+    ],
+    "rollout": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.6012831539145663,
+      "64": 0.5435261936290762,
+      "8": 0.7213318734453605
+     },
+     "substeps": 64
+    },
+    "seconds": 16.764975864003645,
+    "seed": 4
+   },
+   {
+    "finalLoss": 0.21438035368919373,
+    "learnedRatio": [
+     {
+      "class0": 0.05589934563393951,
+      "class1": 0.010256057889750201,
+      "gradient": 0.02,
+      "ratio": 0.18347366634508858
+     },
+     {
+      "class0": 0.0531307543791537,
+      "class1": 0.01042997448155136,
+      "gradient": 0.1,
+      "ratio": 0.19630766781741102
+     },
+     {
+      "class0": 0.06647894287063885,
+      "class1": 0.012517447231156772,
+      "gradient": 0.3,
+      "ratio": 0.18829191155332342
+     }
+    ],
+    "rollout": {
+     "intervalsCompleted": 64,
+     "maxEnergyIncreaseRelative": 0.0,
+     "rmseM": {
+      "32": 0.5595807956439385,
+      "64": 0.45906585270409184,
+      "8": 0.7932956293477091
+     },
+     "substeps": 64
+    },
+    "seconds": 20.726027875003638,
+    "seed": 5
+   }
+  ],
+  "summary": {
+   "learnedRatioAtGradient0.02": {
+    "max": 0.18347366634508858,
+    "median": 0.17589123136622814,
+    "min": 0.16814096991419872
+   },
+   "meanRmseM": {
+    "max": 0.6344243620887079,
+    "median": 0.6039807592319132,
+    "min": 0.569401657339913
+   },
+   "trueRatio": 0.2
+  }
+ },
+ "schema": "geoneural-experiment-v2",
+ "seeds": [
+  1729,
+  2,
+  3,
+  4,
+  5
+ ],
+ "sourceRevision": "2b51315e1652c87da3ff193057b111c6859f706c",
+ "split": {},
+ "splitHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+ "task": "dynamics",
+ "timing": {
+  "note": "not measured",
+  "qualified": false
+ }
+}

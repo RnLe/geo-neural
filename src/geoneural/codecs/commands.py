@@ -165,6 +165,39 @@ def cmd_codec_h4(a):
     print(protocol.write(rec, out / "h4.json"))
 
 
+def cmd_codec_final_models(a):
+    from geoneural.codecs import campaign
+    out = a.out or HOME / "results" / "v2" / "codec"
+    for seed in a.seeds:
+        m = campaign.final_model(seed, out)
+        print(f"final-s{seed}.gnm sha256 {m.sha256()}")
+
+
+def cmd_codec_confirm_h1(a):
+    import json
+    from geoneural.codecs import campaign, foreign, sz3tuned
+    from geoneural.common import COHORT_CONFIG
+    from geoneural.evaluation import protocol
+    out = a.out or HOME / "results" / "v2" / "codec"
+    cohort = list(json.loads(COHORT_CONFIG.read_text()))
+    rows = campaign.confirm_h1(out, cohort, seeds=tuple(a.seeds))
+    from geoneural.export.v2 import h1_verdict
+    for r in rows:
+        if r.get("drainage"):
+            r["f1"] = r["drainage"].get("tolerantF1")
+    models = {s: campaign.Predictor.from_bytes((out / "models" / f"final-s{s}.gnm").read_bytes()).sha256()
+              for s in a.seeds}
+    rec = protocol.record(
+        "compression", "h1-confirmation", "confirmed",
+        results={"rows": rows, "verdict": h1_verdict(rows)},
+        recipe={"models": models, "codecVersions": foreign.versions(), "sz3": sz3tuned.version()},
+        split={"scheme": "frozen models trained on the six development regions", "cohort": cohort},
+        seeds=list(a.seeds),
+        gates={"h1": protocol.gate("pass" if h1_verdict(rows)["supported"] else "fail", "protocol-v2 H1 rule",
+                                   maxRatio=0.90, bootstrapUpperBelow=0.95, maxTolerantF1Drop=0.01)})
+    print(protocol.write(rec, out / "h1-confirmation.json"))
+
+
 def cmd_encode(a):
     from geoneural.codecs import package
     from geoneural.codecs.predictor import Predictor
@@ -219,6 +252,12 @@ def register(add):
     s = add("codec-h4", cmd_codec_h4, "Process-prior pretraining of the shared predictor, with matched controls")
     s.add_argument("--regions", nargs="+", default=list(campaign.REGIONS))
     s.add_argument("--seeds", nargs="+", type=int, default=[0])
+    s.add_argument("--out", type=Path)
+    s = add("codec-final-models", cmd_codec_final_models, "Train the frozen H1 predictor on all development regions")
+    s.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 2])
+    s.add_argument("--out", type=Path)
+    s = add("codec-confirm-h1", cmd_codec_confirm_h1, "Run the frozen H1 arms once on the confirmation cohort")
+    s.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 2])
     s.add_argument("--out", type=Path)
     s = add("encode", cmd_encode, "Encode an atlas reference into a .gnc product")
     s.add_argument("--atlas", type=Path, required=True)

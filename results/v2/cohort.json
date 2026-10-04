@@ -1,0 +1,630 @@
+{
+  "createdUtc": "2026-10-04T11:42:25.847174+00:00",
+  "exposureLog": [
+    {
+      "bbox": [
+        335000.5,
+        5802000.5,
+        345240.5,
+        5812240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-335-5802",
+      "outcome": "skipped: missing values",
+      "rank": "00195bfcbddab47f112bf074004ede4a89ffb5427ca827e93854507483a95132",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        368000.5,
+        5747000.5,
+        378240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-368-5747",
+      "outcome": "selected",
+      "rank": "004c70d6b02a4ce4f892b513d822b528c5b008479fa54fe693b9135e6e73fd0f",
+      "reliefM": 88.32999801635742,
+      "samples": 625,
+      "stdM": 15.80563050550673,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        456000.5,
+        5604000.5,
+        466240.5,
+        5614240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-456-5604",
+      "outcome": "skipped: missing values",
+      "rank": "019941e5116bde4a7264fbceee0504674b9da051bacca9c45b45460dda5d5897",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5736000.5,
+        290240.5,
+        5746240.5
+      ],
+      "missingFraction": 0.896,
+      "name": "nrw-280-5736",
+      "outcome": "skipped: missing values",
+      "rank": "01cd22c02fea3f8685a1b53193feffeab2b00705d575037a7749dd3461e15d6d",
+      "reliefM": 71.53000068664551,
+      "samples": 625,
+      "stdM": 18.475469007125643
+    },
+    {
+      "bbox": [
+        390000.5,
+        5780000.5,
+        400240.5,
+        5790240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-390-5780",
+      "outcome": "selected",
+      "rank": "01f8a83c3d8fb95e7ff2ecc1d70643589faebbee19946d6d7c9699bf96da5096",
+      "reliefM": 36.849998474121094,
+      "samples": 625,
+      "stdM": 4.629936198764832,
+      "stratum": "flat"
+    },
+    {
+      "bbox": [
+        489000.5,
+        5626000.5,
+        499240.5,
+        5636240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-489-5626",
+      "outcome": "skipped: missing values",
+      "rank": "023b66eb08f953967f4f83426aee0b815caae97395e08709aa9a8a255a986ed9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        324000.5,
+        5648000.5,
+        334240.5,
+        5658240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-324-5648",
+      "outcome": "selected",
+      "rank": "02c0f1e75a6d8a4269b1854224044165fde61681e151dd00cb7365bc480f64b2",
+      "reliefM": 113.86999654769897,
+      "samples": 625,
+      "stdM": 16.727353256973423,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        313000.5,
+        5659000.5,
+        323240.5,
+        5669240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-313-5659",
+      "outcome": "selected",
+      "rank": "031b18d4f28124f73bf4de4a88bc58cf8f103102a8cc0432df97535af24baf0f",
+      "reliefM": 206.1999969482422,
+      "samples": 625,
+      "stdM": 32.51602017443657,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        280000.5,
+        5604000.5,
+        290240.5,
+        5614240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5604",
+      "outcome": "skipped: missing values",
+      "rank": "040335a8365a3e3c5e3fdc3a102033ee02969b6af005f67b4ae508087c3cb07d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        401000.5,
+        5791000.5,
+        411240.5,
+        5801240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-401-5791",
+      "outcome": "selected",
+      "rank": "0536ec42c86cab710e58e615f1b25c7ec774fe44ab35b19989d2960cc7dc021d",
+      "reliefM": 152.60999488830566,
+      "samples": 625,
+      "stdM": 27.839568341648913,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        511000.5,
+        5791000.5,
+        521240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5791",
+      "outcome": "skipped: missing values",
+      "rank": "0667583a1ea3e0a22614da86c4b9572905cd0ac438b4b277b1129336aee14be4",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5769000.5,
+        532240.5,
+        5779240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5769",
+      "outcome": "skipped: missing values",
+      "rank": "066a031f25b93ad946fc7983bc535b10c6fbb944a789e4f8a18c172d4ba829a4",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        478000.5,
+        5593000.5,
+        488240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-478-5593",
+      "outcome": "skipped: missing values",
+      "rank": "0733d27e6b77715b727056a14de3e182c344f850f00ec9393228071eb9ac4f6a",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5637000.5,
+        290240.5,
+        5647240.5
+      ],
+      "missingFraction": 0.9792,
+      "name": "nrw-280-5637",
+      "outcome": "skipped: missing values",
+      "rank": "076821731bf9ec9089a61de505c54a4552a6d5e0f7bd94e12e301bfbc60b3ee5",
+      "reliefM": 111.84000396728516,
+      "samples": 625,
+      "stdM": 33.605177977752675
+    },
+    {
+      "bbox": [
+        445000.5,
+        5703000.5,
+        455240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-445-5703",
+      "outcome": "selected",
+      "rank": "08962a10e6f7db5650f7fabebb80baee2d1214cae6a29dc351a69681214d9aae",
+      "reliefM": 209.8100128173828,
+      "samples": 625,
+      "stdM": 47.15405954059671,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        522000.5,
+        5571000.5,
+        532240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5571",
+      "outcome": "skipped: missing values",
+      "rank": "099d5f5c5f75167aaa6957182a276e5bd89195607fdaa214c014d0719f4def6d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        324000.5,
+        5791000.5,
+        334240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-324-5791",
+      "outcome": "skipped: missing values",
+      "rank": "09b63e9541f2c38670942bbce5f6ba4bfcb06f6c7c2d10202e3be60582fbc937",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5780000.5,
+        510240.5,
+        5790240.5
+      ],
+      "missingFraction": 0.536,
+      "name": "nrw-500-5780",
+      "outcome": "skipped: missing values",
+      "rank": "0a650e10282f8302a845929a7c8a288ed4bcde6fbbcfcf9bc5d26947d8ac5f73",
+      "reliefM": 246.4700050354004,
+      "samples": 625,
+      "stdM": 54.77602695673009
+    },
+    {
+      "bbox": [
+        500000.5,
+        5615000.5,
+        510240.5,
+        5625240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-500-5615",
+      "outcome": "skipped: missing values",
+      "rank": "0ae4a79d83b94e91343c0fbdb3f4e173e5c2f8895fcb1aba9c7f827abdaba681",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        401000.5,
+        5593000.5,
+        411240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-401-5593",
+      "outcome": "skipped: missing values",
+      "rank": "0b85ff54bd645f890ed6327d5eccbd37a5f9284ca22f987a75d7a1c109a68385",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        489000.5,
+        5571000.5,
+        499240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-489-5571",
+      "outcome": "skipped: missing values",
+      "rank": "0b95ea87c5c93ead66653b08b582e86b4ff38d42cee0bdaacf56f8d26b1d4f0e",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5560000.5,
+        532240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5560",
+      "outcome": "skipped: missing values",
+      "rank": "0bdd519295598791930bd03db239e5838960467d6f279542415a0327b4fd9b8c",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        302000.5,
+        5648000.5,
+        312240.5,
+        5658240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-302-5648",
+      "outcome": "skipped: stratum full",
+      "rank": "0bee4e1b5a83d149dee7efa43f58c065fd56e98169594cf5a4dfb0fca76b7f70",
+      "reliefM": 62.8900032043457,
+      "samples": 625,
+      "stdM": 17.456338088858622,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        478000.5,
+        5714000.5,
+        488240.5,
+        5724240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-478-5714",
+      "outcome": "skipped: stratum full",
+      "rank": "0c3a27833032fd99b13be9b8d01f03c0215fc9e4494a766502b028379e896a65",
+      "reliefM": 212.94000244140625,
+      "samples": 625,
+      "stdM": 49.954058283309394,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        324000.5,
+        5747000.5,
+        334240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.56,
+      "name": "nrw-324-5747",
+      "outcome": "skipped: missing values",
+      "rank": "0c3c1d827e157959763e7f20b4bd684cee65c6d49d8ede9814a42c0796f6b636",
+      "reliefM": 20.260001182556152,
+      "samples": 625,
+      "stdM": 3.478793861682371
+    },
+    {
+      "bbox": [
+        368000.5,
+        5560000.5,
+        378240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-368-5560",
+      "outcome": "skipped: missing values",
+      "rank": "0c491aa841f8d9b4365c76e17ce0ef70ccd42e6a361e397ada0eb270b97d1911",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        291000.5,
+        5692000.5,
+        301240.5,
+        5702240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-291-5692",
+      "outcome": "skipped: missing values",
+      "rank": "0ceede55207bd08bb8a571ca1c620b69b8d358bea23efb462ab59076e20b28cd",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        324000.5,
+        5758000.5,
+        334240.5,
+        5768240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-324-5758",
+      "outcome": "skipped: missing values",
+      "rank": "0f6061cbbb4e3ab8abc89d325b565bef22a79dad6417fae6cbeaea0e44737195",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        478000.5,
+        5571000.5,
+        488240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-478-5571",
+      "outcome": "skipped: missing values",
+      "rank": "116cbfd5fad9273302165af97514ea9d709c70154b15ee556e186e9335fab2b9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        412000.5,
+        5769000.5,
+        422240.5,
+        5779240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-412-5769",
+      "outcome": "selected",
+      "rank": "131637864628114aba70c0f831bcae178f71c48ce74f26f4e834ba9591a05183",
+      "reliefM": 17.25,
+      "samples": 625,
+      "stdM": 2.2781558222626086,
+      "stratum": "flat"
+    }
+  ],
+  "quotaLeft": {
+    "flat": 0,
+    "moderate": 0,
+    "rough": 0
+  },
+  "rule": {
+    "bufferM": 15000.0,
+    "excludeNearPresets": [
+      "essen-ruhr",
+      "ruhr-wide",
+      "drachenfels",
+      "muensterland-plain",
+      "lower-rhine",
+      "teutoburg-forest",
+      "bergisches-land",
+      "rothaar-sauerland"
+    ],
+    "extentEpsg25832": [
+      280000.0,
+      5560000.0,
+      540000.0,
+      5830000.0
+    ],
+    "latticeM": 11000.0,
+    "note": "Cut points from the development regions' 10 m height standard deviation: 2.7 m (Muensterland), 12.2 (Lower Rhine), 21.4 (Teutoburg), 28.2 (Essen), 36.9 (Bergisches Land), 88.6 (Rothaar).",
+    "originOffsetM": 0.5,
+    "probeSpacingM": 400.0,
+    "quota": {
+      "flat": 2,
+      "moderate": 3,
+      "rough": 2
+    },
+    "requireNoMissing": true,
+    "salt": "geoneural confirmation cohort 2026-10-04",
+    "strataStdM": {
+      "flat": [
+        0.0,
+        8.0
+      ],
+      "moderate": [
+        8.0,
+        30.0
+      ],
+      "rough": [
+        30.0,
+        1000000000.0
+      ]
+    },
+    "tileM": 10240.0,
+    "version": 1
+  },
+  "schema": "geoneural-cohort-v1",
+  "selected": [
+    {
+      "bbox": [
+        368000.5,
+        5747000.5,
+        378240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-368-5747",
+      "outcome": "selected",
+      "rank": "004c70d6b02a4ce4f892b513d822b528c5b008479fa54fe693b9135e6e73fd0f",
+      "reliefM": 88.32999801635742,
+      "samples": 625,
+      "stdM": 15.80563050550673,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        390000.5,
+        5780000.5,
+        400240.5,
+        5790240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-390-5780",
+      "outcome": "selected",
+      "rank": "01f8a83c3d8fb95e7ff2ecc1d70643589faebbee19946d6d7c9699bf96da5096",
+      "reliefM": 36.849998474121094,
+      "samples": 625,
+      "stdM": 4.629936198764832,
+      "stratum": "flat"
+    },
+    {
+      "bbox": [
+        324000.5,
+        5648000.5,
+        334240.5,
+        5658240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-324-5648",
+      "outcome": "selected",
+      "rank": "02c0f1e75a6d8a4269b1854224044165fde61681e151dd00cb7365bc480f64b2",
+      "reliefM": 113.86999654769897,
+      "samples": 625,
+      "stdM": 16.727353256973423,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        313000.5,
+        5659000.5,
+        323240.5,
+        5669240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-313-5659",
+      "outcome": "selected",
+      "rank": "031b18d4f28124f73bf4de4a88bc58cf8f103102a8cc0432df97535af24baf0f",
+      "reliefM": 206.1999969482422,
+      "samples": 625,
+      "stdM": 32.51602017443657,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        401000.5,
+        5791000.5,
+        411240.5,
+        5801240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-401-5791",
+      "outcome": "selected",
+      "rank": "0536ec42c86cab710e58e615f1b25c7ec774fe44ab35b19989d2960cc7dc021d",
+      "reliefM": 152.60999488830566,
+      "samples": 625,
+      "stdM": 27.839568341648913,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        445000.5,
+        5703000.5,
+        455240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-445-5703",
+      "outcome": "selected",
+      "rank": "08962a10e6f7db5650f7fabebb80baee2d1214cae6a29dc351a69681214d9aae",
+      "reliefM": 209.8100128173828,
+      "samples": 625,
+      "stdM": 47.15405954059671,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        412000.5,
+        5769000.5,
+        422240.5,
+        5779240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-412-5769",
+      "outcome": "selected",
+      "rank": "131637864628114aba70c0f831bcae178f71c48ce74f26f4e834ba9591a05183",
+      "reliefM": 17.25,
+      "samples": 625,
+      "stdM": 2.2781558222626086,
+      "stratum": "flat"
+    }
+  ]
+}
