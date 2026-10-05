@@ -20,6 +20,7 @@
   --gn-s2: #d9541f;
   --gn-s3: #138a60;
   --gn-s4: #4a3aa7;
+  --gn-s5: #b0306f;
   --gn-fam-conventional: #2a78d6;
   --gn-fam-neural: #eb6834;
   --gn-fam-hybrid: #1baf7a;
@@ -51,6 +52,7 @@
     --gn-s2: #ee7a45;
     --gn-s3: #2fbf8a;
     --gn-s4: #9085e9;
+    --gn-s5: #e872ac;
     --gn-fam-conventional: #4d95ec;
     --gn-fam-neural: #ee7a45;
     --gn-fam-hybrid: #2fbf8a;
@@ -77,6 +79,7 @@
   --gn-s2: #ee7a45;
   --gn-s3: #2fbf8a;
   --gn-s4: #9085e9;
+  --gn-s5: #e872ac;
   --gn-fam-conventional: #4d95ec;
   --gn-fam-neural: #ee7a45;
   --gn-fam-hybrid: #2fbf8a;
@@ -875,6 +878,9 @@
 }
 .gn-s4 {
   color: var(--gn-s4);
+}
+.gn-s5 {
+  color: var(--gn-s5);
 }
 .gn-series {
   fill: none;

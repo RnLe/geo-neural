@@ -49,9 +49,19 @@
     "seconds": 5.4
    },
    "conductance": {
+    "seed": 5,
     "parameters": 28353,
-    "finalLoss": 0.003308303188532591,
-    "seconds": 29.6
+    "finalLoss": 0.002610782627016306,
+    "seconds": 8.7,
+    "rollout": {
+     "set": "in-range",
+     "rmseM": {
+      "8": 1.9664821156736283,
+      "32": 1.1148872116652417,
+      "64": 0.9410773221493783
+     },
+     "meanRmseM": 1.340815549829416
+    }
    }
   }
  },
@@ -223,7 +233,7 @@
    "file": "conductance.bin",
    "floats": 28353,
    "bytes": 113412,
-   "sha256": "3e5c3e87ba1a6c457eef4dabbe3419a7614ef8ff405001e89d7358aa714e5725",
+   "sha256": "2db89b259d23d74ebf00c83e06378fabc41a8688d298528599a654b546122cbe",
    "layers": [
     {
      "in": 1,
@@ -260,7 +270,13 @@
      "biasOffset": 28352,
      "activation": "sigmoid"
     }
-   ]
+   ],
+   "validated": {
+    "maxSlope": 2.2893480682373046,
+    "minHeightM": -159.60556030273438,
+    "maxHeightM": 151.2713165283203,
+    "note": "range of this arm's training surfaces"
+   }
   }
  }
 }

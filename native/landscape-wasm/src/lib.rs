@@ -254,7 +254,13 @@ fn closure(arm: &str, weights: &[f32], meta: &JsValue) -> Result<Closure, JsErro
         });
     }
     let teacher = field(meta, "teacher")?;
-    let validated = field(meta, "validated")?;
+    // An arm trained on its own seed carries its own range; the others share the file's.
+    let own = field(&spec, "validated")?;
+    let validated = if own.is_undefined() {
+        field(meta, "validated")?
+    } else {
+        own
+    };
     let apply = match text(&spec, "apply")?.as_str() {
         "conductance" => Apply::conductance(required(&spec, "floor")?, required(&spec, "aMax")?)?,
         name => Apply::parse(name)?,

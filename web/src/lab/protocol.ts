@@ -6,7 +6,7 @@ import type { Diagnostics } from "../wasm/landscape_wasm";
 
 export type { Diagnostics };
 
-export type ModelName = "linear" | "nonlinear" | "flux" | "kfield" | "penalty";
+export type ModelName = "linear" | "nonlinear" | "flux" | "kfield" | "penalty" | "conductance";
 export type BoundaryName = "closed" | "fixed" | "periodic";
 
 export interface RunSpec {

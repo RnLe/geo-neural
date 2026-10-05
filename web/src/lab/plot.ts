@@ -78,7 +78,9 @@ export function floorNote(floor: number): string {
 
 export function linePlot(spec: PlotSpec): SVGSVGElement {
   const { width, height, x, y } = spec;
-  const labelSpace = Math.min(120, Math.max(70, width * 0.18));
+  // Room for the direct labels: the longest one (about 6 px a character), within limits.
+  const longest = Math.max(0, ...spec.series.map((series) => series.label.length));
+  const labelSpace = Math.min(160, Math.max(70, width * 0.18, longest * 6 + 12));
   const mg = { left: y.log && y.floor !== undefined ? 70 : 56, right: labelSpace, top: 12, bottom: 38 };
   const pw = Math.max(40, width - mg.left - mg.right);
   const ph = Math.max(40, height - mg.top - mg.bottom);

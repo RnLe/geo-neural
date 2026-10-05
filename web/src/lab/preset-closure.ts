@@ -1,8 +1,8 @@
-// Preset 2: the nonlinear teacher and three learned closures from the same
-// start, stepped in lockstep. Shows the volume balance and the distance to
-// the teacher.
+// Preset 2: the nonlinear teacher, the selected conductance closure and the
+// three original learned closures from the same start, stepped in lockstep.
+// Shows the volume balance and the distance to the teacher.
 
-import type { LabData } from "../data/bundle";
+import type { ClosureMeta, LabData } from "../data/bundle";
 import { h } from "../data/dom";
 import { formatSci, formatYears } from "../data/format";
 import { cssGradient, ELEVATION_STOPS } from "../data/palette";
@@ -13,10 +13,11 @@ import { controlStrip, diagnosticsList, minMax, plotWidth, rampLegend, selectFie
 
 const STEPS = 64;
 const FLOOR = 1e-16;
+const FLAT = "flat";
 
 interface Arm {
   key: string;
-  model: "nonlinear" | "flux" | "kfield" | "penalty";
+  model: "nonlinear" | "flux" | "kfield" | "penalty" | "conductance";
   title: string;
   text: string;
   className: string;
@@ -26,10 +27,21 @@ interface Arm {
 
 const ARMS: Arm[] = [
   { key: "teacher", model: "nonlinear", title: "Teacher", text: "Critical-slope nonlinear diffusion, the target the arms were trained on.", className: "gn-s1", marker: "circle" },
+  { key: "conductance", model: "conductance", title: "Conductance arm (selected)", text: "One bounded conductance per cell face from the face slope, never below the linear diffusivity. Flat ground stays flat; each face moves material from one cell to its neighbour.", className: "gn-s5", marker: "none" },
   { key: "flux", model: "flux", title: "Flux arm", text: "Learned flux per cell face; each face moves material from one cell to its neighbour.", className: "gn-s2", marker: "square", dash: "6 3" },
   { key: "kfield", model: "kfield", title: "K-field arm", text: "Learned diffusivity per cell times the cell's Laplacian. Trained without a conservation term.", className: "gn-s3", marker: "triangle", dash: "2 3" },
   { key: "penalty", model: "penalty", title: "Penalty arm", text: "Same K-field form, trained with a conservation penalty in the loss.", className: "gn-s4", marker: "diamond", dash: "8 3 2 3" },
 ];
+
+/** The narrowest training range over the shown arms: every panel accepts a state inside it. */
+function shownRange(meta: ClosureMeta): ClosureMeta["validated"] {
+  const ranges = [meta.validated, ...ARMS.map((arm) => meta.arms[arm.model]?.validated).filter((v) => v !== undefined)];
+  return {
+    maxSlope: Math.min(...ranges.map((v) => v.maxSlope)),
+    minHeightM: Math.max(...ranges.map((v) => v.minHeightM)),
+    maxHeightM: Math.min(...ranges.map((v) => v.maxHeightM)),
+  };
+}
 
 export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
   let data: LabData | null = null;
@@ -50,6 +62,7 @@ export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
 
   const cards = new Map<string, { canvas: HTMLCanvasElement; diag: HTMLElement }>();
   const grid = h("div", { class: "gn-lab-grid gn-lab-grid-4" });
+  let flat: Float32Array | null = null;
   for (const arm of ARMS) {
     const canvas = h("canvas", { class: "gn-lab-canvas", role: "img", "aria-label": `${arm.title} surface` });
     const diag = h("div", { class: "gn-lab-diag" });
@@ -76,10 +89,12 @@ export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
     h(
       "p",
       { class: "gn-lab-intro" },
-      "Four models step the same start surface in lockstep: 64 steps of 200 years (12,800 years). The kernel splits a step into substeps below each model's " +
-        "stability bound; the substep count is listed per panel. The flux arm predicts one flux per cell face, and each interior face adds to one cell exactly what it " +
-        "takes from the next, so these terms cancel in the sum: its integral can only change through the boundary. The K-field arms multiply a per-cell diffusivity " +
-        "by the cell's Laplacian; neighbours see different K across the same face, the terms no longer cancel, and a loss penalty shrinks the leak without closing it.",
+      "Five models step the same start surface in lockstep: 64 steps of 200 years (12,800 years). The kernel splits a step into substeps below each model's " +
+        "stability bound; the substep count is listed per panel. The conductance arm is the design the closure study selected: one conductance per cell face, " +
+        "a = D + (aMax - D) sigmoid(NN(|g|)), applied as the flux a g. A flat surface is exactly still, a constant offset changes nothing, and each interior face " +
+        "adds to one cell exactly what it takes from the next, so the integral can only change through the boundary. The flux arm also conserves, but it reads " +
+        "absolute height and moves flat ground. The K-field arms multiply a per-cell diffusivity by the cell's Laplacian; neighbours see different K across the " +
+        "same face, the terms no longer cancel, and a loss penalty shrinks the leak without closing it. Start from flat ground to see which models keep it flat.",
     ),
     h("div", { class: "gn-controls" }, surfaceSel.el, boundarySel.el),
     strip.el,
@@ -96,7 +111,7 @@ export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
       "p",
       { class: "gn-note" },
       "Residual = integral now - integral at start - boundary exchange. It is numerical volume balance on a synthetic surface, not sediment mass. " +
-        "The start surfaces are fresh draws from the training distribution, not seen in training.",
+        "The start surfaces are fresh draws from the training distribution, not seen in training; flat ground is 0 m everywhere.",
     ),
   );
 
@@ -112,8 +127,11 @@ export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
       if (!d.closure || !d.closureText || !d.surfaces.length) {
         loadError = "This bundle has no learned closure.";
       } else {
-        surfaceSel.select.replaceChildren(...d.surfaces.map((_, i) => h("option", { value: String(i) }, `surface ${i + 1} of ${d.surfaces.length}`)));
-        const v = d.closure.validated;
+        surfaceSel.select.replaceChildren(
+          ...d.surfaces.map((_, i) => h("option", { value: String(i) }, `surface ${i + 1} of ${d.surfaces.length}`)),
+          h("option", { value: FLAT }, "flat ground"),
+        );
+        const v = shownRange(d.closure);
         rangeNote.textContent =
           `The learned arms accept only states inside their training range (heights ${v.minHeightM.toFixed(0)} to ${v.maxHeightM.toFixed(0)} m, slope up to ${v.maxSlope.toFixed(2)}); ` +
           `the kernel refuses a step outside it and the panel says so. Grid ${d.surfaceSide} x ${d.surfaceSide} at ${d.surfaceSpacingM} m, teacher D = ${d.closure.teacher.diffusivity} m²/yr, critical slope ${d.closure.teacher.criticalSlope}.`;
@@ -130,6 +148,7 @@ export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
 
   function start(): Float32Array | null {
     if (!data || !data.surfaces.length) return null;
+    if (surfaceSel.value() === FLAT) return (flat ??= new Float32Array(data.surfaceSide * data.surfaceSide));
     return data.surfaces[Number(surfaceSel.value()) || 0];
   }
 
@@ -190,7 +209,8 @@ export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
     const s0 = start();
     if (s0) {
       const [lo, hi] = minMax(s0);
-      range = [lo, hi];
+      // A flat start gets a few metres either side, so any movement shows.
+      range = hi > lo ? [lo, hi] : [lo - 2, hi + 2];
     }
     show();
     if (data && s0 && !loadError) strip.status.textContent = `Ready: ${STEPS} steps of 200 years. The learned arms take roughly 50 to 150 ms per substep here.`;
@@ -217,7 +237,7 @@ export function closurePreset(api: RunnerApi, lab: Promise<LabData>): Preset {
       card.diag.replaceChildren(diagnosticsList(f?.diagnostics ?? null, f?.stopped ?? null));
     }
     legendHost.replaceChildren(
-      rampLegend(cssGradient(ELEVATION_STOPS), `${range[0].toFixed(0)} m`, "", `${range[1].toFixed(0)} m`, "Height, one fixed scale for all four panels, from the start surface."),
+      rampLegend(cssGradient(ELEVATION_STOPS), `${range[0].toFixed(0)} m`, "", `${range[1].toFixed(0)} m`, "Height, one fixed scale for all five panels, from the start surface."),
     );
     drawCharts();
   }

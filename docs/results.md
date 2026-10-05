@@ -68,7 +68,9 @@ but RMSE by 44 to 48%.
 **Development.** Among learned arms with exact flat-state preservation and conservation, the bounded symmetric
 conductance with a floor at the linear diffusivity has the lowest rollout error over five seeds (median 1.34 m,
 against 3.45 m without the floor and 4.11 m for a learned face diffusivity). The free flux and penalty arms are
-excluded: the free flux moves a flat surface, the penalty arm does not conserve material. With a piecewise material contrast of true ratio 0.2, the learned
+excluded: the free flux moves a flat surface, the penalty arm does not conserve material. The browser lab runs the
+median seed (seed 5, retrained with the same recipe, 1.34 m on the same rollouts) in the Rust kernel, which matches
+the Python arm to rounding. With a piecewise material contrast of true ratio 0.2, the learned
 ratio is 0.168 to 0.183. The teacher itself does not meet the spec's numerical budget at a 400-year step (its
 discretisation error is 0.94 of the dynamics budget and 3.8 times the inverse noise level), so learned and
 inverse results inherit that error; a 50-year step meets the dynamics budget.

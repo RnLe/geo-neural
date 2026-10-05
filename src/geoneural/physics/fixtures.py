@@ -17,6 +17,9 @@ Regenerate with
 
     uv run python -m geoneural.physics.fixtures [out_dir] [--device cuda] [--new-arms-only]
 
+The shipped conductance arm is the closure study's median seed, added with
+`--new-arms-only --seed 5`; it carries its own seed and training range.
+
 Training on a GPU is not bitwise repeatable, so a rerun changes the weights
 and the learned-arm fixtures together. They always agree with each other: the
 reference rollouts run on the weights read back from the written files.
@@ -363,6 +366,7 @@ def arm_case(arm: str, directory: pathlib.Path, torch, device: str, validated: d
     """
     model, meta = load_closure(directory, arm, torch, "cpu")
     apply = meta["arms"][arm]["apply"]
+    validated = meta["arms"][arm].get("validated", validated)
     seed = ROLLOUT_SEED
     start = _rough_surface(seed)
     while not (_max_slope(start, SPACING_M) <= validated["maxSlope"]
@@ -410,13 +414,32 @@ def arm_case(arm: str, directory: pathlib.Path, torch, device: str, validated: d
     return record
 
 
+def rollout_check(model, torch) -> dict:
+    """The in-range score of `hybrid.closure_study` for one conductance model, float64 on the CPU.
+
+    Mean RMSE against the teacher after 8, 32 and 64 intervals of 200 years on
+    the study's 16 in-range surfaces, so an exported arm can be compared with
+    the seed it stands for.
+    """
+    fields = hybrid.evaluation_sets(side=SIDE, spacing_m=SPACING_M, diffusivity=DIFFUSIVITY,
+                                    critical_slope=CRITICAL_SLOPE)["in-range"]
+    references = hybrid.reference_rollouts(fields, SPACING_M, DIFFUSIVITY, CRITICAL_SLOPE, torch)
+    m64 = copy.deepcopy(model).double().cpu().eval()
+    rollout = hybrid._rollout_errors("conductance", m64, fields, references, torch, "cpu", SPACING_M,
+                                     DIFFUSIVITY)
+    return {"set": "in-range", "rmseM": rollout["rmseM"], "meanRmseM": hybrid._mean_rmse(rollout)}
+
+
 def _train_conductance(out: pathlib.Path, torch, device: str, seed: int, steps: int) -> tuple[dict, dict]:
     fitted = hybrid.train_closure("conductance", torch, steps=steps, side=SIDE, spacing_m=SPACING_M,
                                   device=device, seed=seed, a_max=hybrid.A_MAX)
-    meta, blob = hybrid.conductance_export(fitted["model"], torch)
+    model = fitted["model"].eval()
+    meta, blob = hybrid.conductance_export(model, torch, validated={
+        **training_range(seed, steps), "note": "range of this arm's training surfaces"})
     (out / meta["file"]).write_bytes(blob)
-    return meta, {"parameters": fitted["parameters"], "finalLoss": fitted["history"][-1]["loss"],
-                  "seconds": round(fitted["seconds"], 1)}
+    return meta, {"seed": seed, "parameters": fitted["parameters"],
+                  "finalLoss": fitted["history"][-1]["loss"], "seconds": round(fitted["seconds"], 1),
+                  "rollout": rollout_check(model, torch)}
 
 
 def export(out_dir=DEFAULT_OUT, device: str = "cuda", seed: int = 1729, steps: int = 1500,
@@ -425,8 +448,8 @@ def export(out_dir=DEFAULT_OUT, device: str = "cuda", seed: int = 1729, steps: i
 
     With `train=False` the weights already in `out_dir` are reused and only the
     fixtures are rewritten. With `new_arms_only`, the existing weights of the
-    original three arms are kept and only the conductance arm is trained and
-    added to `closure.json`, so the browser lab's existing arms do not change.
+    original three arms are kept and only the conductance arm is trained, added
+    to `closure.json` and given a new fixture, so the other arms do not change.
     """
     import torch
 
@@ -456,8 +479,11 @@ def export(out_dir=DEFAULT_OUT, device: str = "cuda", seed: int = 1729, steps: i
         arms["conductance"], training["arms"]["conductance"] = _train_conductance(out, torch, device, seed, steps)
         meta = _closure_meta(arms, validated, training)
         (out / "closure.json").write_text(json.dumps(meta, indent=1) + "\n")
-    cases = [sine_case(), closed_case(), variable_case(), fixed_case(), teacher_case()]
-    cases += [arm_case(arm, out, torch, device, validated) for arm in hybrid.ARMS + ("conductance",)]
+    if new_arms_only:
+        cases = [arm_case("conductance", out, torch, device, validated)]
+    else:
+        cases = [sine_case(), closed_case(), variable_case(), fixed_case(), teacher_case()]
+        cases += [arm_case(arm, out, torch, device, validated) for arm in hybrid.ARMS + ("conductance",)]
     for case in cases:
         _write(out / f"{case['case']}.json", case)
     sizes = {p.name: p.stat().st_size for p in sorted(out.iterdir()) if p.is_file()}

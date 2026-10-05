@@ -133,7 +133,18 @@ export interface ClosureMeta {
   dtYears: number;
   teacher: { diffusivity: number; criticalSlope: number };
   validated: { maxSlope: number; minHeightM: number; maxHeightM: number; note?: string };
-  arms: Record<string, { apply: string; conservative: boolean; trainedWith?: string; floats: number; sha256?: string }>;
+  arms: Record<
+    string,
+    {
+      apply: string;
+      conservative: boolean;
+      trainedWith?: string;
+      floats: number;
+      sha256?: string;
+      /** An arm trained on its own seed carries its own range; the others share `validated`. */
+      validated?: { maxSlope: number; minHeightM: number; maxHeightM: number; note?: string };
+    }
+  >;
 }
 
 export interface Bundle {

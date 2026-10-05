@@ -91,7 +91,11 @@ pub fn closure(arm: &str) -> Closure {
             activation: Activation::parse(l["activation"].as_str().unwrap()).unwrap(),
         })
         .collect();
-    let v = &meta["validated"];
+    let v = if spec["validated"].is_object() {
+        &spec["validated"]
+    } else {
+        &meta["validated"]
+    };
     let apply = match spec["apply"].as_str().unwrap() {
         "conductance" => Apply::conductance(num(spec, "floor"), num(spec, "aMax")).unwrap(),
         name => Apply::parse(name).unwrap(),

@@ -1,11 +1,18 @@
-"""The bounded conductance closure: properties that must hold for any weights."""
+"""The bounded conductance closure: properties for any weights, and the arm the lab ships."""
 from __future__ import annotations
 
+import base64
+import hashlib
+import json
 import unittest
+from pathlib import Path
 
 import numpy as np
 
 from geoneural.physics import hybrid
+
+ROOT = Path(__file__).resolve().parents[1]
+FIXTURES = ROOT / "native" / "fixtures"
 
 
 class ConductanceArm(unittest.TestCase):
@@ -56,6 +63,47 @@ class ConductanceArm(unittest.TestCase):
             energy = now
         self.assertLessEqual(float(h.max()), float(self.fields.max()) + 1e-9)
         self.assertGreaterEqual(float(h.min()), float(self.fields.min()) - 1e-9)
+
+
+class ShippedArm(unittest.TestCase):
+    """The conductance weights the lab and the Rust parity tests read are the selected arm."""
+
+    @classmethod
+    def setUpClass(cls):
+        import torch
+
+        from geoneural.physics import fixtures
+        cls.torch = torch
+        cls.model, cls.meta = fixtures.load_closure(FIXTURES, "conductance", torch)
+        cls.model = cls.model.double()
+        cls.case = json.loads((FIXTURES / "arm-conductance.json").read_text())
+
+    def array(self, key):
+        item = self.case[key]
+        return np.frombuffer(base64.b64decode(item["base64"]), dtype="<f8").reshape(item["shape"])
+
+    def test_the_weights_match_their_record(self):
+        spec = self.meta["arms"]["conductance"]
+        self.assertEqual(hashlib.sha256((FIXTURES / spec["file"]).read_bytes()).hexdigest(), spec["sha256"])
+
+    def test_the_fixture_is_this_arm(self):
+        with self.torch.no_grad():
+            tendency = hybrid.apply_closure("conductance", self.model,
+                                            self.torch.from_numpy(self.array("initial")[None].copy()), 50.0,
+                                            self.torch)[0].numpy()
+        expected = self.array("tendency64")
+        self.assertLessEqual(float(np.abs(tendency - expected).max()), 1e-15 * float(np.abs(expected).max()))
+        flat = self.torch.full((1, 48, 48), 37.0, dtype=self.torch.float64)
+        with self.torch.no_grad():
+            self.assertEqual(float(hybrid.apply_closure("conductance", self.model, flat, 50.0,
+                                                        self.torch).abs().max()), 0.0)
+
+    def test_it_stands_for_the_study_median(self):
+        study = json.loads((ROOT / "results" / "v2" / "physics" / "closure-study.json").read_text())
+        self.assertEqual(study["results"]["selection"]["accepted"], "conductance")
+        median = study["results"]["selection"]["ranking"][0]["medianMeanRmseM"]
+        shipped = self.meta["training"]["arms"]["conductance"]
+        self.assertAlmostEqual(shipped["rollout"]["meanRmseM"], median, delta=0.01)
 
 
 class TeacherProperty(unittest.TestCase):
