@@ -509,13 +509,15 @@ def tiling_check(parts, models_dir, device: str = "cpu") -> dict:
     from geoneural.recon import models as nets
     out = {}
     for part in parts:
-        region = part["fold"]["test"][0]
+        # Models live in the fold's folder: one test region in development, the whole cohort in a confirmation run.
         model = nets.UNet(SPEC.base_channels(), 32)
-        model.load_state_dict(torch.load(models_dir / region / "neural-seed0.pt", map_location="cpu"))
-        z = fields.reference(region)
-        base = operators.upsample(operators.make("trapezoid", FACTOR).observe(z), FACTOR, BASE)
-        tiled, _ = train.predict(model, SPEC, base, None, device="cpu")
-        whole, _ = train.predict(model, SPEC, base, None, tile=1280, halo=64, device="cpu", batch=1)
-        out[region] = {"maxDifferenceM": float(np.abs(tiled - whole).max()),
-                       "maxResidualM": float(np.abs(whole).max())}
+        model.load_state_dict(torch.load(models_dir / "-".join(part["fold"]["test"]) / "neural-seed0.pt",
+                                         map_location="cpu"))
+        for region in part["fold"]["test"]:
+            z = fields.reference(region)
+            base = operators.upsample(operators.make("trapezoid", FACTOR).observe(z), FACTOR, BASE)
+            tiled, _ = train.predict(model, SPEC, base, None, device="cpu")
+            whole, _ = train.predict(model, SPEC, base, None, tile=1280, halo=64, device="cpu", batch=1)
+            out[region] = {"maxDifferenceM": float(np.abs(tiled - whole).max()),
+                           "maxResidualM": float(np.abs(whole).max())}
     return out

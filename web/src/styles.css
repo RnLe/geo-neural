@@ -1221,3 +1221,8 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Rate and age view */
+.gn-ident .gn-controls { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-bottom: 0.75rem; }
+.gn-ident-readout { margin: 0.5rem 0 0; padding-left: 1.1rem; font-size: 0.9rem; }
+

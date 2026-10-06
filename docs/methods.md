@@ -72,6 +72,16 @@ second order, and eight level-wise bound settings) and keeps the smallest stream
 ([`codecs/sz3tuned.py`](../src/geoneural/codecs/sz3tuned.py)). The best conventional product for a region and bound
 is the smallest conventional product with no bound violation beyond one float32 ulp.
 
+Three more arms are built from conventional parts only
+([`codecs/frontier.py`](../src/geoneural/codecs/frontier.py)), each a `.gnc` file that decodes from its bytes. C1:
+every 2nd to 16th node coded by SZ3 at 0.5 to 2 times the bound, cubic interpolation (scipy `map_coordinates`, order
+3) to the full lattice, the residual coded by SZ3 or SPERR at the bound; the setting is chosen per region on the
+other five. C3: C1 with a stride of 4 plus a ridge regression of the residual on slope, curvature and their product,
+optionally with GK100 class indicators; the float32 coefficients and the class raster are stored. C2: a uniform SZ3
+or SPERR product plus sparse corrections to a quarter of the bound on stream cells, stream cells and their
+neighbours, or cells whose two steepest drops differ by less than twice the bound; it is compared with a uniform
+product of the same total bytes, interpolated over 13 bounds.
+
 ## Geology (H2)
 
 GK100 units are rasterised by their INSPIRE material label onto a 40 m lattice with one class dictionary for all
@@ -79,7 +89,9 @@ regions (11 classes plus "no mapped unit"). A 4-dimensional class embedding (nea
 predictor's inputs. Every arm starts from the H1 model of the same fold and seed and gets one identical extra
 closed-loop round (3,000 steps): no context, constant class, the real map, the map rolled by 2.56 km, 1 km blocks
 shuffled, and the map of another region. The class raster of the real and control maps is stored in the product
-(zstd) and charged; "map already at the decoder" is reported separately.
+(zstd) and charged; "map already at the decoder" is reported separately. A second sweep from the same recipe and
+seed varies the map itself: 10 m and 160 m rasters, shifts of 120 m, 320 m and 1 km, the most frequent class in
+3 x 3 and 5 x 5 windows, and a quarter of the 1 km blocks set to "no mapped unit".
 
 ## Bound allocation (H3)
 
@@ -104,9 +116,15 @@ Height: maximum, RMSE, MAE, p99, bias, bound violations. Drainage
 accumulation; streams at a fixed contributing area of 0.05 km2 (0.025, 0.1 and 0.2 km2 as secondary thresholds);
 exact Jaccard, recall and precision, a tolerant F1 that counts a stream cell as found when the other surface has
 one within one cell, receiver agreement on interior cells, outlet agreement, and the changes of the deepest fill
-(m) and the filled volume (m3). Every edge cell is an outlet. The reference noise floor (1 cm white noise on the
+(m) and the filled volume (m3). Every edge cell is an outlet. A sensitivity study repeats the comparisons at all
+four thresholds, with water leaving only through the lowest edge cell, and with each development region inside a
+domain 5.12 km wider (nodata holes in that margin act as outlets). The reference noise floor (1 cm white noise on the
 reference itself) is reported next to drainage results. Regions are the statistical unit: paired log ratios of bytes
 per region, their geometric mean, a bootstrap over regions and the leave-one-region-out range.
+
+Timings ([`bench/v2.py`](../src/geoneural/bench/v2.py)) run one thread per process and record the host's busy
+fraction before and after; only timings with both below 10% count as qualified. Warm timings are the median of seven
+repeats; cold timings start a fresh process. Query answers are checked against the full decode.
 
 ## Physics (H5, H6)
 

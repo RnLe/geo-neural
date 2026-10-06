@@ -81,6 +81,45 @@ if AVAILABLE:
             parent = best
 
     @numba.njit(cache=True)
+    def _fill_seeded(filled, epsilon, offsets, seeds):
+        """Priority flood from the given seed cells only (the outlets), instead of every edge cell."""
+        rows, cols = filled.shape
+        capacity = rows * cols + 8
+        level = np.empty(capacity, dtype=np.float64)
+        heap_r = np.empty(capacity, dtype=np.int64)
+        heap_c = np.empty(capacity, dtype=np.int64)
+        visited = np.zeros(filled.shape, dtype=np.bool_)
+        size = 0
+        for i in range(seeds.shape[0]):
+            r, c = seeds[i, 0], seeds[i, 1]
+            level[size] = filled[r, c]
+            heap_r[size] = r
+            heap_c[size] = c
+            visited[r, c] = True
+            size += 1
+            _sift_up(level, heap_r, heap_c, size)
+        while size > 0:
+            top, tr, tc = level[0], heap_r[0], heap_c[0]
+            size -= 1
+            level[0], heap_r[0], heap_c[0] = level[size], heap_r[size], heap_c[size]
+            if size > 0:
+                _sift_down(level, heap_r, heap_c, size)
+            for k in range(offsets.shape[0]):
+                nr = tr + offsets[k, 0]
+                nc = tc + offsets[k, 1]
+                if nr < 0 or nr >= rows or nc < 0 or nc >= cols or visited[nr, nc]:
+                    continue
+                visited[nr, nc] = True
+                if filled[nr, nc] <= top:
+                    filled[nr, nc] = top + epsilon
+                level[size] = filled[nr, nc]
+                heap_r[size] = nr
+                heap_c[size] = nc
+                size += 1
+                _sift_up(level, heap_r, heap_c, size)
+        return filled
+
+    @numba.njit(cache=True)
     def _fill(filled, epsilon, offsets):
         rows, cols = filled.shape
         capacity = rows * cols + 8
@@ -137,11 +176,14 @@ if AVAILABLE:
         return accumulation
 
 
-def fill_depressions(surface, epsilon: float = hydrology.FILL_EPSILON_M):
-    """Compiled priority-flood. Falls back to the reference when numba is absent."""
+def fill_depressions(surface, epsilon: float = hydrology.FILL_EPSILON_M, seeds=None):
+    """Compiled priority-flood from every edge cell, or from `seeds` (an array of (row, col) outlets) only.
+    Falls back to the reference when numba is absent (edge seeding only)."""
+    filled = np.array(surface, dtype=np.float64, copy=True)
+    if seeds is not None:
+        return _fill_seeded(filled, float(epsilon), _OFFSETS, np.asarray(seeds, np.int64).reshape(-1, 2))
     if not AVAILABLE:
         return hydrology.fill_depressions(surface, epsilon)
-    filled = np.array(surface, dtype=np.float64, copy=True)
     return _fill(filled, float(epsilon), _OFFSETS)
 
 

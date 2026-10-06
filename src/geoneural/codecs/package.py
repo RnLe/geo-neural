@@ -38,7 +38,7 @@ MAX_SIDE = 16385
 CODERS = {"cubic-order0": 0, "cubic-ctx": 1, "learned": 2, "foreign": 16}
 CODER_NAMES = {v: k for k, v in CODERS.items()}
 KINDS = {"coarse": 1, "params": 2, "stream": 3, "raw": 4, "model": 5, "context": 6, "mask": 7, "rule": 8,
-         "foreign": 20}
+         "foreign": 20, "base": 21, "residual": 22, "corrections": 23, "coefficients": 24}
 CONTEXT_FACTOR = 4  # the class raster is stored at 4 x the field spacing and read by nearest node
 KIND_NAMES = {v: k for k, v in KINDS.items()}
 _HEAD = struct.Struct("<4sHHIIdIdddIIB B8s32s8sB")
@@ -125,8 +125,10 @@ def read(blob: bytes) -> Product:
 
 
 def context_nodes(coarse: np.ndarray, side: int) -> np.ndarray:
-    """Class of every node from the stored class raster (nearest coarse node)."""
-    idx = np.minimum(np.rint(np.arange(side) / CONTEXT_FACTOR).astype(np.int64), coarse.shape[0] - 1)
+    """Class of every node from the stored class raster (nearest coarse node). The raster's own size sets its
+    spacing: (side - 1) / (raster side - 1) field nodes per raster cell, 4 for the default 40 m raster."""
+    factor = (side - 1) / (coarse.shape[0] - 1) if coarse.shape[0] > 1 else CONTEXT_FACTOR
+    idx = np.minimum(np.rint(np.arange(side) / factor).astype(np.int64), coarse.shape[0] - 1)
     return np.asarray(coarse, np.int64)[np.ix_(idx, idx)]
 
 

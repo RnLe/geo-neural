@@ -60,3 +60,31 @@ class Sz3(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_level_wise_rule_keeps_the_bound_and_lowers_the_typical_error():
+    from geoneural.codecs import package
+    rng = np.random.default_rng(3)
+    x = np.linspace(0, 6, 129)
+    z = 40 * np.sin(x)[:, None] * np.cos(0.7 * x)[None, :] + rng.normal(0, 0.3, (129, 129)).cumsum(1) * 0.05
+    rule = {"kind": "levels", "factor": 0.25, "toStride": 8}
+    plain, rec_plain, _ = package.encode(z, 0.5, "cubic-ctx")
+    blob, rec, _ = package.encode(z, 0.5, "cubic-ctx", rule=rule)
+    assert np.array_equal(package.decode(blob), rec)
+    assert np.abs(rec - z).max() <= 0.5
+    assert np.sqrt(((rec - z) ** 2).mean()) < np.sqrt(((rec_plain - z) ** 2).mean())
+
+
+def test_frontier_products_decode_from_their_bytes_within_the_bound():
+    from geoneural.codecs import frontier
+    x = np.linspace(0, 6, 129)
+    z = 40 * np.sin(x)[:, None] * np.cos(0.7 * x)[None, :] + 0.5 * np.add.outer(x, x)
+    raster = (np.add.outer(np.arange(33), np.arange(33)) // 20).astype(np.uint8)
+    mask = np.zeros(z.shape, bool)
+    mask[60:70, :] = True
+    for blob, rec in (frontier.encode_base(z, 0.25, 8, 0.5),
+                      frontier.encode_base(z, 0.25, 4, 0.25, raster=raster, regression=True),
+                      frontier.encode_corrected(z, 0.25, "sz3", mask, 0.05)):
+        assert np.array_equal(frontier.decode(blob), rec)
+        assert np.abs(rec - z).max() <= 0.25 + 1e-5
+    assert np.abs(rec - z)[mask].max() <= 0.025 + 1e-5

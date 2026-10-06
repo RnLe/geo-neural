@@ -155,6 +155,8 @@ def export(out: Path, candidates: dict, atlas: Path | None = None, fields_dir: P
         stem = cid.replace("/", "--").replace("@", "-at-")
         bundle["candidates"].append({
             "id": cid, "label": row["label"], "family": row["family"], "evidence": row["evidence"],
+            # Version-1 candidates: payload bytes under the old accounting, not comparable with v2 products.
+            "historical": True, "accounting": "v1 payload only",
             "bytes": row["bytes"], "maeM": row["maeM"], "maxM": row["maxM"], "streamJaccard": row["streamJaccard"],
             "boundM": row["boundM"],
             "check": {"maeM": float(np.abs(field - reference).mean()),

@@ -315,6 +315,11 @@ def cmd_closure_material_ablation(a):
                  notes="Material-aware conductance trained on oracle face conductances instead of tendencies.")
 
 
+def cmd_export_ident(a):
+    from geoneural.export import ident
+    print(ident.export(a.report, a.out))
+
+
 def register(add):
     s = add("synthetic-terrain", cmd_synthetic_terrain,
             "Matched process-made and procedural 513 x 513 terrain at 10 m for the codec campaign")
@@ -366,3 +371,6 @@ def register(add):
             "Material-aware conductance trained on face conductances: does it recover the known ratio?")
     s.add_argument("--seeds", type=int, nargs="+", default=[1729, 2, 3, 4, 5])
     s.add_argument("--device", default="cuda")
+    s = add("export-ident", cmd_export_ident, "Write the browser's identifiability data from the ridge profile")
+    s.add_argument("--report", type=Path, default=Path("results/v2/physics/inverse-ridge-profile.json"))
+    s.add_argument("--out", type=Path, default=Path("web/public/bundle/ident.json"))

@@ -1,0 +1,2704 @@
+{
+  "createdUtc": "2026-10-06T00:42:12.108625+00:00",
+  "exposureLog": [
+    {
+      "bbox": [
+        280000.5,
+        5626000.5,
+        290240.5,
+        5636240.5
+      ],
+      "missingFraction": 0.72,
+      "name": "nrw-280-5626",
+      "outcome": "skipped: missing values",
+      "rank": "131b83f4cf2c407d4c5348b88d667e6c558a0cab89255e1ef646ab898e3e0b58",
+      "reliefM": 196.47000122070312,
+      "samples": 625,
+      "stdM": 36.7933055517325
+    },
+    {
+      "bbox": [
+        324000.5,
+        5780000.5,
+        334240.5,
+        5790240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-324-5780",
+      "outcome": "skipped: missing values",
+      "rank": "15248cb4bf8b6215560b912651c21e59994f6e0cd0bd78645f3e05c01b2cb8db",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        456000.5,
+        5791000.5,
+        466240.5,
+        5801240.5
+      ],
+      "missingFraction": 0.576,
+      "name": "nrw-456-5791",
+      "outcome": "skipped: missing values",
+      "rank": "162447f312ecf8d8dc0386edd14e4fe53c6a194bfc9a651b1edfb2d02e3da58f",
+      "reliefM": 166.4599952697754,
+      "samples": 625,
+      "stdM": 45.1144761551925
+    },
+    {
+      "bbox": [
+        357000.5,
+        5802000.5,
+        367240.5,
+        5812240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-357-5802",
+      "outcome": "skipped: missing values",
+      "rank": "16c2b40435b274b657fe1c03a816877bf0a4b4d604d166c736068bf1621553e8",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        412000.5,
+        5703000.5,
+        422240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-412-5703",
+      "outcome": "selected",
+      "rank": "16fc44d25c81a0176d37772d02248ca7fc70071f737f781a1ad4b822bd8e41a5",
+      "reliefM": 167.2800064086914,
+      "samples": 625,
+      "stdM": 45.984154551767006,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        324000.5,
+        5813000.5,
+        334240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-324-5813",
+      "outcome": "skipped: missing values",
+      "rank": "1720a86a86ab6d3ca66b510e294d70f310727e6d35822ce8a72ab0695ac87d7d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        434000.5,
+        5813000.5,
+        444240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-434-5813",
+      "outcome": "skipped: missing values",
+      "rank": "1760a99b30034d4d73e37a7a1dea81b24581e4cb45f6337a17aa88449f336545",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        445000.5,
+        5615000.5,
+        455240.5,
+        5625240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-445-5615",
+      "outcome": "skipped: missing values",
+      "rank": "1766860a95a60900b959fe7f0c6cf644a0526d6c7c51712101d5e7ea2ee0f2bd",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        390000.5,
+        5560000.5,
+        400240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-390-5560",
+      "outcome": "skipped: missing values",
+      "rank": "180987aaccb3c7aee7082139f2472cfa9bc08745d5b5da808d0c698fbb65d1c6",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5593000.5,
+        510240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-500-5593",
+      "outcome": "skipped: missing values",
+      "rank": "18db056e4f1f3e08f5e2b223fe7b44ec7166393e2c362a3846956bf826a5ccc9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        324000.5,
+        5802000.5,
+        334240.5,
+        5812240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-324-5802",
+      "outcome": "skipped: missing values",
+      "rank": "1b721f94d11336670760a08415ae47c3f472148e8bbfd84ceed306e1545fe44f",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        357000.5,
+        5560000.5,
+        367240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-357-5560",
+      "outcome": "skipped: missing values",
+      "rank": "1ec3066e2687aee126b941681e950ea07b5749cd5b02c2bce94b87845640b139",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        313000.5,
+        5758000.5,
+        323240.5,
+        5768240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-313-5758",
+      "outcome": "skipped: missing values",
+      "rank": "1ec90cd1e88d9e6f54b3bd322b2be9a8a35e63fef24ef9081c4b18cfde7c74a4",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        478000.5,
+        5703000.5,
+        488240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-478-5703",
+      "outcome": "selected",
+      "rank": "1f674d532140cec3cc07c05f6672506ab38b5dc85797f6502a5171b52781d5d5",
+      "reliefM": 184.89999389648438,
+      "samples": 625,
+      "stdM": 36.08084676761752,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        401000.5,
+        5615000.5,
+        411240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.9104,
+      "name": "nrw-401-5615",
+      "outcome": "skipped: missing values",
+      "rank": "1ffa9934996bac07435d23942023a7283df11ae05ef2b144bca9c2e009abd4d5",
+      "reliefM": 216.15000915527344,
+      "samples": 625,
+      "stdM": 52.12057812724888
+    },
+    {
+      "bbox": [
+        434000.5,
+        5615000.5,
+        444240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.256,
+      "name": "nrw-434-5615",
+      "outcome": "skipped: missing values",
+      "rank": "20958ccf32d33e0c7764bd7c0d7a9ea945279f7b18d4e988d3d90149c92477c1",
+      "reliefM": 332.3699951171875,
+      "samples": 625,
+      "stdM": 79.85194245712465
+    },
+    {
+      "bbox": [
+        335000.5,
+        5758000.5,
+        345240.5,
+        5768240.5
+      ],
+      "missingFraction": 0.896,
+      "name": "nrw-335-5758",
+      "outcome": "skipped: missing values",
+      "rank": "21d7acc90961fd0f03bd1a1c027d590a914731f5ddcc210ee8ed633a21739d29",
+      "reliefM": 11.920000076293945,
+      "samples": 625,
+      "stdM": 3.4966962620216457
+    },
+    {
+      "bbox": [
+        357000.5,
+        5791000.5,
+        367240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-357-5791",
+      "outcome": "skipped: missing values",
+      "rank": "23d7e03e2d4310ece2d541f3cc761e4d5bf08be5e63be760fc4c4c63ab1ee545",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        434000.5,
+        5802000.5,
+        444240.5,
+        5812240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-434-5802",
+      "outcome": "skipped: missing values",
+      "rank": "24c17e328a55db3147a9cfe22cc2e4aa00f13b02b9906eddd705914ce4716bc6",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        423000.5,
+        5604000.5,
+        433240.5,
+        5614240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-423-5604",
+      "outcome": "skipped: missing values",
+      "rank": "269815557de798477a0156691327572997c3dd1460b97080633faa2270026f13",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        423000.5,
+        5626000.5,
+        433240.5,
+        5636240.5
+      ],
+      "missingFraction": 0.168,
+      "name": "nrw-423-5626",
+      "outcome": "skipped: missing values",
+      "rank": "26c7bf5d63f76c1e8b58bdc65aa81fc9e3dd247bd344a3389e81766d7f9dc225",
+      "reliefM": 303.90997314453125,
+      "samples": 625,
+      "stdM": 62.42870952913681
+    },
+    {
+      "bbox": [
+        357000.5,
+        5780000.5,
+        367240.5,
+        5790240.5
+      ],
+      "missingFraction": 0.2288,
+      "name": "nrw-357-5780",
+      "outcome": "skipped: missing values",
+      "rank": "26e00f9eb3341ba16905a3d6c32b503c82f42bebf4d51e664a5ded6962423e89",
+      "reliefM": 22.970001220703125,
+      "samples": 625,
+      "stdM": 3.7700985648338436
+    },
+    {
+      "bbox": [
+        511000.5,
+        5582000.5,
+        521240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5582",
+      "outcome": "skipped: missing values",
+      "rank": "26f98799a53caa42b9d78adcb1b130169087aca7519685610f0efe4639bceff2",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        313000.5,
+        5791000.5,
+        323240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-313-5791",
+      "outcome": "skipped: missing values",
+      "rank": "27204931eef37c1b7db7588a27105b9b98df4b1d5dc9e99d261df7f5439836f8",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        346000.5,
+        5571000.5,
+        356240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-346-5571",
+      "outcome": "skipped: missing values",
+      "rank": "277b91d608c6816ca4dd5f1b752b460c5e690390040fb7d3d46fd1b0235ef28d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        445000.5,
+        5736000.5,
+        455240.5,
+        5746240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-445-5736",
+      "outcome": "selected",
+      "rank": "282d7b6753fbec81c5ab55a8fd420a8debebea5fe28a85ce9f5c4b6c029e3cc2",
+      "reliefM": 84.75,
+      "samples": 625,
+      "stdM": 13.511388103622865,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        302000.5,
+        5791000.5,
+        312240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-302-5791",
+      "outcome": "skipped: missing values",
+      "rank": "28d1ffd513aa04274c86c33bf5926e547394bb25c34b09c9ba7c21576066589d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5626000.5,
+        532240.5,
+        5636240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5626",
+      "outcome": "skipped: missing values",
+      "rank": "295bf859e9cb920dcca7aa678309db3c4919d3b5de35c9b62398c64ec42120a7",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        401000.5,
+        5714000.5,
+        411240.5,
+        5724240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-401-5714",
+      "outcome": "selected",
+      "rank": "2af23ca5d8f1c4916f3e23650fdb0190d4c3cd5dea3fffba32a5338d94db2dd9",
+      "reliefM": 75.04000091552734,
+      "samples": 625,
+      "stdM": 8.913303996810923,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        467000.5,
+        5637000.5,
+        477240.5,
+        5647240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-467-5637",
+      "outcome": "skipped: missing values",
+      "rank": "2afe9028f990cfb3f8a032745ea52078aaf51f13e54bdb2db0b741a92985af08",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        467000.5,
+        5802000.5,
+        477240.5,
+        5812240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-467-5802",
+      "outcome": "selected",
+      "rank": "2b56b7f9f380497ab7948db81e0f6ce4349c10d6a3d6b64fb114f3664fc655e1",
+      "reliefM": 18.31999969482422,
+      "samples": 625,
+      "stdM": 4.059998387821768,
+      "stratum": "flat"
+    },
+    {
+      "bbox": [
+        434000.5,
+        5604000.5,
+        444240.5,
+        5614240.5
+      ],
+      "missingFraction": 0.984,
+      "name": "nrw-434-5604",
+      "outcome": "skipped: missing values",
+      "rank": "2b5c4bda6f9fee0a58066692c35db27b49547c9fdf859d13e002c09b28676397",
+      "reliefM": 79.1300048828125,
+      "samples": 625,
+      "stdM": 20.534196609789078
+    },
+    {
+      "bbox": [
+        456000.5,
+        5560000.5,
+        466240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-456-5560",
+      "outcome": "skipped: missing values",
+      "rank": "2c5a455ca4855fc64b273a987707f880af7f750f07208797280edaa03dbaba19",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5670000.5,
+        510240.5,
+        5680240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-500-5670",
+      "outcome": "skipped: missing values",
+      "rank": "2dba014a1fb06a82946e9e262b44156ff0c5453942e92a736516c5fc33f48dcc",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        489000.5,
+        5692000.5,
+        499240.5,
+        5702240.5
+      ],
+      "missingFraction": 0.208,
+      "name": "nrw-489-5692",
+      "outcome": "skipped: missing values",
+      "rank": "2e444c53c7878a425b99224cda82159af8b4556000a8f9bcaacca895755762e5",
+      "reliefM": 189.4499969482422,
+      "samples": 625,
+      "stdM": 39.240928842709486
+    },
+    {
+      "bbox": [
+        500000.5,
+        5560000.5,
+        510240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-500-5560",
+      "outcome": "skipped: missing values",
+      "rank": "2e85adfe62010b7fba465df900e76b3daabe4bcf9134719f6be3d5a78c53a5bc",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5670000.5,
+        521240.5,
+        5680240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5670",
+      "outcome": "skipped: missing values",
+      "rank": "2fb7fff1595a43b66520cbe1764727f0c3455b7b3a0621d266267ce3be15e052",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5659000.5,
+        532240.5,
+        5669240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5659",
+      "outcome": "skipped: missing values",
+      "rank": "304be383e65f87fae7059a46c1a9a5d7e027bf88742b5a72a17060f867475f62",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        412000.5,
+        5648000.5,
+        422240.5,
+        5658240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-412-5648",
+      "outcome": "skipped: stratum full",
+      "rank": "304c24a7cebbf9dd84c84cbc8290767e792a105b9dfadd388d46587ec7f34778",
+      "reliefM": 199.82000732421875,
+      "samples": 625,
+      "stdM": 40.84874710147016,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        346000.5,
+        5780000.5,
+        356240.5,
+        5790240.5
+      ],
+      "missingFraction": 0.952,
+      "name": "nrw-346-5780",
+      "outcome": "skipped: missing values",
+      "rank": "30f58d81140c74f7accda97ba060296d95cee1eadcd6b7bb24ac2c6a60315243",
+      "reliefM": 5.619998931884766,
+      "samples": 625,
+      "stdM": 1.175848968240982
+    },
+    {
+      "bbox": [
+        423000.5,
+        5615000.5,
+        433240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.6976,
+      "name": "nrw-423-5615",
+      "outcome": "skipped: missing values",
+      "rank": "320f0c68d580ca4eaf1543621e3fbc30c9b0178328243b13b9c04b27e1ecc70d",
+      "reliefM": 343.6100158691406,
+      "samples": 625,
+      "stdM": 88.0790383808701
+    },
+    {
+      "bbox": [
+        456000.5,
+        5626000.5,
+        466240.5,
+        5636240.5
+      ],
+      "missingFraction": 0.992,
+      "name": "nrw-456-5626",
+      "outcome": "skipped: missing values",
+      "rank": "3257fb6b74755783e637baf0d9719fd7c79ca112a21699165c43c394b3d05941",
+      "reliefM": 43.619964599609375,
+      "samples": 625,
+      "stdM": 15.17369968768474
+    },
+    {
+      "bbox": [
+        478000.5,
+        5626000.5,
+        488240.5,
+        5636240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-478-5626",
+      "outcome": "skipped: missing values",
+      "rank": "33ccfa39583986426d340b19a71ec74e91ef9bf7f2275dcdbfc399eb7a0e6541",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        489000.5,
+        5593000.5,
+        499240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-489-5593",
+      "outcome": "skipped: missing values",
+      "rank": "33d2af906bac759ea4aad722b9bcb395aed0db6c74fbcf0b25a1e9bb70cba3cf",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        478000.5,
+        5802000.5,
+        488240.5,
+        5812240.5
+      ],
+      "missingFraction": 0.36,
+      "name": "nrw-478-5802",
+      "outcome": "skipped: missing values",
+      "rank": "33d63c8a4516680c4a50fe65027cca4056daf87f36b766a59c6c63a782898184",
+      "reliefM": 45.52999687194824,
+      "samples": 625,
+      "stdM": 5.354436539198024
+    },
+    {
+      "bbox": [
+        302000.5,
+        5780000.5,
+        312240.5,
+        5790240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-302-5780",
+      "outcome": "skipped: missing values",
+      "rank": "35a13a1b30d137830e17319397bcace94ed17ceafda5b38ed9c58bf2c2c29c5d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5703000.5,
+        532240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.912,
+      "name": "nrw-522-5703",
+      "outcome": "skipped: missing values",
+      "rank": "3704416f8eb7ceba8376597e531397044f1dc8d4e53a71e836bad715a3bef7c5",
+      "reliefM": 124.91999816894531,
+      "samples": 625,
+      "stdM": 29.755423122083066
+    },
+    {
+      "bbox": [
+        412000.5,
+        5604000.5,
+        422240.5,
+        5614240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-412-5604",
+      "outcome": "skipped: missing values",
+      "rank": "3861c13a916255bbcda0c87456c2bd539fc693b6214179e0522187159560b7f3",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        368000.5,
+        5813000.5,
+        378240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-368-5813",
+      "outcome": "skipped: missing values",
+      "rank": "386933aa59c0eda5f5664dcc36c80e29b8f1b8304e8de225c5f5c93ebf13ddca",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5780000.5,
+        532240.5,
+        5790240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5780",
+      "outcome": "skipped: missing values",
+      "rank": "38c27efc3249c748032e151fc53c204f720f23540676ae2ac4a19a5892d0b80a",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        390000.5,
+        5692000.5,
+        400240.5,
+        5702240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-390-5692",
+      "outcome": "skipped: stratum full",
+      "rank": "3964572c8d820df77a253cf71fb08ecbc694faca951e54877f2772accf99ee7d",
+      "reliefM": 165.6999969482422,
+      "samples": 625,
+      "stdM": 39.40550358796623,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        291000.5,
+        5626000.5,
+        301240.5,
+        5636240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-291-5626",
+      "outcome": "selected",
+      "rank": "396518966e35dfa5d20de66c28a04ac91f9d77e243c7ed110854cc4a0f2e86f6",
+      "reliefM": 208.64999389648438,
+      "samples": 625,
+      "stdM": 26.82895907708803,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        456000.5,
+        5615000.5,
+        466240.5,
+        5625240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-456-5615",
+      "outcome": "skipped: missing values",
+      "rank": "39b0342fb8380eb843db3e7491a4ef5f1b7f71935dcd41be9731279cb21463b2",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        302000.5,
+        5615000.5,
+        312240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-302-5615",
+      "outcome": "skipped: stratum full",
+      "rank": "39d34769f233308412a991b410d0b4b6e3a288f18fce0dc13e921106d8264334",
+      "reliefM": 361.42002868652344,
+      "samples": 625,
+      "stdM": 81.52874023695668,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        467000.5,
+        5791000.5,
+        477240.5,
+        5801240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-467-5791",
+      "outcome": "skipped: stratum full",
+      "rank": "3a15fb6683f3abf0be5ffa83f9f3a1f2c10d225bec5549ccd53e7f07f087fcf2",
+      "reliefM": 260.6199951171875,
+      "samples": 625,
+      "stdM": 56.873249488947195,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        302000.5,
+        5813000.5,
+        312240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-302-5813",
+      "outcome": "skipped: missing values",
+      "rank": "3acd8260666f6cca54db139b11f9e8bd9ab0fb3940b063cadeadd45e139b1ad2",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        401000.5,
+        5604000.5,
+        411240.5,
+        5614240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-401-5604",
+      "outcome": "skipped: missing values",
+      "rank": "3b10fc94c377d46143aab785a674ac030b6c84d1a7fae3254384a0ea423a87a4",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        478000.5,
+        5582000.5,
+        488240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-478-5582",
+      "outcome": "skipped: missing values",
+      "rank": "3bc02851971e39e48a397b4e219a5c5221712ee7fee68be8081ed07e7de40b7d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5791000.5,
+        290240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5791",
+      "outcome": "skipped: missing values",
+      "rank": "3c143db51f8c93c4b435ec9ef2ac5a59eb0c8b7b18c27985c8a560b3058b03ed",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        291000.5,
+        5747000.5,
+        301240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.664,
+      "name": "nrw-291-5747",
+      "outcome": "skipped: missing values",
+      "rank": "3d080f1a659192097649f70d241c40be053a0249cd5a0d5fdd380c0750d74366",
+      "reliefM": 8.75,
+      "samples": 625,
+      "stdM": 1.7744222751259677
+    },
+    {
+      "bbox": [
+        434000.5,
+        5736000.5,
+        444240.5,
+        5746240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-434-5736",
+      "outcome": "skipped: stratum full",
+      "rank": "3d32c83e2a375804d72ac62c59354b53a2bdd2667ba8e7713d9f157469fffde5",
+      "reliefM": 93.08999633789062,
+      "samples": 625,
+      "stdM": 19.82282965081518,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        489000.5,
+        5560000.5,
+        499240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-489-5560",
+      "outcome": "skipped: missing values",
+      "rank": "3d473b3f785fe67c49d06aea683778188e8dfd8bd226826d7b905db4a4794ac0",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        456000.5,
+        5582000.5,
+        466240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-456-5582",
+      "outcome": "skipped: missing values",
+      "rank": "3e4171e858b81a5cbf450882dcfb981125dcf4ad978af57a1642962d98d8a708",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        434000.5,
+        5582000.5,
+        444240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-434-5582",
+      "outcome": "skipped: missing values",
+      "rank": "3e47fec17c233f14ca2bdbb85cd42058dde71ef8fbf2b6ecceb43a4beb7efff1",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5659000.5,
+        521240.5,
+        5669240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5659",
+      "outcome": "skipped: missing values",
+      "rank": "3e8a035e38c3d02b386bb95211e5a3d865dd2eb0574a3317845a2041230d8e48",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5769000.5,
+        521240.5,
+        5779240.5
+      ],
+      "missingFraction": 0.8896,
+      "name": "nrw-511-5769",
+      "outcome": "skipped: missing values",
+      "rank": "3ff6cd34f8feb829ffa6ce799c80debbea2b49c89c074e991e929c623211dbb9",
+      "reliefM": 231.510009765625,
+      "samples": 625,
+      "stdM": 58.58795326649822
+    },
+    {
+      "bbox": [
+        500000.5,
+        5813000.5,
+        510240.5,
+        5823240.5
+      ],
+      "missingFraction": 0.6112,
+      "name": "nrw-500-5813",
+      "outcome": "skipped: missing values",
+      "rank": "444a231422d96987d93f720c1918ec715c17d30d04be265b349cbaf4633e245f",
+      "reliefM": 25.85999870300293,
+      "samples": 625,
+      "stdM": 3.412445537734302
+    },
+    {
+      "bbox": [
+        423000.5,
+        5736000.5,
+        433240.5,
+        5746240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-423-5736",
+      "outcome": "skipped: stratum full",
+      "rank": "44a4204c2947f959ca1e9caa98729222b6ff062c2489eb22c8a19086c1bf97fd",
+      "reliefM": 63.119998931884766,
+      "samples": 625,
+      "stdM": 13.153852128580137,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        511000.5,
+        5648000.5,
+        521240.5,
+        5658240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5648",
+      "outcome": "skipped: missing values",
+      "rank": "4645a74c87a2f0571d12af0bc8b25640e323435c92ffb5486a12fa2a6d20f58e",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        302000.5,
+        5802000.5,
+        312240.5,
+        5812240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-302-5802",
+      "outcome": "skipped: missing values",
+      "rank": "47527045d605f3d278ee2867c8511037e7b43b51bb9801c923f61214ec18a9b9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5780000.5,
+        290240.5,
+        5790240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5780",
+      "outcome": "skipped: missing values",
+      "rank": "4782e4bd3e3cd33dfec269ac13f3689779b716fb21cd6d4ee78a1cbf62ee4daa",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        302000.5,
+        5758000.5,
+        312240.5,
+        5768240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-302-5758",
+      "outcome": "skipped: missing values",
+      "rank": "481d3f878e95ca644190caeb22c762cb1f121a689ccec7e26324ac51d6d65925",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        478000.5,
+        5681000.5,
+        488240.5,
+        5691240.5
+      ],
+      "missingFraction": 0.8912,
+      "name": "nrw-478-5681",
+      "outcome": "skipped: missing values",
+      "rank": "483fe5d5d591863640064f8cd9677addbb16423f1ca2e0f8a0ae05cd2ddfe9c5",
+      "reliefM": 238.66998291015625,
+      "samples": 625,
+      "stdM": 68.2908716072968
+    },
+    {
+      "bbox": [
+        511000.5,
+        5692000.5,
+        521240.5,
+        5702240.5
+      ],
+      "missingFraction": 0.888,
+      "name": "nrw-511-5692",
+      "outcome": "skipped: missing values",
+      "rank": "4a205cc092f087ab0e08eb805b76ca1b724831b8fde814ae9425de415f63d236",
+      "reliefM": 126.38999938964844,
+      "samples": 625,
+      "stdM": 24.606036684079
+    },
+    {
+      "bbox": [
+        478000.5,
+        5615000.5,
+        488240.5,
+        5625240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-478-5615",
+      "outcome": "skipped: missing values",
+      "rank": "4aa0fc6d78f0a93158775d1b49b01096f10c3c769b179e153a3063e9ae36771e",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        467000.5,
+        5571000.5,
+        477240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-467-5571",
+      "outcome": "skipped: missing values",
+      "rank": "4b0ce9845ac221ae8d34b2502e434e17de946829617300cb7e17527999dd0470",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        423000.5,
+        5593000.5,
+        433240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-423-5593",
+      "outcome": "skipped: missing values",
+      "rank": "4bef4f3c44c24e9a3ec2c47f75dd5403f699f53f36971f48307c2e8f92a7a653",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5571000.5,
+        510240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-500-5571",
+      "outcome": "skipped: missing values",
+      "rank": "4f06b2266bb3f5b125137fce58b76fe5cc08aac39a355d45a81c27b0766d4ff8",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        456000.5,
+        5593000.5,
+        466240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-456-5593",
+      "outcome": "skipped: missing values",
+      "rank": "4f630a569fb2ed126ae328e338876e71c18a0c7981260277da21abe158eb0561",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        379000.5,
+        5571000.5,
+        389240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-379-5571",
+      "outcome": "skipped: missing values",
+      "rank": "500cdac01b293c93c0c431cc482fe3e27071728e58adf89e069dbc4704b61b5a",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        302000.5,
+        5769000.5,
+        312240.5,
+        5779240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-302-5769",
+      "outcome": "skipped: missing values",
+      "rank": "506c03a7b3a72fd34ab2e38e8c3ee803b0aa73d14928665a1bbc9506b14b92d8",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        324000.5,
+        5593000.5,
+        334240.5,
+        5603240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-324-5593",
+      "outcome": "skipped: stratum full",
+      "rank": "5387026d5aca31931ed92ded1701079776866764b4ae7821f7a5f8d22c5c4569",
+      "reliefM": 273.67999267578125,
+      "samples": 625,
+      "stdM": 50.68167228004704,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        291000.5,
+        5736000.5,
+        301240.5,
+        5746240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-291-5736",
+      "outcome": "skipped: stratum full",
+      "rank": "544b5fb7af05e0fbc6c11d95726b5461c91eca266f7a990067b93ff82e33aab6",
+      "reliefM": 85.89000129699707,
+      "samples": 625,
+      "stdM": 19.09011846454272,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        511000.5,
+        5758000.5,
+        521240.5,
+        5768240.5
+      ],
+      "missingFraction": 0.6,
+      "name": "nrw-511-5758",
+      "outcome": "skipped: missing values",
+      "rank": "561acb51f4d8712e06dd85e89f1bb6156ec4f677f5ac25a8e1ee32320ac50057",
+      "reliefM": 214.48999786376953,
+      "samples": 625,
+      "stdM": 57.43725939930823
+    },
+    {
+      "bbox": [
+        335000.5,
+        5813000.5,
+        345240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-335-5813",
+      "outcome": "skipped: missing values",
+      "rank": "5764b2e84e847245cce1ba4e150ff87412de2cccbaae57320cb5aeee8e0cb407",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        401000.5,
+        5582000.5,
+        411240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-401-5582",
+      "outcome": "skipped: missing values",
+      "rank": "58050701889a6e6ff266aa19d86ce2ce0280ef4190acca3a15d17a704f639d7d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5725000.5,
+        521240.5,
+        5735240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-511-5725",
+      "outcome": "skipped: stratum full",
+      "rank": "58f043d3b19de9b01a067d03db44d943399c88420bb29f02bce4843e8c9d693c",
+      "reliefM": 247.47999572753906,
+      "samples": 625,
+      "stdM": 60.686838409510834,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        412000.5,
+        5615000.5,
+        422240.5,
+        5625240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-412-5615",
+      "outcome": "skipped: missing values",
+      "rank": "591ebc6e9007fa3781136943359d1d80d34ac557b383563959dbea90975bb914",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        313000.5,
+        5615000.5,
+        323240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-313-5615",
+      "outcome": "skipped: stratum full",
+      "rank": "5a80a3b2f260cf9fe142d5824879929d8f84dd3e8cedffbed62b682f1bab0113",
+      "reliefM": 348.92999267578125,
+      "samples": 625,
+      "stdM": 80.98247620789554,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        522000.5,
+        5648000.5,
+        532240.5,
+        5658240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5648",
+      "outcome": "skipped: missing values",
+      "rank": "5b0c0e797453fe45aa996a9225325a1613474310e7b421d50253dacf3040fb6d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        445000.5,
+        5626000.5,
+        455240.5,
+        5636240.5
+      ],
+      "missingFraction": 0.728,
+      "name": "nrw-445-5626",
+      "outcome": "skipped: missing values",
+      "rank": "5b21210e03b6e619f9aec0d01d77b3a25e1cdc56067335ee49fbe252d28145aa",
+      "reliefM": 255.52001953125,
+      "samples": 625,
+      "stdM": 51.82823548641833
+    },
+    {
+      "bbox": [
+        511000.5,
+        5703000.5,
+        521240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0656,
+      "name": "nrw-511-5703",
+      "outcome": "skipped: missing values",
+      "rank": "5b7ad774bd3dd47f35ab8a162aa894c63a8fb75f0e435f10ef4695c8a685a355",
+      "reliefM": 140.0900115966797,
+      "samples": 625,
+      "stdM": 24.86770191465204
+    },
+    {
+      "bbox": [
+        401000.5,
+        5626000.5,
+        411240.5,
+        5636240.5
+      ],
+      "missingFraction": 0.152,
+      "name": "nrw-401-5626",
+      "outcome": "skipped: missing values",
+      "rank": "5b9e7529b7c2bd626aa1543cbd8f289be8d07edc09fe6149135fadd262286df4",
+      "reliefM": 223.66000366210938,
+      "samples": 625,
+      "stdM": 51.25201118971268
+    },
+    {
+      "bbox": [
+        346000.5,
+        5813000.5,
+        356240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-346-5813",
+      "outcome": "skipped: missing values",
+      "rank": "5c8ecef40c75ccde3eb8945110d1dfa34bd9cccd30f7331c1359801b51ee50bc",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5758000.5,
+        510240.5,
+        5768240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-500-5758",
+      "outcome": "skipped: stratum full",
+      "rank": "5c9cc4531eb6bb9e0744b159b34ea47429f39e957d234ee52842f97f4a772d9c",
+      "reliefM": 253.58999633789062,
+      "samples": 625,
+      "stdM": 52.41891436136369,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        313000.5,
+        5813000.5,
+        323240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-313-5813",
+      "outcome": "skipped: missing values",
+      "rank": "5ce0efebce43e8ec125faf6dfbde78c491178390a0950596f24a6b07ee7bfd87",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        401000.5,
+        5703000.5,
+        411240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-401-5703",
+      "outcome": "skipped: stratum full",
+      "rank": "5dfda03eddb9f4015abb6c45a80ff70ffc0a8bddfd693ac7e265fca12ae0d3b6",
+      "reliefM": 148.78999710083008,
+      "samples": 625,
+      "stdM": 39.72402203568618,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        291000.5,
+        5780000.5,
+        301240.5,
+        5790240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-291-5780",
+      "outcome": "skipped: missing values",
+      "rank": "5e60620f4253bf22172f94344bd2652ea52d3d79b8180ccd9d7420b7303b9cd9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        489000.5,
+        5648000.5,
+        499240.5,
+        5658240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-489-5648",
+      "outcome": "skipped: missing values",
+      "rank": "5f1d48b95fd8fa5cc4614c8bc9a5a27d86553c285bf111aaaccada1547055845",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        335000.5,
+        5615000.5,
+        345240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-335-5615",
+      "outcome": "skipped: stratum full",
+      "rank": "5f5005f10e758d56602928cd0b629a23720b0bf58277c361f446a09af926d4bd",
+      "reliefM": 85.74999237060547,
+      "samples": 625,
+      "stdM": 13.441865984412035,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        280000.5,
+        5692000.5,
+        290240.5,
+        5702240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5692",
+      "outcome": "skipped: missing values",
+      "rank": "5f6b821fb98f5e7dc4bf5b188a232004ba124a9347780afa8708fb0691fc1ee8",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5714000.5,
+        521240.5,
+        5724240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-511-5714",
+      "outcome": "skipped: stratum full",
+      "rank": "5f8df1a085b8310912b4f432a7238e81bb7ee2ec6f4f85e5b23b7420b3dbcb4a",
+      "reliefM": 169.9300079345703,
+      "samples": 625,
+      "stdM": 33.93582017006722,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        445000.5,
+        5791000.5,
+        455240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-445-5791",
+      "outcome": "skipped: missing values",
+      "rank": "605d1882985b3c461c6361c933efb971a0647c0de111f5122fc11beff26d0e41",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        445000.5,
+        5560000.5,
+        455240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-445-5560",
+      "outcome": "skipped: missing values",
+      "rank": "60f476f918062dbd8c3517e4eacd158d1c5dd1be458b9d37e0e52b80e75a2cc7",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        445000.5,
+        5582000.5,
+        455240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-445-5582",
+      "outcome": "skipped: missing values",
+      "rank": "61bef9c5639b1a41580d6e2ac49784dea2673db1ea88823ca749021fde8fd590",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5725000.5,
+        290240.5,
+        5735240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5725",
+      "outcome": "skipped: missing values",
+      "rank": "626a9638df1e4cc9551a97c3f7967db8e397098aa3002b2275a3f3e48f7a962f",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        412000.5,
+        5593000.5,
+        422240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-412-5593",
+      "outcome": "skipped: missing values",
+      "rank": "62f7e98c7ccb68a28b5794f0a2cbe524e194f72bd265be3b8eb8c3278be4d4bd",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        467000.5,
+        5560000.5,
+        477240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-467-5560",
+      "outcome": "skipped: missing values",
+      "rank": "6343c1bf1498c196ee85dadf5daf04d0317a20014136275ef93bf998a9f22b3d",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5604000.5,
+        510240.5,
+        5614240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-500-5604",
+      "outcome": "skipped: missing values",
+      "rank": "63b5d9b6080055f2f8f1d7b01410b2373b8160367b8a52bec4b500ea8845f8c6",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        401000.5,
+        5560000.5,
+        411240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-401-5560",
+      "outcome": "skipped: missing values",
+      "rank": "64157857c134d166dca0fb15bbc4a862419a2c60a357969245bb83610bd24d50",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        434000.5,
+        5560000.5,
+        444240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-434-5560",
+      "outcome": "skipped: missing values",
+      "rank": "643717bc9e2e7fd7e14f7f580f98ef8f590fcb9caf620481807c7c2baaba6479",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5703000.5,
+        290240.5,
+        5713240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5703",
+      "outcome": "skipped: missing values",
+      "rank": "646e8a2dd36c662ff89a165b41af5de5d2956173a899623db33b12799da803ae",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        291000.5,
+        5725000.5,
+        301240.5,
+        5735240.5
+      ],
+      "missingFraction": 0.328,
+      "name": "nrw-291-5725",
+      "outcome": "skipped: missing values",
+      "rank": "656bff7f4ea6b06a5898378f7eca1a0d7bf29eb5682ea5faf5395f021f7491e3",
+      "reliefM": 25.09999942779541,
+      "samples": 625,
+      "stdM": 5.374547067602092
+    },
+    {
+      "bbox": [
+        412000.5,
+        5659000.5,
+        422240.5,
+        5669240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-412-5659",
+      "outcome": "skipped: stratum full",
+      "rank": "6598b6e138483ac4e4fba5947018be355cd4f0e6d70f3cb08d8e0852dc190c1c",
+      "reliefM": 389.6399841308594,
+      "samples": 625,
+      "stdM": 77.94557016800802,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        500000.5,
+        5626000.5,
+        510240.5,
+        5636240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-500-5626",
+      "outcome": "skipped: missing values",
+      "rank": "6656e9aff6488cd7c9bf64a7d5ff42ef076d46169b0e2097f818264d24ed6113",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5791000.5,
+        532240.5,
+        5801240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5791",
+      "outcome": "skipped: missing values",
+      "rank": "673761e521c12784d026c66ec93ff0844850465dcae6dec37b9c61eb3848b79f",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5648000.5,
+        290240.5,
+        5658240.5
+      ],
+      "missingFraction": 0.24,
+      "name": "nrw-280-5648",
+      "outcome": "skipped: missing values",
+      "rank": "677236dee9b832f9ef98d731c62bb4769f1e59a8257e64c8e01e1c0291b801e6",
+      "reliefM": 74.22000122070312,
+      "samples": 625,
+      "stdM": 16.079605494438287
+    },
+    {
+      "bbox": [
+        412000.5,
+        5560000.5,
+        422240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-412-5560",
+      "outcome": "skipped: missing values",
+      "rank": "69a76fb1df437abf34846caa265cd6ad1f37d54a05af77664af4e7b59361d228",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        423000.5,
+        5725000.5,
+        433240.5,
+        5735240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-423-5725",
+      "outcome": "skipped: stratum full",
+      "rank": "6aa9130be0ee3a078bc074c49cc8593489e382b86720b06d8e516c489ec4c35b",
+      "reliefM": 83.75000762939453,
+      "samples": 625,
+      "stdM": 17.164300961737137,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        368000.5,
+        5571000.5,
+        378240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-368-5571",
+      "outcome": "skipped: missing values",
+      "rank": "6af5fe56522d632e3ad730eb2ba49da3f749bbc5e5ae04c0afbf1d7a24bbd735",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        478000.5,
+        5637000.5,
+        488240.5,
+        5647240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-478-5637",
+      "outcome": "skipped: missing values",
+      "rank": "6b40ce3791c9c50cac98f777667c54e5475ce996e5a096d53c1f4a966c3304b6",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        489000.5,
+        5725000.5,
+        499240.5,
+        5735240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-489-5725",
+      "outcome": "skipped: stratum full",
+      "rank": "6b54a061acd9fb29fdb072348169bb80a0454d766f1d023e3145cdbed3596029",
+      "reliefM": 286.6700134277344,
+      "samples": 625,
+      "stdM": 50.52630345413845,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        324000.5,
+        5615000.5,
+        334240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-324-5615",
+      "outcome": "skipped: stratum full",
+      "rank": "6be5c5361b3c54643908419f15b58a4740bfa07a67e3aaf9f983990cfff1f4e8",
+      "reliefM": 210.27000427246094,
+      "samples": 625,
+      "stdM": 42.60556187494456,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        346000.5,
+        5582000.5,
+        356240.5,
+        5592240.5
+      ],
+      "missingFraction": 0.912,
+      "name": "nrw-346-5582",
+      "outcome": "skipped: missing values",
+      "rank": "6d006bfcf76b903cd345b7e8c5b2c0c1c1191abd5fc1b7c0ce0e6d143584ad71",
+      "reliefM": 245.19000244140625,
+      "samples": 625,
+      "stdM": 61.86766290079224
+    },
+    {
+      "bbox": [
+        434000.5,
+        5637000.5,
+        444240.5,
+        5647240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-434-5637",
+      "outcome": "skipped: stratum full",
+      "rank": "6f1c3299e23748be4d74918261b61a79ebeb6e870981a894a4207c502352563c",
+      "reliefM": 389.91998291015625,
+      "samples": 625,
+      "stdM": 88.61326841141644,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        511000.5,
+        5747000.5,
+        521240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.0384,
+      "name": "nrw-511-5747",
+      "outcome": "skipped: missing values",
+      "rank": "6f49b17b70542dc3b02a31ddb68782b7e90ad962f222b483460f683b1f221e78",
+      "reliefM": 345.010009765625,
+      "samples": 625,
+      "stdM": 74.96879661570806
+    },
+    {
+      "bbox": [
+        401000.5,
+        5681000.5,
+        411240.5,
+        5691240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-401-5681",
+      "outcome": "skipped: stratum full",
+      "rank": "70480fddce9fe71248a74dd9d7bc1d17287e41cdcf224842678dbc517a0fc891",
+      "reliefM": 374.58001708984375,
+      "samples": 625,
+      "stdM": 94.13900353633906,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        522000.5,
+        5714000.5,
+        532240.5,
+        5724240.5
+      ],
+      "missingFraction": 0.3104,
+      "name": "nrw-522-5714",
+      "outcome": "skipped: missing values",
+      "rank": "7064789111cc8419f1b23f37cde18e3fe2ce30e5008bee1dd11983f77aac1e45",
+      "reliefM": 267.4800033569336,
+      "samples": 625,
+      "stdM": 74.80706713408635
+    },
+    {
+      "bbox": [
+        478000.5,
+        5659000.5,
+        488240.5,
+        5669240.5
+      ],
+      "missingFraction": 0.688,
+      "name": "nrw-478-5659",
+      "outcome": "skipped: missing values",
+      "rank": "7349c38158b84bb136d21c176c4b1f0a25d53426537ddb2067705c035048818e",
+      "reliefM": 180.04998779296875,
+      "samples": 625,
+      "stdM": 41.76102728017886
+    },
+    {
+      "bbox": [
+        522000.5,
+        5747000.5,
+        532240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.848,
+      "name": "nrw-522-5747",
+      "outcome": "skipped: missing values",
+      "rank": "7470ece1593a0fa5da19d2357be586406ce379aa09375d20a0bdf823d8877e25",
+      "reliefM": 166.5399932861328,
+      "samples": 625,
+      "stdM": 44.637960481779956
+    },
+    {
+      "bbox": [
+        511000.5,
+        5736000.5,
+        521240.5,
+        5746240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-511-5736",
+      "outcome": "skipped: stratum full",
+      "rank": "7628ecd2536f924e3b8d7eb519a9bd0ce34a2bbd4295e8bc2447a7cdc49a7d35",
+      "reliefM": 220.25001525878906,
+      "samples": 625,
+      "stdM": 43.89748443199916,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        522000.5,
+        5692000.5,
+        532240.5,
+        5702240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5692",
+      "outcome": "skipped: missing values",
+      "rank": "76d1b5b45b50ed3e2c0f5f6342250daf53af04f7b4e9c40e38832ec10bd96195",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        390000.5,
+        5571000.5,
+        400240.5,
+        5581240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-390-5571",
+      "outcome": "skipped: missing values",
+      "rank": "779e43abb5f9106083c5209964333883fd716e41eb05c7c29e8769df19da24e7",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        522000.5,
+        5758000.5,
+        532240.5,
+        5768240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5758",
+      "outcome": "skipped: missing values",
+      "rank": "781ab4f931258c53f102c7fc7460f0f719257ff021d6ba959aeb2c875af61517",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        489000.5,
+        5681000.5,
+        499240.5,
+        5691240.5
+      ],
+      "missingFraction": 0.9664,
+      "name": "nrw-489-5681",
+      "outcome": "skipped: missing values",
+      "rank": "792d2819f319a95149deaaa00b41a6ebe7227d4e30431f87464c384652b4f643",
+      "reliefM": 66.260009765625,
+      "samples": 625,
+      "stdM": 18.36374510748732
+    },
+    {
+      "bbox": [
+        522000.5,
+        5802000.5,
+        532240.5,
+        5812240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-522-5802",
+      "outcome": "skipped: missing values",
+      "rank": "796a24ac2a5a4e659d2ab986502851396a298e84d841801e72d5be3566d8341a",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5791000.5,
+        510240.5,
+        5801240.5
+      ],
+      "missingFraction": 0.744,
+      "name": "nrw-500-5791",
+      "outcome": "skipped: missing values",
+      "rank": "79ee461047bb29791c4714036be8e382b5ffe3d121c9de176ffa331b6db8c71b",
+      "reliefM": 35.51000213623047,
+      "samples": 625,
+      "stdM": 4.712498704558449
+    },
+    {
+      "bbox": [
+        489000.5,
+        5615000.5,
+        499240.5,
+        5625240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-489-5615",
+      "outcome": "skipped: missing values",
+      "rank": "7a36399011d508c60e2fa839ce2fb24b1624719cc2a0862fb4920eaf79405efc",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        313000.5,
+        5802000.5,
+        323240.5,
+        5812240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-313-5802",
+      "outcome": "skipped: missing values",
+      "rank": "7ac366d504c01393acc82867b91087188e5ebf1cd0fee1e67cfaa8b2c7426181",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        324000.5,
+        5604000.5,
+        334240.5,
+        5614240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-324-5604",
+      "outcome": "skipped: stratum full",
+      "rank": "7c9290d995a07235f641466bda4a2a8631a4597553a4ebd0ad12c6af87596252",
+      "reliefM": 327.16001892089844,
+      "samples": 625,
+      "stdM": 69.3506781364715,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        500000.5,
+        5714000.5,
+        510240.5,
+        5724240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-500-5714",
+      "outcome": "skipped: stratum full",
+      "rank": "7d892b5f61241c3effa408d6767ba4d7efa6810b7a98a71eda48854fc164c067",
+      "reliefM": 269.15000915527344,
+      "samples": 625,
+      "stdM": 49.14119465902894,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        478000.5,
+        5791000.5,
+        488240.5,
+        5801240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-478-5791",
+      "outcome": "skipped: stratum full",
+      "rank": "7dc8ddaf53d85f7a8e99a2831d998e30bea1bad738393815ff078f5ece373f1e",
+      "reliefM": 220.1400032043457,
+      "samples": 625,
+      "stdM": 39.593321725139916,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        489000.5,
+        5714000.5,
+        499240.5,
+        5724240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-489-5714",
+      "outcome": "skipped: stratum full",
+      "rank": "7e199bfe43c0943fa1571146d94a432a58f3185dcbe561704138251f9963646c",
+      "reliefM": 199.90000915527344,
+      "samples": 625,
+      "stdM": 32.20107345421055,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        280000.5,
+        5747000.5,
+        290240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.984,
+      "name": "nrw-280-5747",
+      "outcome": "skipped: missing values",
+      "rank": "7e669bc35154b2a18edc0318a028f8bdd0683a62371ea440db6c34e6c2297b06",
+      "reliefM": 1.5200004577636719,
+      "samples": 625,
+      "stdM": 0.44875512648188676
+    },
+    {
+      "bbox": [
+        511000.5,
+        5813000.5,
+        521240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5813",
+      "outcome": "skipped: missing values",
+      "rank": "7f7f52c56169f5047edaba910f69cb6ddfaf789e19b3c4ab6472c0927aaee7a8",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        423000.5,
+        5659000.5,
+        433240.5,
+        5669240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-423-5659",
+      "outcome": "skipped: stratum full",
+      "rank": "8022baa91c095d399392bf757bf2b6dcb214797eb183a7d3841bdc70c71b5293",
+      "reliefM": 349.2799987792969,
+      "samples": 625,
+      "stdM": 66.78962016103341,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        302000.5,
+        5582000.5,
+        312240.5,
+        5592240.5
+      ],
+      "missingFraction": 0.8896,
+      "name": "nrw-302-5582",
+      "outcome": "skipped: missing values",
+      "rank": "8027e03ec85198e4b1aa620141866fed155dcbf2e2f4ee13f7d0dcd3a7ca71b4",
+      "reliefM": 106.17999267578125,
+      "samples": 625,
+      "stdM": 27.768833096867372
+    },
+    {
+      "bbox": [
+        511000.5,
+        5615000.5,
+        521240.5,
+        5625240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5615",
+      "outcome": "skipped: missing values",
+      "rank": "80553fb07f8e7f4bf934487125daf4d4160bd40aec7c5e5796f111f3f71b5775",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5593000.5,
+        521240.5,
+        5603240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5593",
+      "outcome": "skipped: missing values",
+      "rank": "80944058ac784918402589fc9a9c2c59b2689f9813323843950c0a35673babc9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        280000.5,
+        5813000.5,
+        290240.5,
+        5823240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5813",
+      "outcome": "skipped: missing values",
+      "rank": "80f7e9fe0c5611cb589d4a68e2b1f926d1cf1de4184e804a509cbb4ee3b61a9b",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        335000.5,
+        5604000.5,
+        345240.5,
+        5614240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-335-5604",
+      "outcome": "skipped: stratum full",
+      "rank": "81f86031482ca3caf9b3e74ccbc9b1ca9a49b0c70f7c229c26937fee8cdc796f",
+      "reliefM": 249.63998413085938,
+      "samples": 625,
+      "stdM": 59.541722483645856,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        291000.5,
+        5615000.5,
+        301240.5,
+        5625240.5
+      ],
+      "missingFraction": 0.3824,
+      "name": "nrw-291-5615",
+      "outcome": "skipped: missing values",
+      "rank": "82fadc92aa43ccea588ae95daf7aceb1cf6b62ef98d78d84e60d19cd2c7dd1bf",
+      "reliefM": 244.6599884033203,
+      "samples": 625,
+      "stdM": 41.81706424637286
+    },
+    {
+      "bbox": [
+        291000.5,
+        5769000.5,
+        301240.5,
+        5779240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-291-5769",
+      "outcome": "skipped: missing values",
+      "rank": "84ace69d88f74da9015a19ad04aa3f5504811d3d3dd142430510dfe9b487aabb",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        335000.5,
+        5560000.5,
+        345240.5,
+        5570240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-335-5560",
+      "outcome": "skipped: missing values",
+      "rank": "871296ccec4885db30c4acdbb5e8a7a46cc8b1e483a924972d213e7053c971a9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        313000.5,
+        5747000.5,
+        323240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.744,
+      "name": "nrw-313-5747",
+      "outcome": "skipped: missing values",
+      "rank": "8783e484351e23b3ec5beec992c4453021fddf65a9a90cdfd2e277eda29676a0",
+      "reliefM": 6.609999656677246,
+      "samples": 625,
+      "stdM": 1.0292722957037053
+    },
+    {
+      "bbox": [
+        445000.5,
+        5604000.5,
+        455240.5,
+        5614240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-445-5604",
+      "outcome": "skipped: missing values",
+      "rank": "87a192f0964811467739383806e2cd3540c767f18554b21426d7faf426bd1225",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        291000.5,
+        5604000.5,
+        301240.5,
+        5614240.5
+      ],
+      "missingFraction": 0.848,
+      "name": "nrw-291-5604",
+      "outcome": "skipped: missing values",
+      "rank": "87c498b19b45afb9bd2870655b81fd97bb5cd55484ff58c35c72367b73975397",
+      "reliefM": 259.40997314453125,
+      "samples": 625,
+      "stdM": 89.76538487126685
+    },
+    {
+      "bbox": [
+        511000.5,
+        5637000.5,
+        521240.5,
+        5647240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5637",
+      "outcome": "skipped: missing values",
+      "rank": "88ad98757b57287a7144b6163bec3b7034afd88469d02bed463349cc50f7c1aa",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        500000.5,
+        5692000.5,
+        510240.5,
+        5702240.5
+      ],
+      "missingFraction": 0.76,
+      "name": "nrw-500-5692",
+      "outcome": "skipped: missing values",
+      "rank": "88cb76a7fd4cef57dc5927ee0d91e31611e7fcc389742a290e81b45895e319cf",
+      "reliefM": 128.97999572753906,
+      "samples": 625,
+      "stdM": 37.410757808001385
+    },
+    {
+      "bbox": [
+        280000.5,
+        5582000.5,
+        290240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-280-5582",
+      "outcome": "skipped: missing values",
+      "rank": "89c91ce2e762041bf7bf64cd94baa806cf2b7a3f82ba8d9b66b5be5ece2b9283",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5626000.5,
+        521240.5,
+        5636240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5626",
+      "outcome": "skipped: missing values",
+      "rank": "8a137ceee3278dc4ef4396a6aab5ad1fbee348c5a551bf83d1f6851667fe89c9",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        423000.5,
+        5582000.5,
+        433240.5,
+        5592240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-423-5582",
+      "outcome": "skipped: missing values",
+      "rank": "8a7313be4912bbea6b7a96c204b83fe10df3313a2cdf3e6fca25da9372226efb",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        511000.5,
+        5681000.5,
+        521240.5,
+        5691240.5
+      ],
+      "missingFraction": 1.0,
+      "name": "nrw-511-5681",
+      "outcome": "skipped: missing values",
+      "rank": "8bb66a4f472dab8d37740bbb3428656f255f196153a65259b0dc63e4b5c20474",
+      "reliefM": null,
+      "samples": 625,
+      "stdM": null
+    },
+    {
+      "bbox": [
+        434000.5,
+        5747000.5,
+        444240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-434-5747",
+      "outcome": "selected",
+      "rank": "8cc2edce673af6eeabe73822e907110ebcd65ed3e1a2b93f28d6bad9afb98205",
+      "reliefM": 39.92000198364258,
+      "samples": 625,
+      "stdM": 6.1596526318729286,
+      "stratum": "flat"
+    }
+  ],
+  "quotaLeft": {
+    "flat": 0,
+    "moderate": 0,
+    "rough": 0
+  },
+  "rule": {
+    "bufferM": 15000.0,
+    "excludeNearPresets": [
+      "essen-ruhr",
+      "ruhr-wide",
+      "drachenfels",
+      "muensterland-plain",
+      "lower-rhine",
+      "teutoburg-forest",
+      "bergisches-land",
+      "rothaar-sauerland",
+      "nrw-368-5747",
+      "nrw-390-5780",
+      "nrw-324-5648",
+      "nrw-313-5659",
+      "nrw-401-5791",
+      "nrw-445-5703",
+      "nrw-412-5769"
+    ],
+    "excludeProbed": [
+      "nrw-335-5802",
+      "nrw-368-5747",
+      "nrw-456-5604",
+      "nrw-280-5736",
+      "nrw-390-5780",
+      "nrw-489-5626",
+      "nrw-324-5648",
+      "nrw-313-5659",
+      "nrw-280-5604",
+      "nrw-401-5791",
+      "nrw-511-5791",
+      "nrw-522-5769",
+      "nrw-478-5593",
+      "nrw-280-5637",
+      "nrw-445-5703",
+      "nrw-522-5571",
+      "nrw-324-5791",
+      "nrw-500-5780",
+      "nrw-500-5615",
+      "nrw-401-5593",
+      "nrw-489-5571",
+      "nrw-522-5560",
+      "nrw-302-5648",
+      "nrw-478-5714",
+      "nrw-324-5747",
+      "nrw-368-5560",
+      "nrw-291-5692",
+      "nrw-324-5758",
+      "nrw-478-5571",
+      "nrw-412-5769"
+    ],
+    "extentEpsg25832": [
+      280000.0,
+      5560000.0,
+      540000.0,
+      5830000.0
+    ],
+    "latticeM": 11000.0,
+    "note": "Cut points from the development regions' 10 m height standard deviation: 2.7 m (Muensterland), 12.2 (Lower Rhine), 21.4 (Teutoburg), 28.2 (Essen), 36.9 (Bergisches Land), 88.6 (Rothaar). Cohort B: cohort A tiles buffered like the development regions; cohort A probes skipped.",
+    "originOffsetM": 0.5,
+    "probeSpacingM": 400.0,
+    "quota": {
+      "flat": 2,
+      "moderate": 3,
+      "rough": 2
+    },
+    "requireNoMissing": true,
+    "salt": "geoneural confirmation cohort 2026-10-04",
+    "strataStdM": {
+      "flat": [
+        0.0,
+        8.0
+      ],
+      "moderate": [
+        8.0,
+        30.0
+      ],
+      "rough": [
+        30.0,
+        1000000000.0
+      ]
+    },
+    "tileM": 10240.0,
+    "version": 2
+  },
+  "schema": "geoneural-cohort-v1",
+  "selected": [
+    {
+      "bbox": [
+        412000.5,
+        5703000.5,
+        422240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-412-5703",
+      "outcome": "selected",
+      "rank": "16fc44d25c81a0176d37772d02248ca7fc70071f737f781a1ad4b822bd8e41a5",
+      "reliefM": 167.2800064086914,
+      "samples": 625,
+      "stdM": 45.984154551767006,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        478000.5,
+        5703000.5,
+        488240.5,
+        5713240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-478-5703",
+      "outcome": "selected",
+      "rank": "1f674d532140cec3cc07c05f6672506ab38b5dc85797f6502a5171b52781d5d5",
+      "reliefM": 184.89999389648438,
+      "samples": 625,
+      "stdM": 36.08084676761752,
+      "stratum": "rough"
+    },
+    {
+      "bbox": [
+        445000.5,
+        5736000.5,
+        455240.5,
+        5746240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-445-5736",
+      "outcome": "selected",
+      "rank": "282d7b6753fbec81c5ab55a8fd420a8debebea5fe28a85ce9f5c4b6c029e3cc2",
+      "reliefM": 84.75,
+      "samples": 625,
+      "stdM": 13.511388103622865,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        401000.5,
+        5714000.5,
+        411240.5,
+        5724240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-401-5714",
+      "outcome": "selected",
+      "rank": "2af23ca5d8f1c4916f3e23650fdb0190d4c3cd5dea3fffba32a5338d94db2dd9",
+      "reliefM": 75.04000091552734,
+      "samples": 625,
+      "stdM": 8.913303996810923,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        467000.5,
+        5802000.5,
+        477240.5,
+        5812240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-467-5802",
+      "outcome": "selected",
+      "rank": "2b56b7f9f380497ab7948db81e0f6ce4349c10d6a3d6b64fb114f3664fc655e1",
+      "reliefM": 18.31999969482422,
+      "samples": 625,
+      "stdM": 4.059998387821768,
+      "stratum": "flat"
+    },
+    {
+      "bbox": [
+        291000.5,
+        5626000.5,
+        301240.5,
+        5636240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-291-5626",
+      "outcome": "selected",
+      "rank": "396518966e35dfa5d20de66c28a04ac91f9d77e243c7ed110854cc4a0f2e86f6",
+      "reliefM": 208.64999389648438,
+      "samples": 625,
+      "stdM": 26.82895907708803,
+      "stratum": "moderate"
+    },
+    {
+      "bbox": [
+        434000.5,
+        5747000.5,
+        444240.5,
+        5757240.5
+      ],
+      "missingFraction": 0.0,
+      "name": "nrw-434-5747",
+      "outcome": "selected",
+      "rank": "8cc2edce673af6eeabe73822e907110ebcd65ed3e1a2b93f28d6bad9afb98205",
+      "reliefM": 39.92000198364258,
+      "samples": 625,
+      "stdM": 6.1596526318729286,
+      "stratum": "flat"
+    }
+  ]
+}

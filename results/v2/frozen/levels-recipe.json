@@ -1,0 +1,47 @@
+{
+  "chosenArm": {
+    "0.05": "levels-0.0-16",
+    "0.1": "levels-0.25-8",
+    "0.25": "levels-0.25-8",
+    "0.5": "levels-0.25-8",
+    "1.0": "levels-0.5-8"
+  },
+  "cohort": "second cohort, data/cohort.py RULE_B, drawn after this freeze",
+  "command": "geoneural codec-confirm-levels --cohort-config <cohort B presets>",
+  "frozenUtc": "2026-10-06T00:40:59.199567+00:00",
+  "hypothesis": "H1b (level-wise bounds)",
+  "models": {
+    "0": "7350d6e2f234a6ce5f644400b927bbdf8287d99995544ec2af62662aec3612e7",
+    "1": "9f2c1a761000bd47ad0bb5dc055fecd526d399831a36bfc3a36d7cfd8ec49d99",
+    "2": "e941c1b53c00702fd99f68ffb59da5d9113621d1d94a4806f1489cd828a2e4e0"
+  },
+  "rule": "docs/protocol-v2.md, H1 rule unchanged (bounds 0.05 to 1 m)",
+  "rules": {
+    "0.05": {
+      "factor": 0.0,
+      "kind": "levels",
+      "toStride": 16
+    },
+    "0.1": {
+      "factor": 0.25,
+      "kind": "levels",
+      "toStride": 8
+    },
+    "0.25": {
+      "factor": 0.25,
+      "kind": "levels",
+      "toStride": 8
+    },
+    "0.5": {
+      "factor": 0.25,
+      "kind": "levels",
+      "toStride": 8
+    },
+    "1.0": {
+      "factor": 0.5,
+      "kind": "levels",
+      "toStride": 8
+    }
+  },
+  "schema": "geoneural-recipe-freeze-v1"
+}

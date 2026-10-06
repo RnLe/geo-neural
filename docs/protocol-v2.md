@@ -121,3 +121,27 @@ after seeing them needs a new cohort.
 * 2026-10-04: confirmation cohort selected by the committed rule: nrw-368-5747, nrw-390-5780, nrw-324-5648,
   nrw-313-5659, nrw-401-5791, nrw-445-5703, nrw-412-5769 (`results/v2/cohort.json`, with the exposure log of all
   30 probed candidates). H1 recipe and model hashes frozen in `results/v2/frozen/h1-recipe.json`.
+* 2026-10-06 (before any H2 or H4 development result): operational forms of the H2 and H4 rules. H2 compares
+  standalone bytes (the file with its model and the model's 9-byte directory entry, the context raster charged
+  for map arms) against the matched no-context arm; "gain absent within seed spread" means a shifted or shuffled
+  control's geometric-mean ratio is at least exp(-s), where s is the mean over regions of the standard deviation
+  over seeds of log(real / none). The map-at-decoder case uses the same test without the raster bytes. H4
+  compares corpus bytes (every arm has the same model size). Both run with three development seeds, as this
+  protocol states; folds may run in separate processes, which changes nothing in what each fold computes.
+* 2026-10-06: H1b, a level-wise bound variant of the learned coder, designed after the H1 confirmation from the
+  development study `results/v2/codec/levels.json` (coarse levels coded to a tighter bound, so the typical error
+  falls while the largest error stays the same). The H1 rule applies unchanged. The rule per bound, chosen on the
+  six development regions by the same criterion as the leave-one-region-out study, and the frozen H1 models are
+  recorded in `results/v2/frozen/levels-recipe.json` before a second cohort is drawn by `RULE_B` in
+  `data/cohort.py` (same ranking, cohort A tiles buffered like the development regions, cohort A probes skipped).
+  It runs once on that cohort.
+* 2026-10-06: cohort B drawn by `RULE_B` (`results/v2/cohort-b.json`): nrw-412-5703 and nrw-478-5703 (rough),
+  nrw-445-5736, nrw-401-5714 and nrw-291-5626 (moderate), nrw-467-5802 and nrw-434-5747 (flat). At the default cap
+  of 120 probes one flat tile was missing; probing continued in the same rank order (164 probes in all, every one in
+  the exposure log), which uses coarse relief only and no codec or model output.
+
+* 2026-10-06: routing-domain sensitivity (development). Each development region is embedded in a domain with a
+  5.12 km margin. Two of these domains (Essen and Lower Rhine) have small nodata holes in the margin (1,737 and 24
+  nodes), so their publication as atlases is refused; for routing they are merged again from the same tiles and the
+  holes act as outlets, never filled. No hole lies in a scored region. A region's outermost ring differs from the
+  wider lattice by up to 1.7 m (the edge of its own resampling), so the core of each domain holds the region exactly.

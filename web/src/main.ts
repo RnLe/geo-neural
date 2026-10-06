@@ -7,6 +7,7 @@ import { loadCodecBundle, mountBytes, mountMicroscope } from "./codec";
 import { loadBundle } from "./data/bundle";
 import { h } from "./data/dom";
 import { createSelectionStore } from "./data/store";
+import { mountIdent } from "./ident";
 import { mountLab } from "./lab";
 import gncWasmUrl from "./wasm/gnc_wasm_bg.wasm?url";
 import wasmUrl from "./wasm/landscape_wasm_bg.wasm?url";
@@ -37,6 +38,7 @@ async function codecViews(): Promise<void> {
 
 async function main(): Promise<void> {
   void codecViews();
+  handles.push(mountIdent(slot("gn-ident"), { url: new URL("bundle/ident.json", document.baseURI).href }));
   const status = slot("gn-load-status");
   let bundle;
   try {

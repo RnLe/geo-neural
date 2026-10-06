@@ -19,7 +19,7 @@ from pathlib import Path
 
 import numpy as np
 
-from geoneural.common import CONFIG, read_json, utc, write_json
+from geoneural.common import COHORT_CONFIG, CONFIG, read_json, utc, write_json
 
 RULE = {
     "version": 1,
@@ -40,6 +40,17 @@ RULE = {
 }
 
 
+# Cohort B, for a recipe designed after cohort A was used: the same ranking, a buffer around the cohort A tiles too,
+# and every candidate already probed for cohort A skipped, so no tile has been looked at before its frozen run.
+RULE_B = {
+    **RULE,
+    "version": 2,
+    "excludeNearPresets": RULE["excludeNearPresets"] + ["nrw-368-5747", "nrw-390-5780", "nrw-324-5648", "nrw-313-5659", "nrw-401-5791", "nrw-445-5703", "nrw-412-5769"],
+    "excludeProbed": ["nrw-335-5802", "nrw-368-5747", "nrw-456-5604", "nrw-280-5736", "nrw-390-5780", "nrw-489-5626", "nrw-324-5648", "nrw-313-5659", "nrw-280-5604", "nrw-401-5791", "nrw-511-5791", "nrw-522-5769", "nrw-478-5593", "nrw-280-5637", "nrw-445-5703", "nrw-522-5571", "nrw-324-5791", "nrw-500-5780", "nrw-500-5615", "nrw-401-5593", "nrw-489-5571", "nrw-522-5560", "nrw-302-5648", "nrw-478-5714", "nrw-324-5747", "nrw-368-5560", "nrw-291-5692", "nrw-324-5758", "nrw-478-5571", "nrw-412-5769"],
+    "note": RULE["note"] + " Cohort B: cohort A tiles buffered like the development regions; cohort A probes skipped.",
+}
+
+
 def _gap(a, b) -> float:
     """Distance between two axis-aligned boxes (west, south, east, north); 0 when they overlap."""
     dx = max(0.0, max(a[0], b[0]) - min(a[2], b[2]))
@@ -49,7 +60,10 @@ def _gap(a, b) -> float:
 
 def candidates(rule: dict = RULE) -> list[dict]:
     presets = read_json(CONFIG)
+    if COHORT_CONFIG.exists():
+        presets.update(read_json(COHORT_CONFIG))
     near = [presets[name]["bbox"] for name in rule["excludeNearPresets"]]
+    skip = set(rule.get("excludeProbed", ()))
     x0, y0, x1, y1 = rule["extentEpsg25832"]
     step, tile, off = rule["latticeM"], rule["tileM"], rule["originOffsetM"]
     out = []
@@ -60,6 +74,8 @@ def candidates(rule: dict = RULE) -> list[dict]:
             if min(_gap(box, b) for b in near) < rule["bufferM"]:
                 continue
             name = f"nrw-{int(west) // 1000:03d}-{int(south) // 1000:04d}"
+            if name in skip:
+                continue
             rank = hashlib.sha256(f"{rule['salt']}:{int(west)}:{int(south)}".encode()).hexdigest()
             out.append({"name": name, "bbox": box, "rank": rank})
     return sorted(out, key=lambda c: c["rank"])

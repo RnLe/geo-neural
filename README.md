@@ -35,11 +35,13 @@ also compiled to WebAssembly, reproduces the Python decoder bit for bit.
 | Question | Evidence | Outcome |
 |---|---|---|
 | Fewer bytes than the best standard codec, and the same streams (H1) | confirmed, 7 new regions | bytes: yes; streams: no |
-| A geological map helps (H2) | first test | a little, costs more than it saves |
+| The same with level-wise bounds (H1b) | confirmed, 7 more new regions | yes at 5 to 25 cm; no at 50 cm and 1 m |
+| A geological map helps (H2) | development, 3 seeds | no |
 | Extra precision near streams keeps them (H3) | development | no |
-| Pretraining on simulated landscapes helps (H4) | in progress | no result yet |
+| Pretraining on simulated landscapes helps (H4) | development, 3 seeds | small gain; the 2% bar is met at 1 m only |
 | A structured learned closure stays accurate (H5) | development, simulation | yes |
-| Rate and age can be inferred from the terrain (H6) | development, simulation | only with two dated surveys |
+| Rate and age can be inferred from the terrain (H6) | development, simulation | with two dated surveys; overconfident if the model is wrong |
+| A network reconstructs terrain from coarse or sparse data | confirmed, 7 new regions | yes (13 to 16% better); not for missing blocks |
 
 ### Fewer bytes on regions the coder had never seen
 
@@ -61,6 +63,11 @@ was 2 to 8 points lower, so H1 as frozen is **not supported**. The cause is the 
 errors it spreads the error more evenly (at 50 cm its RMSE is 20 to 32% higher), and the fixed predictor loses as
 many streams. Spending more precision near streams did not help at equal bytes.
 
+A fix that works at fine errors: code the coarse levels to a tighter bound (H1b), so the typical error falls while
+the largest error stays the same. Frozen and run once on seven further untouched regions, it meets every condition
+of the H1 rule from 5 to 25 cm (11 to 13% fewer bytes, no stream loss); at 50 cm and 1 m the extra precision costs
+the byte margin.
+
 ### Landscape physics
 
 <p align="center"><img src="docs/figures/closure.png" width="900" alt="Average height error of six learned soil-creep updates over 64 steps of 200 years"></p>
@@ -77,14 +84,25 @@ number of years apart resolve it while the landscape still changes. With correla
 likelihood gave honest 95% intervals in a first test (95 to 97% coverage, against 37 to 50% when the noise is
 treated as independent).
 
-### In progress
+### Other studies
 
-* **Geology:** the GK100 map as an extra input saved up to 1.5% of the coded terrain in a first test, more than
-  shifted or blank controls, but storing the map costs more. The full study is running.
-* **Reconstruction:** a U-Net turning 40 m averages into 10 m heights had a 16 to 19% lower mean error than the
-  best non-neural baseline in a first test.
-* **Next:** a coder that keeps the typical error low at the same limit, then the full geology, physics and
-  reconstruction studies.
+* **Geology:** with the GK100 map as an extra input, the coder is never better than with a shifted, shuffled or
+  blurred copy of the map, at 10, 40 or 160 m map resolution, and storing the map costs 1 to 10% of the file. No
+  usable geological signal.
+* **Where the gain comes from:** built from standard parts only, a coarse base plus a residual ties SZ3, and a
+  regression on slope and curvature saves at most 3%. The neural coder's margin comes from predicting each level
+  from the decoded coarser ones with a context-dependent entropy model.
+* **Drainage checks:** the H1b stream result holds for denser stream networks and with a single outlet; for sparse
+  networks single regions fall up to 2 points behind. Routing a region inside a 5 km wider area changes up to 12% of
+  its own streams, more than any codec does.
+* **Process prior:** pretraining on simulated landscapes saves 0.2 to 0.9% at 5 to 50 cm and about 3% at 1 m
+  against matched extra real training; consistent, but below the 2% the protocol asks for except at 1 m.
+* **Inference under the wrong model:** with the correct simulation the 95% intervals cover the truth 90% of the
+  time; with a slightly different solver, boundary or uplift pattern they cover it 0 to 60% of the time.
+* **Reconstruction:** confirmed on seven untouched regions, a U-Net turns 40 m averages into 10 m heights with a
+  16% lower mean error than regression kriging, keeps the streams, and reproduces the coarse input to 0.1 mm. From
+  1 to 5% noisy samples it is 13 to 14% better than kriging. Filling missing blocks gains little (0.3 to 6%).
+* **Next:** a level-wise rule that keeps the byte margin at 50 cm and 1 m, to be tested on a third cohort.
 
 Every number above, with its evidence level, is in [docs/results.md](docs/results.md) and the reports under
 [`results/v2/`](results/v2/).
@@ -95,6 +113,7 @@ Every number above, with its evidence level, is in [docs/results.md](docs/result
 |---|---|
 | `src/geoneural/codecs` | `.gnc` container, rANS, multilevel coder with fixed and learned predictors, campaigns |
 | `src/geoneural/metrics` | Flow routing, stream metrics, sparse corrections |
+| `src/geoneural/bench` | Query workload, encode scaling and compute profile |
 | `src/geoneural/data` | Bounded downloads from the NRW services, geology, the confirmation cohort rule |
 | `src/geoneural/physics` | Landscape teacher, learned closures, inverse and identifiability studies |
 | `src/geoneural/recon`, `superres` | Reconstruction from coarse or incomplete observations |
@@ -119,9 +138,22 @@ uv run geoneural encode --atlas .data/atlases/essen-ruhr --bound 0.25 --coder le
 uv run geoneural decode essen.gnc --out essen.npy
 ```
 
-The campaigns (`codec-h1` to `codec-h4`, `codec-paged`, `codec-confirm-h1`) need PyTorch and a GPU
-(`uv sync --all-extras`). Data and reports go to `GEONEURAL_HOME` (default `./.data`); regions are fetched with
+The campaigns (`codec-h1` to `codec-h4`, `codec-levels`, `codec-paged`, `codec-confirm-h1`,
+`codec-confirm-levels`, `codec-frontier`, `codec-geology-sweep`, `drainage-sensitivity`) need PyTorch and a GPU
+(`uv sync --all-extras`); `bench-v2 queries|scaling|profile` runs the timings. Data and reports go to `GEONEURAL_HOME` (default `./.data`); regions are fetched with
 `geoneural fetch --preset <region>` and prepared with `geoneural prepare --preset <region>`.
+
+### Browser views
+
+```bash
+uv run geoneural export-web
+uv run geoneural codec-web-bundle --regions essen-ruhr muensterland-plain --bounds 0.1 0.5
+uv run geoneural export-ident
+cd web && npm install && npm run wasm && npm run dev
+```
+
+The page holds the terrain viewer, the landscape lab, the rate-and-age profiles, and the compression views with
+the learned product decoded live by the Rust decoder compiled to WebAssembly.
 
 ## Data and license
 

@@ -113,6 +113,27 @@ def nodata_report(merged: np.ndarray, config: dict, out: Path) -> Path:
     return out/'nodata-report.json'
 
 def prepare(input_path: Path, out: Path, max_mib: int = 512, edge_trim: int = DEFAULT_EDGE_TRIM) -> Path:
+    merged,config,overlap_differences,observed,transform=merge(input_path,max_mib,edge_trim)
+    missing=int(np.count_nonzero(~np.isfinite(merged)))
+    if missing:
+        report=nodata_report(merged,config,input_path.parent)
+        raise ValueError(
+            f'{missing} canonical samples are nodata ({100.0*missing/merged.size:.3f}% of the lattice) '
+            f'at edge_trim={edge_trim}. Zero-filling is forbidden. The hole locations are recorded at '
+            f'{report}. Either acquire the missing coverage, or lower --edge-trim and accept the '
+            'reprojection edge bias it reintroduces; that trade-off is deliberate, not automatic.')
+    overlap=np.concatenate(overlap_differences) if overlap_differences else np.zeros(1)
+    overlap_statistics={'samples':int(overlap.size),'max_m':float(overlap.max()),
+        'p50_m':float(np.percentile(overlap,50)),'p99_m':float(np.percentile(overlap,99)),
+        'note':'Disagreement between tiles about the same ground after edge trimming. '
+               'A nonzero value means the prepared reference depends on tile decomposition.'}
+    provenance={'input_sha256':sha_file(input_path),'source':read_json(input_path),'source_rasters':observed,'resampling':f'rasterio bilinear; deterministic sorted first-valid overlap owner; halo edge trimmed by {edge_trim} samples','edge_trim_samples':edge_trim,'overlap_max_difference_m':overlap_statistics['max_m'],'overlap_statistics':overlap_statistics,'transform':list(transform)[:6]}
+    return pack(merged,config,out,provenance,max_mib)
+
+
+def merge(input_path: Path, max_mib: int = 512, edge_trim: int = DEFAULT_EDGE_TRIM):
+    """The canonical lattice from the acquired tiles, NaN where no tile covers a node. Returns the lattice, the
+    config, the overlap differences, the source raster descriptions and the transform."""
     import rasterio
     from rasterio.transform import Affine
     from rasterio.warp import reproject, Resampling
@@ -150,21 +171,7 @@ def prepare(input_path: Path, out: Path, max_mib: int = 512, edge_trim: int = DE
             overlap_differences.append(np.abs(temporary[overlap]-merged[overlap]).astype(np.float64))
         take=valid & ~np.isfinite(merged)
         merged[take]=temporary[take]
-    missing=int(np.count_nonzero(~np.isfinite(merged)))
-    if missing:
-        report=nodata_report(merged,config,input_path.parent)
-        raise ValueError(
-            f'{missing} canonical samples are nodata ({100.0*missing/merged.size:.3f}% of the lattice) '
-            f'at edge_trim={edge_trim}. Zero-filling is forbidden. The hole locations are recorded at '
-            f'{report}. Either acquire the missing coverage, or lower --edge-trim and accept the '
-            'reprojection edge bias it reintroduces; that trade-off is deliberate, not automatic.')
-    overlap=np.concatenate(overlap_differences) if overlap_differences else np.zeros(1)
-    overlap_statistics={'samples':int(overlap.size),'max_m':float(overlap.max()),
-        'p50_m':float(np.percentile(overlap,50)),'p99_m':float(np.percentile(overlap,99)),
-        'note':'Disagreement between tiles about the same ground after edge trimming. '
-               'A nonzero value means the prepared reference depends on tile decomposition.'}
-    provenance={'input_sha256':sha_file(input_path),'source':source,'source_rasters':observed,'resampling':f'rasterio bilinear; deterministic sorted first-valid overlap owner; halo edge trimmed by {edge_trim} samples','edge_trim_samples':edge_trim,'overlap_max_difference_m':overlap_statistics['max_m'],'overlap_statistics':overlap_statistics,'transform':list(transform)[:6]}
-    return pack(merged,config,out,provenance,max_mib)
+    return merged,config,overlap_differences,observed,transform
 
 
 def pack(reference: np.ndarray, config: dict, out: Path, provenance: dict, max_mib: int = 512) -> Path:

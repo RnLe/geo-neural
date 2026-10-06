@@ -271,12 +271,18 @@ def _model_parts(mode, model):
 def allocation(rec: np.ndarray, s: int, E: int, rule: dict | None, spacing_m: float) -> np.ndarray | None:
     """Per-node half-width for the levels finer than s, from the decoded stride-s lattice only.
 
+    rule {"kind": "levels", "factor": f, "toStride": t}: floor(E f) on every level with stride >= t, E below.
     rule {"kind": "streams", "factor": f, "areaM2": a, "dilate": d}: route the decoded stride-s lattice
     (spacing s x the field spacing), mark cells whose contributing area reaches a, grow by d cells, and use
     floor(E f) inside, E elsewhere. rule {"kind": "slope", "slopeRef": S, "gamma": g, "factor": fmin}: scale E
     by the decoded slope. The decoder repeats either exactly on the same values (numpy gradient and the
     routing are deterministic in this implementation; a port must reproduce them).
     """
+    if rule and rule["kind"] == "levels":
+        # Coarse levels (stride >= toStride) get floor(E f), finer ones E: the largest error still holds everywhere,
+        # while the nodes every later prediction is built from are kept closer to the truth.
+        f = float(rule["factor"]) if s >= int(rule["toStride"]) else 1.0
+        return np.full(rec.shape, int(np.floor(E * f)), np.int64)
     if not rule or s > rule.get("fromStride", 8):
         return None
     sub = rec[::s, ::s].astype(np.float64)

@@ -1,0 +1,156 @@
+{
+  "nrw-291-5626": {
+    "bbox": [
+      291000.5,
+      5626000.5,
+      301240.5,
+      5636240.5
+    ],
+    "cohort": {
+      "probeStdM": 26.82895907708803,
+      "rank": "396518966e35dfa5d20de66c28a04ac91f9d77e243c7ed110854cc4a0f2e86f6",
+      "stratum": "moderate"
+    },
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "Confirmation cohort; chosen by data/cohort.py before download.",
+    "page_intervals": 64,
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Confirmation tile nrw-291-5626 (moderate), NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "nrw-401-5714": {
+    "bbox": [
+      401000.5,
+      5714000.5,
+      411240.5,
+      5724240.5
+    ],
+    "cohort": {
+      "probeStdM": 8.913303996810923,
+      "rank": "2af23ca5d8f1c4916f3e23650fdb0190d4c3cd5dea3fffba32a5338d94db2dd9",
+      "stratum": "moderate"
+    },
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "Confirmation cohort; chosen by data/cohort.py before download.",
+    "page_intervals": 64,
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Confirmation tile nrw-401-5714 (moderate), NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "nrw-412-5703": {
+    "bbox": [
+      412000.5,
+      5703000.5,
+      422240.5,
+      5713240.5
+    ],
+    "cohort": {
+      "probeStdM": 45.984154551767006,
+      "rank": "16fc44d25c81a0176d37772d02248ca7fc70071f737f781a1ad4b822bd8e41a5",
+      "stratum": "rough"
+    },
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "Confirmation cohort; chosen by data/cohort.py before download.",
+    "page_intervals": 64,
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Confirmation tile nrw-412-5703 (rough), NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "nrw-434-5747": {
+    "bbox": [
+      434000.5,
+      5747000.5,
+      444240.5,
+      5757240.5
+    ],
+    "cohort": {
+      "probeStdM": 6.1596526318729286,
+      "rank": "8cc2edce673af6eeabe73822e907110ebcd65ed3e1a2b93f28d6bad9afb98205",
+      "stratum": "flat"
+    },
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "Confirmation cohort; chosen by data/cohort.py before download.",
+    "page_intervals": 64,
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Confirmation tile nrw-434-5747 (flat), NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "nrw-445-5736": {
+    "bbox": [
+      445000.5,
+      5736000.5,
+      455240.5,
+      5746240.5
+    ],
+    "cohort": {
+      "probeStdM": 13.511388103622865,
+      "rank": "282d7b6753fbec81c5ab55a8fd420a8debebea5fe28a85ce9f5c4b6c029e3cc2",
+      "stratum": "moderate"
+    },
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "Confirmation cohort; chosen by data/cohort.py before download.",
+    "page_intervals": 64,
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Confirmation tile nrw-445-5736 (moderate), NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "nrw-467-5802": {
+    "bbox": [
+      467000.5,
+      5802000.5,
+      477240.5,
+      5812240.5
+    ],
+    "cohort": {
+      "probeStdM": 4.059998387821768,
+      "rank": "2b56b7f9f380497ab7948db81e0f6ce4349c10d6a3d6b64fb114f3664fc655e1",
+      "stratum": "flat"
+    },
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "Confirmation cohort; chosen by data/cohort.py before download.",
+    "page_intervals": 64,
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Confirmation tile nrw-467-5802 (flat), NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  },
+  "nrw-478-5703": {
+    "bbox": [
+      478000.5,
+      5703000.5,
+      488240.5,
+      5713240.5
+    ],
+    "cohort": {
+      "probeStdM": 36.08084676761752,
+      "rank": "1f674d532140cec3cc07c05f6672506ab38b5dc85797f6502a5171b52781d5d5",
+      "stratum": "rough"
+    },
+    "crs": "EPSG:25832",
+    "download_tile_m": 2560,
+    "notes": "Confirmation cohort; chosen by data/cohort.py before download.",
+    "page_intervals": 64,
+    "quantum_m": 0.01,
+    "source_spacing_m": 10,
+    "spacing_m": 10.0,
+    "title": "Confirmation tile nrw-478-5703 (rough), NRW DGM1",
+    "vertical_crs": "EPSG:7837"
+  }
+}

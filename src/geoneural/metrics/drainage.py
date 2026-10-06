@@ -24,10 +24,31 @@ STREAM_AREA_M2 = 50_000.0
 SECONDARY_AREAS_M2 = (25_000.0, 100_000.0, 200_000.0)
 
 
-def route(surface: np.ndarray, spacing_m: float) -> dict:
-    """Filled surface, flat receiver index (NO_RECEIVER at outlets) and contributing cells."""
+def route(surface: np.ndarray, spacing_m: float, outlets: str = "edges", holes: np.ndarray | None = None) -> dict:
+    """Filled surface, flat receiver index (NO_RECEIVER at outlets) and contributing cells. `outlets` is the
+    boundary policy: "edges" (every edge cell may drain out, the default) or "lowest-edge" (the domain is
+    closed except at its lowest edge cell, so all water leaves there). `holes` marks nodes without data; with
+    "edges" they are outlets too (water reaching them leaves the known domain)."""
     z = np.asarray(surface, dtype=np.float64)
-    filled = hydrology_fast.fill_depressions(z)
+    if holes is not None and holes.any():
+        if outlets != "edges":
+            raise ValueError("holes need the edges policy")
+        z = z.copy()
+        z[holes] = np.min(z[~holes]) - 1000.0
+        edge = np.zeros(z.shape, bool)
+        edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
+        seeds = np.argwhere(edge | holes)
+        filled = hydrology_fast.fill_depressions(z, seeds=seeds)
+    elif outlets == "lowest-edge":
+        edge = np.zeros(z.shape, bool)
+        edge[0, :] = edge[-1, :] = edge[:, 0] = edge[:, -1] = True
+        flat = np.flatnonzero(edge)
+        k = flat[np.argmin(z.ravel()[flat])]
+        filled = hydrology_fast.fill_depressions(z, seeds=[divmod(int(k), z.shape[1])])
+    elif outlets == "edges":
+        filled = hydrology_fast.fill_depressions(z)
+    else:
+        raise ValueError(outlets)
     receiver = hydrology.d8_receivers(filled, spacing_m)
     cells = hydrology_fast.flow_accumulation(filled, receiver)
     return {"surface": z, "filled": filled, "receiver": receiver.reshape(-1), "cells": np.asarray(cells).reshape(z.shape),

@@ -51,7 +51,7 @@
     "notes": "5.12 km terrain contrast. Nodata across service/state boundaries is refused, not filled."
   },
   "muensterland-plain": {
-    "title": "Münsterland plain (Coesfeld basin), NRW DGM1",
+    "title": "M\u00fcnsterland plain (Coesfeld basin), NRW DGM1",
     "bbox": [
       394000.5,
       5744000.5,
@@ -86,7 +86,7 @@
     "download_tile_m": 2560,
     "source_spacing_m": 10,
     "quantum_m": 0.01,
-    "notes": "Near-matched in roughness to Münsterland but a different process: fluvial terraces and cut-off meanders rather than glacial till. The pair is the same-relief/different-process control that a relief ladder alone cannot supply.",
+    "notes": "Near-matched in roughness to M\u00fcnsterland but a different process: fluvial terraces and cut-off meanders rather than glacial till. The pair is the same-relief/different-process control that a relief ladder alone cannot supply.",
     "coverage_probe": {
       "nodataFraction": 0.0,
       "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition. The probe reported 0.00% nodata, but it decimates 40:1; acquisition at full spacing found a 6x6 hole (24 of 1,050,625 nodes, 0.002%) near the north edge at E 322960-323010, N 5725980-5726030. The tile sits one page (640 m) south of that hole to exclude it, which keeps the lattice on the same underlying grid. A decimated probe cannot certify that a region is free of nodata; it can only reject one, as it did for eifel-uplands (7.86% nodata where the tile crosses into Belgium)."
@@ -150,6 +150,128 @@
     "source_spacing_m": 10,
     "quantum_m": 0.01,
     "notes": "Roughest arm: 418.4 m relief, 88.62 m std. NRW's highest terrain.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  },
+  "essen-ruhr-wide": {
+    "title": "Southern Essen / Ruhr, NRW DGM1, with a 5.12 km margin for routing",
+    "bbox": [
+      350880.5,
+      5688880.5,
+      371360.5,
+      5709360.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Routing domain for the crop-dependence study; the scored core is the region itself."
+  },
+  "muensterland-plain-wide": {
+    "title": "M\u00fcnsterland plain (Coesfeld basin), NRW DGM1, with a 5.12 km margin for routing",
+    "bbox": [
+      388880.5,
+      5738880.5,
+      409360.5,
+      5759360.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Routing domain for the crop-dependence study; the scored core is the region itself.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  },
+  "lower-rhine-wide": {
+    "title": "Lower Rhine floodplain (Wesel), NRW DGM1, with a 5.12 km margin for routing",
+    "bbox": [
+      312880.5,
+      5710240.5,
+      333360.5,
+      5730720.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Routing domain for the crop-dependence study; the scored core is the region itself.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition. The probe reported 0.00% nodata, but it decimates 40:1; acquisition at full spacing found a 6x6 hole (24 of 1,050,625 nodes, 0.002%) near the north edge at E 322960-323010, N 5725980-5726030. The tile sits one page (640 m) south of that hole to exclude it, which keeps the lattice on the same underlying grid. A decimated probe cannot certify that a region is free of nodata; it can only reject one, as it did for eifel-uplands (7.86% nodata where the tile crosses into Belgium)."
+    }
+  },
+  "teutoburg-forest-wide": {
+    "title": "Teutoburg Forest ridge, NRW DGM1, with a 5.12 km margin for routing",
+    "bbox": [
+      460880.5,
+      5755880.5,
+      481360.5,
+      5776360.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Routing domain for the crop-dependence study; the scored core is the region itself.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  },
+  "bergisches-land-wide": {
+    "title": "Bergisches Land, NRW DGM1, with a 5.12 km margin for routing",
+    "bbox": [
+      373880.5,
+      5650880.5,
+      394360.5,
+      5671360.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Routing domain for the crop-dependence study; the scored core is the region itself.",
+    "coverage_probe": {
+      "nodataFraction": 0.0,
+      "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."
+    }
+  },
+  "rothaar-sauerland-wide": {
+    "title": "Rothaargebirge / Kahler Asten, NRW DGM1, with a 5.12 km margin for routing",
+    "bbox": [
+      446880.5,
+      5665880.5,
+      467360.5,
+      5686360.5
+    ],
+    "crs": "EPSG:25832",
+    "vertical_crs": "EPSG:7837",
+    "spacing_m": 10.0,
+    "page_intervals": 64,
+    "download_tile_m": 2560,
+    "source_spacing_m": 10,
+    "quantum_m": 0.01,
+    "notes": "Routing domain for the crop-dependence study; the scored core is the region itself.",
     "coverage_probe": {
       "nodataFraction": 0.0,
       "note": "Full 10.24 km extent probed at SCALEFACTOR 0.025 before acquisition; every node returned real terrain. The same probe rejected the eifel-uplands candidate at 7.86% nodata, where the tile crosses into Belgium. The prepare step refuses any nodata, so probing first avoids a download that would fail."

@@ -177,5 +177,20 @@ class Stratification(unittest.TestCase):
                 self.assertEqual(row["basinAgreementFraction"], 1.0)
 
 
+class HolesAsOutlets(unittest.TestCase):
+    def test_a_hole_drains_the_cells_that_slope_into_it(self):
+        from geoneural.metrics import drainage
+        x = np.arange(41, dtype=float)
+        bowl = np.hypot(*np.meshgrid(x - 20, x - 20, indexing="ij"))
+        holes = np.zeros(bowl.shape, bool)
+        holes[19:22, 19:22] = True
+        closed = drainage.route(bowl, SPACING)
+        opened = drainage.route(bowl, SPACING, holes=holes)
+        self.assertTrue(np.array_equal(drainage.route(bowl, SPACING, holes=np.zeros_like(holes))["cells"],
+                                       closed["cells"]))
+        self.assertGreater(opened["cells"][holes].sum(), 0.4 * bowl.size)
+        self.assertLess(closed["cells"][holes].max(), 10)
+
+
 if __name__ == "__main__":
     unittest.main()
