@@ -157,8 +157,11 @@ the learned product decoded live by the Rust decoder compiled to WebAssembly.
 
 ## Data and license
 
-Code under the MIT license. Terrain: DGM1, Geobasis NRW, DL-DE-Zero-2.0. Geology: IS GK100, Geologischer Dienst
-NRW, DL-DE-BY-2.0. Attribution and what is not redistributed: [DATA_LICENSES.md](DATA_LICENSES.md).
+Code under the MIT license ([LICENSE](LICENSE)). This README and the documentation and figures in
+[`docs/`](docs/) are under [CC BY 4.0](docs/LICENSE): reuse them freely, with credit to Rene-Marcel Lehner and a
+link to this repository. Commands and code snippets in them stay under MIT.
+Terrain: DGM1, Geobasis NRW, DL-DE-Zero-2.0. Geology: IS GK100, Geologischer Dienst NRW, DL-DE-BY-2.0. Attribution
+and what is not redistributed: [DATA_LICENSES.md](DATA_LICENSES.md).
 
 Limits: thirteen regions of one German state at 10 m, some of them neighbors; the stream measure compares
 surfaces and does not model water; the physics runs on simulated landscapes; timings come from a shared

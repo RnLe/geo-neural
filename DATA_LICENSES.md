@@ -1,6 +1,8 @@
 # Data licenses
 
-The code in this repository is MIT licensed. The data it reads keeps the license of its provider.
+The code in this repository is MIT licensed, and the README and the documentation and figures in `docs/` are
+under CC BY 4.0 (`docs/LICENSE`). The data it reads keeps the license of its provider; terrain shown in the figures keeps the
+DGM1 terms below.
 Derived files (prepared lattices, pyramids, rasters, the browser bundle) carry the same terms as
 their source.
 

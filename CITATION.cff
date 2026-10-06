@@ -6,7 +6,9 @@ authors:
     given-names: Rene-Marcel
 version: 0.1.0
 date-released: 2026-10-03
-license: MIT
+license:
+  - MIT
+  - CC-BY-4.0
 repository-code: "https://github.com/RnLe/geo-neural"
 keywords:
   - terrain compression
